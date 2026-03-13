@@ -71,42 +71,7 @@
                   Kopiera
                 </button>
               </div>
-              <pre id="instructionText" class="instruction-pre">Du är en AI som hjälper mig formulera en personlig ideologisk instruktion.
-
-Din uppgift:
-1. Ställ klargörande frågor om mina politiska principer — ett område i taget
-2. Strukturera mina svar i ett standardiserat ramverk med tolv avsnitt
-3. Analysera konsekvenser i tre nivåer: direkta effekter, systemeffekter och strukturella långtidseffekter
-4. Identifiera eventuella interna spänningar i min ideologi
-5. Presentera ett utkast och revidera tills jag är nöjd
-
-Du ska INTE påverka, värdera eller ifrågasätta min politiska position. Du är facilitator och analytiker — inte debattör.
-
-Börja med dessa tre frågor:
-a) Om du skulle beskriva din politiska grundsyn med några ord — vad är viktigast för dig i ett välfungerande samhälle?
-b) Finns det en befintlig politisk ideologi du känner igen dig i, eller är din syn mer sammansatt?
-c) Vilket samhällsproblem engagerar dig mest just nu?
-
-Ramverkets tolv avsnitt (gå igenom dessa ett i taget):
-1. Grundöversikt — sammanfattning och samhällsvision
-2. Grundprinciper — bärande värden och deras prioritering
-3. Syn på staten — statens roll, legitimitet, centralisering
-4. Ekonomiskt system — organisationsmodell, äganderätt, omfördelning
-5. Individ och kollektiv — balansen mellan individens och kollektivets intressen
-6. Socialpolitik — välfärd, utbildning, sjukvård
-7. Demokrati och politiskt system — styrelseskick, maktdelning
-8. Lag och rätt — rättsstaten, individens rättigheter, statens tvångsmakt
-9. Internationella relationer — suveränitet, samarbete, handel
-10. Miljö och naturresurser — miljöskydd, hållbarhet, ansvar
-11. Konkreta policyexempel — minst tre policyer med konsekvensanalys
-12. Interna spänningar — målkonflikter och praktiska begränsningar
-
-Konsekvensanalys för varje avsnitt:
-• Första ordningen: direkta, avsedda effekter
-• Andra ordningen: indirekta systemeffekter på beteenden och incitament
-• Tredje ordningen: långsiktiga strukturella konsekvenser för kultur och maktfördelning
-
-Avsluta med en färdig systeminstruktion formulerad i andra person ("Du är en AI som resonerar utifrån...") som jag kan kopiera direkt in i en ny AI-konversation.</pre>
+              <pre id="instructionText" class="instruction-pre">Laddar AI-instruktion…</pre>
             </div>
           </div>
         </li>
@@ -230,9 +195,22 @@ Avsluta med en färdig systeminstruktion formulerad i andra person ("Du är en A
   import { mountShell } from './src/components/shell.js';
   mountShell('verktyg.html');
 
-  // Copy button
+  // Load instruction text from a shared file
+  const instructionPath = './docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md';
   const btn = document.getElementById('copyBtn');
   const text = document.getElementById('instructionText');
+
+  async function loadInstruction() {
+    if (!text) return;
+    try {
+      const response = await fetch(instructionPath);
+      if (!response.ok) throw new Error(`Kunde inte läsa ${instructionPath}`);
+      text.textContent = (await response.text()).trim();
+    } catch {
+      text.textContent = 'Kunde inte ladda instruktionen automatiskt. Öppna filen docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md och kopiera innehållet manuellt.';
+    }
+  }
+
   if (btn && text) {
     btn.addEventListener('click', async () => {
       try {
@@ -248,6 +226,8 @@ Avsluta med en färdig systeminstruktion formulerad i andra person ("Du är en A
       }
     });
   }
+
+  loadInstruction();
 </script>
 </body>
 </html>

@@ -38,16 +38,16 @@ Använd svaren som utgångspunkt för de följande avsnitten.
 
 För varje princip och policy i instruktionen ska tre nivåer av konsekvenser analyseras:
 
-**Första ordningens effekter**  
-Direkta och avsedda konsekvenser av en princip eller åtgärd.  
+**Första ordningens effekter**
+Direkta och avsedda konsekvenser av en princip eller åtgärd.
 Exempel: Sänkt inkomstskatt → mer disponibel inkomst för löntagare.
 
-**Andra ordningens effekter**  
-Indirekta systemeffekter på beteenden, incitament och institutioner.  
+**Andra ordningens effekter**
+Indirekta systemeffekter på beteenden, incitament och institutioner.
 Exempel: Förändrat arbetsutbud, förändrade investeringsmönster, förändrad skattebase.
 
-**Tredje ordningens effekter**  
-Långsiktiga strukturella konsekvenser för kultur, maktfördelning och samhällsordning.  
+**Tredje ordningens effekter**
+Långsiktiga strukturella konsekvenser för kultur, maktfördelning och samhällsordning.
 Exempel: Förändrad syn på statens roll, förskjutningar i klassstrukturen, institutionell erosion eller stärkning.
 
 ---
