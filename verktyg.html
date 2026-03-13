@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verktyget — Politiska Alternativ</title>
+  <meta name="description" content="Skapa din personliga ideologiska AI-instruktion i tolv steg.">
+  <link rel="stylesheet" href="src/styles/global.css">
+  <link rel="stylesheet" href="src/styles/verktyg.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<main class="page-wrap">
+
+  <!-- ── Page hero ── -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="label anim-fade-up" style="animation-delay:0s">Skapa din instruktion</p>
+      <h1 class="anim-fade-up" style="animation-delay:0.12s">
+        Verktyget
+      </h1>
+      <p class="page-lead anim-fade-up" style="animation-delay:0.24s">
+        Följ processen nedan. Kopiera sedan instruktionsdokumentet och klistra in det
+        som systeminstruktion i valfri AI — Claude, ChatGPT eller liknande.
+      </p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ── How it works ── -->
+  <section class="process">
+    <div class="process-inner">
+      <div class="process-intro">
+        <p class="label">Processen</p>
+        <h2>Hur du använder verktyget</h2>
+        <p class="section-lead">
+          Processen sker i samtal med en AI. Du behöver inte ha färdiga svar —
+          det räcker med att du vet ungefär vad du tycker. AI:n ställer frågor,
+          du svarar, och tillsammans byggs din instruktion upp steg för steg.
+        </p>
+      </div>
+
+      <ol class="process-steps">
+        <li class="process-step">
+          <div class="ps-num">01</div>
+          <div class="ps-content">
+            <h3>Öppna en AI-tjänst</h3>
+            <p>
+              Gå till Claude, ChatGPT eller annan AI-tjänst. Starta en ny konversation.
+              Du behöver inte ett betalkonto — gratisversioner fungerar för detta.
+            </p>
+          </div>
+        </li>
+        <li class="process-step">
+          <div class="ps-num">02</div>
+          <div class="ps-content">
+            <h3>Klistra in AI-instruktionen</h3>
+            <p>
+              Kopiera vår färdiga AI-instruktion (nedan) och klistra in den i
+              konversationen som ditt första meddelande. Instruktionen talar om
+              för AI:n hur den ska leda dig genom processen.
+            </p>
+            <div class="instruction-box">
+              <div class="instruction-header">
+                <span class="instruction-label">AI-instruktion att kopiera</span>
+                <button class="copy-btn" id="copyBtn" aria-label="Kopiera instruktion">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  Kopiera
+                </button>
+              </div>
+              <pre id="instructionText" class="instruction-pre">Du är en AI som hjälper mig formulera en personlig ideologisk instruktion.
+
+Din uppgift:
+1. Ställ klargörande frågor om mina politiska principer — ett område i taget
+2. Strukturera mina svar i ett standardiserat ramverk med tolv avsnitt
+3. Analysera konsekvenser i tre nivåer: direkta effekter, systemeffekter och strukturella långtidseffekter
+4. Identifiera eventuella interna spänningar i min ideologi
+5. Presentera ett utkast och revidera tills jag är nöjd
+
+Du ska INTE påverka, värdera eller ifrågasätta min politiska position. Du är facilitator och analytiker — inte debattör.
+
+Börja med dessa tre frågor:
+a) Om du skulle beskriva din politiska grundsyn med några ord — vad är viktigast för dig i ett välfungerande samhälle?
+b) Finns det en befintlig politisk ideologi du känner igen dig i, eller är din syn mer sammansatt?
+c) Vilket samhällsproblem engagerar dig mest just nu?
+
+Ramverkets tolv avsnitt (gå igenom dessa ett i taget):
+1. Grundöversikt — sammanfattning och samhällsvision
+2. Grundprinciper — bärande värden och deras prioritering
+3. Syn på staten — statens roll, legitimitet, centralisering
+4. Ekonomiskt system — organisationsmodell, äganderätt, omfördelning
+5. Individ och kollektiv — balansen mellan individens och kollektivets intressen
+6. Socialpolitik — välfärd, utbildning, sjukvård
+7. Demokrati och politiskt system — styrelseskick, maktdelning
+8. Lag och rätt — rättsstaten, individens rättigheter, statens tvångsmakt
+9. Internationella relationer — suveränitet, samarbete, handel
+10. Miljö och naturresurser — miljöskydd, hållbarhet, ansvar
+11. Konkreta policyexempel — minst tre policyer med konsekvensanalys
+12. Interna spänningar — målkonflikter och praktiska begränsningar
+
+Konsekvensanalys för varje avsnitt:
+• Första ordningen: direkta, avsedda effekter
+• Andra ordningen: indirekta systemeffekter på beteenden och incitament
+• Tredje ordningen: långsiktiga strukturella konsekvenser för kultur och maktfördelning
+
+Avsluta med en färdig systeminstruktion formulerad i andra person ("Du är en AI som resonerar utifrån...") som jag kan kopiera direkt in i en ny AI-konversation.</pre>
+            </div>
+          </div>
+        </li>
+        <li class="process-step">
+          <div class="ps-num">03</div>
+          <div class="ps-content">
+            <h3>Svara på frågorna</h3>
+            <p>
+              AI:n leder dig igenom tolv avsnitt. Svara så utförligt eller kortfattat
+              du vill. Det är okej att säga "vet inte" — AI:n hjälper dig resonera
+              dig fram till ett svar.
+            </p>
+          </div>
+        </li>
+        <li class="process-step">
+          <div class="ps-num">04</div>
+          <div class="ps-content">
+            <h3>Granska och justera</h3>
+            <p>
+              AI:n presenterar ett utkast. Läs igenom, be om ändringar och repetera
+              tills instruktionen stämmer med din syn. Var kritisk — det är din
+              ideologi, inte AI:ns.
+            </p>
+          </div>
+        </li>
+        <li class="process-step">
+          <div class="ps-num">05</div>
+          <div class="ps-content">
+            <h3>Spara och använd</h3>
+            <p>
+              Kopiera den färdiga instruktionen. Klistra in den som systeminstruktion
+              (ofta kallad "custom instructions" eller "system prompt") i din
+              föredragna AI-tjänst.
+            </p>
+            <div class="tip-box">
+              <span class="tip-label">Tips</span>
+              <p>I Claude heter det "Project instructions". I ChatGPT kan du skapa
+              ett "Custom GPT" eller använda "Custom instructions" i inställningarna.</p>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ── AI Links ── -->
+  <section class="ai-links">
+    <div class="ai-links-inner">
+      <p class="label">Välj AI-tjänst</p>
+      <h2>Var kan du använda verktyget?</h2>
+      <p class="section-lead">
+        Alla stora AI-tjänster fungerar. Välj den du är van vid.
+      </p>
+      <div class="ai-grid">
+        <a href="https://claude.ai" target="_blank" rel="noopener" class="ai-card">
+          <span class="ai-name">Claude</span>
+          <span class="ai-maker">av Anthropic</span>
+          <span class="ai-note">Rekommenderas för långa, analytiska samtal</span>
+          <span class="ai-arrow">→</span>
+        </a>
+        <a href="https://chatgpt.com" target="_blank" rel="noopener" class="ai-card">
+          <span class="ai-name">ChatGPT</span>
+          <span class="ai-maker">av OpenAI</span>
+          <span class="ai-note">Välkänt och brett tillgängligt</span>
+          <span class="ai-arrow">→</span>
+        </a>
+        <a href="https://gemini.google.com" target="_blank" rel="noopener" class="ai-card">
+          <span class="ai-name">Gemini</span>
+          <span class="ai-maker">av Google</span>
+          <span class="ai-note">Integrerat med Google-ekosystemet</span>
+          <span class="ai-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section class="faq">
+    <div class="faq-inner">
+      <p class="label">Vanliga frågor</p>
+      <h2>Frågor och svar</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Hur lång tid tar det?</summary>
+          <p>Räkna med 20–40 minuter för ett första utkast. Revideringsrundor tar
+          5–15 minuter per omgång beroende på hur mycket du vill justera.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Behöver jag ha klara politiska åsikter?</summary>
+          <p>Nej. Det räcker med att du har en känsla för vad du tycker är viktigt.
+          AI:n hjälper dig att artikulera och strukturera det du redan tänker,
+          men inte alltid formulerar.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Lagrar AI:n mina svar?</summary>
+          <p>Det beror på vilken AI-tjänst du väljer. Läs deras integritetspolicy
+          för detaljer. Du kan alltid använda ett anonymt konto om du föredrar det.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Kan jag uppdatera min instruktion?</summary>
+          <p>Ja. Spara det ursprungliga samtalet och gå tillbaka för att revidera.
+          Din ideologiska syn förändras med erfarenhet — instruktionen bör göra det också.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Är verktyget politiskt neutralt?</summary>
+          <p>Ramverket och frågorna är utformade för att vara ideologiskt neutrala —
+          de kan rymma allt från libertarianism till socialdemokrati. AI:n instrueras
+          explicit att inte påverka din position.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script type="module">
+  import { mountShell } from './src/components/shell.js';
+  mountShell('verktyg.html');
+
+  // Copy button
+  const btn = document.getElementById('copyBtn');
+  const text = document.getElementById('instructionText');
+  if (btn && text) {
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(text.textContent.trim());
+        btn.textContent = '✓ Kopierad';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Kopiera`;
+          btn.classList.remove('copied');
+        }, 2500);
+      } catch {
+        btn.textContent = 'Markera och kopiera manuellt';
+      }
+    });
+  }
+</script>
+</body>
+</html>

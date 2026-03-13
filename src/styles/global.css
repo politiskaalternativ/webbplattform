@@ -1,0 +1,274 @@
+/* ═══════════════════════════════════════════
+   GLOBAL STYLES — Politiska Alternativ
+   Aesthetic: Editorial / Refined / Philosophical
+   ═══════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&display=swap');
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Tokens ── */
+:root {
+  --ink:        #1a1814;
+  --paper:      #f5f0e8;
+  --paper-dark: #ede8d8;
+  --canvas:     #eee8d6;
+  --accent:     #8b3a2a;
+  --accent-lt:  #b04e3a;
+  --gold:       #c9973a;
+  --muted:      #7a7060;
+  --rule:       #d0c9b8;
+  --rule-dark:  #bfb8a8;
+  --white:      #faf7f2;
+
+  --font-serif:  'Cormorant Garamond', Georgia, serif;
+  --font-mono:   'DM Mono', 'Courier New', monospace;
+
+  --nav-h:      4.2rem;
+  --max-w:      1280px;
+  --gutter:     6rem;
+  --gutter-sm:  1.5rem;
+
+  --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+  font-size: 18px;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Grain overlay ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.55;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+ul { list-style: none; }
+
+/* ── Typography scale ── */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* ── Shared label ── */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+.label::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.9rem 2.2rem;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+  cursor: pointer;
+  border: none;
+}
+.btn:hover { transform: translateY(-1px); }
+
+.btn-dark {
+  background: var(--ink);
+  color: var(--paper);
+}
+.btn-dark:hover { background: var(--accent); }
+
+.btn-accent {
+  background: var(--accent);
+  color: var(--paper);
+}
+.btn-accent:hover { background: var(--ink); }
+
+.btn-light {
+  background: var(--paper);
+  color: var(--accent);
+}
+.btn-light:hover { background: var(--ink); color: var(--paper); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+  padding: 0 0 2px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: color 0.2s, border-color 0.2s;
+}
+.btn-ghost:hover { color: var(--ink); border-color: var(--ink); }
+
+/* ── Divider ── */
+hr.rule {
+  border: none;
+  border-top: 1px solid var(--rule);
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.anim-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.85s var(--ease-out) forwards;
+}
+
+/* ── Nav ── */
+.site-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--gutter);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(245, 240, 232, 0.88);
+  border-bottom: 1px solid var(--rule);
+  transition: background 0.3s;
+}
+
+.nav-logo {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-logo span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.8rem;
+}
+
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0; right: 0;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.2s var(--ease-out);
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover::after,
+.nav-links a.active::after { transform: scaleX(1); }
+.nav-links a.active { color: var(--ink); }
+
+.nav-cta {
+  background: var(--ink);
+  color: var(--paper) !important;
+  padding: 0.55rem 1.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--accent) !important; color: var(--paper) !important; }
+.nav-cta::after { display: none !important; }
+
+/* ── Footer ── */
+.site-footer {
+  background: var(--ink);
+  color: rgba(245,240,232,0.4);
+  padding: 2.2rem var(--gutter);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.site-footer a {
+  color: rgba(245,240,232,0.4);
+  transition: color 0.2s;
+}
+.site-footer a:hover { color: var(--paper); }
+
+/* ── Page wrapper ── */
+.page-wrap {
+  padding-top: var(--nav-h);
+  min-height: 100vh;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  :root { --gutter: var(--gutter-sm); }
+
+  .site-nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+
+  .site-footer {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+}

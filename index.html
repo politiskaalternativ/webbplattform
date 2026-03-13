@@ -1,50 +1,203 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="sv">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Politiska Alternativ</title>
-    <style>
-      :root {
-        color-scheme: light;
-        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Politiska Alternativ — Formulera din ideologiska kompass</title>
+  <meta name="description" content="Ett neutralt verktyg för att formulera, strukturera och analysera din politiska ideologi.">
+  <link rel="stylesheet" href="src/styles/global.css">
+  <link rel="stylesheet" href="src/styles/index.css">
+</head>
+<body>
 
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
-        color: #0f172a;
-      }
+<div id="site-nav"></div>
 
-      main {
-        width: min(680px, 92vw);
-        background: #ffffff;
-        border-radius: 16px;
-        box-shadow: 0 12px 36px rgba(15, 23, 42, 0.15);
-        padding: 2rem;
-      }
+<main class="page-wrap">
 
-      h1 {
-        margin-top: 0;
-        font-size: clamp(1.8rem, 3vw, 2.4rem);
-      }
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <p class="label anim-fade-up" style="animation-delay:0s">Ett verktyg för politiskt tänkande</p>
+        <h1 class="anim-fade-up" style="animation-delay:0.12s">
+          Formulera din<br><em>ideologiska kompass</em>
+        </h1>
+        <p class="hero-lead anim-fade-up" style="animation-delay:0.24s">
+          I ett komplext samhälle räcker det inte att ha åsikter. Du behöver en sammanhängande
+          princip att resonera utifrån — ett ramverk som håller när verkligheten
+          utmanar dina intuitioner.
+        </p>
+        <div class="hero-cta anim-fade-up" style="animation-delay:0.36s">
+          <a href="verktyg.html" class="btn btn-dark">Skapa din instruktion</a>
+          <a href="bibliotek.html" class="btn-ghost">Utforska biblioteket</a>
+        </div>
+      </div>
 
-      p {
-        line-height: 1.6;
-        margin-bottom: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <main>
-      <h1>Välkommen till Politiska Alternativ</h1>
-      <p>
-        Det här är en enkel startsida för test av plattformen. Här kan vi senare visa
-        senaste idéer, debatter och AI-stöd för att utforska nya politiska alternativ.
+      <div class="hero-right">
+        <div class="quote-card anim-fade-up" style="animation-delay:0.45s">
+          <span class="quote-ornament">"</span>
+          <blockquote>
+            Den som inte kan ge skäl för sin övertygelse äger den inte —
+            den ägs av den.
+          </blockquote>
+          <cite>— Om politiskt omdöme</cite>
+        </div>
+        <div class="hero-deco" aria-hidden="true">I</div>
+      </div>
+    </div>
+
+    <!-- scroll indicator -->
+    <div class="scroll-hint" aria-hidden="true">
+      <span class="scroll-line"></span>
+      <span class="scroll-label">Bläddra</span>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ── Democracy ── -->
+  <section class="democracy" id="demokrati">
+    <div class="democracy-grid">
+      <div class="democracy-text">
+        <p class="label">Demokratins filosofi</p>
+        <h2>Varför ideologi spelar roll</h2>
+        <div class="prose">
+          <p>
+            Demokrati är mer än ett röstningsförfarande. Det är en <em>epistemisk satsning</em> —
+            tron att kollektiv deliberation, när den fungerar väl, producerar bättre beslut
+            än varje enskild aktör kan göra ensam.
+          </p>
+          <p>
+            Men deliberation kräver att deltagarna kan artikulera sina principer, förstå
+            konsekvenserna av sina ståndpunkter och möta motargument i god tro.
+            Utan detta urholkas demokratin till ett spel om makt och identitet.
+          </p>
+          <p>
+            Det är här ideologin spelar sin roll. Inte som dogm, utan som <em>navigationsinstrument</em>:
+            ett systematiserat sätt att förstå världen, prioritera värden och resonera
+            kring komplexa avvägningar — konsekvent och med öppna kort.
+          </p>
+        </div>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar">
+          <span class="pillar-num">01</span>
+          <h3>Transparens</h3>
+          <p>En explicit ideologi gör dina principer synliga — för dig själv och för andra. Det möjliggör äkta debatt.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-num">02</span>
+          <h3>Konsekvens</h3>
+          <p>Med ett strukturerat ramverk kan du resonera konsekvent — även när frågorna är komplexa och emotionellt laddade.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-num">03</span>
+          <h3>Jämförbarhet</h3>
+          <p>Samma struktur för alla ideologier gör det möjligt att kontrastera och förstå andras perspektiv på djupet.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-num">04</span>
+          <h3>Systemtänkande</h3>
+          <p>Konsekvensanalys i tre nivåer tvingar fram eftertanke om hur intentioner förvandlas till strukturella effekter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How ── -->
+  <section class="how" id="hur">
+    <div class="how-header">
+      <p class="label">Arbetsmetod</p>
+      <h2>Tre steg till din instruktion</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-top">
+          <span class="step-num">01</span>
+          <div class="step-rule"></div>
+        </div>
+        <h3>Samtal</h3>
+        <p>AI:n ställer strukturerade frågor om din politiska grundsyn — ett område i taget, utan att påverka din position.</p>
+      </div>
+      <div class="step">
+        <div class="step-top">
+          <span class="step-num">02</span>
+          <div class="step-rule"></div>
+        </div>
+        <h3>Struktur</h3>
+        <p>Dina svar organiseras i ett standardiserat ramverk med tolv avsnitt — från grundprinciper till internationella relationer.</p>
+      </div>
+      <div class="step">
+        <div class="step-top">
+          <span class="step-num">03</span>
+          <div class="step-rule"></div>
+        </div>
+        <h3>Instruktion</h3>
+        <p>Resultatet är en klar, jämförbar ideologisk instruktion du kan använda direkt i valfri AI för att analysera samhället.</p>
+      </div>
+    </div>
+    <div class="how-cta">
+      <a href="verktyg.html" class="btn btn-dark">Kom igång nu</a>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ── Examples ── -->
+  <section class="examples" id="exempel">
+    <div class="examples-header">
+      <p class="label">Användningsexempel</p>
+      <h2>Vad kan du göra med din<br>ideologiska instruktion?</h2>
+    </div>
+    <div class="example-grid">
+      <div class="example-card">
+        <span class="example-tag">Nyhetsanalys</span>
+        <p class="example-q">"Hur bör jag förhålla mig till det nya förslaget om vinster i välfärden — utifrån mina principer?"</p>
+      </div>
+      <div class="example-card">
+        <span class="example-tag">Ideologijämförelse</span>
+        <p class="example-q">"Vad skiljer min syn på statens roll från en klassisk socialdemokratisk position?"</p>
+      </div>
+      <div class="example-card">
+        <span class="example-tag">Konsekvensanalys</span>
+        <p class="example-q">"Vilka andra och tredje ordningens effekter har höjda bolånetak enligt min ekonomisyn?"</p>
+      </div>
+      <div class="example-card">
+        <span class="example-tag">Principprövning</span>
+        <p class="example-q">"Kolliderar mitt stöd för nationell suveränitet med mitt stöd för frihandel?"</p>
+      </div>
+      <div class="example-card">
+        <span class="example-tag">Samhällsdebatt</span>
+        <p class="example-q">"Hur bör jag resonera kring migration utifrån mina grundvärden om frihet och solidaritet?"</p>
+      </div>
+      <div class="example-card">
+        <span class="example-tag">Policyer</span>
+        <p class="example-q">"Vilka konkreta policyer följer logiskt av min ideologi på klimatområdet?"</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA Banner ── -->
+  <section class="cta-banner">
+    <div class="cta-inner">
+      <p class="label" style="color:rgba(245,240,232,0.5)">
+        <span style="background:rgba(245,240,232,0.3); display:inline-block; width:2rem; height:1px; vertical-align:middle; margin-right:0.9rem;"></span>
+        Börja idag
       </p>
-    </main>
-  </body>
+      <h2>Formulera din ideologiska kompass</h2>
+      <p>Tar ungefär 20–40 minuter. Politiskt neutralt. Helt på dina villkor.</p>
+      <a href="verktyg.html" class="btn btn-light">Starta verktyget</a>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script type="module">
+  import { mountShell } from './src/components/shell.js';
+  mountShell('index.html');
+</script>
+</body>
 </html>

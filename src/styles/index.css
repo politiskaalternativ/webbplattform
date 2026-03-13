@@ -1,0 +1,383 @@
+/* ═══════════════════════════════════
+   index.css — Startsida
+   ═══════════════════════════════════ */
+
+/* ── Hero ── */
+.hero {
+  min-height: calc(100vh - var(--nav-h));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  padding: 5rem var(--gutter);
+  max-width: var(--max-w);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.hero-left h1 {
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  margin: 1.4rem 0 1.6rem;
+}
+.hero-left h1 em { font-style: italic; color: var(--accent); }
+
+.hero-lead {
+  font-size: 1.1rem;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 44ch;
+  line-height: 1.85;
+  margin-bottom: 2.4rem;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* ── Hero right ── */
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-left: 4rem;
+  border-left: 1px solid var(--rule);
+  min-height: 320px;
+}
+
+.quote-card {
+  max-width: 36ch;
+  position: relative;
+  z-index: 2;
+}
+
+.quote-ornament {
+  display: block;
+  font-size: 7rem;
+  line-height: 0.75;
+  color: var(--rule);
+  margin-bottom: 1rem;
+  user-select: none;
+}
+
+.quote-card blockquote {
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--ink);
+  margin-bottom: 1.2rem;
+}
+
+.quote-card cite {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-style: normal;
+}
+
+.hero-deco {
+  position: absolute;
+  bottom: -3rem;
+  right: -1rem;
+  font-size: 20rem;
+  font-weight: 300;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--rule);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Scroll hint ── */
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  left: var(--gutter);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.scroll-line {
+  display: block;
+  width: 1px;
+  height: 3rem;
+  background: linear-gradient(to bottom, var(--rule), transparent);
+  animation: scrollPulse 2s ease infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.15); }
+}
+
+.scroll-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rule-dark);
+  writing-mode: vertical-rl;
+}
+
+/* ── Democracy ── */
+.democracy {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 8rem var(--gutter);
+}
+
+.democracy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7rem;
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.democracy .label { color: var(--gold); }
+.democracy .label::before { background: var(--gold); }
+
+.democracy h2 {
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  color: var(--paper);
+  margin: 1rem 0 2.5rem;
+}
+
+.prose {
+  font-weight: 300;
+  color: rgba(245,240,232,0.72);
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+.prose p + p { margin-top: 1.3rem; }
+.prose em { font-style: italic; color: var(--paper); }
+
+/* ── Pillars ── */
+.pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  justify-content: center;
+}
+
+.pillar {
+  padding: 1.8rem 0 1.8rem 1.8rem;
+  border-left: 2px solid rgba(201,151,58,0.3);
+  position: relative;
+  transition: border-color 0.3s;
+}
+.pillar:hover { border-color: var(--gold); }
+.pillar + .pillar { border-top: 1px solid rgba(255,255,255,0.05); }
+
+.pillar-num {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.pillar h3 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--paper);
+  margin-bottom: 0.5rem;
+}
+
+.pillar p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(245,240,232,0.55);
+  line-height: 1.7;
+}
+
+/* ── How ── */
+.how {
+  padding: 8rem var(--gutter);
+  background: var(--paper);
+}
+
+.how-header {
+  max-width: var(--max-w);
+  margin: 0 auto 4rem;
+}
+
+.how-header h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  margin-top: 1rem;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.step-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.step-num {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.step-rule {
+  flex: 1;
+  height: 2px;
+  background: var(--rule);
+  transition: background 0.3s;
+}
+
+.step:hover .step-rule { background: var(--accent); }
+
+.step h3 {
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 0.8rem;
+}
+
+.step p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+.how-cta {
+  max-width: var(--max-w);
+  margin: 4rem auto 0;
+}
+
+/* ── Examples ── */
+.examples {
+  padding: 8rem var(--gutter);
+  background: var(--canvas);
+  border-top: 1px solid var(--rule);
+}
+
+.examples-header {
+  max-width: var(--max-w);
+  margin: 0 auto 4rem;
+}
+
+.examples-header h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  margin-top: 1rem;
+}
+
+.example-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.example-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s;
+}
+
+.example-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.example-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(26,24,20,0.07);
+}
+.example-card:hover::after { transform: scaleX(1); }
+
+.example-tag {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.example-q {
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* ── CTA Banner ── */
+.cta-banner {
+  background: var(--accent);
+  padding: 8rem var(--gutter);
+}
+
+.cta-inner {
+  max-width: 600px;
+}
+
+.cta-banner h2 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: var(--paper);
+  margin: 1rem 0 1rem;
+}
+
+.cta-banner p {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: rgba(245,240,232,0.75);
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
+  .hero-right { display: none; }
+  .scroll-hint { display: none; }
+  .democracy { padding: 4rem 1.5rem; }
+  .democracy-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .how { padding: 4rem 1.5rem; }
+  .steps { grid-template-columns: 1fr; gap: 2rem; }
+  .examples { padding: 4rem 1.5rem; }
+  .example-grid { grid-template-columns: 1fr; }
+  .cta-banner { padding: 4rem 1.5rem; }
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ideologibibliotek — Politiska Alternativ</title>
+  <meta name="description" content="Utforska och jämför klassiska politiska ideologier strukturerade enligt standardramverket.">
+  <link rel="stylesheet" href="src/styles/global.css">
+  <link rel="stylesheet" href="src/styles/bibliotek.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<main class="page-wrap">
+
+  <!-- ── Page hero ── -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="label anim-fade-up">Referensbibliotek</p>
+      <h1 class="anim-fade-up" style="animation-delay:0.12s">Ideologibibliotek</h1>
+      <p class="page-lead anim-fade-up" style="animation-delay:0.24s">
+        Klassiska politiska ideologier strukturerade enligt samma ramverk som ditt eget verktyg.
+        Utforska, jämför och identifiera var din egen position befinner sig.
+      </p>
+      <div class="filter-bar anim-fade-up" style="animation-delay:0.36s">
+        <span class="filter-label">Filtrera:</span>
+        <button class="filter-btn active" data-filter="all">Alla</button>
+        <button class="filter-btn" data-filter="frihet">Frihet</button>
+        <button class="filter-btn" data-filter="jamlikhet">Jämlikhet</button>
+        <button class="filter-btn" data-filter="gemenskap">Gemenskap</button>
+        <button class="filter-btn" data-filter="hallbarhet">Hållbarhet</button>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ── Ideology grid ── -->
+  <section class="library">
+    <div class="library-inner">
+      <div class="ideology-grid" id="ideologyGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Detail panel (modal) ── -->
+  <div class="detail-overlay" id="detailOverlay" aria-hidden="true">
+    <div class="detail-panel" id="detailPanel" role="dialog" aria-modal="true">
+      <button class="detail-close" id="detailClose" aria-label="Stäng">✕</button>
+      <div class="detail-content" id="detailContent"></div>
+    </div>
+  </div>
+
+  <!-- ── Compare banner ── -->
+  <section class="compare-banner">
+    <div class="compare-inner">
+      <p class="label" style="color:rgba(245,240,232,0.5)">
+        <span style="background:rgba(245,240,232,0.3);display:inline-block;width:2rem;height:1px;vertical-align:middle;margin-right:0.9rem;"></span>
+        Nästa steg
+      </p>
+      <h2>Hur förhåller sig din ideologi till dessa?</h2>
+      <p>Skapa din personliga instruktion och jämför sedan med biblioteket i din AI.</p>
+      <a href="verktyg.html" class="btn btn-light">Skapa din instruktion</a>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script type="module">
+  import { mountShell } from './src/components/shell.js';
+  import { ideologies } from './src/lib/ideologies.js';
+
+  mountShell('bibliotek.html');
+
+  const grid = document.getElementById('ideologyGrid');
+  const overlay = document.getElementById('detailOverlay');
+  const panel = document.getElementById('detailPanel');
+  const detailContent = document.getElementById('detailContent');
+  const closeBtn = document.getElementById('detailClose');
+
+  // Tag map for filtering
+  const tagMap = {
+    liberalism:      ['frihet'],
+    socialdemokrati: ['jamlikhet'],
+    konservatism:    ['gemenskap'],
+    libertarianism:  ['frihet'],
+    ekologism:       ['hallbarhet'],
+    kommunitarism:   ['gemenskap', 'jamlikhet'],
+  };
+
+  function renderGrid(filter = 'all') {
+    grid.innerHTML = '';
+    ideologies.forEach((ideo, i) => {
+      const tags = tagMap[ideo.id] || [];
+      if (filter !== 'all' && !tags.includes(filter)) return;
+
+      const card = document.createElement('article');
+      card.className = 'ideo-card';
+      card.style.setProperty('--accent-color', ideo.color);
+      card.style.animationDelay = `${i * 0.06}s`;
+      card.setAttribute('data-id', ideo.id);
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', `Läs mer om ${ideo.label}`);
+
+      card.innerHTML = `
+        <div class="card-accent-bar"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="card-era">${ideo.era}</span>
+            ${tags.map(t => `<span class="card-tag">${t}</span>`).join('')}
+          </div>
+          <h2 class="card-title">${ideo.label}</h2>
+          <p class="card-tagline">${ideo.tagline}</p>
+          <ul class="card-principles">
+            ${ideo.core.slice(0, 3).map(c => `<li>${c}</li>`).join('')}
+          </ul>
+          <span class="card-cta">Läs mer →</span>
+        </div>
+      `;
+
+      card.addEventListener('click', () => openDetail(ideo));
+      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openDetail(ideo); });
+      grid.appendChild(card);
+    });
+  }
+
+  function openDetail(ideo) {
+    detailContent.innerHTML = `
+      <div class="dp-header" style="--accent-color:${ideo.color}">
+        <div class="dp-accent-bar"></div>
+        <div class="dp-header-body">
+          <span class="dp-era">${ideo.era}</span>
+          <h2>${ideo.label}</h2>
+          <p class="dp-tagline">${ideo.tagline}</p>
+        </div>
+      </div>
+      <div class="dp-body">
+        <div class="dp-section">
+          <h3>Grundprinciper</h3>
+          <ul class="dp-list">
+            ${ideo.core.map(c => `<li>${c}</li>`).join('')}
+          </ul>
+        </div>
+        <div class="dp-section">
+          <h3>Syn på staten</h3>
+          <p>${ideo.stateSyn}</p>
+        </div>
+        <div class="dp-section">
+          <h3>Ekonomiskt system</h3>
+          <p>${ideo.ekonomi}</p>
+        </div>
+        <div class="dp-section">
+          <h3>Centrala tänkare</h3>
+          <div class="dp-thinkers">
+            ${ideo.tänkare.map(t => `<span class="dp-thinker">${t}</span>`).join('')}
+          </div>
+        </div>
+        <div class="dp-section dp-tension">
+          <h3>Intern spänning</h3>
+          <p>${ideo.spänningar}</p>
+        </div>
+        <div class="dp-action">
+          <a href="verktyg.html" class="btn btn-dark">Skapa din egen instruktion</a>
+        </div>
+      </div>
+    `;
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    panel.focus();
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDetail() {
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeDetail);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeDetail(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
+
+  // Filters
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderGrid(btn.dataset.filter);
+    });
+  });
+
+  renderGrid();
+</script>
+</body>
+</html>

@@ -1,0 +1,318 @@
+/* ═══════════════════════════════════
+   verktyg.css — Verktygssidan
+   ═══════════════════════════════════ */
+
+/* ── Page hero ── */
+.page-hero {
+  padding: 5rem var(--gutter) 4rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.page-hero-inner { max-width: var(--max-w); margin: 0 auto; }
+
+.page-hero h1 {
+  font-size: clamp(3rem, 5vw, 5rem);
+  margin: 1rem 0 1.5rem;
+}
+
+.page-lead {
+  font-size: 1.1rem;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 56ch;
+  line-height: 1.85;
+}
+
+/* ── Section shared ── */
+.section-lead {
+  font-size: 1.05rem;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 52ch;
+  line-height: 1.85;
+  margin-top: 1rem;
+}
+
+/* ── Process ── */
+.process {
+  padding: 7rem var(--gutter);
+}
+
+.process-inner { max-width: var(--max-w); margin: 0 auto; }
+
+.process-intro {
+  margin-bottom: 5rem;
+}
+
+.process-intro h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  margin-top: 1rem;
+}
+
+/* ── Process steps ── */
+.process-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  counter-reset: none;
+}
+
+.process-step {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 2rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.process-step:last-child { border-bottom: 1px solid var(--rule); }
+
+.ps-num {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  padding-top: 0.35rem;
+}
+
+.ps-content h3 {
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 0.8rem;
+}
+
+.ps-content p {
+  font-size: 1rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.8;
+  max-width: 60ch;
+}
+
+/* ── Instruction box ── */
+.instruction-box {
+  margin-top: 1.5rem;
+  border: 1px solid var(--rule);
+  background: var(--paper-dark);
+}
+
+.instruction-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  border-bottom: 1px solid var(--rule);
+  background: var(--canvas);
+}
+
+.instruction-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.copy-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 0.4rem 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.copy-btn:hover { background: var(--ink); color: var(--paper); }
+.copy-btn.copied { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+
+.instruction-pre {
+  padding: 1.5rem 1.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  line-height: 1.75;
+  color: var(--ink);
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-x: auto;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+/* ── Tip box ── */
+.tip-box {
+  margin-top: 1.2rem;
+  padding: 1rem 1.4rem;
+  border-left: 3px solid var(--gold);
+  background: rgba(201,151,58,0.06);
+}
+
+.tip-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.tip-box p {
+  font-size: 0.9rem !important;
+  color: var(--muted) !important;
+  margin-top: 0 !important;
+}
+
+/* ── AI links ── */
+.ai-links {
+  padding: 7rem var(--gutter);
+  background: var(--canvas);
+  border-top: 1px solid var(--rule);
+}
+
+.ai-links-inner { max-width: var(--max-w); margin: 0 auto; }
+
+.ai-links h2 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  margin-top: 1rem;
+}
+
+.ai-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+  margin-top: 3rem;
+}
+
+.ai-card {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 0.4rem;
+  padding: 2rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s, border-color 0.2s;
+  text-decoration: none;
+}
+
+.ai-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(26,24,20,0.07);
+  border-color: var(--accent);
+}
+
+.ai-name {
+  font-size: 1.5rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.ai-maker {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.ai-note {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.6;
+  padding-top: 0.8rem;
+}
+
+.ai-arrow {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  padding-top: 1rem;
+  transition: transform 0.2s;
+}
+.ai-card:hover .ai-arrow { transform: translateX(4px); }
+
+/* ── FAQ ── */
+.faq {
+  padding: 7rem var(--gutter);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.faq-inner { max-width: 720px; margin: 0 auto; }
+
+.faq .label { color: var(--gold); }
+.faq .label::before { background: var(--gold); }
+
+.faq h2 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  color: var(--paper);
+  margin-top: 1rem;
+}
+
+.faq-list {
+  margin-top: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.faq-item {
+  border-top: 1px solid rgba(245,240,232,0.1);
+  padding: 0;
+}
+.faq-item:last-child { border-bottom: 1px solid rgba(245,240,232,0.1); }
+
+.faq-item summary {
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--paper);
+  padding: 1.4rem 0;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-style: normal;
+  color: var(--gold);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-item p {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: rgba(245,240,232,0.65);
+  line-height: 1.8;
+  padding-bottom: 1.4rem;
+  max-width: 56ch;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .page-hero { padding: 3rem 1.5rem 2.5rem; }
+  .process { padding: 4rem 1.5rem; }
+  .process-step { grid-template-columns: 3rem 1fr; gap: 1rem; }
+  .ai-links { padding: 4rem 1.5rem; }
+  .ai-grid { grid-template-columns: 1fr; }
+  .faq { padding: 4rem 1.5rem; }
+}

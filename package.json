@@ -1,12 +1,16 @@
 {
   "name": "politiska-alternativ",
-  "version": "0.1.0",
-  "private": true,
-  "description": "Öppen plattform för politiska idéer med AI",
+  "version": "1.0.0",
+  "description": "Politiskt neutralt verktyg för att formulera en personlig ideologisk AI-instruktion",
+  "main": "index.html",
   "scripts": {
-    "dev": "python3 -m http.server 4173",
-    "build": "echo \"No build configured yet\"",
-    "start": "python3 -m http.server 4173",
-    "lint": "echo \"No lint configured yet\""
+    "start": "npx serve .",
+    "dev": "npx serve . --listen 8080"
+  },
+  "keywords": ["ideologi", "demokrati", "AI", "politisk-analys"],
+  "author": "sense-it.se",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.0.0"
   }
 }

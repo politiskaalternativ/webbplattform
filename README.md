@@ -1,38 +1,81 @@
 # Politiska Alternativ
 
-Politiska Alternativ är en öppen plattform för att utforska, jämföra och skapa politiska idéer med hjälp av AI.
+Ett politiskt neutralt verktyg för att formulera, strukturera och använda en personlig ideologisk AI-instruktion.
+
+## Syfte
+
+Verktyget hjälper användare att:
+1. Formulera sin politiska grundsyn i strukturerad form
+2. Skapa en jämförbar ideologisk AI-instruktion
+3. Använda instruktionen för att analysera nyheter och politiska förslag
+
+## Sidor
+
+| Sida | Fil | Beskrivning |
+|------|-----|-------------|
+| Startsida | `index.html` | Presentation och filosofisk introduktion |
+| Verktyget | `verktyg.html` | Steg-för-steg-guide för att skapa instruktion |
+| Bibliotek | `bibliotek.html` | Referensbibliotek med klassiska ideologier |
 
 ## Projektstruktur
 
-```text
+```
 politiska-alternativ/
 ├── README.md
 ├── .gitignore
 ├── package.json
-├── index.html       # enkel startsida för lokal test
+├── index.html          # Startsida
+├── verktyg.html        # Verktygssida
+├── bibliotek.html      # Bibliotekssida
 ├── src/
-│   ├── app/          # sidor och routing
-│   ├── components/   # UI-komponenter
-│   ├── lib/          # hjälpfunktioner och logik
-│   ├── styles/       # global styling
-│   └── types/        # gemensamma typer
-├── public/           # statiska filer
-└── docs/             # dokumentation och projektstruktur
+│   ├── app/            # Sidor och routing (framtida utbyggnad)
+│   ├── components/
+│   │   └── shell.js    # Nav och footer
+│   ├── lib/
+│   │   └── ideologies.js  # Ideologidata
+│   ├── styles/
+│   │   ├── global.css  # Gemensam styling och design tokens
+│   │   ├── index.css   # Startsida
+│   │   ├── verktyg.css # Verktygssida
+│   │   └── bibliotek.css # Bibliotekssida
+│   └── types/          # Gemensamma typer (framtida utbyggnad)
+├── public/             # Statiska filer
+└── docs/               # Dokumentation
+    └── STRUCTURE.md    # Projektstruktur och beslut
 ```
 
-## Mål i första fasen
+## Teknikval
 
-Projektet börjar enkelt och byggs ut efter behov.
+- **Vanilla HTML/CSS/JS** — inga byggverktyg krävs
+- **ES Modules** — modulär JS utan bundler
+- **Google Fonts** — Cormorant Garamond + DM Mono
+- Ingen extern JS-dependency utöver fonts
 
-Första versionen fokuserar på:
+## Komma igång
 
-- en fungerande webbplattform
-- tydlig kodstruktur
-- enkel vidareutveckling
-- dokumentation av idéer och domänmodell
+```bash
+# Servera lokalt (valfritt — kan öppnas direkt i webbläsare)
+npx serve .
+# eller
+python3 -m http.server 8080
+```
 
-## Princip
+Öppna sedan `http://localhost:8080` i webbläsaren.
 
-**Börja enkelt.**
-Bygg ut först när behovet finns.
-Undvik avancerad struktur innan projektet faktiskt kräver det.
+> **OBS:** ES Modules kräver att sidan serveras via HTTP — `file://` fungerar inte.
+
+## Design
+
+Estetiken är editorial/filosofisk med:
+- Gammelpapper-palett (`#f5f0e8`)
+- Serifftypografi (Cormorant Garamond)
+- Monospace-detaljer (DM Mono)
+- Dämpad röd accent (`#8b3a2a`)
+
+## Utbyggnad
+
+Nästa naturliga steg:
+- Jämförelseverktyg (visa två ideologier sida vid sida)
+- Spara och exportera skapade instruktioner
+- Fler ideologier i biblioteket
+- Flerspråksstöd (engelska)
