@@ -9,6 +9,7 @@ politiska-alternativ/
 ├── README.md
 ├── .gitignore
 ├── package.json
+├── index.html       # enkel startsida för lokal test
 ├── src/
 │   ├── app/          # sidor och routing
 │   ├── components/   # UI-komponenter

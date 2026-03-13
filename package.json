@@ -4,9 +4,9 @@
   "private": true,
   "description": "Öppen plattform för politiska idéer med AI",
   "scripts": {
-    "dev": "echo \"No app configured yet\"",
+    "dev": "python3 -m http.server 4173",
     "build": "echo \"No build configured yet\"",
-    "start": "echo \"No start configured yet\"",
+    "start": "python3 -m http.server 4173",
     "lint": "echo \"No lint configured yet\""
   }
 }
