@@ -31,7 +31,7 @@ export function renderNav(activePage = '') {
 export function renderFooter() {
   return `
     <footer class="site-footer" role="contentinfo">
-      <span>© 2025 Politiska Alternativ — <a href="https://sense-it.se">sense-it.se</a></span>
+      <span>© 2026 Politiska Alternativ</span>
       <span>Politiskt neutralt verktyg för demokratiskt tänkande</span>
     </footer>
   `;
