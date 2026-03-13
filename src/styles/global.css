@@ -64,6 +64,17 @@ body::before {
   opacity: 0.55;
 }
 
+/*
+  iOS/Safari can struggle with a full-screen fixed SVG filter layer and
+  occasionally render a blank white viewport. We disable the decorative grain
+  on touch devices/smaller screens to prioritize reliability.
+*/
+@media (hover: none), (pointer: coarse), (max-width: 900px) {
+  body::before {
+    display: none;
+  }
+}
+
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 ul { list-style: none; }
