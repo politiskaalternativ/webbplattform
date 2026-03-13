@@ -16,6 +16,9 @@ Verktyget hjälper användare att:
 | Startsida | `index.html` | Presentation och filosofisk introduktion |
 | Verktyget | `verktyg.html` | Steg-för-steg-guide för att skapa instruktion |
 | Bibliotek | `bibliotek.html` | Referensbibliotek med klassiska ideologier |
+| Robots | `robots.txt` | Tillåter crawl och pekar ut sitemap |
+| Sitemap | `sitemap.xml` | Lista över indexerbara sidor |
+| LLM index | `llms.txt` | Maskinläsbar översikt över sidstruktur och resurser |
 
 ## Projektstruktur
 

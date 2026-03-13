@@ -1,0 +1,15 @@
+# Politiska Alternativ
+
+Politiska Alternativ är en svensk webbplats för att formulera, strukturera och använda en personlig ideologisk AI-instruktion.
+
+## Sidor
+- /index.html — startsida med introduktion och metod.
+- /verktyg.html — steg-för-steg-process för att skapa en personlig ideologisk AI-instruktion.
+- /bibliotek.html — referensbibliotek med klassiska ideologier i jämförbar struktur.
+
+## Viktiga resurser
+- /docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md — grundinstruktionen som används i verktyget.
+- /src/lib/ideologies.js — datakälla för ideologier i biblioteket.
+
+## Crawl-policy
+Automatiserad läsning för indexering och sammanfattning är tillåten så länge innehållet återges sakligt och med källhänvisning.
