@@ -196,19 +196,34 @@
   mountShell('verktyg.html');
 
   // Load instruction text from a shared file
-  const instructionPath = './docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md';
+  const instructionFile = 'docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md';
+  const instructionPaths = [
+    `./${instructionFile}`,
+    `/${instructionFile}`,
+    `../${instructionFile}`,
+  ];
   const btn = document.getElementById('copyBtn');
   const text = document.getElementById('instructionText');
 
   async function loadInstruction() {
     if (!text) return;
-    try {
-      const response = await fetch(instructionPath);
-      if (!response.ok) throw new Error(`Kunde inte läsa ${instructionPath}`);
-      text.textContent = (await response.text()).trim();
-    } catch {
-      text.textContent = 'Kunde inte ladda instruktionen automatiskt. Öppna filen docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md och kopiera innehållet manuellt.';
+
+    for (const path of instructionPaths) {
+      try {
+        const response = await fetch(path, { cache: 'no-store' });
+        if (!response.ok) continue;
+
+        const content = (await response.text()).trim();
+        if (!content) continue;
+
+        text.textContent = content;
+        return;
+      } catch {
+        // Try next candidate path.
+      }
     }
+
+    text.textContent = 'Kunde inte ladda instruktionen automatiskt. Öppna filen docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md och kopiera innehållet manuellt.';
   }
 
   if (btn && text) {
