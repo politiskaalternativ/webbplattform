@@ -1,0 +1,12 @@
+{
+  "name": "politiska-alternativ",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Öppen plattform för politiska idéer med AI",
+  "scripts": {
+    "dev": "echo \"No app configured yet\"",
+    "build": "echo \"No build configured yet\"",
+    "start": "echo \"No start configured yet\"",
+    "lint": "echo \"No lint configured yet\""
+  }
+}
