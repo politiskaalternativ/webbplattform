@@ -100,7 +100,7 @@
 
 .card-accent-bar {
   height: 4px;
-  background: var(--accent-color, var(--accent));
+  background: var(--tag-color, var(--accent-color, var(--accent)));
   flex-shrink: 0;
 }
 
@@ -133,7 +133,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--paper);
-  background: var(--accent-color, var(--accent));
+  background: var(--tag-color, var(--accent-color, var(--accent)));
   padding: 0.2rem 0.6rem;
 }
 
