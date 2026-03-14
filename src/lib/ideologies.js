@@ -56,6 +56,23 @@ export const ideologies = [
     color: '#3a4a6e',
   },
   {
+    id: 'ordoliberalism',
+    label: 'Ordoliberalism',
+    era: '1900-tal–',
+    tagline: 'Marknadens frihet kräver statens starka hand.',
+    core: [
+      'Fri konkurrens skyddad av rättsliga institutioner',
+      'Stark stat med begränsat mandat — regelsättare, inte spelare',
+      'Monopol och karteller aktivt motverkade',
+      'Prisstabilitet och sunda statsfinanser som grundvillkor',
+    ],
+    stateSyn: 'Staten ska skapa och upprätthålla ramverket för marknaden — men aldrig ingripa direkt i prisbildning eller produktion.',
+    ekonomi: 'Marknadsekonomi inom ett strikt institutionellt regelverk. Konkurrenslagstiftning prioriteras framför både laissez-faire och keynesiansk styrning.',
+    tänkare: ['Walter Eucken', 'Wilhelm Röpke', 'Ludwig Erhard'],
+    spänningar: 'Spänning mellan regelbaserad återhållsamhet och behovet av aktiva institutioner — vem vaktar väktarna?',
+    color: '#5a6e9c',
+  },
+  {
     id: 'libertarianism',
     label: 'Libertarianism',
     era: '1900-tal–',
