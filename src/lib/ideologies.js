@@ -22,6 +22,23 @@ export const ideologies = [
     color: '#5a6e4a',
   },
   {
+    id: 'kommunism',
+    label: 'Kommunism',
+    era: '1800-tal–',
+    tagline: 'Ett klasslöst samhälle där produktionsmedlen ägs gemensamt.',
+    core: [
+      'Avskaffande av privat äganderätt till produktionsmedlen',
+      'Klasskampens centrala roll i historisk förändring',
+      'Statens bortdöende som slutmål',
+      'Från var och en efter förmåga, till var och en efter behov',
+    ],
+    stateSyn: 'Staten är i övergångsfasen ett instrument för proletariatets diktatur — ett temporärt verktyg som ska göra sig själv överflödigt.',
+    ekonomi: 'Centralt planerad ekonomi med kollektivt ägande. Marknaden ersätts av planering utifrån samhälleliga behov snarare än profit.',
+    tänkare: ['Karl Marx', 'Friedrich Engels', 'Vladimir Lenin'],
+    spänningar: 'Spänning mellan det utopiska slutmålet — den statslösa kommunismen — och de historiska erfarenheterna av centraliserad makt och auktoritärt styre.',
+    color: '#7a1f2a',
+  },
+  {
     id: 'socialdemokrati',
     label: 'Socialdemokrati',
     era: '1800-tal–',
