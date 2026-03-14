@@ -88,13 +88,23 @@
   const detailContent = document.getElementById('detailContent');
   const closeBtn = document.getElementById('detailClose');
 
-  // Tag map for filtering
+  // Kategorier med etikett + färg används både för filtrering och kort-taggar
+  const categoryConfig = {
+    frihet: { label: 'Frihet', color: '#3d6b45' },
+    jamlikhet: { label: 'Jämlikhet', color: '#8a3d2d' },
+    gemenskap: { label: 'Gemenskap', color: '#4b5f8c' },
+    hallbarhet: { label: 'Hållbarhet', color: '#4d7a4d' },
+  };
+
   const tagMap = {
     liberalism:      ['frihet'],
     socialdemokrati: ['jamlikhet'],
     konservatism:    ['gemenskap'],
+    nationalism:     ['gemenskap'],
+    ordoliberalism:  ['frihet'],
     libertarianism:  ['frihet'],
     ekologism:       ['hallbarhet'],
+    degrowth:        ['hallbarhet', 'jamlikhet'],
     kommunitarism:   ['gemenskap', 'jamlikhet'],
   };
 
@@ -118,7 +128,10 @@
         <div class="card-body">
           <div class="card-meta">
             <span class="card-era">${ideo.era}</span>
-            ${tags.map(t => `<span class="card-tag">${t}</span>`).join('')}
+            ${tags.map(t => {
+              const category = categoryConfig[t];
+              return `<span class="card-tag" style="--tag-color:${category?.color || ideo.color}">${category?.label || t}</span>`;
+            }).join('')}
           </div>
           <h2 class="card-title">${ideo.label}</h2>
           <p class="card-tagline">${ideo.tagline}</p>
