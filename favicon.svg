@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Politiska Alternativ logotyp">
+  <title>Politiska Alternativ logotyp</title>
+  <g fill="none" stroke="#4f5a5f" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="256" cy="256" r="232"/>
+    <circle cx="256" cy="256" r="104"/>
+    <path d="M256 24v128"/>
+    <path d="M24 256h128"/>
+    <path d="M360 256h128"/>
+    <path d="M90 90l90 90"/>
+    <path d="M205 145v-22"/>
+    <circle cx="205" cy="109" r="12"/>
+    <path d="M256 131v-30"/>
+    <circle cx="256" cy="86" r="12"/>
+    <path d="M307 145v-22"/>
+    <circle cx="307" cy="109" r="12"/>
+    <path d="M339 176l18-14"/>
+    <circle cx="374" cy="150" r="12"/>
+    <path d="M240 248l16-41 16 41-16 47z" fill="#4f5a5f"/>
+    <path d="M223 365c-16 21-26 46-27 76"/>
+    <path d="M256 382v86"/>
+    <path d="M289 365c16 21 26 46 27 76"/>
+    <path d="M178 370c-23 4-43 15-58 31"/>
+    <path d="M334 370c23 4 43 15 58 31"/>
+    <path d="M209 344c-14 10-27 23-36 38"/>
+    <path d="M303 344c14 10 27 23 36 38"/>
+  </g>
+</svg>
