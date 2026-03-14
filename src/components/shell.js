@@ -6,8 +6,8 @@
 export function renderNav(activePage = '') {
   const pages = [
     { href: 'index.html',     label: 'Start' },
-    { href: 'verktyg.html',   label: 'Verktyget' },
     { href: 'bibliotek.html', label: 'Bibliotek' },
+    { href: 'verktyg.html',   label: 'Verktyget' },
   ];
 
   const links = pages.map(p => {
@@ -33,11 +33,9 @@ export function renderNav(activePage = '') {
       </button>
       <div class="nav-links">
         ${links}
-        <a href="verktyg.html" class="nav-cta">Skapa instruktion</a>
       </div>
       <div id="mobile-nav-links" class="mobile-nav-links">
         ${links}
-        <a href="verktyg.html" class="nav-cta">Skapa instruktion</a>
       </div>
     </nav>
   `;
