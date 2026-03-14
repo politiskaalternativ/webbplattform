@@ -20,7 +20,22 @@ export function renderNav(activePage = '') {
       <a href="index.html" class="nav-logo">
         Politiska<span>.</span>Alternativ
       </a>
+      <button
+        type="button"
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-nav-links"
+        aria-label="Öppna meny"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <div class="nav-links">
+        ${links}
+        <a href="verktyg.html" class="nav-cta">Skapa instruktion</a>
+      </div>
+      <div id="mobile-nav-links" class="mobile-nav-links">
         ${links}
         <a href="verktyg.html" class="nav-cta">Skapa instruktion</a>
       </div>
@@ -46,4 +61,37 @@ export function mountShell(activePage) {
   const footerEl = document.getElementById('site-footer');
   if (navEl)    navEl.innerHTML    = renderNav(activePage);
   if (footerEl) footerEl.innerHTML = renderFooter();
+
+  const navRoot = navEl?.querySelector('.site-nav');
+  const toggle = navRoot?.querySelector('.nav-toggle');
+  const mobileMenu = navRoot?.querySelector('.mobile-nav-links');
+  const mobileLinks = mobileMenu?.querySelectorAll('a') ?? [];
+
+  if (navRoot && toggle && mobileMenu) {
+    const closeMenu = () => {
+      navRoot.classList.remove('mobile-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Öppna meny');
+    };
+
+    const openMenu = () => {
+      navRoot.classList.add('mobile-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Stäng meny');
+    };
+
+    toggle.addEventListener('click', () => {
+      const isOpen = navRoot.classList.contains('mobile-open');
+      if (isOpen) closeMenu();
+      else openMenu();
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) closeMenu();
+    });
+  }
 }
