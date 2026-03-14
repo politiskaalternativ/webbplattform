@@ -2,4 +2,5 @@ User-agent: *
 Allow: /
 
 # Hjälper sökmotorer och verktyg att hitta alla sidor.
-Sitemap: /sitemap.xml
+Sitemap: https://politiskaalternativ.se/sitemap.xml
+Host: politiskaalternativ.se
