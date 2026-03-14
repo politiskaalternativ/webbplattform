@@ -56,6 +56,23 @@ export const ideologies = [
     color: '#3a4a6e',
   },
   {
+    id: 'nationalism',
+    label: 'Nationalism',
+    era: '1800-tal–',
+    tagline: 'Nationen som politikens naturliga grund och gräns.',
+    core: [
+      'Nationell identitet som primär politisk gemenskap',
+      'Folklig självbestämmanderätt och suveränitet',
+      'Gemensamt språk, historia och kultur som sammanhållande kraft',
+      'Staten och nationen bör sammanfalla',
+    ],
+    stateSyn: 'Staten är nationens politiska uttryck — dess uppgift är att skydda och bevara det nationella kollektivet, inte enbart individen.',
+    ekonomi: 'Varierar brett — från protektionism och nationell industripolitik till marknadsekonomier med starka nationella intressen. Ekonomin är ett medel för nationell styrka, inte ett mål i sig.',
+    tänkare: ['Johann Gottfried Herder', 'Giuseppe Mazzini', 'Ernest Renan'],
+    spänningar: 'Spänning mellan medborgerlig nationalism — öppen för alla som delar värderingar — och etnisk nationalism, som definierar tillhörighet genom härkomst.',
+    color: '#7a5a3a',
+  },
+  {
     id: 'ordoliberalism',
     label: 'Ordoliberalism',
     era: '1900-tal–',
