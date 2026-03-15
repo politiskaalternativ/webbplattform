@@ -1,0 +1,274 @@
+{
+  "_meta": {
+    "version": "1.0",
+    "description": "Politiska grundprinciper knutna till tre analytiska axlar. Varje axel täcker -10 till +10 utan luckor. Används för att positionera ideologier och driva avvägningswidgeten.",
+    "axes": {
+      "ekonomi": {
+        "label": "Ekonomi",
+        "pole_negative": "Fullständig statlig kontroll",
+        "pole_positive": "Fullständig fri marknad",
+        "pole_zero": "Blandekonomi"
+      },
+      "frihet": {
+        "label": "Frihet & makt",
+        "pole_negative": "Strikt libertariansk / anarkistisk",
+        "pole_positive": "Strikt auktoritär",
+        "pole_zero": "Balanserad rättsstatsordning"
+      },
+      "kultur": {
+        "label": "Kultur & samhällssyn",
+        "pole_negative": "Starkt progressiv / kosmopolitisk",
+        "pole_positive": "Strikt konservativ / traditionell",
+        "pole_zero": "Neutral / pluralistisk"
+      }
+    },
+    "notes": "Spann är inklusiva i båda ändarna. Angränsande spann delar ingen punkt — varje heltal tillhör exakt ett spann. Spann [-10,-8] täcker -10, -9, -8."
+  },
+
+  "principles": {
+
+    "ekonomi": [
+      {
+        "id": "ekon_central_planering",
+        "label": "Centralt planerad ekonomi",
+        "span": [-10, -8],
+        "description": "Staten äger och planerar produktionsmedlen centralt. Marknadsmekanismer ersätts av politiskt bestämda produktions- och fördelningsplaner. Prisinformation anses kunna ersättas av planering.",
+        "typiska_ideologier": ["Kommunism", "Stalinism", "Maoism"],
+        "nyckelprinciper": [
+          "Kollektivt ägande av produktionsmedlen",
+          "Central allokering av resurser och arbetskraft",
+          "Profit som motiv elimineras",
+          "Ekonomin underordnas politiska mål"
+        ]
+      },
+      {
+        "id": "ekon_socialistisk_blandning",
+        "label": "Socialistisk ekonomi med dominerande statligt ägande",
+        "span": [-7, -5],
+        "description": "Staten äger och driver nyckelindustrier och infrastruktur. Marknaden tillåts i begränsad utsträckning, men omfördelning och offentlig kontroll är dominerande inslag. Stark reglering av kapital och arbete.",
+        "typiska_ideologier": ["Demokratisk socialism", "Marknadssocialism", "Tidig socialdemokrati"],
+        "nyckelprinciper": [
+          "Nationalisering av strategiska sektorer",
+          "Omfattande omfördelning via progressiv skatt",
+          "Arbetarnas inflytande över produktionen",
+          "Universella offentliga tjänster som rättighet"
+        ]
+      },
+      {
+        "id": "ekon_reglerad_blandning",
+        "label": "Reglerad blandekonomi med stark offentlig sektor",
+        "span": [-4, -1],
+        "description": "Marknadsekonomin accepteras som grundmodell men kombineras med omfattande välfärdsstat, progressiv beskattning och aktiv reglering. Staten korrigerar marknadens misslyckanden och säkerställer social trygghet.",
+        "typiska_ideologier": ["Socialdemokrati", "Socialliberalism", "Keynesianismbaserad politik"],
+        "nyckelprinciper": [
+          "Blandekonomi med privat näringsliv och stark offentlig sektor",
+          "Progressiv beskattning och universella välfärdstjänster",
+          "Aktiv arbetsmarknadspolitik",
+          "Statlig konjunkturstabilisering"
+        ]
+      },
+      {
+        "id": "ekon_institutionell_marknad",
+        "label": "Institutionellt inramad marknadsekonomi",
+        "span": [0, 3],
+        "description": "Marknadsekonomin är normen, men kräver starka institutioner, konkurrenslagstiftning och regelbaserade ramar för att fungera. Staten sätter spelreglerna men spelar inte själv. Stabila institutioner och prisstabilitet prioriteras.",
+        "typiska_ideologier": ["Ordoliberalism", "Klassisk liberalism", "Kristdemokrati"],
+        "nyckelprinciper": [
+          "Konkurrenslagstiftning och anti-monopolregler",
+          "Stabila och förutsägbara regelverk",
+          "Prisstabilitet och sunda statsfinanser",
+          "Staten som regelgivare, inte marknadsaktör"
+        ]
+      },
+      {
+        "id": "ekon_frimarknad",
+        "label": "Frimarknadsekonomi med begränsad stat",
+        "span": [4, 7],
+        "description": "Marknaden och prismekanismen är den primära allokeringsmekanismen. Staten bör minimera sin ekonomiska roll — låga skatter, begränsad reglering och privatisering av offentliga tjänster. Individens ekonomiska frihet prioriteras.",
+        "typiska_ideologier": ["Nyliberalism", "Konservatism (ekonomisk)", "Klassisk liberalism (marknadssida)"],
+        "nyckelprinciper": [
+          "Låg skatt och begränsad omfördelning",
+          "Avreglering och privatisering",
+          "Individens ansvar för ekonomiska utfall",
+          "Frihandel och kapitalrörelsers frihet"
+        ]
+      },
+      {
+        "id": "ekon_laissez_faire",
+        "label": "Laissez-faire kapitalism",
+        "span": [8, 10],
+        "description": "Staten ska inte ingripa i ekonomin alls, eller nästan inte alls. Marknaden löser alla allokeringsproblem bättre än politiken. Skatter betraktas som ett ingrepp i äganderätten. Privat ägande är närmast absolut.",
+        "typiska_ideologier": ["Libertarianism", "Anarkokapitalism", "Minarkism"],
+        "nyckelprinciper": [
+          "Absolut äganderätt",
+          "Ingen eller minimal beskattning",
+          "Frivilliga kontrakt ersätter statliga regler",
+          "Marknaden löser kollektiva problem via spontan ordning"
+        ]
+      }
+    ],
+
+    "frihet": [
+      {
+        "id": "frihet_anarkistisk",
+        "label": "Anarkistisk / statslös frihet",
+        "span": [-10, -8],
+        "description": "Staten i sig är ett förtrycksinstrument. All legitim social ordning uppstår ur frivilliga, horisontella associationer. Hierarki och tvångsmakt ifrågasätts i grunden — oavsett om den är statlig, ekonomisk eller kulturell.",
+        "typiska_ideologier": ["Anarkism", "Anarkokapitalism", "Anarkosyndicalism"],
+        "nyckelprinciper": [
+          "Icke-aggressionsprincipen",
+          "Frivilliga associationer som samhällsgrund",
+          "Avskaffande av statens monopol på våld",
+          "Decentralisering av all makt"
+        ]
+      },
+      {
+        "id": "frihet_libertariansk",
+        "label": "Libertariansk minimalism",
+        "span": [-7, -5],
+        "description": "Staten ska begränsas till ett absolut minimum — skydda liv, egendom och kontrakt. Individens frihet är det övergripande politiska värdet. Statliga ingripanden bortom nattväktarstaten är illegitima.",
+        "typiska_ideologier": ["Libertarianism", "Klassisk liberalism (frihetssida)", "Minarkism"],
+        "nyckelprinciper": [
+          "Nattväktarstat som ideal",
+          "Negativ frihet som primärt värde",
+          "Civila friheter skyddade mot statsmakten",
+          "Individens suveränitet över det egna livet"
+        ]
+      },
+      {
+        "id": "frihet_konstitutionell",
+        "label": "Konstitutionell rättsstatsordning",
+        "span": [-4, -1],
+        "description": "Individens friheter skyddas genom institutioner, konstitutioner och maktdelning. Staten är nödvändig men måste begränsas av lag. Rättsstatsprincipen, oberoende domstolar och fri press är centrala.",
+        "typiska_ideologier": ["Klassisk liberalism", "Ordoliberalism", "Socialliberalism", "Konservatism"],
+        "nyckelprinciper": [
+          "Maktdelning och konstitutionella garantier",
+          "Oberoende rättsväsen",
+          "Pressfrihet och yttrandefrihet",
+          "Rättsstatsprincipen framför majoritetsstyre"
+        ]
+      },
+      {
+        "id": "frihet_demokratisk_balans",
+        "label": "Demokratisk maktbalans",
+        "span": [0, 3],
+        "description": "Folkviljan uttryckt genom demokratiska institutioner är den primära legitimitetsgrunden. Staten kan ta på sig omfattande uppgifter om de stöds av demokratisk majoritet. Friheter balanseras mot kollektiva åtaganden.",
+        "typiska_ideologier": ["Socialdemokrati", "Socialliberalism", "Kommunitarism", "Kristdemokrati"],
+        "nyckelprinciper": [
+          "Demokratisk majoritetsprincip",
+          "Kollektiva rättigheter vid sidan av individuella",
+          "Staten som folkviljeuttryck",
+          "Balans mellan frihet och solidaritet"
+        ]
+      },
+      {
+        "id": "frihet_nationell_auktoritet",
+        "label": "Nationell auktoritet och stark stat",
+        "span": [4, 7],
+        "description": "En stark stat och tydlig auktoritet ses som förutsättning för ordning, sammanhållning och nationell säkerhet. Individens friheter kan begränsas för kollektivets skull. Nationell identitet och lojalitet värderas högt.",
+        "typiska_ideologier": ["Nationalism", "Konservatism (auktoritär)", "Gaullism"],
+        "nyckelprinciper": [
+          "Stark centralstat som garanti för ordning",
+          "Nationell suveränitet prioriteras",
+          "Individuella friheter underordnade samhällets stabilitet",
+          "Tydlig auktoritetskedja och hierarki"
+        ]
+      },
+      {
+        "id": "frihet_totalitar",
+        "label": "Totalitär statsmakt",
+        "span": [8, 10],
+        "description": "Staten kontrollerar i princip alla aspekter av samhällslivet — ekonomi, kultur, information och privatliv. Individen existerar i statens tjänst, inte tvärtom. Ideologisk enighet upprätthålls med tvångsmedel.",
+        "typiska_ideologier": ["Fascism", "Stalinism", "Nationalsocialism"],
+        "nyckelprinciper": [
+          "Statens intressen överordnade individens",
+          "Kontroll av media, utbildning och kultur",
+          "Politisk pluralism avskaffas",
+          "Ideologisk mobilisering av befolkningen"
+        ]
+      }
+    ],
+
+    "kultur": [
+      {
+        "id": "kultur_revolutionar_progressiv",
+        "label": "Revolutionär progressivism / kosmopolitanism",
+        "span": [-10, -8],
+        "description": "Befintliga kulturella och sociala strukturer är i grunden förtryckande och måste ersättas. Universella värden och global solidaritet överordnas nationella och traditionella identiteter. Radikal omvandling av normer, genus, klass och makt.",
+        "typiska_ideologier": ["Kommunism", "Radikal feminism", "Postkolonial teori"],
+        "nyckelprinciper": [
+          "Strukturella maktförhållanden måste omvandlas",
+          "Universell mänsklighet framför partikulär identitet",
+          "Tradition som förtrycksmekanism snarare än resurs",
+          "Intersektionalitet och representation"
+        ]
+      },
+      {
+        "id": "kultur_progressiv_pluralism",
+        "label": "Progressiv pluralism",
+        "span": [-7, -4],
+        "description": "Mångfald, inkludering och social rättvisa är aktiva politiska mål. Befintliga ojämlikheter utmanas systematiskt. Kulturell förändring välkomnas som tecken på framsteg. Kosmopolitisk identitet och öppenhet mot det nya.",
+        "typiska_ideologier": ["Socialliberalism", "Grön politik", "Vänsterliberalism"],
+        "nyckelprinciper": [
+          "Aktiv jämlikhetspolitik och anti-diskriminering",
+          "Kulturell mångfald som värde",
+          "Öppna gränser och global solidaritet",
+          "Normkritik och identitetspolitik"
+        ]
+      },
+      {
+        "id": "kultur_liberal_neutral",
+        "label": "Liberal kulturell neutralitet",
+        "span": [-3, 0],
+        "description": "Staten ska inte ta ställning i kulturella frågor — individer och gemenskaper väljer själva sina värden och livsstilar. Pluralism och tolerans är värden, men staten aktivt driver ingen kulturell agenda. Meritokrati och lika formella rättigheter.",
+        "typiska_ideologier": ["Klassisk liberalism", "Ordoliberalism", "Libertarianism"],
+        "nyckelprinciper": [
+          "Staten är kulturellt neutral",
+          "Individuell frihet att välja livsstil",
+          "Formell likabehandling utan kvotering",
+          "Tolerans som statlig hållning, inte kulturellt program"
+        ]
+      },
+      {
+        "id": "kultur_konservativ_pragmatisk",
+        "label": "Konservativ pragmatism och gemenskapsbevarande",
+        "span": [1, 4],
+        "description": "Beprövade institutioner, normer och sociala strukturer bör värnas eftersom de bär på samlad erfarenhet. Förändring ska ske organiskt och varsamt. Gemensamma värden och social sammanhållning är politiskt viktiga.",
+        "typiska_ideologier": ["Konservatism", "Kristdemokrati", "Kommunitarism"],
+        "nyckelprinciper": [
+          "Respekt för tradition och beprövade institutioner",
+          "Organisk förändring framför radikal reform",
+          "Familjen och civilsamhället som samhällets grundpelare",
+          "Social sammanhållning och gemensamma normer"
+        ]
+      },
+      {
+        "id": "kultur_nationell_konservativ",
+        "label": "Nationell konservatism och kulturell identitet",
+        "span": [5, 7],
+        "description": "Den nationella kulturella identiteten måste aktivt försvaras och bevaras. Invandring och globalisering ses som hot mot samhällets sammanhållning. Gemensam historia, språk och värdegrund är politiska prioriteringar.",
+        "typiska_ideologier": ["Nationalism", "Nationell konservatism", "Populistisk högerpolitik"],
+        "nyckelprinciper": [
+          "Nationell kulturell homogenitet som samhällsvärde",
+          "Begränsad invandring och kulturell assimilation",
+          "Historisk och religiös tradition som politisk grund",
+          "Suveränitet mot globalisering och överstatliga institutioner"
+        ]
+      },
+      {
+        "id": "kultur_traditionalist_auktoritär",
+        "label": "Traditionalism och auktoritär kulturordning",
+        "span": [8, 10],
+        "description": "En fast kulturell och moralisk ordning — ofta religiöst eller etniskt definierad — ska upprätthållas av staten. Avvikelse från normen ses som hot och bekämpas. Kulturell pluralism avvisas till förmån för enhet.",
+        "typiska_ideologier": ["Teokrati", "Fascism", "Etnisk nationalism"],
+        "nyckelprinciper": [
+          "En sann kultur eller religion som samhällets fundament",
+          "Statsbevarad moralisk ordning",
+          "Avvikande livsstilar och värderingar begränsas",
+          "Etnisk eller religiös renhet som politiskt mål"
+        ]
+      }
+    ]
+
+  }
+}
