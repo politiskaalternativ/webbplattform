@@ -358,21 +358,21 @@
 }
 
 .tradeoff-box-prioritize {
-  background: var(--tone-positive-bg);
-  border-color: var(--tone-positive-border);
+  background: #ece7dc;
+  border-color: #cfc7b6;
 }
 
 .tradeoff-box-prioritize h4 {
-  color: var(--tone-positive-text);
+  color: #4f473a;
 }
 
 .tradeoff-box-deprioritize {
-  background: var(--tone-negative-bg);
-  border-color: var(--tone-negative-border);
+  background: #e8e2d4;
+  border-color: #c8bfad;
 }
 
 .tradeoff-box-deprioritize h4 {
-  color: var(--tone-negative-text);
+  color: #4a4338;
 }
 
 .tradeoff-neutral {
@@ -407,30 +407,68 @@
     background: rgba(201,151,58,0.18);
   }
 
-  .tradeoff-box-prioritize {
-    background: color-mix(in srgb, var(--tone-positive-bg) 22%, #0d1107);
-    border-color: color-mix(in srgb, var(--tone-positive-border) 55%, #15220b);
-    color: color-mix(in srgb, var(--tone-positive-bg) 70%, #ffffff);
-  }
-
-  .tradeoff-box-prioritize h4 {
-    color: color-mix(in srgb, var(--tone-positive-border) 70%, #f3f9ea);
-  }
-
+  .tradeoff-box-prioritize,
   .tradeoff-box-deprioritize {
-    background: color-mix(in srgb, var(--tone-negative-bg) 26%, #170b09);
-    border-color: color-mix(in srgb, var(--tone-negative-border) 58%, #2a100c);
-    color: color-mix(in srgb, var(--tone-negative-bg) 70%, #ffffff);
+    background: rgba(245,240,232,0.08);
+    border-color: rgba(245,240,232,0.24);
+    color: rgba(245,240,232,0.86);
   }
 
+  .tradeoff-box-prioritize h4,
   .tradeoff-box-deprioritize h4 {
-    color: color-mix(in srgb, var(--tone-negative-border) 75%, #fff0ed);
+    color: rgba(245,240,232,0.86);
   }
 
   .tradeoff-neutral {
     background: rgba(245,240,232,0.03);
     border-color: rgba(245,240,232,0.2);
     color: rgba(245,240,232,0.62);
+  }
+}
+
+@media (max-width: 900px) {
+  .tradeoff-card {
+    background: linear-gradient(180deg, rgba(245,240,232,0.94), rgba(245,240,232,1));
+    border-color: var(--rule);
+  }
+
+  .tradeoff-position {
+    color: var(--muted);
+    border-color: var(--rule);
+    background: rgba(208, 201, 184, 0.16);
+  }
+
+  .tradeoff-card[data-direction='left'] .tradeoff-position,
+  .tradeoff-card[data-direction='right'] .tradeoff-position {
+    color: var(--ink);
+    border-color: var(--accent);
+    background: rgba(139,58,42,0.08);
+  }
+
+  .tradeoff-box-prioritize {
+    background: #ece7dc;
+    border-color: #cfc7b6;
+    color: var(--ink);
+  }
+
+  .tradeoff-box-prioritize h4 {
+    color: #4f473a;
+  }
+
+  .tradeoff-box-deprioritize {
+    background: #e8e2d4;
+    border-color: #c8bfad;
+    color: var(--ink);
+  }
+
+  .tradeoff-box-deprioritize h4 {
+    color: #4a4338;
+  }
+
+  .tradeoff-neutral {
+    background: rgba(245,240,232,0.45);
+    border-color: var(--rule-dark);
+    color: var(--muted);
   }
 }
 
