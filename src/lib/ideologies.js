@@ -107,6 +107,23 @@ export const ideologies = [
     color: '#7a5a3a',
   },
   {
+    id: 'nyliberalism',
+    label: 'Nyliberalism',
+    era: '1900-tal–',
+    tagline: 'Marknadens frihet är grunden för både välstånd och personlig frihet.',
+    core: [
+      'Fri marknad och minimal statlig inblandning',
+      'Privatisering och avreglering',
+      'Individens ansvar för det egna utfallet',
+      'Ekonomisk tillväxt som övergripande mål',
+    ],
+    stateSyn: 'Staten ska hålla sig tillbaka från ekonomin — dess roll är att upprätthålla spelreglerna, skydda äganderätten och säkra prisstabilitet. Välfärdsstaten ses som ineffektiv och hämmande för incitament.',
+    ekonomi: 'Frimarknadsekonomi med låg skatt, begränsad omfördelning och tilltro till att konkurrens och prismekanismer allokerar resurser bättre än politiska beslut.',
+    tänkare: ['Friedrich Hayek', 'Milton Friedman', 'James Buchanan', 'Ludwig von Mises'],
+    spänningar: 'Spänning mellan marknadsfrihet och demokratisk legitimitet — avreglering och kapitalrörelser kan urholka nationalstatens förmåga att genomföra folkvalda politiska beslut.',
+    color: '#2f7b7b',
+  },
+  {
     id: 'ordoliberalism',
     label: 'Ordoliberalism',
     era: '1900-tal–',
