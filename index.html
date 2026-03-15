@@ -330,6 +330,14 @@
         aria-label="Skala för ${axis.name}"
       />
 
+      <div class="tradeoff-ticks" aria-hidden="true">
+        <span>-2</span>
+        <span>-1</span>
+        <span>0</span>
+        <span>+1</span>
+        <span>+2</span>
+      </div>
+
       <div class="tradeoff-outcome" data-role="outcome">
         <p class="tradeoff-neutral">Flytta skalan för att se avvägningarna</p>
       </div>
@@ -342,6 +350,7 @@
     const update = (value) => {
       const parsed = Number(value);
       positionEl.textContent = getPositionLabel(axis, parsed);
+      card.dataset.direction = parsed === 0 ? 'neutral' : parsed < 0 ? 'left' : 'right';
 
       if (parsed === 0) {
         outcomeEl.innerHTML = '<p class="tradeoff-neutral">Flytta skalan för att se avvägningarna</p>';
