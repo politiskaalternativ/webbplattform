@@ -25,6 +25,12 @@
   --rule:       #d0c9b8;
   --rule-dark:  #bfb8a8;
   --white:      #faf7f2;
+  --tone-positive-bg: #e8efe0;
+  --tone-positive-border: #c2d3ad;
+  --tone-positive-text: #395822;
+  --tone-negative-bg: #f4e3e0;
+  --tone-negative-border: #dfbab2;
+  --tone-negative-text: #7f3a2f;
 
   --font-serif:  'Cormorant Garamond', Georgia, serif;
   --font-mono:   'DM Mono', 'Courier New', monospace;
