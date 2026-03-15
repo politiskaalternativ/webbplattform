@@ -332,21 +332,6 @@
   accent-color: var(--accent);
   margin-bottom: 0.35rem;
 }
-
-.tradeoff-ticks {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  margin-bottom: 1rem;
-  font-family: var(--font-mono);
-  font-size: 0.56rem;
-  letter-spacing: 0.12em;
-  color: var(--muted);
-}
-
-.tradeoff-ticks span {
-  text-align: center;
-}
-
 .tradeoff-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
