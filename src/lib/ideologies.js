@@ -39,6 +39,23 @@ export const ideologies = [
     color: '#7a1f2a',
   },
   {
+    id: 'socialliberalism',
+    label: 'Socialliberalism',
+    era: '1900-tal–',
+    tagline: 'Frihet förutsätter verkliga möjligheter — inte bara formella rättigheter.',
+    core: [
+      'Individuell frihet kräver materiella förutsättningar',
+      'Staten ska aktivt undanröja hinder för frihet',
+      'Social rättvisa och lika möjligheter',
+      'Universella rättigheter — civila, politiska och sociala',
+    ],
+    stateSyn: 'Staten är ett legitimt verktyg för att utjämna livsvillkor och garantera reell frihet. Offentliga institutioner, välfärd och reglering ses som förutsättningar — inte hot — för ett fritt samhälle.',
+    ekonomi: 'Blandekonomi som kombinerar marknadens effektivitet med statlig omfördelning och reglering. Progressiv beskattning och sociala skyddsnät motiveras av frihetsprincipen.',
+    tänkare: ['T.H. Green', 'L.T. Hobhouse', 'John Rawls', 'John Dewey'],
+    spänningar: 'Var går gränsen för statlig intervention? Risken att omsorgen om frihet motiverar allt större statsmakt — och undergräver den individuella autonomi ideologin syftar till att skydda.',
+    color: '#3f6f8f',
+  },
+  {
     id: 'socialdemokrati',
     label: 'Socialdemokrati',
     era: '1800-tal–',
