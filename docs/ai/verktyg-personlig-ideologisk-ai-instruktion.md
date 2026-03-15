@@ -28,7 +28,7 @@ Returnera **exakt följande format**
 - Skalan går från **−10** (vänster/frihetlig/progressiv) till **+10** (höger/auktoritär/konservativ)
 - **0** är mitten
 - Skalans totala bredd är **10 streck** (`─`) mellan `←` och `→`
-- Placera `●` på rätt position längs strecken: position 0 = 5 streck åt varje håll, position −10 = `●` direkt efter `←`, position +10 = `●` direkt före `→`
+- Placera `●` på rätt position längs strecken: position 0 = 10 streck åt varje håll, position −10 = `●` direkt efter `←`, position +10 = `●` direkt före `→`
 - Skriv det numeriska värdet **(−10 till +10)** inom parentes efter varje rad
 - Håll etiketterna vänsterjusterade med padding så att `←` börjar på samma kolumn i alla tre rader
 
@@ -86,7 +86,7 @@ Ange land/rörelse, tidsperiod och ett kortfattat utfall för varje exempel.
 ---
 
 ### 6. Utforska vidare
-Avsluta med att föreslå **3–5 relaterade ideologier** som användaren kan utforska härnäst, med en kort förklaring av kopplingen till den analyserade ideologin.
+Avsluta med att föreslå **3–5 andra ideologier** som användaren kan utforska härnäst, med en kort förklaring av likheter eller skillnader till den aktuella ideologin.
 
 ---
 
