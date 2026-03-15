@@ -214,6 +214,153 @@
   background: var(--paper);
 }
 
+/* ── Trade-off widget ── */
+.tradeoff {
+  padding: 8rem var(--gutter);
+  background: var(--canvas);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.tradeoff-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.tradeoff-header {
+  max-width: 76ch;
+  margin-bottom: 2.5rem;
+}
+
+.tradeoff-header h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  margin: 1rem 0 1.2rem;
+}
+
+.tradeoff-intro {
+  color: var(--muted);
+  font-size: 1.04rem;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+.tradeoff-widget {
+  display: grid;
+  gap: 1rem;
+}
+
+.tradeoff-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 1.5rem;
+}
+
+.tradeoff-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.tradeoff-card-head h3 {
+  font-size: 1.45rem;
+}
+
+.tradeoff-position {
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.tradeoff-scale-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+
+.tradeoff-slider {
+  width: 100%;
+  accent-color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.tradeoff-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.tradeoff-box {
+  padding: 0.95rem;
+  border-radius: 0.25rem;
+}
+
+.tradeoff-box h4 {
+  font-family: var(--font-mono);
+  font-size: 0.61rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.tradeoff-box p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.tradeoff-box-prioritize {
+  background: #EAF3DE;
+}
+
+.tradeoff-box-prioritize h4 {
+  color: #3B6D11;
+}
+
+.tradeoff-box-deprioritize {
+  background: #FCEBEB;
+}
+
+.tradeoff-box-deprioritize h4 {
+  color: #A32D2D;
+}
+
+.tradeoff-neutral {
+  text-align: center;
+  font-style: italic;
+  color: var(--muted);
+  padding: 0.95rem;
+  border: 1px dashed var(--rule);
+}
+
+@media (prefers-color-scheme: dark) {
+  .tradeoff-box-prioritize {
+    background: #173404;
+    color: #e9f5d6;
+  }
+
+  .tradeoff-box-prioritize h4 {
+    color: #C0DD97;
+  }
+
+  .tradeoff-box-deprioritize {
+    background: #501313;
+    color: #fee5e5;
+  }
+
+  .tradeoff-box-deprioritize h4 {
+    color: #F7C1C1;
+  }
+}
+
 .how-header {
   max-width: var(--max-w);
   margin: 0 auto 4rem;
@@ -375,6 +522,9 @@
   .scroll-hint { display: none; }
   .democracy { padding: 4rem 1.5rem; }
   .democracy-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .tradeoff { padding: 4rem 1.5rem; }
+  .tradeoff-columns { grid-template-columns: 1fr; }
+  .tradeoff-card-head { flex-wrap: wrap; }
   .how { padding: 4rem 1.5rem; }
   .steps { grid-template-columns: 1fr; gap: 2rem; }
   .examples { padding: 4rem 1.5rem; }

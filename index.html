@@ -110,6 +110,22 @@
     </div>
   </section>
 
+  <!-- ── Trade-off Widget ── -->
+  <section class="tradeoff" id="avvagningar">
+    <div class="tradeoff-inner">
+      <div class="tradeoff-header">
+        <p class="label">Avvägningar</p>
+        <h2>Alla politiska val har ett pris</h2>
+        <p class="tradeoff-intro">
+          Varje politisk position innebär att vissa värden prioriteras framför andra. Det går inte att maximera allt samtidigt.
+          Testa skalorna nedan och se exempel på vad som prioriteras och vad som prioriteras bort.
+        </p>
+      </div>
+
+      <div class="tradeoff-widget" id="tradeoff-widget"></div>
+    </div>
+  </section>
+
   <!-- ── How ── -->
   <section class="how" id="hur">
     <div class="how-header">
@@ -203,6 +219,158 @@
 <script type="module">
   import { mountShell } from './src/components/shell.js';
   mountShell('index.html');
+
+  const axes = [
+    {
+      id: 'economy',
+      name: 'Ekonomi',
+      leftLabel: 'Stat',
+      rightLabel: 'Marknad',
+      tradeoffs: {
+        '-2': {
+          prioritize: 'Starka omfördelningssystem, trygg välfärd, kollektiva garantier för alla medborgare.',
+          deprioritize: 'Svagare prismekanismer, minskad innovation, risk för ineffektiv resursallokering och politiserade beslut.'
+        },
+        '-1': {
+          prioritize: 'Bred välfärdsstat med tydliga skyddsnät. Utjämning av ekonomiska klyftor.',
+          deprioritize: 'Högre skatter begränsar privat initiativ. Marknaden ges mindre utrymme att signalera verkliga behov.'
+        },
+        '1': {
+          prioritize: 'Mer utrymme för marknadsmekanismer, ökad konkurrens och ekonomisk dynamik.',
+          deprioritize: 'Svagare sociala skyddsnät. Fördelningsutfall avgörs mer av startposition än av politiska val.'
+        },
+        '2': {
+          prioritize: 'Maximal ekonomisk frihet, starka incitament till innovation och effektivitet.',
+          deprioritize: 'Marknadsmisslyckanden (monopol, externaliteter, kollektiva nyttigheter) hanteras inte. Ojämlikhet ökar.'
+        }
+      }
+    },
+    {
+      id: 'freedom',
+      name: 'Frihet',
+      leftLabel: 'Libertariansk',
+      rightLabel: 'Auktoritär',
+      tradeoffs: {
+        '-2': {
+          prioritize: 'Maximalt individuellt självbestämmande. Staten minimeras till att skydda kontrakt och äganderätt.',
+          deprioritize: 'Svag kollektiv kapacitet att hantera kriser, externaliteter och koordineringsproblem som kräver gemensamma svar.'
+        },
+        '-1': {
+          prioritize: 'Starka medborgerliga friheter, begränsad statsmakt, skydd för individens privatliv och rörelsefrihet.',
+          deprioritize: 'Svårare att upprätthålla normer som kräver kollektiv anslutning (vaccin, miljö, trafikregler).'
+        },
+        '1': {
+          prioritize: 'Starkare kollektiv ordning, effektivare hantering av samhällsproblem som kräver gemensam mobilisering.',
+          deprioritize: 'Individens handlingsutrymme begränsas. Risk att staten definierar det gemensamma goda ensidigt.'
+        },
+        '2': {
+          prioritize: 'Stark central styrning möjliggör snabb och konsekvent politisk genomförandekraft.',
+          deprioritize: 'Individens rättigheter och yttrandefrihet offras. Maktkoncentration skapar risk för missbruk och korruption.'
+        }
+      }
+    },
+    {
+      id: 'culture',
+      name: 'Kultur',
+      leftLabel: 'Progressiv',
+      rightLabel: 'Konservativ',
+      tradeoffs: {
+        '-2': {
+          prioritize: 'Aktiv omprövning av normer, stöd för marginaliserade grupper, öppenhet mot nya identiteter och levnadssätt.',
+          deprioritize: 'Risk att etablerade institutioner och traditioner undergrävs snabbare än nya strukturer kan växa fram.'
+        },
+        '-1': {
+          prioritize: 'Stöd för förändring och inkludering. Samhället anpassas kontinuerligt till nya gruppers behov och erfarenheter.',
+          deprioritize: 'Spänningar med dem som ser snabb normförändring som ett hot mot sammanhållning och gemensam identitet.'
+        },
+        '1': {
+          prioritize: 'Beprövade institutioner, traditioner och normer bevaras. Samhällelig kontinuitet och igenkänning stärks.',
+          deprioritize: 'Långsammare anpassning till förändrade sociala verkligheter. Risk att underordnade gruppers erfarenheter osynliggörs.'
+        },
+        '2': {
+          prioritize: 'Stark kulturell sammanhållning kring gemensamma värden, tydlig kollektiv identitet.',
+          deprioritize: 'Minoriteters rättigheter och pluralism offras. Kulturell dynamik strypas till förmån för uniformitet.'
+        }
+      }
+    }
+  ];
+
+  const widgetRoot = document.getElementById('tradeoff-widget');
+
+  const getPositionLabel = (axis, value) => {
+    if (value === 0) {
+      return 'Neutralt';
+    }
+    const sideLabel = value < 0 ? axis.leftLabel : axis.rightLabel;
+    return `${sideLabel} ${Math.abs(value)}`;
+  };
+
+  const renderAxisCard = (axis) => {
+    const card = document.createElement('article');
+    card.className = 'tradeoff-card';
+    card.innerHTML = `
+      <header class="tradeoff-card-head">
+        <h3>${axis.name}</h3>
+        <p class="tradeoff-position" data-role="position">Neutralt</p>
+      </header>
+
+      <div class="tradeoff-scale-meta" aria-hidden="true">
+        <span>${axis.leftLabel}</span>
+        <span>${axis.rightLabel}</span>
+      </div>
+
+      <input
+        type="range"
+        min="-2"
+        max="2"
+        step="1"
+        value="0"
+        class="tradeoff-slider"
+        data-axis="${axis.id}"
+        aria-label="Skala för ${axis.name}"
+      />
+
+      <div class="tradeoff-outcome" data-role="outcome">
+        <p class="tradeoff-neutral">Flytta skalan för att se avvägningarna</p>
+      </div>
+    `;
+
+    const slider = card.querySelector('.tradeoff-slider');
+    const positionEl = card.querySelector('[data-role="position"]');
+    const outcomeEl = card.querySelector('[data-role="outcome"]');
+
+    const update = (value) => {
+      const parsed = Number(value);
+      positionEl.textContent = getPositionLabel(axis, parsed);
+
+      if (parsed === 0) {
+        outcomeEl.innerHTML = '<p class="tradeoff-neutral">Flytta skalan för att se avvägningarna</p>';
+        return;
+      }
+
+      const data = axis.tradeoffs[String(parsed)];
+      outcomeEl.innerHTML = `
+        <div class="tradeoff-columns">
+          <section class="tradeoff-box tradeoff-box-prioritize">
+            <h4>Prioriteras</h4>
+            <p>${data.prioritize}</p>
+          </section>
+          <section class="tradeoff-box tradeoff-box-deprioritize">
+            <h4>Prioriteras bort</h4>
+            <p>${data.deprioritize}</p>
+          </section>
+        </div>
+      `;
+    };
+
+    slider.addEventListener('input', (event) => update(event.target.value));
+    update(slider.value);
+    return card;
+  };
+
+  axes.forEach((axis) => {
+    widgetRoot.appendChild(renderAxisCard(axis));
+  });
 </script>
 </body>
 </html>
