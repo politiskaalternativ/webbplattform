@@ -358,21 +358,21 @@
 }
 
 .tradeoff-box-prioritize {
-  background: #EAF3DE;
-  border-color: rgba(59,109,17,0.15);
+  background: var(--tone-positive-bg);
+  border-color: var(--tone-positive-border);
 }
 
 .tradeoff-box-prioritize h4 {
-  color: #3B6D11;
+  color: var(--tone-positive-text);
 }
 
 .tradeoff-box-deprioritize {
-  background: #FCEBEB;
-  border-color: rgba(163,45,45,0.14);
+  background: var(--tone-negative-bg);
+  border-color: var(--tone-negative-border);
 }
 
 .tradeoff-box-deprioritize h4 {
-  color: #A32D2D;
+  color: var(--tone-negative-text);
 }
 
 .tradeoff-neutral {
@@ -408,21 +408,23 @@
   }
 
   .tradeoff-box-prioritize {
-    background: #173404;
-    color: #e9f5d6;
+    background: color-mix(in srgb, var(--tone-positive-bg) 22%, #0d1107);
+    border-color: color-mix(in srgb, var(--tone-positive-border) 55%, #15220b);
+    color: color-mix(in srgb, var(--tone-positive-bg) 70%, #ffffff);
   }
 
   .tradeoff-box-prioritize h4 {
-    color: #C0DD97;
+    color: color-mix(in srgb, var(--tone-positive-border) 70%, #f3f9ea);
   }
 
   .tradeoff-box-deprioritize {
-    background: #501313;
-    color: #fee5e5;
+    background: color-mix(in srgb, var(--tone-negative-bg) 26%, #170b09);
+    border-color: color-mix(in srgb, var(--tone-negative-border) 58%, #2a100c);
+    color: color-mix(in srgb, var(--tone-negative-bg) 70%, #ffffff);
   }
 
   .tradeoff-box-deprioritize h4 {
-    color: #F7C1C1;
+    color: color-mix(in srgb, var(--tone-negative-border) 75%, #fff0ed);
   }
 
   .tradeoff-neutral {
