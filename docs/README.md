@@ -1,11 +1,29 @@
 # Dokumentation
 
-Den här mappen innehåller dokumentation för projektets idéer, domänmodell och arkitektur.
+Den här mappen innehåller stödmaterial för produktidé, domänmodell, teknikbeslut och planering.
 
-## Rekommenderad uppdelning
+## Syfte
 
-- `vision.md` – syfte, målgrupp och produktidé
-- `domain-model.md` – kärnbegrepp och relationer
-- `roadmap.md` – etapper och prioriteringar
+Dokumentationen ska göra det enkelt att:
+- förstå varför projektet finns,
+- se hur lösningen är strukturerad,
+- prioritera nästa steg i utvecklingen.
 
-I första fasen hålls dokumentationen enkel och konkret.
+## Rekommenderad struktur
+
+| Fil | Innehåll |
+|-----|----------|
+| `vision.md` | Syfte, målgrupp och produktidé |
+| `domain-model.md` | Kärnbegrepp, relationer och avgränsningar |
+| `roadmap.md` | Etapper, prioriteringar och milstolpar |
+| `STRUCTURE.md` | Beskrivning av kodstruktur och arkitekturval |
+
+## Arbetsprinciper
+
+- Håll dokument korta, konkreta och versionsbara.
+- Uppdatera dokumentationen i samma PR som kodändringar när det är relevant.
+- Skriv beslutslogik tydligt: *vad* som valts och *varför*.
+
+## Koppling till huvudprojektet
+
+Se projektets huvud-README i roten (`../README.md`) för installation, körning och översikt över applikationen.
