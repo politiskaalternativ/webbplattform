@@ -192,23 +192,6 @@ export const ideologies = [
     color: '#4a7a4a',
   },
   {
-    id: 'degrowth',
-    label: 'Degrowth',
-    era: '1970-tal–',
-    tagline: 'Välstånd utan tillväxt — en annan ekonomis möjlighet.',
-    core: [
-      'Ekonomisk nedväxt som politiskt mål, inte kris att undvika',
-      'Behov framför BNP — livskvalitet som måttstock',
-      'Omfördelning av arbete, tid och resurser',
-      'Lokala ekonomier och minskad konsumtion',
-    ],
-    stateSyn: 'Staten ska aktivt styra ned produktion och konsumtion samt omfördela resurser — men rörelsen är splittrad om statens roll kontra lokalt självstyre.',
-    ekonomi: 'Post-tillväxtekonomi med fokus på omsorg, commons och ekologiska gränser. Ifrågasätter marknadslogikens dominans utan att nödvändigtvis förespråka central planering.',
-    tänkare: ['Serge Latouche', 'Kate Raworth', 'Jason Hickel'],
-    spänningar: 'Spänning mellan frivillig enkelhet och politisk tvångsreduktion — vems konsumtion ska minska, och vem bestämmer det?',
-    color: '#5c7f56',
-  },
-  {
     id: 'kommunitarism',
     label: 'Kommunitarism',
     era: '1980-tal–',
