@@ -16,3 +16,5 @@ Automatiserad läsning för indexering och sammanfattning är tillåten så län
 
 ## LLM-access
 LLM:er får läsa och använda `/docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md` som referens i analyser och svar.
+LLM:er får läsa och använda `/src/lib/ideologies.js` som referens i analyser och svar.
+
