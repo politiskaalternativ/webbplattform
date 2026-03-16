@@ -169,7 +169,7 @@ export const ideologies = [
       'Frivilliga associationer som samhällsgrund',
     ],
     stateSyn: 'Staten är ett nödvändigt ont i bästa fall — och i sin minimala form begränsad till att skydda individen mot våld, stöld och kontraktsbrott. Många libertarianer ifrågasätter statens legitimitet i grunden, men skiljer sig åt om huruvida en minimal nattväktarstat kan rättfärdigas.',
-    ekonomi: 'Laissez-faire kapitalism. Skatter betraktas som tvång.',
+    ekonomi: 'Laissez-faire kapitalism med absolut äganderätt som grund. Skatter betraktas som tvång snarare än medborgerlig skyldighet. Marknaden ses som det enda legitima systemet för resursallokering — frivilligt utbyte utan statlig inblandning är både effektivt och moraliskt rättfärdigat.',
     tänkare: ['Friedrich Hayek', 'Murray Rothbard', 'Robert Nozick'],
     spänningar: 'Spänning mellan den interna koherensen i icke-aggressionsprincipen och svårigheten att hantera kollektiva problem — miljöförstöring, naturmonopol, fattigdom — utan kollektiva institutioner. Dessutom en intern spänning mellan minarkism och anarkokapitalism.',
     color: '#c9973a',
