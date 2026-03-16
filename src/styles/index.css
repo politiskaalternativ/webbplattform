@@ -384,48 +384,6 @@
   background: rgba(245,240,232,0.45);
 }
 
-@media (prefers-color-scheme: dark) {
-  .tradeoff-card {
-    background: rgba(20, 19, 16, 0.84);
-    border-color: rgba(245,240,232,0.16);
-  }
-
-  .tradeoff-card::before {
-    background: linear-gradient(90deg, rgba(245,240,232,0.18), var(--gold), rgba(245,240,232,0.18));
-  }
-
-  .tradeoff-position {
-    color: rgba(245,240,232,0.74);
-    border-color: rgba(245,240,232,0.2);
-    background: rgba(245,240,232,0.06);
-  }
-
-  .tradeoff-card[data-direction='left'] .tradeoff-position,
-  .tradeoff-card[data-direction='right'] .tradeoff-position {
-    color: #f5f0e8;
-    border-color: rgba(201,151,58,0.65);
-    background: rgba(201,151,58,0.18);
-  }
-
-  .tradeoff-box-prioritize,
-  .tradeoff-box-deprioritize {
-    background: rgba(245,240,232,0.08);
-    border-color: rgba(245,240,232,0.24);
-    color: rgba(245,240,232,0.86);
-  }
-
-  .tradeoff-box-prioritize h4,
-  .tradeoff-box-deprioritize h4 {
-    color: rgba(245,240,232,0.86);
-  }
-
-  .tradeoff-neutral {
-    background: rgba(245,240,232,0.03);
-    border-color: rgba(245,240,232,0.2);
-    color: rgba(245,240,232,0.62);
-  }
-}
-
 @media (max-width: 900px) {
   .tradeoff-card {
     background: linear-gradient(180deg, rgba(245,240,232,0.94), rgba(245,240,232,1));
