@@ -18,17 +18,17 @@ Ge en kort, neutral beskrivning (2–3 meningar) av vad ideologin grundar sig p�
 
 Returnera exakt tre rader:
 
-1. Ekonomi:    Stat ←──────────○──────────→ Marknad       (X)
-2. Frihet:     Libertariansk ←──────────○──────────→ Auktoritär  (X)
-3. Kultur:     Progressiv ←──────────○──────────→ Konservativ  (X)
+1. Ekonomi:    Stat ←──────────●──────────→ Marknad       (X)
+2. Frihet:     Libertariansk ←──────────●──────────→ Auktoritär  (X)
+3. Kultur:     Progressiv ←──────────●──────────→ Konservativ  (X)
 
 ### Skala
 
 - Värde: **−10 till +10**
 - **20 streck (`─`)**
-- **`○` = mitten (0)**
-- **`●` = position**
-- Vid **0 ersätter `●` mittenmarkören `○`**
+- **`●` = mitten (0)**
+- **`○` = position**
+- Vid **0 ersätter `○` mittenmarkören `●`**
 
 ### Tolkning
 
