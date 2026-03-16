@@ -5,6 +5,23 @@
 
 export const ideologies = [
   {
+    id: 'gronliberalism',
+    label: 'Grön liberalism',
+    era: '1990-tal–',
+    tagline: 'Marknadens kraft omriktad mot ekologisk hållbarhet.',
+    core: [
+      'Individuell frihet inom ekologiska ramar',
+      'Marknadsmekanismer som klimatverktyg',
+      'Rättsstatsprincipen utvidgad till miljöskydd',
+      'Reformism framför systemskifte',
+    ],
+    stateSyn: 'Staten ska sätta priset på miljöskador och korrigera marknadsmisslyckanden — men lämna resurstilldelningen till individer och marknader.',
+    ekonomi: 'Marknadsekonomi med koldioxidprissättning, gröna incitament och extern-kostnadskorrigering. Tillväxt är möjlig om den är resurseffektiv.',
+    tänkare: ['Al Gore', 'Anthony Giddens', 'Jonathan Porritt'],
+    spänningar: 'Spänning mellan tron på marknadsreformer och insikten att prismekanismer ensamt inte räcker för strukturomställning i tid.',
+    color: '#2f7a47',
+  },
+  {
     id: 'liberalism',
     label: 'Klassisk liberalism',
     era: '1700-tal–',
