@@ -1,13 +1,24 @@
 # Politiska Alternativ
 
-Ett politiskt neutralt verktyg för att formulera, strukturera och använda en personlig ideologisk AI-instruktion.
+Ett politiskt neutralt webbverktyg för att formulera, strukturera och använda en personlig ideologisk AI‑instruktion.
 
-## Syfte
+## Innehåll
+
+- [Om projektet](#om-projektet)
+- [Sidor](#sidor)
+- [Teknik och arkitektur](#teknik-och-arkitektur)
+- [Kom igång lokalt](#kom-igång-lokalt)
+- [NPM-skript](#npm-skript)
+- [Projektstruktur](#projektstruktur)
+- [Designprinciper](#designprinciper)
+- [Fortsatt utveckling](#fortsatt-utveckling)
+
+## Om projektet
 
 Verktyget hjälper användare att:
-1. Formulera sin politiska grundsyn i strukturerad form
-2. Skapa en jämförbar ideologisk AI-instruktion
-3. Använda instruktionen för att analysera nyheter och politiska förslag
+1. Formulera sin politiska grundsyn i strukturerad form.
+2. Skapa en jämförbar ideologisk AI‑instruktion.
+3. Använda instruktionen för att analysera nyheter och politiska förslag.
 
 ## Sidor
 
@@ -18,66 +29,80 @@ Verktyget hjälper användare att:
 | Bibliotek | `bibliotek.html` | Referensbibliotek med klassiska ideologier |
 | Robots | `robots.txt` | Tillåter crawl och pekar ut sitemap |
 | Sitemap | `sitemap.xml` | Lista över indexerbara sidor |
-| LLM index | `llms.txt` | Maskinläsbar översikt över sidstruktur och resurser |
+| LLM-index | `llms.txt` | Maskinläsbar översikt över sidstruktur och resurser |
 
-## Projektstruktur
+## Teknik och arkitektur
 
-```
-politiska-alternativ/
-├── README.md
-├── .gitignore
-├── package.json
-├── index.html          # Startsida
-├── verktyg.html        # Verktygssida
-├── bibliotek.html      # Bibliotekssida
-├── src/
-│   ├── app/            # Sidor och routing (framtida utbyggnad)
-│   ├── components/
-│   │   └── shell.js    # Nav och footer
-│   ├── lib/
-│   │   └── ideologies.js  # Ideologidata
-│   ├── styles/
-│   │   ├── global.css  # Gemensam styling och design tokens
-│   │   ├── index.css   # Startsida
-│   │   ├── verktyg.css # Verktygssida
-│   │   └── bibliotek.css # Bibliotekssida
-│   └── types/          # Gemensamma typer (framtida utbyggnad)
-├── public/             # Statiska filer
-└── docs/               # Dokumentation
-    └── STRUCTURE.md    # Projektstruktur och beslut
-```
+- **Vanilla HTML/CSS/JS** – inga byggverktyg krävs.
+- **ES Modules** – modulär JavaScript utan bundler.
+- **Google Fonts** – Cormorant Garamond + DM Mono.
+- **Node-baserad lokal server** via paketet `serve`.
 
-## Teknikval
+## Kom igång lokalt
 
-- **Vanilla HTML/CSS/JS** — inga byggverktyg krävs
-- **ES Modules** — modulär JS utan bundler
-- **Google Fonts** — Cormorant Garamond + DM Mono
-- Ingen extern JS-dependency utöver fonts
+### Förutsättningar
 
-## Komma igång
+- Node.js 18+ (rekommenderat).
+
+### Starta projektet
 
 ```bash
-# Servera lokalt (valfritt — kan öppnas direkt i webbläsare)
-npx serve .
-# eller
-python3 -m http.server 8080
+npm install
+npm run dev
 ```
 
 Öppna sedan `http://localhost:8080` i webbläsaren.
 
-> **OBS:** ES Modules kräver att sidan serveras via HTTP — `file://` fungerar inte.
+> **Obs:** ES Modules kräver HTTP-server. Öppna inte filer via `file://`.
 
-## Design
+## NPM-skript
+
+| Kommando | Beskrivning |
+|----------|-------------|
+| `npm run dev` | Startar lokal server på port `8080` |
+| `npm start` | Startar lokal server med standardinställningar |
+
+## Projektstruktur
+
+```text
+politiska-alternativ/
+├── README.md
+├── .gitignore
+├── package.json
+├── index.html
+├── verktyg.html
+├── bibliotek.html
+├── robots.txt
+├── sitemap.xml
+├── llms.txt
+├── src/
+│   ├── app/
+│   ├── components/
+│   │   └── shell.js
+│   ├── lib/
+│   │   └── ideologies.js
+│   ├── styles/
+│   │   ├── global.css
+│   │   ├── index.css
+│   │   ├── verktyg.css
+│   │   └── bibliotek.css
+│   └── types/
+├── public/
+└── docs/
+    ├── README.md
+    └── STRUCTURE.md
+```
+
+## Designprinciper
 
 Estetiken är editorial/filosofisk med:
 - Gammelpapper-palett (`#f5f0e8`)
-- Serifftypografi (Cormorant Garamond)
+- Seriftypografi (Cormorant Garamond)
 - Monospace-detaljer (DM Mono)
 - Dämpad röd accent (`#8b3a2a`)
 
-## Utbyggnad
+## Fortsatt utveckling
 
-Nästa naturliga steg:
 - Jämförelseverktyg (visa två ideologier sida vid sida)
 - Spara och exportera skapade instruktioner
 - Fler ideologier i biblioteket
