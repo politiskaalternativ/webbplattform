@@ -117,10 +117,10 @@ export const ideologies = [
       'Gemensamt språk, historia och kultur som sammanhållande kraft',
       'Staten och nationen bör i någon mening sammanfalla',
     ],
-    stateSyn: 'Staten förstås som nationens politiska uttryck — dess uppgift är att skydda och bevara det nationella kollektivet, inte enbart individen. Legitimitet kan i nationalistiskt tänkande vila på historisk och kulturell gemenskap snarare än enbart universella principer. En stat som förlorar sin nationella förankring riskerar, i denna syn, att bli ett administrativt skal utan folklig grund.',
+    stateSyn: 'Staten förstås som nationens politiska uttryck — dess uppgift är att skydda och bevara det nationella kollektivet, inte enbart individen. Legitimitet kan i nationalistiskt tänkande vila på historisk och kulturell gemenskap snarare än enbart universella principer. En stat som förlorar sin nationella förankring riskerar, i denna syn, att bli ett administrativt skal utan folklig grund. I vissa varianter betonas även statens roll i att aktivt stärka social sammanhållning, kulturell kontinuitet och nationell identitet.',
     ekonomi: 'Varierar brett — från protektionism och nationell industripolitik till marknadsekonomier med starka nationella intressen. Ekonomin är ett medel för nationell styrka och sammanhållning, inte ett mål i sig. Frihandel accepteras ofta när den anses gynna nationen, men ifrågasätts när den uppfattas underordna nationella intressen globala marknadslogiker.',
     tänkare: ['Johann Gottfried Herder', 'Giuseppe Mazzini', 'Ernest Renan'],
-    spänningar: 'Spänning mellan medborgerlig nationalism — öppen för alla som delar värderingar och lojalitet — och etnisk nationalism, som definierar tillhörighet genom härkomst. Dessutom finns en spänning mot liberalismen: nationalism betonar det partikulära och kollektiva, medan liberalismen utgår från individen och det universella. Hur hanteras minoriteter inom nationen, och hur definieras gränsen för vem som hör till?',
+    spänningar: 'Spänning mellan medborgerlig nationalism — öppen för alla som delar värderingar och lojalitet — och etnisk nationalism, som definierar tillhörighet genom härkomst. Dessutom finns en spänning mellan mer liberala former av nationalism och mer konservativa varianter, där nationell gemenskap kopplas tydligare till kultur, tradition och social ordning (ibland benämnt nationalkonservatism). Hur hanteras minoriteter inom nationen, och hur definieras gränsen för vem som hör till?',
     color: '#7a5a3a',
   },
   {
