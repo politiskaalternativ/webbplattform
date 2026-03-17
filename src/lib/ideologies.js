@@ -5,20 +5,20 @@
 
 export const ideologies = [
   {
-    id: 'nationalkonservatism',
-    label: 'Nationalkonservatism',
+    id: 'fascism',
+    label: 'Fascism',
     era: '1900-tal–',
-    tagline: 'Nationen, kulturen och välfärden hör ihop.',
+    tagline: 'Staten och nationen överordnas individen.',
     core: [
-      'Nationell identitet som viktig grund för social sammanhållning',
-      'Välfärdsstaten knuten till den nationella gemenskapen i många varianter',
-      'Kulturkonservatism och skepsis mot snabb samhällsförändring',
-      'Stark stat i migrationsfrågor, familjepolitik och lag och ordning',
+      'Staten ses som ett organiskt helt där individen underordnas helheten',
+      'Betonar auktoritärt ledarskap och stark central makt',
+      'Radikal nationalism och mobilisering av massan',
+      'Avvisar både liberalism och marxism',
     ],
-    stateSyn: 'Staten ses som nationens beskyddare — dess uppgift är att värna det kulturella arvet, upprätthålla ordningen och säkra sammanhållningen inom det nationella kollektivet. Globalism och överstatliga institutioner betraktas ofta som hot mot folklig självbestämmanderätt. Samtidigt varierar traditionen mellan mer kulturellt definierade och mer politiskt eller etniskt definierade former av nationstillhörighet.',
-    ekonomi: 'Pragmatisk — varken strikt marknadsliberal eller socialistisk. Många nationalkonservativa accepterar en generös välfärdsstat men vill i olika grad begränsa dess omfattning till den nationella gemenskapen. Protektionism och nationella intressen väger ofta tyngre än frihandelsideal. Ekonomisk politik bedöms främst utifrån dess effekter på nationell sammanhållning, trygghet och suveränitet.',
-    tänkare: ['Roger Scruton', 'Yoram Hazony', 'David Goodhart'],
-    spänningar: 'Spänning mellan ett demokratiskt arv av medborgerlig jämlikhet och en politik som ibland skiljer mellan olika nivåer av tillhörighet utifrån kultur, lojalitet eller härkomst. Dessutom finns en intern spänning mellan marknadsvänliga och socialt konservativa falanger — och mellan inkluderande medborgerlig nationalism och mer exkluderande former av nationell identitet.',
+    stateSyn: 'Staten ses som den högsta politiska och moraliska enheten, med uppgift att skapa enhet, styrka och sammanhållning inom nationen. Individens rättigheter underordnas kollektivet och statens mål. Demokratiska institutioner ersätts ofta av centraliserad maktutövning, där ledarskap och lydnad betonas framför pluralism och maktdelning.',
+    ekonomi: 'Statligt styrd — varken fri marknad eller planekonomi i klassisk mening. Privat ägande kan tillåtas, men underställs statens intressen. Ekonomin organiseras ofta i korporativa strukturer där staten samordnar relationen mellan arbetsgivare, arbetstagare och andra samhällsgrupper. Ekonomisk politik syftar främst till nationell styrka, självförsörjning och stabilitet.',
+    tänkare: ['Benito Mussolini', 'Giovanni Gentile'],
+    spänningar: 'Spänning mellan total statlig kontroll och behovet av ekonomisk effektivitet. Även motsättningar mellan olika former av nationalism, från statligt centrerade till mer exkluderande och identitetsbaserade varianter. Samtidigt begränsar betoningen på enhet och lydnad utrymmet för intern pluralism och idéutveckling.',
     color: '#6b4c2a',
   },
   {
