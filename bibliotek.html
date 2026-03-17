@@ -118,9 +118,31 @@
     nationalkonservatism: ['gemenskap'],
   };
 
+  const cardOrder = [
+    'liberalism',
+    'socialdemokrati',
+    'konservatism',
+    'ekologism',
+    'socialliberalism',
+    'nationalism',
+    'kommunism',
+    'ordoliberalism',
+    'kommunitarism',
+    'nyliberalism',
+    'nationalkonservatism',
+    'libertarianism',
+  ];
+
+  const orderedIdeologies = [
+    ...cardOrder
+      .map(id => ideologies.find(ideo => ideo.id === id))
+      .filter(Boolean),
+    ...ideologies.filter(ideo => !cardOrder.includes(ideo.id)),
+  ];
+
   function renderGrid(filter = 'all') {
     grid.innerHTML = '';
-    ideologies.forEach((ideo, i) => {
+    orderedIdeologies.forEach((ideo, i) => {
       const tags = tagMap[ideo.id] || [];
       if (filter !== 'all' && !tags.includes(filter)) return;
 
