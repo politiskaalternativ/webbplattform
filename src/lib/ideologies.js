@@ -10,7 +10,7 @@ export const ideologies = [
     era: '1900-tal–',
     tagline: 'Staten och nationen överordnas individen.',
     core: [
-      'Staten ses som ett organiskt helt där individen underordnas helheten',
+      'Staten betraktas som en organisk helhet där individen underordnas helheten.',
       'Betonar auktoritärt ledarskap och stark central makt',
       'Radikal nationalism och mobilisering av massan',
       'Avvisar både liberalism och marxism',
