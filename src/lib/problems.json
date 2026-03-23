@@ -1,0 +1,350 @@
+{
+  "meta": {
+    "intro": "Politiska konflikter handlar sällan om att ena sidan är ond eller okunnig. Oftare bygger olika sidor på olika utgångspunkter – och drar därför olika slutsatser från samma fakta. Det här verktyget låter dig utforska hur olika ideologier resonerar kring ett och samma problem, och vad de invänder mot varandra. Axeln är ett navigeringsverktyg, inte ett påstående om vem som har rätt."
+  },
+  "ideologies": [
+    { "id": "socialism", "name": "Socialism", "color": "#D85A30", "axisPos": 5 },
+    { "id": "socialdemokrati", "name": "Socialdemokrati", "color": "#E24B4A", "axisPos": 25 },
+    { "id": "konservatism", "name": "Konservatism", "color": "#185FA5", "axisPos": 55 },
+    { "id": "marknadsliberalism", "name": "Marknadsliberalism", "color": "#0F6E56", "axisPos": 80 },
+    { "id": "libertarianism", "name": "Libertarianism", "color": "#533AB7", "axisPos": 96 }
+  ],
+  "problems": [
+    {
+      "id": "valfard-finansiering",
+      "title": "Hur ska välfärden finansieras?",
+      "description": "Välfärdsstatens tjänster – vård, skola, omsorg – kostar. Frågan är vem som ska betala, hur mycket, och om marknaden kan bidra till bättre resultat.",
+      "axis": {
+        "left": "Stat & skatt",
+        "right": "Marknad & val"
+      },
+      "positions": [
+        {
+          "ideologyId": "socialism",
+          "axisPos": 5,
+          "solution": "Välfärden ska finansieras genom progressiv beskattning av kapital och höginkomsttagare. Privata aktörer skapar ojämlikhet – vård och skola är rättigheter, inte varor. Staten bör expandera, inte krympa.",
+          "counterargs": [
+            { "fromId": "marknadsliberalism", "text": "Hög skatt minskar incitamenten att arbeta och investera, vilket urholkar skattebasen på sikt." },
+            { "fromId": "konservatism", "text": "Statlig expansion riskerar att tränga undan civilsamhälle och familj som naturliga bärare av omsorg." }
+          ]
+        },
+        {
+          "ideologyId": "socialdemokrati",
+          "axisPos": 25,
+          "solution": "En stark skattefinansierad välfärd kombineras med pragmatiska inslag av privata utförare. Grundprincipen är universell tillgång – alla betalar, alla får. Omfördelning är nödvändig för social sammanhållning.",
+          "counterargs": [
+            { "fromId": "marknadsliberalism", "text": "Monopolliknande strukturer inom vård och skola hindrar innovation och effektivitet." },
+            { "fromId": "libertarianism", "text": "Tvångsvisa transfereringar kränker individens rätt att disponera sin inkomst." }
+          ]
+        },
+        {
+          "ideologyId": "konservatism",
+          "axisPos": 55,
+          "solution": "Välfärden bör bevaras men effektiviseras. Valfrihet och privata alternativ välkomnas inom offentlig finansiering. Civilsamhälle, kyrka och familj spelar en naturlig roll som kompletterar staten.",
+          "counterargs": [
+            { "fromId": "socialism", "text": "Valfrihet gynnar resursstarka grupper och skapar A- och B-lag i välfärden." },
+            { "fromId": "marknadsliberalism", "text": "Konservatismen är inkonsekvent – den vill ha marknaden utan att acceptera dess fulla konsekvenser." }
+          ]
+        },
+        {
+          "ideologyId": "marknadsliberalism",
+          "axisPos": 80,
+          "solution": "Konkurrens och valfrihet driver kvalitet. Skattefinansiering kan bestå men utförandet bör öppnas för privata aktörer. På sikt bör individen ges större ansvar för sin egen välfärd via sparande och försäkring.",
+          "counterargs": [
+            { "fromId": "socialdemokrati", "text": "Marknaden misslyckas systematiskt med att hantera informationsasymmetrier inom vård – patienten kan inte utvärdera kvalitet." },
+            { "fromId": "socialism", "text": "Vinster i välfärden innebär att skattepengar läcker ut ur systemet." }
+          ]
+        },
+        {
+          "ideologyId": "libertarianism",
+          "axisPos": 96,
+          "solution": "Tvångsfinansierad välfärd kränker individens frihet. Frivillig välgörenhet, ömsesidiga försäkringar och marknaden kan fylla funktionerna. Staten bör begränsas till ett absolut minimum.",
+          "counterargs": [
+            { "fromId": "socialdemokrati", "text": "Frivilliga system fungerar inte – de som behöver mest skydd faller igenom." },
+            { "fromId": "konservatism", "text": "Radikal individualism undergräver den sociala sammanhållning som konservativa värdesätter." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bostadsbristen",
+      "title": "Hur ska bostadsbristen lösas?",
+      "description": "Sverige har haft bostadsbrist i decennier, särskilt i städerna. Orsakerna är omdebatterade – och lösningarna ännu mer.",
+      "axis": {
+        "left": "Reglering & subvention",
+        "right": "Marknad & avreglering"
+      },
+      "positions": [
+        {
+          "ideologyId": "socialism",
+          "axisPos": 8,
+          "solution": "Bostaden är en social rättighet, inte en handelsvara. Staten och kommunerna bör bygga allmännyttiga bostäder i stor skala och återinföra hyresreglering. Marknadshyror slår hårt mot låginkomsttagare.",
+          "counterargs": [
+            { "fromId": "marknadsliberalism", "text": "Hyresreglering minskar utbudet – historien visar att det förvärrar bostadsbristen på lång sikt." },
+            { "fromId": "libertarianism", "text": "Subventionerade bostäder snedvrider marknaden och skapar inlåsningseffekter." }
+          ]
+        },
+        {
+          "ideologyId": "socialdemokrati",
+          "axisPos": 28,
+          "solution": "En kombination av ökat allmännyttigt byggande, investeringsstöd och hårdare krav på kommunerna att planlägga mark. Hyresmarknaden behöver balanseras så att även låginkomsttagare har råd att bo i städerna.",
+          "counterargs": [
+            { "fromId": "marknadsliberalism", "text": "Detaljreglering och kommunalt motstånd mot förtätning är grundproblemet – inte brist på subventioner." },
+            { "fromId": "konservatism", "text": "Statliga byggkrav riskerar att köra över lokalt självstyre och stadskaraktär." }
+          ]
+        },
+        {
+          "ideologyId": "konservatism",
+          "axisPos": 52,
+          "solution": "Plan- och bygglovsprocesser måste förenklas. Kommunerna bör ges incitament att bygga mer. Äganderätten och bostadsrättsformen bör värnas. Marknadsinslag välkomnas men inom tydliga ramar.",
+          "counterargs": [
+            { "fromId": "socialism", "text": "Förenklad planprocess gynnar exploatörer, inte boende – utan hyresreglering blir nyproduktion för dyr för vanliga människor." },
+            { "fromId": "libertarianism", "text": "Konservatismen värnar befintliga strukturer som är en del av problemet – NIMBYism är ett konservativt fenomen." }
+          ]
+        },
+        {
+          "ideologyId": "marknadsliberalism",
+          "axisPos": 82,
+          "solution": "Avreglera hyresmarknaden och inför marknadshyror. Förenkla plan- och bygglovsprocessen radikalt. Sälj ut allmännyttan. När utbudet ökar sjunker priserna – marknaden löser bostadsbristen om den får verka fritt.",
+          "counterargs": [
+            { "fromId": "socialdemokrati", "text": "Marknadshyror leder till gentrifiering och att låginkomsttagare trängs ut från städerna." },
+            { "fromId": "socialism", "text": "Bostadsmarknaden är inte en vanlig marknad – mark är begränsad och ingen kan producera mer av den." }
+          ]
+        },
+        {
+          "ideologyId": "libertarianism",
+          "axisPos": 95,
+          "solution": "All reglering av bygg och hyra bör avvecklas. Äganderätten är absolut. Fri marknad med fri prissättning och fritt byggande löser allokeringen bättre än politiska beslut. Staten ska inte subventionera boende.",
+          "counterargs": [
+            { "fromId": "socialdemokrati", "text": "Utan någon form av bostadspolitik uppstår slumbildning och extrem ojämlikhet i tillgång till bostad." },
+            { "fromId": "konservatism", "text": "Helt oreglerat byggande hotar stadsbilden och det lokala kulturarvet." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vinster-valfard",
+      "title": "Ska vinster tillåtas i välfärden?",
+      "description": "Privata företag driver skolor, vårdcentraler och äldreboenden med skattemedel. Frågan om de ska få ta ut vinst ur verksamheten är en av de mest laddade i svensk politik.",
+      "axis": {
+        "left": "Förbud mot vinstuttag",
+        "right": "Fri vinstmöjlighet"
+      },
+      "positions": [
+        {
+          "ideologyId": "socialism",
+          "axisPos": 4,
+          "solution": "Skattepengar ska gå till välfärd, inte till aktieägare. Vinstdrivna aktörer har fel incitament – de skär i personal och kvalitet för att maximera avkastning. Välfärden ska vara demokratiskt styrd och icke-vinstdrivande.",
+          "counterargs": [
+            { "fromId": "marknadsliberalism", "text": "Utan vinstmöjlighet försvinner incitamenten att driva verksamheten effektivt och innovativt." },
+            { "fromId": "konservatism", "text": "Ett förbud stänger ute idéburna organisationer och kyrkor som driver god välfärd utan vinstintresse." }
+          ]
+        },
+        {
+          "ideologyId": "socialdemokrati",
+          "axisPos": 22,
+          "solution": "Vinstuttag bör begränsas kraftigt eller förbjudas. Offentliga medel ska i första hand finansiera kvalitet och personal. Idéburna organisationer utan vinstsyfte kan dock spela en viktig roll som alternativ till kommunal drift.",
+          "counterargs": [
+            { "fromId": "marknadsliberalism", "text": "Vinstbegränsning är svår att definiera juridiskt och driver bort seriösa aktörer." },
+            { "fromId": "libertarianism", "text": "Att begränsa vad en privat aktör får göra med sin vinst är ett ingrepp i äganderätten." }
+          ]
+        },
+        {
+          "ideologyId": "konservatism",
+          "axisPos": 58,
+          "solution": "Valfrihet och mångfald av utförare är viktigare än vinstfrågan. Fokus bör ligga på kvalitetskrav och uppföljning, inte förbud. Vinstdrivna, idéburna och kommunala alternativ bör konkurrera på lika villkor.",
+          "counterargs": [
+            { "fromId": "socialism", "text": "Utan vinstförbud är kvalitetskrav svåra att upprätthålla – incitamenten att kringgå dem är för starka." },
+            { "fromId": "socialdemokrati", "text": "Uppföljning och kontroll är resurskrävande – enklare att reglera vinstuttaget direkt." }
+          ]
+        },
+        {
+          "ideologyId": "marknadsliberalism",
+          "axisPos": 78,
+          "solution": "Vinstmöjligheten är förutsättningen för att privata aktörer ska vilja och kunna investera i välfärden. Konkurrens om brukarna driver kvalitet uppåt. Problemet är inte vinsten – det är bristande valfrihet och svag uppföljning.",
+          "counterargs": [
+            { "fromId": "socialism", "text": "Välfärdsmarknaden fungerar inte som en vanlig marknad – brukarna kan sällan byta utförare enkelt och har svårt att bedöma kvalitet." },
+            { "fromId": "socialdemokrati", "text": "Empiriskt har vinstdrivna välfärdsföretag i flera fall prioriterat avkastning framför personal och omsorgskvalitet." }
+          ]
+        },
+        {
+          "ideologyId": "libertarianism",
+          "axisPos": 94,
+          "solution": "Vinst är ett tecken på att ett företag skapar värde. Att förbjuda det är moraliskt fel och ekonomiskt kontraproduktivt. Istället för att reglera vinster bör hela systemet privatiseras – med vouchers och fri konkurrens.",
+          "counterargs": [
+            { "fromId": "socialdemokrati", "text": "Vouchersystem i skolan har i internationella studier ökat segregation utan att höja genomsnittlig kvalitet." },
+            { "fromId": "konservatism", "text": "Full privatisering riskerar att underminera den sociala sammanhållning som ett gemensamt skolsystem skapar." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brottslighet-overvakning",
+      "title": "Hur ska brottslighet bekämpas?",
+      "description": "Sverige har sett ökad gängkriminalitet och skjutningar. Debatten handlar om hårdare straff, mer övervakning, förebyggande insatser – och var gränsen för statens makt går.",
+      "axis": {
+        "left": "Förebyggande & rehabilitering",
+        "right": "Straff & kontroll"
+      },
+      "positions": [
+        {
+          "ideologyId": "socialism",
+          "axisPos": 10,
+          "solution": "Brottslighet är ett symptom på ojämlikhet, segregation och utanförskap. Lösningen är strukturell: jämlik skola, bostadspolitik och sociala insatser i utsatta områden. Hårdare straff löser inte rotorsakerna.",
+          "counterargs": [
+            { "fromId": "konservatism", "text": "Strukturförklaringar riskerar att avskriva individuellt ansvar och fördröja konkreta åtgärder mot pågående brottslighet." },
+            { "fromId": "marknadsliberalism", "text": "Mer resurser till socialtjänst utan krav på resultat och effektivitet ger inte nödvändigtvis bättre utfall." }
+          ]
+        },
+        {
+          "ideologyId": "socialdemokrati",
+          "axisPos": 35,
+          "solution": "En kombination av förebyggande sociala insatser och skarpare verktyg för rättsväsendet. Mer poliser i utsatta områden, men också tidiga insatser i skolan. Straff ska vara proportionerliga och rehabilitering ska ingå.",
+          "counterargs": [
+            { "fromId": "konservatism", "text": "Rehabiliteringsfokus har lett till för korta straff och för tidig frigivning – vilket urholkar brottsoffrets upprättelse." },
+            { "fromId": "libertarianism", "text": "Ökade polisiära befogenheter riskerar integritetsintrång för laglydiga medborgare." }
+          ]
+        },
+        {
+          "ideologyId": "konservatism",
+          "axisPos": 68,
+          "solution": "Ordning är en förutsättning för frihet. Straffen måste skärpas, utvisningar genomföras och polisen ges resurser och befogenheter. Familjen och civilsamhället spelar en viktig roll i att fostra normer och ansvar.",
+          "counterargs": [
+            { "fromId": "socialism", "text": "Straffskärpningar utan förebyggande insatser reproducerar brottsligheten – fängelse är en skola i kriminalitet." },
+            { "fromId": "libertarianism", "text": "Utökad övervakning och tvångsåtgärder drabbar oskyldiga och riskerar att normalisera staten som kontrollapparat." }
+          ]
+        },
+        {
+          "ideologyId": "marknadsliberalism",
+          "axisPos": 75,
+          "solution": "Rättsväsendet ska vara effektivt och förutsägbart. Straff ska avskräcka och skydda samhället. Privata säkerhetstjänster och konkurrens inom kriminalvården kan bidra till bättre resultat. Fokus på offer, inte på gärningsman.",
+          "counterargs": [
+            { "fromId": "socialism", "text": "Privatiserad kriminalvård skapar incitament att hålla fängelser fyllda snarare än att rehabilitera." },
+            { "fromId": "socialdemokrati", "text": "Marknadslösningar inom rättsväsendet riskerar att skapa ett tvådelat system där rikas säkerhet prioriteras." }
+          ]
+        },
+        {
+          "ideologyId": "libertarianism",
+          "axisPos": 88,
+          "solution": "Staten ska skydda individen mot våld och stöld – det är dess kärnuppgift. Men övervakning och tvångsåtgärder mot misstänkta är ett hot mot frihet. Straff ska vara proportionerliga och rättsäkerheten absolut.",
+          "counterargs": [
+            { "fromId": "konservatism", "text": "Strikt rättsäkerhetsfokus kan försvåra proaktivt polisarbete mot organiserad brottslighet." },
+            { "fromId": "socialdemokrati", "text": "Utan förebyggande statliga insatser riskerar utsatta grupper att stå utan skydd." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "klimatomstallningen",
+      "title": "Hur ska klimatomställningen genomföras?",
+      "description": "Att utsläppen måste minska är vetenskaplig konsensus. Hur det ska ske – vem som betalar, vilken roll marknaden spelar och hur snabbt – är genuint politiskt.",
+      "axis": {
+        "left": "Statlig styrning & reglering",
+        "right": "Marknad & teknikoptimism"
+      },
+      "positions": [
+        {
+          "ideologyId": "socialism",
+          "axisPos": 6,
+          "solution": "Klimatkrisen är kapitalismens kris. Lösningen kräver en demokratisk planering av ekonomin, statliga investeringar i förnybar energi och ett brott med tillväxtlogiken. Marknaden skapade problemet – den kan inte lösa det.",
+          "counterargs": [
+            { "fromId": "marknadsliberalism", "text": "Statlig planering av energisystemet har historiskt lett till ineffektivitet och felallokering av resurser." },
+            { "fromId": "libertarianism", "text": "Degrowth-politik slår hårdast mot de fattigaste som är beroende av ekonomisk tillväxt för att förbättra sina liv." }
+          ]
+        },
+        {
+          "ideologyId": "socialdemokrati",
+          "axisPos": 30,
+          "solution": "En aktiv industripolitik kombineras med koldioxidskatt och styrmedel. Staten investerar i infrastruktur, forskning och omställningsstöd till drabbade branscher. Omställningen ska vara rättvis – ingen ska lämnas utanför.",
+          "counterargs": [
+            { "fromId": "marknadsliberalism", "text": "Statlig industripolitik riskerar att subventionera fel teknik och fördröja mer effektiva marknadsbaserade lösningar." },
+            { "fromId": "konservatism", "text": "Snabb omställning riskerar att slå ut industrier och samhällen som är beroende av fossil ekonomi utan tillräcklig hänsyn till konsekvenserna." }
+          ]
+        },
+        {
+          "ideologyId": "konservatism",
+          "axisPos": 54,
+          "solution": "Klimatåtgärder ska vara kostnadseffektiva och inte hota energisäkerhet eller konkurrenskraft. Kärnkraft bör ingå i lösningen. Förändring ska ske gradvis med hänsyn till befintliga strukturer och jobbens geografi.",
+          "counterargs": [
+            { "fromId": "socialism", "text": "Gradvisa åtgärder är inte förenliga med de tidsgränser klimatvetenskapen sätter upp." },
+            { "fromId": "marknadsliberalism", "text": "Konservatismens försiktighet riskerar att skydda etablerade fossila intressen på bekostnad av ny grön teknik." }
+          ]
+        },
+        {
+          "ideologyId": "marknadsliberalism",
+          "axisPos": 82,
+          "solution": "Koldioxidskatt är det effektivaste styrmedlet – den korrigerar marknadsmisslyckandet utan att peka ut vinnare. Innovation och teknikutveckling i fri konkurrens löser resten. Avveckla subventioner till både fossil och förnybar energi.",
+          "counterargs": [
+            { "fromId": "socialdemokrati", "text": "En koldioxidskatt utan omfördelning är regressiv – den slår oproportionerligt mot låginkomsttagare." },
+            { "fromId": "socialism", "text": "Marknaden har haft decennier på sig och utsläppen ökar fortfarande globalt – prismekanismer räcker inte." }
+          ]
+        },
+        {
+          "ideologyId": "libertarianism",
+          "axisPos": 95,
+          "solution": "Tydliga äganderätter och frihandel driver teknikutveckling och resurseffektivitet bättre än statlig reglering. Kärnkraft och ekomodernism är lösningen. Avveckla alla energisubventioner och låt innovation avgöra.",
+          "counterargs": [
+            { "fromId": "socialdemokrati", "text": "Utan internationell reglering uppstår free rider-problem – inget land har incitament att agera ensamt." },
+            { "fromId": "socialism", "text": "Teknikoptimism är ett sätt att skjuta upp nödvändiga strukturella förändringar i ekonomin." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eu-suveranitet",
+      "title": "Hur mycket makt ska EU ha?",
+      "description": "EU fattar beslut som påverkar svensk lagstiftning, ekonomi och migration. Frågan om hur mycket makt som ska ligga i Bryssel kontra Stockholm är djupt politisk.",
+      "axis": {
+        "left": "Nationell suveränitet",
+        "right": "Europeisk integration"
+      },
+      "positions": [
+        {
+          "ideologyId": "socialism",
+          "axisPos": 20,
+          "solution": "EU är i grunden ett projekt för att skydda kapitalets rörlighet på bekostnad av demokrati och arbetsrätt. Nationella parlament måste återfå makten att reglera ekonomin och välfärden utan att hindras av EU:s konkurrensregler.",
+          "counterargs": [
+            { "fromId": "marknadsliberalism", "text": "Den inre marknaden och EU:s konkurrensregler skyddar konsumenter och hindrar statliga monopol." },
+            { "fromId": "socialdemokrati", "text": "Utan EU-samarbete tappar Sverige inflytande över gränsöverskridande frågor som klimat och skatteflykt." }
+          ]
+        },
+        {
+          "ideologyId": "socialdemokrati",
+          "axisPos": 45,
+          "solution": "EU är ett nödvändigt verktyg för att hantera gränsöverskridande problem som klimat, migration och skatteflykt. Men samarbetet måste bli mer socialt och demokratiskt. Sverige ska vara en aktiv röst för en mer jämlik union.",
+          "counterargs": [
+            { "fromId": "konservatism", "text": "Mer EU-makt urholkar det svenska folkstyret och möjligheten att anpassa politiken till svenska förhållanden." },
+            { "fromId": "socialism", "text": "EU-reformer är marginella – strukturen gynnar kapital framför arbete och är svår att förändra inifrån." }
+          ]
+        },
+        {
+          "ideologyId": "konservatism",
+          "axisPos": 35,
+          "solution": "Sverige ska samarbeta inom EU men värna nationell suveränitet på kärnområden som migration, skatt och välfärd. Subsidiaritetsprincipen måste tas på allvar – beslut ska fattas så nära medborgarna som möjligt.",
+          "counterargs": [
+            { "fromId": "socialdemokrati", "text": "Utan bindande EU-beslut på klimat och migration kan enskilda länder köra fri tramp på andras bekostnad." },
+            { "fromId": "marknadsliberalism", "text": "Nationell suveränitet inom handelspolitik riskerar protektionism som skadar svensk export." }
+          ]
+        },
+        {
+          "ideologyId": "marknadsliberalism",
+          "axisPos": 72,
+          "solution": "Den inre marknaden med fri rörlighet för varor, tjänster, kapital och personer är EU:s stora framgång. Mer integration på ekonomins område är välkommet. Politisk överstatlighet är mer problematisk – fokus bör ligga på ekonomisk frihet.",
+          "counterargs": [
+            { "fromId": "konservatism", "text": "Fri rörlighet utan gemensam migrationspolitik skapar obalanser som enskilda länder tvingas hantera ensamma." },
+            { "fromId": "socialism", "text": "EU:s inre marknad skapar ett regulatoriskt race to the bottom inom arbetsrätt och beskattning." }
+          ]
+        },
+        {
+          "ideologyId": "libertarianism",
+          "axisPos": 60,
+          "solution": "Frihandel och öppna gränser är bra – men EU:s byråkrati och regleringsiver är ett problem. En frihandelszon utan politisk överstatlighet vore idealisk. Nationell suveränitet är viktig för att bevara mångfald och konkurrens mellan system.",
+          "counterargs": [
+            { "fromId": "socialdemokrati", "text": "Utan politisk överstatlighet kan inte EU hantera kollektiva problem som kräver bindande beslut." },
+            { "fromId": "marknadsliberalism", "text": "Att lämna EU eller kraftigt begränsa samarbetet riskerar svenska exportföretags tillgång till den inre marknaden." }
+          ]
+        }
+      ]
+    }
+  ]
+}
