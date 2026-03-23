@@ -116,19 +116,17 @@
     </div>
   </section>
 
-  <!-- ── Trade-off Widget ── -->
-  <section class="tradeoff" id="avvagningar">
-    <div class="tradeoff-inner">
-      <div class="tradeoff-header">
-        <p class="label">Avvägningar</p>
-        <h2>Alla politiska val har en avvägning</h2>
-        <p class="tradeoff-intro">
-          Varje politisk position innebär att vissa värden prioriteras framför andra. Det går inte att maximera allt samtidigt.
-          Testa skalorna nedan och se exempel på vad som prioriteras och vad som prioriteras bort.
-        </p>
+  <!-- ── Problem Cards Widget ── -->
+  <section class="problems" id="avvagningar">
+    <div class="problems-inner">
+      <div class="problems-header">
+        <p class="label">Problemkort</p>
+        <h2>Samma problem, olika svar</h2>
+        <p class="problems-intro" id="problems-intro"></p>
       </div>
 
-      <div class="tradeoff-widget" id="tradeoff-widget"></div>
+      <div class="problems-nav" id="problems-nav"></div>
+      <div class="problems-card" id="problems-card"></div>
     </div>
   </section>
 
@@ -226,158 +224,111 @@
   import { mountShell } from './src/components/shell.js';
   mountShell('index.html');
 
-  const axes = [
-    {
-      id: 'economy',
-      name: 'Ekonomi',
-      leftLabel: 'Stat',
-      rightLabel: 'Marknad',
-      tradeoffs: {
-        '-2': {
-          prioritize: 'Starka omfördelningssystem, trygg välfärd, kollektiva garantier för alla medborgare.',
-          deprioritize: 'Svagare prismekanismer, minskad innovation, risk för ineffektiv resursallokering och politiserade beslut.'
-        },
-        '-1': {
-          prioritize: 'Bred välfärdsstat med tydliga skyddsnät. Utjämning av ekonomiska klyftor.',
-          deprioritize: 'Högre skatter begränsar privat initiativ. Marknaden ges mindre utrymme att signalera verkliga behov.'
-        },
-        '1': {
-          prioritize: 'Mer utrymme för marknadsmekanismer, ökad konkurrens och ekonomisk dynamik.',
-          deprioritize: 'Svagare sociala skyddsnät.'
-        },
-        '2': {
-          prioritize: 'Maximal ekonomisk frihet, starka incitament till innovation och effektivitet.',
-          deprioritize: 'Marknadsmisslyckanden (monopol, externaliteter, kollektiva nyttigheter) hanteras inte.'
-        }
-      }
-    },
-    {
-      id: 'freedom',
-      name: 'Frihet',
-      leftLabel: 'Libertariansk',
-      rightLabel: 'Auktoritär',
-      tradeoffs: {
-        '-2': {
-          prioritize: 'Maximalt individuellt självbestämmande. Staten minimeras till att skydda kontrakt och äganderätt.',
-          deprioritize: 'Svag kollektiv kapacitet att hantera kriser, externaliteter och koordineringsproblem som kräver gemensamma svar.'
-        },
-        '-1': {
-          prioritize: 'Starka medborgerliga friheter, begränsad statsmakt, skydd för individens privatliv och rörelsefrihet.',
-          deprioritize: 'Svårare att upprätthålla normer som kräver kollektiv anslutning.'
-        },
-        '1': {
-          prioritize: 'Starkare kollektiv ordning, effektivare hantering av samhällsproblem som kräver gemensam mobilisering.',
-          deprioritize: 'Individens handlingsutrymme begränsas. Risk att staten definierar det gemensamma goda ensidigt.'
-        },
-        '2': {
-          prioritize: 'Stark central styrning möjliggör snabb och konsekvent politisk genomförandekraft.',
-          deprioritize: 'Individens rättigheter och yttrandefrihet offras. Maktkoncentration skapar risk för missbruk och korruption.'
-        }
-      }
-    },
-    {
-      id: 'culture',
-      name: 'Kultur',
-      leftLabel: 'Progressiv',
-      rightLabel: 'Konservativ',
-      tradeoffs: {
-        '-2': {
-          prioritize: 'Aktiv omprövning av normer, stöd för marginaliserade grupper, öppenhet mot nya identiteter och levnadssätt.',
-          deprioritize: 'Risk att etablerade institutioner och traditioner undergrävs snabbare än nya strukturer kan växa fram.'
-        },
-        '-1': {
-          prioritize: 'Stöd för förändring och inkludering. Samhället anpassas kontinuerligt till nya gruppers behov och erfarenheter.',
-          deprioritize: 'Spänningar med dem som ser snabb normförändring som ett hot mot sammanhållning och gemensam identitet.'
-        },
-        '1': {
-          prioritize: 'Beprövade institutioner, traditioner och normer bevaras. Samhällelig kontinuitet och igenkänning stärks.',
-          deprioritize: 'Långsammare anpassning till förändrade sociala verkligheter. Risk att underordnade gruppers erfarenheter osynliggörs.'
-        },
-        '2': {
-          prioritize: 'Stark kulturell sammanhållning kring gemensamma värden, tydlig kollektiv identitet.',
-          deprioritize: 'Minoriteters rättigheter och pluralism offras. Kulturell dynamik strypas till förmån för uniformitet.'
-        }
-      }
+  const data = await fetch('./src/lib/problems.json').then(r => r.json());
+  const { meta, ideologies, problems } = data;
+
+  const introEl = document.getElementById('problems-intro');
+  introEl.textContent = meta.intro;
+
+  const ideologyMap = Object.fromEntries(ideologies.map(i => [i.id, i]));
+
+  let activeProblemIndex = 0;
+  let activeIdeologyId = null;
+
+  const navEl = document.getElementById('problems-nav');
+  const cardEl = document.getElementById('problems-card');
+
+  function renderNav() {
+    navEl.innerHTML = problems.map((p, i) => `
+      <button class="prob-nav-btn${i === activeProblemIndex ? ' active' : ''}" data-index="${i}">
+        ${p.title}
+      </button>
+    `).join('');
+    navEl.querySelectorAll('.prob-nav-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeProblemIndex = parseInt(btn.dataset.index);
+        activeIdeologyId = null;
+        renderNav();
+        renderCard();
+      });
+    });
+  }
+
+  function renderCard() {
+    const problem = problems[activeProblemIndex];
+    const sliderVal = 50;
+
+    const sorted = [...problem.positions].sort((a, b) => a.axisPos - b.axisPos);
+    if (!activeIdeologyId) {
+      activeIdeologyId = sorted[Math.floor(sorted.length / 2)].ideologyId;
     }
-  ];
+    const activePos = problem.positions.find(p => p.ideologyId === activeIdeologyId);
 
-  const widgetRoot = document.getElementById('tradeoff-widget');
+    cardEl.innerHTML = `
+      <div class="prob-card-inner">
+        <div class="prob-card-desc">${problem.description}</div>
 
-  const getPositionLabel = (axis, value) => {
-    if (value === 0) {
-      return 'Neutralt';
-    }
-    const sideLabel = value < 0 ? axis.leftLabel : axis.rightLabel;
-    return `${sideLabel} ${Math.abs(value)}`;
-  };
+        <div class="prob-axis">
+          <div class="prob-axis-labels">
+            <span>${problem.axis.left}</span>
+            <span>${problem.axis.right}</span>
+          </div>
+          <div class="prob-axis-track">
+            ${problem.positions.map(pos => {
+              const ideo = ideologyMap[pos.ideologyId];
+              return `<button
+                class="prob-axis-dot${pos.ideologyId === activeIdeologyId ? ' active' : ''}"
+                style="left:${pos.axisPos}%; background:${ideo.color}; border-color:${ideo.color}"
+                data-id="${pos.ideologyId}"
+                title="${ideo.name}"
+              ></button>`;
+            }).join('')}
+          </div>
+          <div class="prob-axis-hint">Klicka på en punkt för att se ideologins position</div>
+        </div>
 
-  const renderAxisCard = (axis) => {
-    const card = document.createElement('article');
-    card.className = 'tradeoff-card';
-    card.innerHTML = `
-      <header class="tradeoff-card-head">
-        <h3>${axis.name}</h3>
-        <p class="tradeoff-position" data-role="position">Neutralt</p>
-      </header>
+        <div class="prob-ideology-list">
+          ${problem.positions.map(pos => {
+            const ideo = ideologyMap[pos.ideologyId];
+            return `<button
+              class="prob-ideo-pill${pos.ideologyId === activeIdeologyId ? ' active' : ''}"
+              data-id="${pos.ideologyId}"
+              style="${pos.ideologyId === activeIdeologyId ? `border-color:${ideo.color}` : ''}"
+            >
+              <span class="prob-ideo-dot" style="background:${ideo.color}"></span>
+              <span>${ideo.name}</span>
+            </button>`;
+          }).join('')}
+        </div>
 
-      <div class="tradeoff-scale-meta" aria-hidden="true">
-        <span>${axis.leftLabel}</span>
-        <span>${axis.rightLabel}</span>
-      </div>
-
-      <input
-        type="range"
-        min="-2"
-        max="2"
-        step="1"
-        value="0"
-        class="tradeoff-slider"
-        data-axis="${axis.id}"
-        aria-label="Skala för ${axis.name}"
-      />
-
-      <div class="tradeoff-outcome" data-role="outcome">
-        <p class="tradeoff-neutral">Flytta skalan för att se avvägningarna</p>
+        ${activePos ? `
+        <div class="prob-detail" style="border-left-color:${ideologyMap[activeIdeologyId].color}">
+          <p class="prob-detail-name" style="color:${ideologyMap[activeIdeologyId].color}">${ideologyMap[activeIdeologyId].name}</p>
+          <p class="prob-detail-label">Lösning</p>
+          <p class="prob-detail-solution">${activePos.solution}</p>
+          <p class="prob-detail-label" style="margin-top:1rem">Så här svarar andra</p>
+          <div class="prob-counterargs">
+            ${activePos.counterargs.map(c => `
+              <div class="prob-counterarg">
+                <span class="prob-counterarg-from">${ideologyMap[c.fromId]?.name || c.fromId}</span>
+                <p>${c.text}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>` : ''}
       </div>
     `;
 
-    const slider = card.querySelector('.tradeoff-slider');
-    const positionEl = card.querySelector('[data-role="position"]');
-    const outcomeEl = card.querySelector('[data-role="outcome"]');
+    cardEl.querySelectorAll('[data-id]').forEach(el => {
+      el.addEventListener('click', () => {
+        activeIdeologyId = el.dataset.id;
+        renderCard();
+      });
+    });
+  }
 
-    const update = (value) => {
-      const parsed = Number(value);
-      positionEl.textContent = getPositionLabel(axis, parsed);
-      card.dataset.direction = parsed === 0 ? 'neutral' : parsed < 0 ? 'left' : 'right';
-
-      if (parsed === 0) {
-        outcomeEl.innerHTML = '<p class="tradeoff-neutral">Flytta skalan för att se avvägningarna</p>';
-        return;
-      }
-
-      const data = axis.tradeoffs[String(parsed)];
-      outcomeEl.innerHTML = `
-        <div class="tradeoff-columns">
-          <section class="tradeoff-box tradeoff-box-prioritize">
-            <h4>Direkta effekter</h4>
-            <p>${data.prioritize}</p>
-          </section>
-          <section class="tradeoff-box tradeoff-box-deprioritize">
-            <h4>Systemrisker</h4>
-            <p>${data.deprioritize}</p>
-          </section>
-        </div>
-      `;
-    };
-
-    slider.addEventListener('input', (event) => update(event.target.value));
-    update(slider.value);
-    return card;
-  };
-
-  axes.forEach((axis) => {
-    widgetRoot.appendChild(renderAxisCard(axis));
-  });
+  renderNav();
+  renderCard();
 </script>
 </body>
 </html>
