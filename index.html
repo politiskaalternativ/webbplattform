@@ -256,11 +256,11 @@
 
   function renderCard() {
     const problem = problems[activeProblemIndex];
-    const sliderVal = 50;
 
     const sorted = [...problem.positions].sort((a, b) => a.axisPos - b.axisPos);
     if (!activeIdeologyId) {
-      activeIdeologyId = sorted[Math.floor(sorted.length / 2)].ideologyId;
+      // Rotera vilken ideologi som väljs först per problemkort
+      activeIdeologyId = sorted[activeProblemIndex % sorted.length].ideologyId;
     }
     const activePos = problem.positions.find(p => p.ideologyId === activeIdeologyId);
 
