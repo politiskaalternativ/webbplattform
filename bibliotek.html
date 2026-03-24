@@ -42,6 +42,8 @@
         <button class="filter-btn" data-filter="jamlikhet">Jämlikhet</button>
         <button class="filter-btn" data-filter="gemenskap">Gemenskap</button>
         <button class="filter-btn" data-filter="hallbarhet">Hållbarhet</button>
+        <button class="filter-btn" data-filter="marknad">Marknad</button>
+        <button class="filter-btn" data-filter="ordning">Ordning</button>
       </div>
     </div>
   </section>
@@ -100,22 +102,24 @@
     jamlikhet: { label: 'Jämlikhet', color: '#9b3a4a' },
     gemenskap: { label: 'Gemenskap', color: '#7d5a1f' },
     hallbarhet: { label: 'Hållbarhet', color: '#2f7a47' },
+    marknad: { label: 'Marknad', color: '#5a3f9f' },
+    ordning: { label: 'Ordning', color: '#3f4a56' },
   };
 
   const tagMap = {
-    liberalism:      ['frihet'],
-    kommunism:       ['jamlikhet'],
+    liberalism:      ['frihet', 'marknad'],
     socialliberalism:['frihet', 'jamlikhet'],
-    socialdemokrati: ['jamlikhet'],
-    konservatism:    ['gemenskap'],
-    nationalism:     ['gemenskap'],
-    nyliberalism:    ['frihet'],
-    ordoliberalism:  ['frihet'],
-    libertarianism:  ['frihet'],
-    ekologism:       ['hallbarhet'],
+    nyliberalism:    ['frihet', 'marknad'],
+    libertarianism:  ['frihet', 'marknad'],
+    ordoliberalism:  ['marknad', 'ordning'],
+    socialdemokrati: ['jamlikhet', 'gemenskap'],
+    kommunism:       ['jamlikhet', 'gemenskap'],
+    konservatism:    ['gemenskap', 'ordning'],
+    nationalism:     ['gemenskap', 'ordning'],
+    ekologism:       ['hallbarhet', 'gemenskap'],
     degrowth:        ['hallbarhet', 'jamlikhet'],
     kommunitarism:   ['gemenskap', 'jamlikhet'],
-    fascism:          ['gemenskap'],
+    fascism:         ['ordning', 'gemenskap'],
   };
 
   const cardOrder = [
