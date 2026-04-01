@@ -69,28 +69,6 @@
   <section class="map-section" id="compassMap" role="tabpanel">
     <div class="map-inner">
 
-      <!-- Compass info (updated by JS) -->
-      <div class="compass-info anim-fade-up" style="animation-delay:0.1s">
-        <div class="compass-info-text">
-          <h2 class="compass-info-title" id="compassTitle">Politisk Kompass</h2>
-          <p class="compass-info-desc" id="compassDesc">
-            Den klassiska tvådimensionella kompassen med ekonomisk vänster–höger-axel och en vertikal axel
-            för graden av statlig kontroll. Används brett som referensram för att jämföra ideologier och
-            politiska partier.
-          </p>
-        </div>
-        <div class="compass-axes" id="compassAxes">
-          <div class="axis-item">
-            <span class="axis-item__label">Horisontell axel</span>
-            <span class="axis-item__range" id="axisXRange">Omfördelning / välfärdsstat ↔ Marknad / privat ägande</span>
-          </div>
-          <div class="axis-item">
-            <span class="axis-item__label">Vertikal axel</span>
-            <span class="axis-item__range" id="axisYRange">Libertär / individuell autonomi ↔ Auktoritär / statlig kontroll</span>
-          </div>
-        </div>
-      </div>
-
       <!-- Filter bar -->
       <div class="filter-bar anim-fade-up" style="animation-delay:0.18s">
         <span class="filter-label">Filtrera:</span>
@@ -469,12 +447,6 @@
   const svgYTop    = document.getElementById('svgYTop');
   const svgYBottom = document.getElementById('svgYBottom');
 
-  // Info panel text nodes
-  const compassTitle = document.getElementById('compassTitle');
-  const compassDesc  = document.getElementById('compassDesc');
-  const axisXRange   = document.getElementById('axisXRange');
-  const axisYRange   = document.getElementById('axisYRange');
-
   // ── Render dots ───────────────────────────────────────────────────────────
   function renderDots(compassKey, filter) {
     const compass = compasses[compassKey];
@@ -535,20 +507,10 @@
     svgYBottom.textContent = c.yBottom;
   }
 
-  // ── Update info panel ─────────────────────────────────────────────────────
-  function updateInfoPanel(compassKey) {
-    const c = compasses[compassKey];
-    compassTitle.textContent = c.label;
-    compassDesc.textContent  = c.desc;
-    axisXRange.textContent   = c.xRange;
-    axisYRange.textContent   = c.yRange;
-  }
-
   // ── Switch compass ────────────────────────────────────────────────────────
   function switchCompass(compassKey) {
     currentCompass = compassKey;
     updateSvgLabels(compassKey);
-    updateInfoPanel(compassKey);
     renderDots(compassKey, currentFilter);
 
     document.querySelectorAll('.compass-tab').forEach(btn => {

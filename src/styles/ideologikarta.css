@@ -87,63 +87,6 @@
 
 .map-inner { max-width: var(--max-w); margin: 0 auto; }
 
-/* ── Compass description ── */
-.compass-info {
-  display: flex;
-  gap: 3rem;
-  align-items: flex-start;
-  margin-bottom: 2.5rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--rule);
-}
-
-.compass-info-text { flex: 1; }
-
-.compass-info-title {
-  font-size: clamp(1.4rem, 2vw, 1.9rem);
-  font-style: italic;
-  font-weight: 400;
-  margin-bottom: 0.6rem;
-}
-
-.compass-info-desc {
-  font-size: 0.95rem;
-  font-weight: 300;
-  color: var(--muted);
-  line-height: 1.8;
-  max-width: 68ch;
-}
-
-.compass-axes {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-  min-width: 220px;
-  max-width: 280px;
-}
-
-.axis-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-
-.axis-item__label {
-  font-family: var(--font-mono);
-  font-size: 0.55rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--accent);
-  font-weight: 400;
-}
-
-.axis-item__range {
-  font-size: 0.8rem;
-  font-weight: 300;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
 /* ── Filter bar ── */
 .filter-bar {
   display: flex;
@@ -494,8 +437,6 @@
 @media (max-width: 900px) {
   .page-hero { padding: 3rem 1.5rem 2.5rem; }
   .map-section { padding: 3rem 1.5rem 5rem; }
-  .compass-info { flex-direction: column; gap: 1.5rem; }
-  .compass-axes { max-width: 100%; min-width: 0; }
   .detail-panel { width: 100vw; }
   .compass-tab { padding: 0.6rem 1rem; }
   .map-compare-section { padding: 3rem 1.5rem 4rem; }
