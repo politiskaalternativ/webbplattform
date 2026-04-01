@@ -392,6 +392,104 @@
 
 .dp-action { padding-top: 1rem; }
 
+/* ── Map comparison section ── */
+.map-compare-section {
+  padding: 5rem 2rem 6rem;
+  background: var(--surface);
+  border-top: 1px solid var(--rule);
+}
+
+.map-compare-heading {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--ink);
+}
+
+.map-compare-intro {
+  max-width: 68ch;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 3rem;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 26rem), 1fr));
+  gap: 1.5rem;
+}
+
+.compare-card {
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 1.75rem 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.compare-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.2rem;
+}
+
+.compare-card__badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  padding: 0.2rem 0.55rem;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.compare-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.compare-card p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.compare-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.9rem;
+}
+
+.compare-card__list li {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.compare-card__list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.75rem;
+}
+
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .page-hero { padding: 3rem 1.5rem 2.5rem; }
@@ -400,6 +498,7 @@
   .compass-axes { max-width: 100%; min-width: 0; }
   .detail-panel { width: 100vw; }
   .compass-tab { padding: 0.6rem 1rem; }
+  .map-compare-section { padding: 3rem 1.5rem 4rem; }
 }
 
 @media (max-width: 600px) {

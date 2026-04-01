@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ideologiska Kartor — Politiska Alternativ</title>
-  <meta name="description" content="Visualisera och jämför politiska ideologier på etablerade kompasser: Politisk Kompass, Nolan-diagrammet och den kulturella kartan.">
+  <meta name="description" content="Visualisera och jämför politiska ideologier på etablerade kompasser: Politisk Kompass, Nolan-diagrammet, GAL–TAN och den kulturella kartan.">
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Politiska Alternativ">
   <meta property="og:title" content="Ideologiska Kartor — Politiska Alternativ">
-  <meta property="og:description" content="Visualisera och jämför politiska ideologier på etablerade kompasser.">
+  <meta property="og:description" content="Visualisera och jämför politiska ideologier på fyra etablerade kompasser: Politisk Kompass, Nolan-diagrammet, GAL–TAN och den kulturella kartan.">
   <meta property="og:url" content="https://politiskaalternativ.se/ideologikarta.html">
   <meta property="og:image" content="https://politiskaalternativ.se/favicon.svg">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
@@ -53,6 +53,11 @@
                 role="tab" aria-selected="false" aria-controls="compassMap">
           <span class="compass-tab__name">Kulturell karta</span>
           <span class="compass-tab__badge">Inglehart–Welzel</span>
+        </button>
+        <button class="compass-tab" data-compass="gal"
+                role="tab" aria-selected="false" aria-controls="compassMap">
+          <span class="compass-tab__name">GAL–TAN</span>
+          <span class="compass-tab__badge">Europeisk dimension</span>
         </button>
       </div>
     </div>
@@ -193,11 +198,80 @@
           <g class="chart-footer-layer">
             <line x1="120" y1="740" x2="980" y2="740" class="divider"/>
             <text x="140" y="758" class="note-text">Not: Kartorna är konceptuella visualiseringar. Ideologier varierar historiskt och kan placeras annorlunda beroende på definition, epok och nationell kontext.</text>
-            <text x="140" y="772" class="note-text">Fascism, nationalism och ekologism rymmer flera historiska varianter. Nolan-diagrammet och den kulturella kartan belyser andra dimensioner än den klassiska vänster–höger-axeln.</text>
+            <text x="140" y="772" class="note-text">Fascism, nationalism och ekologism rymmer flera historiska varianter. Nolan-, GAL–TAN och den kulturella kartan belyser andra dimensioner än den klassiska vänster–höger-axeln.</text>
           </g>
         </svg>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ── Map comparison section ── -->
+  <section class="map-compare-section">
+    <div class="map-inner">
+      <h2 class="map-compare-heading anim-fade-up">Om de fyra kartorna</h2>
+      <p class="map-compare-intro anim-fade-up" style="animation-delay:0.08s">
+        Varje kompass belyser det politiska landskapet från en annan vinkel. De delar ofta ideologier men mäter dem längs olika axlar – vilket ger kompletterande, ibland överraskande, bilder av vad som skiljer och förenar politiska rörelser.
+      </p>
+      <div class="compare-grid">
+
+        <div class="compare-card anim-fade-up" style="animation-delay:0.12s">
+          <div class="compare-card__header">
+            <span class="compare-card__badge">Klassisk</span>
+            <h3>Politisk Kompass</h3>
+          </div>
+          <p>Den vanligast använda referensramen, populariserad av <em>politicalcompass.org</em>. Kombinerar en horisontell <strong>ekonomisk axel</strong> (vänster–höger: omfördelning kontra marknad) med en vertikal <strong>social–politisk axel</strong> (libertär–auktoritär: individuell autonomi kontra statlig kontroll).</p>
+          <p>Styrkan ligger i att den separerar ekonomisk och social politik – något som den gamla endimensionella vänster–höger-skalan missar. En libertär socialist och en libertär nyliberal hamnar båda högt upp, men på varsitt håll om mittlinjen.</p>
+          <ul class="compare-card__list">
+            <li><strong>Delar med Nolan:</strong> skiljer ekonomi från social dimension.</li>
+            <li><strong>Skiljer sig från GAL–TAN:</strong> fokuserar på statlig kontroll generellt, inte på kulturella identitetsfrågor specifikt.</li>
+            <li><strong>Skiljer sig från kulturell karta:</strong> mäter politiska preferenser, inte samhälleliga värderingsmönster.</li>
+          </ul>
+        </div>
+
+        <div class="compare-card anim-fade-up" style="animation-delay:0.2s">
+          <div class="compare-card__header">
+            <span class="compare-card__badge">1970-tal</span>
+            <h3>Nolan-diagrammet</h3>
+          </div>
+          <p>Skapad av libertarianen David Nolan 1969. Delar politiken i två explicita <strong>frihetsdimensioner</strong>: ekonomisk frihet (låga skatter, fri marknad) och personlig frihet (rätt att leva som man vill). Modellen visar att traditionell vänster och höger båda begränsar frihet – men på <em>olika</em> områden.</p>
+          <p>Libertarianer samlas i det övre högra hörnet (hög frihet längs båda axlar), medan auktoritära rörelser hamnar längst ned oavsett ekonomisk position.</p>
+          <ul class="compare-card__list">
+            <li><strong>Delar med Politisk Kompass:</strong> behåller den ekonomiska vänster–höger-axeln.</li>
+            <li><strong>Delar med GAL–TAN:</strong> intresse för sociala friheter och personlig autonomi.</li>
+            <li><strong>Skiljer sig från GAL–TAN:</strong> mäter frihet som universell princip, inte kulturell och nationalistisk kontext.</li>
+          </ul>
+        </div>
+
+        <div class="compare-card anim-fade-up" style="animation-delay:0.28s">
+          <div class="compare-card__header">
+            <span class="compare-card__badge">Europeisk dimension</span>
+            <h3>GAL–TAN</h3>
+          </div>
+          <p>Utvecklat av statsvetarna Hooghe, Marks och Wilson (2002). Akronymen står för <strong>Green/Alternative/Libertarian</strong> kontra <strong>Traditional/Authoritarian/Nationalist</strong>. Modellen fångar den kulturella konfliktlinje som blivit allt viktigare i europeisk politik: miljö, invandring, EU-integration, mångfald och nationell identitet.</p>
+          <p>Den vertikala axeln (GAL–TAN) kompletterar den klassiska ekonomiska vänster–höger-axeln. Partierna sorteras efter hur de ställer sig till progressiva, öppna värderingar (GAL) kontra traditionella, nationalistiska värderingar (TAN).</p>
+          <ul class="compare-card__list">
+            <li><strong>Delar med Politisk Kompass:</strong> kombinerar ekonomisk axel med en social/kulturell axel.</li>
+            <li><strong>Delar med Nolan:</strong> personlig frihet och autonomi ingår i GAL-polen.</li>
+            <li><strong>Delar med kulturell karta:</strong> båda mäter traditionella vs. progressiva värderingar, men GAL–TAN är ett partipolitiskt analysverktyg medan den kulturella kartan bygger på befolkningsdata.</li>
+          </ul>
+        </div>
+
+        <div class="compare-card anim-fade-up" style="animation-delay:0.36s">
+          <div class="compare-card__header">
+            <span class="compare-card__badge">Inglehart–Welzel</span>
+            <h3>Kulturell karta</h3>
+          </div>
+          <p>Inspirerad av Ronald Ingleharts och Christian Welzels empiriska forskning. Bygger på enkätdata från <em>World Values Survey</em> och speglar hur <strong>befolkningar</strong> – inte bara ideologier – fördelar sig globalt. Den horisontella axeln mäter traditionella mot sekulär-rationella värderingar; den vertikala mäter överlevnadsvärden mot självförverkligande.</p>
+          <p>Unik i att den är datadrivet empirisk: länder och kulturer placeras utifrån vad medborgarna faktiskt svarar, inte utifrån partiprogram.</p>
+          <ul class="compare-card__list">
+            <li><strong>Delar med GAL–TAN:</strong> fångar spänningen traditionellt–progressivt.</li>
+            <li><strong>Skiljer sig från de övriga:</strong> bygger på befolkningsdata, inte ideologianalys eller partipolitik.</li>
+            <li><strong>Unik dimension:</strong> överlevnadsvärden vs. självförverkligande (post-materiella värden) saknar direkt motsvarighet i de andra kartorna.</li>
+          </ul>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -223,7 +297,7 @@
   const compasses = {
     politisk: {
       label: 'Politisk Kompass',
-      desc: 'Den klassiska tvådimensionella kompassen med ekonomisk vänster–höger-axel och en vertikal axel för graden av statlig kontroll. Används brett som referensram för att jämföra ideologier och politiska partier.',
+      desc: 'Den klassiska tvådimensionella kompassen kombinerar en horisontell ekonomisk axel (vänster–höger: omfördelning kontra marknad) med en vertikal axel för statlig kontroll (libertär–auktoritär). Populariserades av politicalcompass.org i tidigt 2000-tal. Styrkan är att den separerar ekonomisk och social politik – något den endimensionella vänster–höger-skalan missar. Jämfört med Nolan-diagrammet är den libertär–auktoritära axeln mer sammansatt och inkluderar statsauktoritet i bred mening, inte enbart personlig frihet. Jämfört med GAL–TAN fokuserar den på statlig kontroll generellt snarare än på kulturella identitetsfrågor.',
       xRange: 'Omfördelning / välfärdsstat ↔ Marknad / privat ägande',
       yRange: 'Libertär / individuell autonomi ↔ Auktoritär / statlig kontroll',
       svgTitle:   'Politisk Kompass',
@@ -256,7 +330,7 @@
 
     nolan: {
       label: 'Nolan-diagrammet',
-      desc: 'Nolan-diagrammet delar politiken längs två separata frihetsdimensioner: ekonomisk frihet och personlig frihet. Modellen visar att traditionell vänster och höger delar en auktoritär mittzon, medan libertarianer bildar ett eget kluster med hög frihet längs båda axlarna.',
+      desc: 'Skapat av libertarianen David Nolan 1969. Delar politiken i två explicita frihetsdimensioner: ekonomisk frihet (låga skatter, fri marknad) och personlig frihet (rätt att leva som man vill). Modellen gör det synligt att traditionell vänster och höger båda begränsar frihet – men på olika områden. Libertarianer samlas i övre högra hörnet med hög frihet längs båda axlarna. Jämfört med Politisk Kompass renodlar Nolan frihetsbegreppet – den vertikala axeln handlar om personlig autonomi, inte allmän statlig kontroll. Jämfört med GAL–TAN är Nolans personliga frihetsdimension ideologiskt neutral; den mäter frihet som princip, inte kulturell eller nationell kontext.',
       xRange: 'Statlig styrning / omfördelning ↔ Fri marknad / låga skatter',
       yRange: 'Låg personlig frihet / kontroll ↔ Hög personlig frihet / autonomi',
       svgTitle:   'Nolan-diagrammet',
@@ -289,7 +363,7 @@
 
     kulturell: {
       label: 'Kulturell karta',
-      desc: 'Inspirerad av Inglehart–Welzels kulturella karta. Den horisontella axeln mäter graden av traditionella vs. sekulär-rationella värderingar. Den vertikala axeln mäter graden av överlevnadsvärden (trygghet, konformitet) vs. självförverkligande och öppenhet.',
+      desc: 'Inspirerad av Ronald Ingleharts och Christian Welzels empiriska forskning om värdeförändringar i samhällen världen över (World Values Survey). Den horisontella axeln mäter traditionella (religion, familj, auktoritet) mot sekulär-rationella värderingar (vetenskap, individualism). Den vertikala axeln mäter överlevnadsvärden (trygghet, konformitet, ekonomisk säkerhet) mot självförverkligande (öppenhet, tolerans, politiskt deltagande). Unik bland de fyra kartorna: den bygger på befolkningsdata, inte ideologianalys. Jämfört med GAL–TAN mäter den liknande spänningar (traditionellt–progressivt) men utifrån vad medborgare faktiskt svarar, inte partiprogram. Post-materiella värden är en dimension som saknar direkt motsvarighet i de övriga kartorna.',
       xRange: 'Traditionella värderingar / religion / familj ↔ Sekulär-rationella / vetenskap / individualism',
       yRange: 'Överlevnadsvärden / ordning / konformitet ↔ Självförverkligande / tolerans / öppenhet',
       svgTitle:   'Kulturell karta',
@@ -317,6 +391,39 @@
         kommunitarism:   { x: 392, y: 319, color: '#92400e' },
         nationalism:     { x: 248, y: 487, color: '#1f2937' },
         fascism:         { x: 212, y: 543, color: '#000000' },
+      },
+    },
+
+    gal: {
+      label: 'GAL–TAN',
+      desc: 'Analysverktyg från europeisk statsvetenskap, utvecklat av Hooghe, Marks och Wilson (2002). Akronymen står för Green/Alternative/Libertarian (GAL) kontra Traditional/Authoritarian/Nationalist (TAN). Modellen fångar den kulturella konfliktlinje som blivit allt viktigare i europeisk politik: miljö, invandring, EU-integration, mångfald och nationell identitet. Den vertikala axeln (GAL–TAN) kombineras med den klassiska ekonomiska vänster–höger-axeln. Jämfört med Politisk Kompass betonar GAL–TAN specifikt kulturella och identitetspolitiska frågor snarare än statlig kontroll i allmänhet. Jämfört med Nolan är dimensionen bredare – den innefattar miljö, nationalism och europeisk integration. Den kulturella kartan mäter liknande värderingsspänningar men bygger på empirisk befolkningsdata, medan GAL–TAN är ett ideologianalytiskt ramverk.',
+      xRange: 'Ekonomisk vänster / omfördelning ↔ Ekonomisk höger / marknad',
+      yRange: 'GAL: Grön / Alternativ / Libertariansk ↔ TAN: Traditionell / Auktoritär / Nationalistisk',
+      svgTitle:   'GAL–TAN-diagrammet',
+      svgSubText: 'EKONOMISK VÄNSTER–HÖGER  ·  GAL–TAN',
+      xLabel:  'Ekonomisk organisering',
+      xLeft:   'Vänster · omfördelning / offentlig sektor / jämlikhet',
+      xRight:  'Höger · fri marknad / privat ägande / effektivitet',
+      yLabel:  'Kulturella värderingar',
+      yTop:    'GAL · grön / progressiv / öppen / libertariansk',
+      yBottom: 'TAN · traditionell / auktoritär / nationalistisk',
+      quadTL: 'Vänster + GAL',
+      quadTR: 'Höger + GAL',
+      quadBL: 'Vänster + TAN',
+      quadBR: 'Höger + TAN',
+      positions: {
+        kommunism:       { x: 212, y: 515, color: '#7f1d1d' },
+        socialdemokrati: { x: 356, y: 263, color: '#b91c1c' },
+        socialliberalism:{ x: 500, y: 207, color: '#d97706' },
+        ekologism:       { x: 392, y: 151, color: '#15803d' },
+        liberalism:      { x: 644, y: 235, color: '#1d4ed8', label: 'Klassisk liberalism' },
+        nyliberalism:    { x: 752, y: 319, color: '#1e3a8a' },
+        libertarianism:  { x: 788, y: 179, color: '#6d28d9' },
+        ordoliberalism:  { x: 644, y: 403, color: '#065f46' },
+        konservatism:    { x: 644, y: 487, color: '#374151' },
+        kommunitarism:   { x: 428, y: 375, color: '#92400e' },
+        nationalism:     { x: 500, y: 571, color: '#1f2937' },
+        fascism:         { x: 536, y: 599, color: '#000000' },
       },
     },
   };
