@@ -49,8 +49,14 @@
         <header class="chart-header">
           <h2 id="chart-title">Ideologisk karta</h2>
           <p id="chart-desc">Filtrera ideologier och klicka på prickarna för att öppna samma fördjupning som via korten.</p>
+          <div class="chart-collapsed-note" id="chartCollapsedNote">
+            Kartan är dold vid sidstart för att hålla fokus på biblioteket. Expandera när du vill se en visuell överblick av ideologiernas positioner.
+          </div>
+          <button class="chart-toggle-btn" id="chartToggleBtn" type="button" aria-expanded="false" aria-controls="chartScrollWrap">
+            Visa ideologisk karta
+          </button>
         </header>
-        <div class="chart-scroll-wrap">
+        <div class="chart-scroll-wrap" id="chartScrollWrap" aria-hidden="true">
           <svg class="ideology-map" viewBox="0 0 1100 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="chart-svg-title chart-svg-desc">
             <title id="chart-svg-title">Ideologisk karta — Politiska Alternativ</title>
             <desc id="chart-svg-desc">Tvådimensionell ideologisk karta med ekonomisk axel och axel för stat, ordning och autonomi.</desc>
@@ -181,6 +187,9 @@
   const closeBtn = document.getElementById('detailClose');
   const mapDots = document.getElementById('ideologyMapDots');
   const chartElement = document.querySelector('.ideology-chart-card');
+  const chartToggleBtn = document.getElementById('chartToggleBtn');
+  const chartScrollWrap = document.getElementById('chartScrollWrap');
+  const chartCollapsedNote = document.getElementById('chartCollapsedNote');
 
   // Kategorier med etikett + färg används både för filtrering och kort-taggar
   const categoryConfig = {
@@ -390,15 +399,17 @@
     });
   });
 
-  const chartObserver = new IntersectionObserver((entries, obs) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-visible');
-      obs.unobserve(entry.target);
-    });
-  }, { threshold: 0.22 });
+  function expandChart() {
+    if (!chartElement || chartElement.classList.contains('is-expanded')) return;
+    chartElement.classList.add('is-expanded');
+    chartToggleBtn.textContent = 'Kartan är visad';
+    chartToggleBtn.disabled = true;
+    chartToggleBtn.setAttribute('aria-expanded', 'true');
+    chartScrollWrap.setAttribute('aria-hidden', 'false');
+    chartCollapsedNote.setAttribute('hidden', '');
+  }
 
-  if (chartElement) chartObserver.observe(chartElement);
+  chartToggleBtn?.addEventListener('click', expandChart);
 
   renderGrid();
   renderMapDots();
