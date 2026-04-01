@@ -217,7 +217,7 @@
 .ideology-map .quad-label { font-family: "Courier New", monospace; font-size: 10px; font-weight: 500; fill: #8a7d6e; letter-spacing: 0.06em; text-transform: uppercase; }
 .ideology-map .point-label { font-family: Georgia, serif; font-size: 13px; font-weight: 600; fill: #1a1209; }
 .ideology-map .legend-head { font-family: Georgia, serif; font-size: 14px; font-weight: 700; fill: #1a1209; letter-spacing: 0.03em; }
-.ideology-map .legend-text { font-family: "Courier New", monospace; font-size: 10.5px; fill: #3d3327; }
+.ideology-map .legend-text { font-family: "Courier New", monospace; font-size: 9px; fill: #3d3327; }
 .ideology-map .note-text { font-family: "Courier New", monospace; font-size: 9.5px; fill: #8a7d6e; }
 .ideology-map .divider { stroke: #c9bfae; stroke-width: 1; }
 
