@@ -96,19 +96,43 @@
 
 .chart-toggle-btn {
   font-family: var(--font-mono);
-  font-size: 0.63rem;
-  letter-spacing: 0.14em;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 0.55rem 1.1rem;
-  border: 1px solid var(--ink);
-  background: var(--ink);
-  color: var(--paper);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.62rem 1rem 0.62rem 1.1rem;
+  border: 1px solid #3f3325;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #2f2519 0%, #1f1810 100%);
+  color: #f9f4ea;
   cursor: pointer;
-  transition: opacity 0.2s, transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
   margin-bottom: 1rem;
+  box-shadow: 0 3px 12px rgba(31, 24, 16, 0.15);
 }
 
-.chart-toggle-btn:hover { transform: translateY(-1px); }
+.chart-toggle-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 16px rgba(31, 24, 16, 0.22);
+  border-color: #584737;
+}
+
+.chart-toggle-btn:focus-visible {
+  outline: 2px solid #9c8f7f;
+  outline-offset: 2px;
+}
+
+.chart-toggle-btn__icon {
+  display: inline-block;
+  font-size: 0.86rem;
+  transition: transform 0.25s ease;
+}
+
+.ideology-chart-card.is-expanded .chart-toggle-btn__icon {
+  transform: rotate(180deg);
+}
 
 .chart-toggle-btn:disabled {
   opacity: 0.65;
@@ -117,13 +141,15 @@
 }
 
 .chart-scroll-wrap {
-  overflow-x: auto;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.48s var(--ease-out), opacity 0.35s var(--ease-out), margin-top 0.35s var(--ease-out), padding 0.35s var(--ease-out);
+  opacity: 0;
+  overflow: hidden;
   background: #faf7f2;
   border: 1px solid #d9cfbf;
-  padding: 0.7rem;
-  max-height: 0;
-  opacity: 0;
-  overflow-y: hidden;
+  padding: 0;
+  margin-top: 0;
   pointer-events: none;
 }
 
@@ -185,8 +211,15 @@
 }
 
 .ideology-chart-card.is-expanded .chart-scroll-wrap {
-  animation: chartBoxExpand 0.6s var(--ease-out) forwards;
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 0.2rem;
+  padding: 0.7rem;
   pointer-events: auto;
+}
+
+.chart-scroll-wrap .ideology-map {
+  overflow: hidden;
 }
 
 .ideology-chart-card.is-expanded .chart-fade-layer,
@@ -208,11 +241,6 @@
 @keyframes chartFadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
-}
-
-@keyframes chartBoxExpand {
-  from { max-height: 0; opacity: 0; transform: translateY(-10px); }
-  to { max-height: 1000px; opacity: 1; transform: translateY(0); }
 }
 
 @keyframes pointRise {
