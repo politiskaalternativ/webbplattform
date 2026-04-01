@@ -71,6 +71,8 @@
   border: 1px solid var(--rule);
   background: #fdfbf7;
   padding: 1.2rem;
+  max-width: 1040px;
+  margin-inline: auto;
 }
 
 .chart-header h2 {
@@ -86,12 +88,18 @@
 
 .chart-scroll-wrap {
   overflow-x: auto;
+  background: #faf7f2;
+  border: 1px solid #d9cfbf;
+  padding: 0.7rem;
 }
 
 .ideology-map {
-  min-width: 980px;
-  width: 100%;
+  min-width: 900px;
+  width: min(100%, 960px);
   height: auto;
+  display: block;
+  margin-inline: auto;
+  background: #faf7f2;
 }
 
 .ideology-map .bg-main { fill: #faf7f2; }
@@ -503,6 +511,8 @@
   .compare-banner { padding: 4rem 1.5rem; }
   .ideology-chart-card { padding: 0.8rem; }
   .chart-header p { margin-bottom: 0.8rem; }
+  .chart-scroll-wrap { padding: 0.45rem; }
+  .ideology-map { min-width: 820px; }
 }
 
 @media (max-width: 600px) {
