@@ -65,6 +65,108 @@
   border-color: var(--ink);
 }
 
+/* ── Ideology chart ── */
+.ideology-chart-card {
+  margin-top: 2rem;
+  border: 1px solid var(--rule);
+  background: #fdfbf7;
+  padding: 1.2rem;
+}
+
+.chart-header h2 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  margin: 0 0 0.35rem;
+}
+
+.chart-header p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.chart-scroll-wrap {
+  overflow-x: auto;
+}
+
+.ideology-map {
+  min-width: 980px;
+  width: 100%;
+  height: auto;
+}
+
+.ideology-map .bg-main { fill: #faf7f2; }
+.ideology-map .bg-plot { fill: #fffef9; }
+.ideology-map .q-tl { fill: #eef0f7; fill-opacity: 0.65; }
+.ideology-map .q-tr { fill: #eef5f0; fill-opacity: 0.65; }
+.ideology-map .q-bl { fill: #f7f0ee; fill-opacity: 0.65; }
+.ideology-map .q-br { fill: #f7f5ee; fill-opacity: 0.65; }
+.ideology-map .grid-line { stroke: #d6cfc4; stroke-width: 0.8; }
+.ideology-map .mid-line { stroke: #9c8f7f; stroke-width: 1.4; stroke-dasharray: 6 5; }
+.ideology-map .axis-line { stroke: #2c2417; stroke-width: 1.8; }
+.ideology-map .title-text { font-family: Georgia, serif; font-size: 28px; font-weight: 700; fill: #1a1209; letter-spacing: 0.02em; }
+.ideology-map .sub-text { font-family: "Courier New", monospace; font-size: 11px; fill: #6b5e4e; letter-spacing: 0.03em; }
+.ideology-map .axis-label { font-family: Georgia, serif; font-size: 13px; font-weight: 600; fill: #2c2417; letter-spacing: 0.04em; }
+.ideology-map .axis-sub { font-family: "Courier New", monospace; font-size: 10px; fill: #7a6e60; }
+.ideology-map .quad-label { font-family: "Courier New", monospace; font-size: 10px; font-weight: 500; fill: #8a7d6e; letter-spacing: 0.06em; text-transform: uppercase; }
+.ideology-map .point-label { font-family: Georgia, serif; font-size: 13px; font-weight: 600; fill: #1a1209; }
+.ideology-map .legend-head { font-family: Georgia, serif; font-size: 14px; font-weight: 700; fill: #1a1209; letter-spacing: 0.03em; }
+.ideology-map .legend-text { font-family: "Courier New", monospace; font-size: 10.5px; fill: #3d3327; }
+.ideology-map .note-text { font-family: "Courier New", monospace; font-size: 9.5px; fill: #8a7d6e; }
+.ideology-map .divider { stroke: #c9bfae; stroke-width: 1; }
+
+.map-dot {
+  cursor: pointer;
+  stroke: rgba(255, 255, 255, 0.9);
+  stroke-width: 1.4;
+  transition: transform 0.2s ease, stroke-width 0.2s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.map-dot:hover,
+.map-dot:focus-visible {
+  transform: scale(1.16);
+  stroke-width: 2.2;
+  outline: none;
+}
+
+.map-point {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.chart-fade-layer,
+.chart-grid-layer,
+.chart-text-layer,
+.chart-footer-layer {
+  opacity: 0;
+}
+
+.ideology-chart-card.is-visible .chart-fade-layer,
+.ideology-chart-card.is-visible .chart-grid-layer,
+.ideology-chart-card.is-visible .chart-text-layer,
+.ideology-chart-card.is-visible .chart-footer-layer {
+  animation: chartFadeIn 0.7s var(--ease-out) forwards;
+}
+
+.ideology-chart-card.is-visible .chart-grid-layer { animation-delay: 0.16s; }
+.ideology-chart-card.is-visible .chart-text-layer { animation-delay: 0.26s; }
+.ideology-chart-card.is-visible .chart-footer-layer { animation-delay: 0.38s; }
+.ideology-chart-card.is-visible .map-point {
+  animation: pointRise 0.5s var(--ease-out) forwards;
+  animation-delay: var(--point-delay, 0s);
+}
+
+@keyframes chartFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pointRise {
+  from { opacity: 0; transform: translateY(12px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 /* ── Library ── */
 .library {
   padding: 5rem var(--gutter) 7rem;
@@ -399,6 +501,8 @@
   .ideology-grid { grid-template-columns: 1fr; }
   .detail-panel { width: 100vw; }
   .compare-banner { padding: 4rem 1.5rem; }
+  .ideology-chart-card { padding: 0.8rem; }
+  .chart-header p { margin-bottom: 0.8rem; }
 }
 
 @media (max-width: 600px) {
