@@ -5,9 +5,10 @@
 
 export function renderNav(activePage = '') {
   const pages = [
-    { href: 'index.html',     label: 'Start' },
-    { href: 'bibliotek.html', label: 'Bibliotek' },
-    { href: 'verktyg.html',   label: 'Verktyget' },
+    { href: 'index.html',        label: 'Start' },
+    { href: 'bibliotek.html',    label: 'Bibliotek' },
+    { href: 'ideologikarta.html', label: 'Kartor' },
+    { href: 'verktyg.html',      label: 'Verktyget' },
   ];
 
   const links = pages.map(p => {

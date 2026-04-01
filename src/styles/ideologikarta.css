@@ -1,0 +1,408 @@
+/* ═══════════════════════════════════════
+   ideologikarta.css — Ideologiska Kartor
+   ═══════════════════════════════════════ */
+
+/* ── Page hero ── */
+.page-hero {
+  padding: 5rem var(--gutter) 4rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.page-hero-inner { max-width: var(--max-w); margin: 0 auto; }
+
+.page-hero h1 {
+  font-size: clamp(3rem, 5vw, 5rem);
+  margin: 1rem 0 1.5rem;
+}
+
+.page-lead {
+  font-size: 1.1rem;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 56ch;
+  line-height: 1.85;
+  margin-bottom: 2.5rem;
+}
+
+/* ── Compass switcher ── */
+.compass-switcher {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  flex-wrap: wrap;
+  border: 1px solid var(--rule);
+  width: fit-content;
+  max-width: 100%;
+}
+
+.compass-tab {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--rule);
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.compass-tab:last-child { border-right: none; }
+
+.compass-tab:hover {
+  background: rgba(26, 24, 20, 0.04);
+  color: var(--ink);
+}
+
+.compass-tab.active {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.compass-tab__name {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+}
+
+.compass-tab__badge {
+  font-size: 0.52rem;
+  letter-spacing: 0.1em;
+  opacity: 0.55;
+  font-weight: 400;
+}
+
+.compass-tab.active .compass-tab__badge { opacity: 0.5; }
+
+/* ── Map section ── */
+.map-section {
+  padding: 4rem var(--gutter) 6rem;
+}
+
+.map-inner { max-width: var(--max-w); margin: 0 auto; }
+
+/* ── Compass description ── */
+.compass-info {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.compass-info-text { flex: 1; }
+
+.compass-info-title {
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 0.6rem;
+}
+
+.compass-info-desc {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 68ch;
+}
+
+.compass-axes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  min-width: 220px;
+  max-width: 280px;
+}
+
+.axis-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.axis-item__label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 400;
+}
+
+.axis-item__range {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ── Filter bar ── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.filter-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 0.4rem;
+}
+
+.filter-btn {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.45rem 1rem;
+  background: transparent;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.filter-btn:hover { border-color: var(--ink); color: var(--ink); }
+
+.filter-btn.active {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+/* ── Map scroll wrapper ── */
+.map-scroll-wrap {
+  overflow-x: auto;
+  background: #faf7f2;
+  border: 1px solid #d9cfbf;
+  padding: 0.7rem;
+}
+
+/* ── SVG map ── */
+.ideology-map {
+  min-width: 900px;
+  width: min(100%, 1060px);
+  height: auto;
+  display: block;
+  margin-inline: auto;
+  background: #faf7f2;
+}
+
+.ideology-map .bg-main { fill: #faf7f2; }
+.ideology-map .bg-plot { fill: #fffef9; }
+.ideology-map .q-tl { fill: #eef0f7; fill-opacity: 0.65; }
+.ideology-map .q-tr { fill: #eef5f0; fill-opacity: 0.65; }
+.ideology-map .q-bl { fill: #f7f0ee; fill-opacity: 0.65; }
+.ideology-map .q-br { fill: #f7f5ee; fill-opacity: 0.65; }
+.ideology-map .grid-line { stroke: #d6cfc4; stroke-width: 0.8; }
+.ideology-map .mid-line { stroke: #9c8f7f; stroke-width: 1.4; stroke-dasharray: 6 5; }
+.ideology-map .axis-line { stroke: #2c2417; stroke-width: 1.8; }
+.ideology-map .title-text { font-family: Georgia, serif; font-size: 28px; font-weight: 700; fill: #1a1209; letter-spacing: 0.02em; }
+.ideology-map .sub-text { font-family: "Courier New", monospace; font-size: 11px; fill: #6b5e4e; letter-spacing: 0.03em; }
+.ideology-map .axis-label { font-family: Georgia, serif; font-size: 13px; font-weight: 600; fill: #2c2417; letter-spacing: 0.04em; }
+.ideology-map .axis-sub { font-family: "Courier New", monospace; font-size: 10px; fill: #7a6e60; }
+.ideology-map .quad-label { font-family: "Courier New", monospace; font-size: 10px; font-weight: 500; fill: #8a7d6e; letter-spacing: 0.06em; text-transform: uppercase; }
+.ideology-map .point-label { font-family: Georgia, serif; font-size: 13px; font-weight: 600; fill: #1a1209; }
+.ideology-map .legend-head { font-family: Georgia, serif; font-size: 14px; font-weight: 700; fill: #1a1209; letter-spacing: 0.03em; }
+.ideology-map .legend-text { font-family: "Courier New", monospace; font-size: 10.5px; fill: #3d3327; }
+.ideology-map .note-text { font-family: "Courier New", monospace; font-size: 9.5px; fill: #8a7d6e; }
+.ideology-map .divider { stroke: #c9bfae; stroke-width: 1; }
+
+.map-dot {
+  cursor: pointer;
+  stroke: rgba(255,255,255,0.9);
+  stroke-width: 1.4;
+  transition: transform 0.2s ease, stroke-width 0.2s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.map-dot:hover,
+.map-dot:focus-visible {
+  transform: scale(1.16);
+  stroke-width: 2.2;
+  outline: none;
+}
+
+.map-point {
+  opacity: 0;
+  animation: pointRise 0.45s var(--ease-out) forwards;
+  animation-delay: var(--point-delay, 0s);
+}
+
+.chart-fade-layer,
+.chart-grid-layer,
+.chart-text-layer,
+.chart-footer-layer {
+  opacity: 0;
+  animation: chartFadeIn 0.55s var(--ease-out) forwards;
+}
+
+.chart-grid-layer  { animation-delay: 0.12s; }
+.chart-text-layer  { animation-delay: 0.22s; }
+.chart-footer-layer{ animation-delay: 0.32s; }
+
+@keyframes chartFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pointRise {
+  from { opacity: 0; transform: translateY(12px) scale(0.9); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);   }
+}
+
+/* Re-trigger animations when compass changes */
+.map-dots-layer.is-switching .map-point {
+  animation: none;
+  opacity: 0;
+}
+
+/* ── Detail overlay ── */
+.detail-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,24,20,0.65);
+  z-index: 800;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease-out);
+  backdrop-filter: blur(4px);
+}
+
+.detail-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.detail-panel {
+  width: min(560px, 100vw);
+  height: 100vh;
+  background: var(--paper);
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.35s var(--ease-out);
+  position: relative;
+  outline: none;
+}
+
+.detail-overlay.open .detail-panel { transform: translateX(0); }
+
+.detail-close {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: block;
+  float: right;
+  width: 3rem;
+  height: 3rem;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  line-height: 3rem;
+  text-align: center;
+}
+.detail-close:hover { background: var(--accent); }
+
+.dp-header { padding: 0; overflow: hidden; }
+.dp-accent-bar { height: 6px; background: var(--accent-color, var(--accent)); }
+.dp-header-body { padding: 2.5rem 2.5rem 2rem; background: var(--ink); color: var(--paper); }
+
+.dp-era {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.45);
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.dp-header-body h2 { font-size: 2.2rem; font-style: italic; color: var(--paper); margin-bottom: 0.6rem; }
+.dp-tagline { font-size: 1rem; font-weight: 300; color: rgba(245,240,232,0.65); line-height: 1.6; }
+
+.dp-body { padding: 2.5rem; }
+
+.dp-section { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--rule); }
+.dp-section:last-of-type { border-bottom: none; }
+
+.dp-section h3 {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.9rem;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.dp-section p { font-size: 1rem; font-weight: 300; color: var(--muted); line-height: 1.8; }
+
+.dp-list { display: flex; flex-direction: column; gap: 0.5rem; }
+
+.dp-list li {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--muted);
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.6;
+}
+.dp-list li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.7rem; top: 0.15rem; }
+
+.dp-thinkers { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.dp-thinker {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+}
+
+.dp-tension {
+  background: rgba(139,58,42,0.05);
+  border-left: 3px solid var(--accent);
+  padding: 1.2rem 1.5rem;
+  border-bottom: none !important;
+}
+.dp-tension h3 { margin-bottom: 0.6rem; }
+
+.dp-action { padding-top: 1rem; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .page-hero { padding: 3rem 1.5rem 2.5rem; }
+  .map-section { padding: 3rem 1.5rem 5rem; }
+  .compass-info { flex-direction: column; gap: 1.5rem; }
+  .compass-axes { max-width: 100%; min-width: 0; }
+  .detail-panel { width: 100vw; }
+  .compass-tab { padding: 0.6rem 1rem; }
+}
+
+@media (max-width: 600px) {
+  .compass-switcher { width: 100%; }
+  .compass-tab { flex: 1; min-width: 0; }
+}

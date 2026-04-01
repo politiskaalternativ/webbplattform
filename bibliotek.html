@@ -45,97 +45,13 @@
         <button class="filter-btn" data-filter="marknad">Marknad</button>
         <button class="filter-btn" data-filter="ordning">Ordning</button>
       </div>
-      <section class="ideology-chart-card anim-fade-up is-masked" style="animation-delay:0.48s" aria-labelledby="chart-title chart-desc" aria-hidden="true" hidden>
-        <header class="chart-header">
-          <h2 id="chart-title">Ideologisk karta</h2>
-          <p id="chart-desc">Filtrera ideologier och klicka på prickarna för att öppna samma fördjupning som via korten.</p>
-          <div class="chart-collapsed-note" id="chartCollapsedNote">
-            Kartan är dold vid sidstart för att hålla fokus på biblioteket. Expandera när du vill se en visuell överblick av ideologiernas positioner.
-          </div>
-          <button class="chart-toggle-btn" id="chartToggleBtn" type="button" aria-expanded="false" aria-controls="chartScrollWrap">
-            <span class="chart-toggle-btn__text">Visa ideologisk karta</span>
-            <span class="chart-toggle-btn__icon" aria-hidden="true">▾</span>
-          </button>
-        </header>
-        <div class="chart-scroll-wrap" id="chartScrollWrap" aria-hidden="true">
-          <svg class="ideology-map" viewBox="0 0 1100 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="chart-svg-title chart-svg-desc">
-            <title id="chart-svg-title">Ideologisk karta — Politiska Alternativ</title>
-            <desc id="chart-svg-desc">Tvådimensionell ideologisk karta med ekonomisk axel och axel för stat, ordning och autonomi.</desc>
-            <defs>
-              <filter id="dot-shadow" x="-40%" y="-40%" width="180%" height="180%">
-                <feDropShadow dx="0" dy="2" stdDeviation="3.5" flood-color="#2c2417" flood-opacity="0.18"/>
-              </filter>
-              <marker id="arrowX" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-                <polygon points="0 0, 7 3.5, 0 7" fill="#2c2417"/>
-              </marker>
-              <marker id="arrowY" markerWidth="7" markerHeight="7" refX="3.5" refY="1" orient="auto">
-                <polygon points="0 7, 3.5 0, 7 7" fill="#2c2417"/>
-              </marker>
-            </defs>
-            <g class="chart-fade-layer">
-              <rect width="1100" height="800" class="bg-main"/>
-              <line x1="120" y1="78" x2="980" y2="78" class="divider"/>
-              <rect x="140" y="95" width="720" height="560" rx="4" class="bg-plot" stroke="#c9bfae" stroke-width="1"/>
-              <rect x="890" y="95" width="185" height="370" rx="6" fill="#fffef9" stroke="#c9bfae" stroke-width="1"/>
-            </g>
-            <g class="chart-grid-layer">
-              <rect x="140" y="95" width="360" height="280" rx="4" class="q-tl"/>
-              <rect x="500" y="95" width="360" height="280" rx="4" class="q-tr"/>
-              <rect x="140" y="375" width="360" height="280" rx="4" class="q-bl"/>
-              <rect x="500" y="375" width="360" height="280" rx="4" class="q-br"/>
-              <line x1="230" y1="95" x2="230" y2="655" class="grid-line"/>
-              <line x1="320" y1="95" x2="320" y2="655" class="grid-line"/>
-              <line x1="410" y1="95" x2="410" y2="655" class="grid-line"/>
-              <line x1="590" y1="95" x2="590" y2="655" class="grid-line"/>
-              <line x1="680" y1="95" x2="680" y2="655" class="grid-line"/>
-              <line x1="770" y1="95" x2="770" y2="655" class="grid-line"/>
-              <line x1="140" y1="165" x2="860" y2="165" class="grid-line"/>
-              <line x1="140" y1="235" x2="860" y2="235" class="grid-line"/>
-              <line x1="140" y1="305" x2="860" y2="305" class="grid-line"/>
-              <line x1="140" y1="445" x2="860" y2="445" class="grid-line"/>
-              <line x1="140" y1="515" x2="860" y2="515" class="grid-line"/>
-              <line x1="140" y1="585" x2="860" y2="585" class="grid-line"/>
-              <line x1="500" y1="95" x2="500" y2="655" class="mid-line"/>
-              <line x1="140" y1="375" x2="860" y2="375" class="mid-line"/>
-              <line x1="148" y1="655" x2="856" y2="655" class="axis-line" marker-end="url(#arrowX)"/>
-              <line x1="140" y1="647" x2="140" y2="103" class="axis-line" marker-end="url(#arrowY)"/>
-            </g>
-            <g class="chart-text-layer">
-              <text x="550" y="46" text-anchor="middle" class="title-text">Ideologisk karta</text>
-              <text x="550" y="66" text-anchor="middle" class="sub-text">OMFÖRDELNING / VÄLFÄRDSSTAT / JÄMLIKHET ↔ MARKNAD / PRIVAT ÄGANDE / EFFEKTIVITET · AUKTORITÄR ↔ LIBERTÄR</text>
-              <text x="320" y="115" text-anchor="middle" class="quad-label">Libertär + vänster</text>
-              <text x="680" y="115" text-anchor="middle" class="quad-label">Libertär + höger</text>
-              <text x="320" y="645" text-anchor="middle" class="quad-label">Auktoritär + vänster</text>
-              <text x="680" y="645" text-anchor="middle" class="quad-label">Auktoritär + höger</text>
-              <text x="500" y="695" text-anchor="middle" class="axis-label">Ekonomisk organisering</text>
-              <text x="175" y="718" text-anchor="middle" class="axis-sub">Omfördelning / välfärdsstat / jämlikhet</text>
-              <text x="825" y="718" text-anchor="middle" class="axis-sub">Marknad / privat ägande / effektivitet</text>
-              <text x="52" y="375" text-anchor="middle" transform="rotate(-90 52 375)" class="axis-label">Stat, ordning och autonomi</text>
-              <text x="34" y="560" text-anchor="middle" transform="rotate(-90 34 560)" class="axis-sub">Auktoritär · ordning / reglering / hierarki</text>
-              <text x="34" y="190" text-anchor="middle" transform="rotate(-90 34 190)" class="axis-sub">Libertär · individuell autonomi / svag statlig kontroll</text>
-              <text x="982" y="120" text-anchor="middle" class="legend-head">Färgfamiljer</text>
-              <line x1="905" y1="129" x2="1060" y2="129" class="divider"/>
-              <circle cx="913" cy="152" r="7" fill="#1d4ed8"/><text x="928" y="157" class="legend-text">Liberala traditioner</text>
-              <circle cx="913" cy="178" r="7" fill="#6d28d9"/><text x="928" y="183" class="legend-text">Libertarianska</text>
-              <circle cx="913" cy="204" r="7" fill="#065f46"/><text x="928" y="209" class="legend-text">Ordoliberala</text>
-              <circle cx="913" cy="234" r="7" fill="#b91c1c"/><text x="928" y="239" class="legend-text">Socialistiska / socialdem.</text>
-              <circle cx="913" cy="260" r="7" fill="#15803d"/><text x="928" y="265" class="legend-text">Gröna / ekologiska</text>
-              <circle cx="913" cy="286" r="7" fill="#374151"/><text x="928" y="291" class="legend-text">Konservativa / nationella</text>
-              <circle cx="913" cy="312" r="7" fill="#92400e"/><text x="928" y="317" class="legend-text">Kommunitära</text>
-              <circle cx="913" cy="338" r="7" fill="#000000"/><text x="928" y="343" class="legend-text">Totalitära referenspunkter</text>
-              <line x1="905" y1="356" x2="1060" y2="356" class="divider"/>
-              <text x="982" y="372" text-anchor="middle" class="note-text">Positionerna är analytiska</text>
-              <text x="982" y="386" text-anchor="middle" class="note-text">förenklingar, inte exakta.</text>
-            </g>
-            <g id="ideologyMapDots" filter="url(#dot-shadow)"></g>
-            <g class="chart-footer-layer">
-              <line x1="120" y1="740" x2="980" y2="740" class="divider"/>
-              <text x="140" y="758" class="note-text">Not: Kartan är en konceptuell visualisering. Ideologier varierar historiskt och kan placeras annorlunda beroende på definition, epok och nationell kontext.</text>
-              <text x="140" y="772" class="note-text">Särskilt fascism, nationalism och ekologism rymmer flera historiska varianter.</text>
-            </g>
-          </svg>
-        </div>
-      </section>
+      <div class="chart-map-link anim-fade-up" style="animation-delay:0.48s">
+        <a href="ideologikarta.html" class="chart-map-link__btn">
+          <span class="chart-map-link__icon" aria-hidden="true">◎</span>
+          <span>Utforska ideologiska kartor</span>
+          <span class="chart-map-link__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -186,11 +102,6 @@
   const panel = document.getElementById('detailPanel');
   const detailContent = document.getElementById('detailContent');
   const closeBtn = document.getElementById('detailClose');
-  const mapDots = document.getElementById('ideologyMapDots');
-  const chartElement = document.querySelector('.ideology-chart-card');
-  const chartToggleBtn = document.getElementById('chartToggleBtn');
-  const chartScrollWrap = document.getElementById('chartScrollWrap');
-  const chartCollapsedNote = document.getElementById('chartCollapsedNote');
 
   // Kategorier med etikett + färg används både för filtrering och kort-taggar
   const categoryConfig = {
@@ -239,59 +150,6 @@
       .filter(Boolean),
     ...ideologies.filter(ideo => !cardOrder.includes(ideo.id)),
   ];
-
-  const mapPositions = {
-    kommunism: { x: 220, y: 560, color: '#7f1d1d' },
-    socialdemokrati: { x: 350, y: 290, color: '#b91c1c' },
-    socialliberalism: { x: 520, y: 240, color: '#d97706' },
-    ekologism: { x: 430, y: 235, color: '#15803d' },
-    liberalism: { x: 690, y: 220, color: '#1d4ed8', label: 'Klassisk liberalism' },
-    nyliberalism: { x: 770, y: 300, color: '#1e3a8a' },
-    libertarianism: { x: 830, y: 130, color: '#6d28d9' },
-    ordoliberalism: { x: 610, y: 420, color: '#065f46' },
-    konservatism: { x: 610, y: 500, color: '#374151' },
-    kommunitarism: { x: 430, y: 430, color: '#92400e' },
-    nationalism: { x: 520, y: 555, color: '#1f2937' },
-    fascism: { x: 580, y: 620, color: '#000000' },
-  };
-
-  function renderMapDots(filter = 'all') {
-    mapDots.innerHTML = '';
-    orderedIdeologies.forEach((ideo, i) => {
-      const pos = mapPositions[ideo.id];
-      if (!pos) return;
-      const tags = tagMap[ideo.id] || [];
-      if (filter !== 'all' && !tags.includes(filter)) return;
-      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-      g.setAttribute('class', 'map-point');
-      g.setAttribute('style', `--point-delay:${i * 0.06}s`);
-      const button = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      button.setAttribute('cx', pos.x);
-      button.setAttribute('cy', pos.y);
-      button.setAttribute('r', '10');
-      button.setAttribute('fill', pos.color);
-      button.setAttribute('class', 'map-dot');
-      button.setAttribute('role', 'button');
-      button.setAttribute('tabindex', '0');
-      button.setAttribute('aria-label', `Öppna information om ${ideo.label}`);
-      const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-      label.setAttribute('x', pos.x);
-      label.setAttribute('y', pos.y - 17);
-      label.setAttribute('text-anchor', 'middle');
-      label.setAttribute('class', 'point-label');
-      label.textContent = pos.label || ideo.label;
-      const open = () => openDetail(ideo);
-      button.addEventListener('click', open);
-      button.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          open();
-        }
-      });
-      g.append(button, label);
-      mapDots.appendChild(g);
-    });
-  }
 
   function renderGrid(filter = 'all') {
     grid.innerHTML = '';
@@ -396,31 +254,10 @@
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       renderGrid(btn.dataset.filter);
-      renderMapDots(btn.dataset.filter);
     });
   });
 
-  function setChartExpanded(expanded) {
-    if (!chartElement || !chartToggleBtn || !chartScrollWrap || !chartCollapsedNote) return;
-
-    chartElement.classList.toggle('is-expanded', expanded);
-    chartToggleBtn.setAttribute('aria-expanded', String(expanded));
-    chartScrollWrap.setAttribute('aria-hidden', String(!expanded));
-    chartCollapsedNote.toggleAttribute('hidden', expanded);
-
-    const label = chartToggleBtn.querySelector('.chart-toggle-btn__text');
-    if (label) {
-      label.textContent = expanded ? 'Dölj ideologisk karta' : 'Visa ideologisk karta';
-    }
-  }
-
-  chartToggleBtn?.addEventListener('click', () => {
-    const isExpanded = chartElement?.classList.contains('is-expanded');
-    setChartExpanded(!isExpanded);
-  });
-
   renderGrid();
-  renderMapDots();
 </script>
 </body>
 </html>
