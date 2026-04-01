@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ideologiska Kartor — Politiska Alternativ</title>
+  <meta name="description" content="Visualisera och jämför politiska ideologier på etablerade kompasser: Politisk Kompass, Nolan-diagrammet och den kulturella kartan.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Politiska Alternativ">
+  <meta property="og:title" content="Ideologiska Kartor — Politiska Alternativ">
+  <meta property="og:description" content="Visualisera och jämför politiska ideologier på etablerade kompasser.">
+  <meta property="og:url" content="https://politiskaalternativ.se/ideologikarta.html">
+  <meta property="og:image" content="https://politiskaalternativ.se/favicon.svg">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="shortcut icon" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="stylesheet" href="src/styles/global.css">
+  <link rel="stylesheet" href="src/styles/ideologikarta.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<main class="page-wrap">
+
+  <!-- ── Page hero ── -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="label anim-fade-up">Visuell analys</p>
+      <h1 class="anim-fade-up" style="animation-delay:0.12s">Ideologiska kartor</h1>
+      <p class="page-lead anim-fade-up" style="animation-delay:0.24s">
+        Utforska hur klassiska ideologier placerar sig på etablerade politiska kompasser.
+        Varje kompass belyser olika dimensioner av det politiska landskapet.
+      </p>
+
+      <!-- Compass tabs -->
+      <div class="compass-switcher anim-fade-up" style="animation-delay:0.36s"
+           role="tablist" aria-label="Välj ideologisk kompass" id="compassSwitcher">
+        <button class="compass-tab active" data-compass="politisk"
+                role="tab" aria-selected="true" aria-controls="compassMap">
+          <span class="compass-tab__name">Politisk Kompass</span>
+          <span class="compass-tab__badge">Klassisk</span>
+        </button>
+        <button class="compass-tab" data-compass="nolan"
+                role="tab" aria-selected="false" aria-controls="compassMap">
+          <span class="compass-tab__name">Nolan-diagrammet</span>
+          <span class="compass-tab__badge">1970-tal</span>
+        </button>
+        <button class="compass-tab" data-compass="kulturell"
+                role="tab" aria-selected="false" aria-controls="compassMap">
+          <span class="compass-tab__name">Kulturell karta</span>
+          <span class="compass-tab__badge">Inglehart–Welzel</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ── Map section ── -->
+  <section class="map-section" id="compassMap" role="tabpanel">
+    <div class="map-inner">
+
+      <!-- Compass info (updated by JS) -->
+      <div class="compass-info anim-fade-up" style="animation-delay:0.1s">
+        <div class="compass-info-text">
+          <h2 class="compass-info-title" id="compassTitle">Politisk Kompass</h2>
+          <p class="compass-info-desc" id="compassDesc">
+            Den klassiska tvådimensionella kompassen med ekonomisk vänster–höger-axel och en vertikal axel
+            för graden av statlig kontroll. Används brett som referensram för att jämföra ideologier och
+            politiska partier.
+          </p>
+        </div>
+        <div class="compass-axes" id="compassAxes">
+          <div class="axis-item">
+            <span class="axis-item__label">Horisontell axel</span>
+            <span class="axis-item__range" id="axisXRange">Omfördelning / välfärdsstat ↔ Marknad / privat ägande</span>
+          </div>
+          <div class="axis-item">
+            <span class="axis-item__label">Vertikal axel</span>
+            <span class="axis-item__range" id="axisYRange">Libertär / individuell autonomi ↔ Auktoritär / statlig kontroll</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter bar -->
+      <div class="filter-bar anim-fade-up" style="animation-delay:0.18s">
+        <span class="filter-label">Filtrera:</span>
+        <button class="filter-btn active" data-filter="all">Alla</button>
+        <button class="filter-btn" data-filter="frihet">Frihet</button>
+        <button class="filter-btn" data-filter="jamlikhet">Jämlikhet</button>
+        <button class="filter-btn" data-filter="gemenskap">Gemenskap</button>
+        <button class="filter-btn" data-filter="hallbarhet">Hållbarhet</button>
+        <button class="filter-btn" data-filter="marknad">Marknad</button>
+        <button class="filter-btn" data-filter="ordning">Ordning</button>
+      </div>
+
+      <!-- SVG map -->
+      <div class="map-scroll-wrap anim-fade-up" style="animation-delay:0.28s">
+        <svg class="ideology-map" viewBox="0 0 1100 800"
+             xmlns="http://www.w3.org/2000/svg"
+             role="img" aria-labelledby="map-svg-title map-svg-desc"
+             id="ideologyMapSvg">
+          <title id="map-svg-title">Ideologisk karta — Politiska Alternativ</title>
+          <desc id="map-svg-desc">Tvådimensionell ideologisk karta. Klicka på prickarna för information om varje ideologi.</desc>
+
+          <defs>
+            <filter id="dot-shadow" x="-40%" y="-40%" width="180%" height="180%">
+              <feDropShadow dx="0" dy="2" stdDeviation="3.5" flood-color="#2c2417" flood-opacity="0.18"/>
+            </filter>
+            <marker id="arrowX" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+              <polygon points="0 0, 7 3.5, 0 7" fill="#2c2417"/>
+            </marker>
+            <marker id="arrowY" markerWidth="7" markerHeight="7" refX="3.5" refY="1" orient="auto">
+              <polygon points="0 7, 3.5 0, 7 7" fill="#2c2417"/>
+            </marker>
+          </defs>
+
+          <g class="chart-fade-layer">
+            <rect width="1100" height="800" class="bg-main"/>
+            <line x1="120" y1="78" x2="980" y2="78" class="divider"/>
+            <rect x="140" y="95" width="720" height="560" rx="4" class="bg-plot" stroke="#c9bfae" stroke-width="1"/>
+            <!-- Legend panel -->
+            <rect x="890" y="95" width="185" height="370" rx="6" fill="#fffef9" stroke="#c9bfae" stroke-width="1"/>
+          </g>
+
+          <g class="chart-grid-layer">
+            <rect x="140" y="95"  width="360" height="280" rx="4" class="q-tl"/>
+            <rect x="500" y="95"  width="360" height="280" rx="4" class="q-tr"/>
+            <rect x="140" y="375" width="360" height="280" rx="4" class="q-bl"/>
+            <rect x="500" y="375" width="360" height="280" rx="4" class="q-br"/>
+            <line x1="230" y1="95"  x2="230" y2="655" class="grid-line"/>
+            <line x1="320" y1="95"  x2="320" y2="655" class="grid-line"/>
+            <line x1="410" y1="95"  x2="410" y2="655" class="grid-line"/>
+            <line x1="590" y1="95"  x2="590" y2="655" class="grid-line"/>
+            <line x1="680" y1="95"  x2="680" y2="655" class="grid-line"/>
+            <line x1="770" y1="95"  x2="770" y2="655" class="grid-line"/>
+            <line x1="140" y1="165" x2="860" y2="165" class="grid-line"/>
+            <line x1="140" y1="235" x2="860" y2="235" class="grid-line"/>
+            <line x1="140" y1="305" x2="860" y2="305" class="grid-line"/>
+            <line x1="140" y1="445" x2="860" y2="445" class="grid-line"/>
+            <line x1="140" y1="515" x2="860" y2="515" class="grid-line"/>
+            <line x1="140" y1="585" x2="860" y2="585" class="grid-line"/>
+            <line x1="500" y1="95"  x2="500" y2="655" class="mid-line"/>
+            <line x1="140" y1="375" x2="860" y2="375" class="mid-line"/>
+            <line x1="148" y1="655" x2="856" y2="655" class="axis-line" marker-end="url(#arrowX)"/>
+            <line x1="140" y1="647" x2="140" y2="103" class="axis-line" marker-end="url(#arrowY)"/>
+          </g>
+
+          <g class="chart-text-layer">
+            <!-- Title -->
+            <text x="550" y="46" text-anchor="middle" class="title-text" id="svgTitle">Politisk Kompass</text>
+            <text x="550" y="66" text-anchor="middle" class="sub-text" id="svgSubText">EKONOMISK VÄNSTER–HÖGER  ·  LIBERTÄR–AUKTORITÄR</text>
+
+            <!-- Quadrant labels -->
+            <text x="320" y="115" text-anchor="middle" class="quad-label" id="quadTL">Libertär + vänster</text>
+            <text x="680" y="115" text-anchor="middle" class="quad-label" id="quadTR">Libertär + höger</text>
+            <text x="320" y="645" text-anchor="middle" class="quad-label" id="quadBL">Auktoritär + vänster</text>
+            <text x="680" y="645" text-anchor="middle" class="quad-label" id="quadBR">Auktoritär + höger</text>
+
+            <!-- X axis labels -->
+            <text x="500" y="695" text-anchor="middle" class="axis-label" id="svgXLabel">Ekonomisk organisering</text>
+            <text x="175" y="718" text-anchor="middle" class="axis-sub" id="svgXLeft">Omfördelning / välfärdsstat / jämlikhet</text>
+            <text x="825" y="718" text-anchor="middle" class="axis-sub" id="svgXRight">Marknad / privat ägande / effektivitet</text>
+
+            <!-- Y axis labels -->
+            <text x="52" y="375" text-anchor="middle" transform="rotate(-90 52 375)" class="axis-label" id="svgYLabel">Stat, ordning och autonomi</text>
+            <text x="34" y="560" text-anchor="middle" transform="rotate(-90 34 560)" class="axis-sub" id="svgYBottom">Auktoritär · ordning / reglering / hierarki</text>
+            <text x="34" y="190" text-anchor="middle" transform="rotate(-90 34 190)" class="axis-sub" id="svgYTop">Libertär · individuell autonomi / svag statlig kontroll</text>
+
+            <!-- Legend -->
+            <text x="982" y="120" text-anchor="middle" class="legend-head">Färgfamiljer</text>
+            <line x1="905" y1="129" x2="1060" y2="129" class="divider"/>
+            <circle cx="913" cy="152" r="7" fill="#1d4ed8"/><text x="928" y="157" class="legend-text">Liberala traditioner</text>
+            <circle cx="913" cy="178" r="7" fill="#6d28d9"/><text x="928" y="183" class="legend-text">Libertarianska</text>
+            <circle cx="913" cy="204" r="7" fill="#065f46"/><text x="928" y="209" class="legend-text">Ordoliberala</text>
+            <circle cx="913" cy="234" r="7" fill="#b91c1c"/><text x="928" y="239" class="legend-text">Socialistiska / socialdem.</text>
+            <circle cx="913" cy="260" r="7" fill="#15803d"/><text x="928" y="265" class="legend-text">Gröna / ekologiska</text>
+            <circle cx="913" cy="286" r="7" fill="#374151"/><text x="928" y="291" class="legend-text">Konservativa / nationella</text>
+            <circle cx="913" cy="312" r="7" fill="#92400e"/><text x="928" y="317" class="legend-text">Kommunitära</text>
+            <circle cx="913" cy="338" r="7" fill="#000000"/><text x="928" y="343" class="legend-text">Totalitära referenspunkter</text>
+            <line x1="905" y1="356" x2="1060" y2="356" class="divider"/>
+            <text x="982" y="372" text-anchor="middle" class="note-text">Positionerna är analytiska</text>
+            <text x="982" y="386" text-anchor="middle" class="note-text">förenklingar, inte exakta.</text>
+          </g>
+
+          <!-- Dots rendered by JS -->
+          <g id="ideologyMapDots" filter="url(#dot-shadow)"></g>
+
+          <g class="chart-footer-layer">
+            <line x1="120" y1="740" x2="980" y2="740" class="divider"/>
+            <text x="140" y="758" class="note-text">Not: Kartorna är konceptuella visualiseringar. Ideologier varierar historiskt och kan placeras annorlunda beroende på definition, epok och nationell kontext.</text>
+            <text x="140" y="772" class="note-text">Fascism, nationalism och ekologism rymmer flera historiska varianter. Nolan-diagrammet och den kulturella kartan belyser andra dimensioner än den klassiska vänster–höger-axeln.</text>
+          </g>
+        </svg>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Detail panel (modal) ── -->
+  <div class="detail-overlay" id="detailOverlay" aria-hidden="true">
+    <div class="detail-panel" id="detailPanel" role="dialog" aria-modal="true">
+      <button class="detail-close" id="detailClose" aria-label="Stäng">✕</button>
+      <div class="detail-content" id="detailContent"></div>
+    </div>
+  </div>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script type="module">
+  import { mountShell } from './src/components/shell.js';
+  import { ideologies } from './src/lib/ideologies.js';
+
+  mountShell('ideologikarta.html');
+
+  // ── Compass data ──────────────────────────────────────────────────────────
+  const compasses = {
+    politisk: {
+      label: 'Politisk Kompass',
+      desc: 'Den klassiska tvådimensionella kompassen med ekonomisk vänster–höger-axel och en vertikal axel för graden av statlig kontroll. Används brett som referensram för att jämföra ideologier och politiska partier.',
+      xRange: 'Omfördelning / välfärdsstat ↔ Marknad / privat ägande',
+      yRange: 'Libertär / individuell autonomi ↔ Auktoritär / statlig kontroll',
+      svgTitle:   'Politisk Kompass',
+      svgSubText: 'EKONOMISK VÄNSTER–HÖGER  ·  LIBERTÄR–AUKTORITÄR',
+      xLabel:  'Ekonomisk organisering',
+      xLeft:   'Omfördelning / välfärdsstat / jämlikhet',
+      xRight:  'Marknad / privat ägande / effektivitet',
+      yLabel:  'Stat, ordning och autonomi',
+      yTop:    'Libertär · individuell autonomi / svag statlig kontroll',
+      yBottom: 'Auktoritär · ordning / reglering / hierarki',
+      quadTL: 'Libertär + vänster',
+      quadTR: 'Libertär + höger',
+      quadBL: 'Auktoritär + vänster',
+      quadBR: 'Auktoritär + höger',
+      positions: {
+        kommunism:       { x: 212, y: 515, color: '#7f1d1d' },
+        socialdemokrati: { x: 356, y: 319, color: '#b91c1c' },
+        socialliberalism:{ x: 536, y: 263, color: '#d97706' },
+        ekologism:       { x: 428, y: 263, color: '#15803d' },
+        liberalism:      { x: 752, y: 263, color: '#1d4ed8', label: 'Klassisk liberalism' },
+        nyliberalism:    { x: 824, y: 319, color: '#1e3a8a' },
+        libertarianism:  { x: 824, y: 151, color: '#6d28d9' },
+        ordoliberalism:  { x: 644, y: 403, color: '#065f46' },
+        konservatism:    { x: 644, y: 459, color: '#374151' },
+        kommunitarism:   { x: 428, y: 403, color: '#92400e' },
+        nationalism:     { x: 536, y: 515, color: '#1f2937' },
+        fascism:         { x: 608, y: 571, color: '#000000' },
+      },
+    },
+
+    nolan: {
+      label: 'Nolan-diagrammet',
+      desc: 'Nolan-diagrammet delar politiken längs två separata frihetsdimensioner: ekonomisk frihet och personlig frihet. Modellen visar att traditionell vänster och höger delar en auktoritär mittzon, medan libertarianer bildar ett eget kluster med hög frihet längs båda axlarna.',
+      xRange: 'Statlig styrning / omfördelning ↔ Fri marknad / låga skatter',
+      yRange: 'Låg personlig frihet / kontroll ↔ Hög personlig frihet / autonomi',
+      svgTitle:   'Nolan-diagrammet',
+      svgSubText: 'EKONOMISK FRIHET  ·  PERSONLIG FRIHET',
+      xLabel:  'Ekonomisk frihet',
+      xLeft:   'Statlig styrning / reglering / omfördelning',
+      xRight:  'Fri marknad / låga skatter / äganderätt',
+      yLabel:  'Personlig frihet',
+      yTop:    'Hög personlig frihet · autonomi / tolerans / öppenhet',
+      yBottom: 'Låg personlig frihet · kontroll / konformitet / restriktioner',
+      quadTL: 'Progressiv / vänster',
+      quadTR: 'Libertariansk',
+      quadBL: 'Populistisk / auktoritär',
+      quadBR: 'Konservativ / höger',
+      positions: {
+        kommunism:       { x: 212, y: 543, color: '#7f1d1d' },
+        socialdemokrati: { x: 392, y: 291, color: '#b91c1c' },
+        socialliberalism:{ x: 500, y: 235, color: '#d97706' },
+        ekologism:       { x: 428, y: 263, color: '#15803d' },
+        liberalism:      { x: 716, y: 235, color: '#1d4ed8', label: 'Klassisk liberalism' },
+        nyliberalism:    { x: 788, y: 375, color: '#1e3a8a' },
+        libertarianism:  { x: 824, y: 123, color: '#6d28d9' },
+        ordoliberalism:  { x: 644, y: 347, color: '#065f46' },
+        konservatism:    { x: 608, y: 459, color: '#374151' },
+        kommunitarism:   { x: 464, y: 347, color: '#92400e' },
+        nationalism:     { x: 500, y: 515, color: '#1f2937' },
+        fascism:         { x: 536, y: 599, color: '#000000' },
+      },
+    },
+
+    kulturell: {
+      label: 'Kulturell karta',
+      desc: 'Inspirerad av Inglehart–Welzels kulturella karta. Den horisontella axeln mäter graden av traditionella vs. sekulär-rationella värderingar. Den vertikala axeln mäter graden av överlevnadsvärden (trygghet, konformitet) vs. självförverkligande och öppenhet.',
+      xRange: 'Traditionella värderingar / religion / familj ↔ Sekulär-rationella / vetenskap / individualism',
+      yRange: 'Överlevnadsvärden / ordning / konformitet ↔ Självförverkligande / tolerans / öppenhet',
+      svgTitle:   'Kulturell karta',
+      svgSubText: 'TRADITIONELL–SEKULÄR  ·  ÖVERLEVNAD–SJÄLVFÖRVERKLIGANDE',
+      xLabel:  'Kulturella värderingar',
+      xLeft:   'Traditionella · religion / familj / auktoritet',
+      xRight:  'Sekulär-rationella · vetenskap / individualism',
+      yLabel:  'Samhällsvärderingar',
+      yTop:    'Självförverkligande · öppenhet / tolerans / självuttryck',
+      yBottom: 'Överlevnadsvärden · trygghet / konformitet / ordning',
+      quadTL: 'Traditionell + självförverkligande',
+      quadTR: 'Sekulär + självförverkligande',
+      quadBL: 'Traditionell + överlevnad',
+      quadBR: 'Sekulär + överlevnad',
+      positions: {
+        kommunism:       { x: 572, y: 487, color: '#7f1d1d' },
+        socialdemokrati: { x: 716, y: 235, color: '#b91c1c' },
+        socialliberalism:{ x: 680, y: 207, color: '#d97706' },
+        ekologism:       { x: 608, y: 207, color: '#15803d' },
+        liberalism:      { x: 608, y: 263, color: '#1d4ed8', label: 'Klassisk liberalism' },
+        nyliberalism:    { x: 644, y: 347, color: '#1e3a8a' },
+        libertarianism:  { x: 680, y: 235, color: '#6d28d9' },
+        ordoliberalism:  { x: 572, y: 347, color: '#065f46' },
+        konservatism:    { x: 284, y: 431, color: '#374151' },
+        kommunitarism:   { x: 392, y: 319, color: '#92400e' },
+        nationalism:     { x: 248, y: 487, color: '#1f2937' },
+        fascism:         { x: 212, y: 543, color: '#000000' },
+      },
+    },
+  };
+
+  // ── State ─────────────────────────────────────────────────────────────────
+  let currentCompass = 'politisk';
+  let currentFilter  = 'all';
+
+  // ── Tag map ───────────────────────────────────────────────────────────────
+  const tagMap = {
+    liberalism:       ['frihet', 'marknad'],
+    socialliberalism: ['frihet', 'jamlikhet'],
+    nyliberalism:     ['frihet', 'marknad'],
+    libertarianism:   ['frihet', 'marknad'],
+    ordoliberalism:   ['marknad', 'ordning'],
+    socialdemokrati:  ['jamlikhet', 'gemenskap'],
+    kommunism:        ['jamlikhet', 'gemenskap'],
+    konservatism:     ['gemenskap', 'ordning'],
+    nationalism:      ['gemenskap', 'ordning'],
+    ekologism:        ['hallbarhet', 'gemenskap'],
+    kommunitarism:    ['gemenskap', 'jamlikhet'],
+    fascism:          ['ordning', 'gemenskap'],
+  };
+
+  // ── DOM refs ──────────────────────────────────────────────────────────────
+  const mapDots       = document.getElementById('ideologyMapDots');
+  const overlay       = document.getElementById('detailOverlay');
+  const panel         = document.getElementById('detailPanel');
+  const detailContent = document.getElementById('detailContent');
+  const closeBtn      = document.getElementById('detailClose');
+
+  // SVG text nodes
+  const svgTitle   = document.getElementById('svgTitle');
+  const svgSubText = document.getElementById('svgSubText');
+  const quadTL     = document.getElementById('quadTL');
+  const quadTR     = document.getElementById('quadTR');
+  const quadBL     = document.getElementById('quadBL');
+  const quadBR     = document.getElementById('quadBR');
+  const svgXLabel  = document.getElementById('svgXLabel');
+  const svgXLeft   = document.getElementById('svgXLeft');
+  const svgXRight  = document.getElementById('svgXRight');
+  const svgYLabel  = document.getElementById('svgYLabel');
+  const svgYTop    = document.getElementById('svgYTop');
+  const svgYBottom = document.getElementById('svgYBottom');
+
+  // Info panel text nodes
+  const compassTitle = document.getElementById('compassTitle');
+  const compassDesc  = document.getElementById('compassDesc');
+  const axisXRange   = document.getElementById('axisXRange');
+  const axisYRange   = document.getElementById('axisYRange');
+
+  // ── Render dots ───────────────────────────────────────────────────────────
+  function renderDots(compassKey, filter) {
+    const compass = compasses[compassKey];
+    mapDots.innerHTML = '';
+
+    ideologies.forEach((ideo, i) => {
+      const pos  = compass.positions[ideo.id];
+      if (!pos) return;
+      const tags = tagMap[ideo.id] || [];
+      if (filter !== 'all' && !tags.includes(filter)) return;
+
+      const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      g.setAttribute('class', 'map-point');
+      g.style.setProperty('--point-delay', `${i * 0.055}s`);
+
+      const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      dot.setAttribute('cx', pos.x);
+      dot.setAttribute('cy', pos.y);
+      dot.setAttribute('r', '10');
+      dot.setAttribute('fill', pos.color);
+      dot.setAttribute('class', 'map-dot');
+      dot.setAttribute('role', 'button');
+      dot.setAttribute('tabindex', '0');
+      dot.setAttribute('aria-label', `Öppna information om ${ideo.label}`);
+
+      const lbl = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      lbl.setAttribute('x', pos.x);
+      lbl.setAttribute('y', pos.y - 17);
+      lbl.setAttribute('text-anchor', 'middle');
+      lbl.setAttribute('class', 'point-label');
+      lbl.textContent = pos.label || ideo.label;
+
+      const open = () => openDetail(ideo);
+      dot.addEventListener('click', open);
+      dot.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+      });
+
+      g.append(dot, lbl);
+      mapDots.appendChild(g);
+    });
+  }
+
+  // ── Update SVG labels ─────────────────────────────────────────────────────
+  function updateSvgLabels(compassKey) {
+    const c = compasses[compassKey];
+    svgTitle.textContent   = c.svgTitle;
+    svgSubText.textContent = c.svgSubText;
+    quadTL.textContent     = c.quadTL;
+    quadTR.textContent     = c.quadTR;
+    quadBL.textContent     = c.quadBL;
+    quadBR.textContent     = c.quadBR;
+    svgXLabel.textContent  = c.xLabel;
+    svgXLeft.textContent   = c.xLeft;
+    svgXRight.textContent  = c.xRight;
+    svgYLabel.textContent  = c.yLabel;
+    svgYTop.textContent    = c.yTop;
+    svgYBottom.textContent = c.yBottom;
+  }
+
+  // ── Update info panel ─────────────────────────────────────────────────────
+  function updateInfoPanel(compassKey) {
+    const c = compasses[compassKey];
+    compassTitle.textContent = c.label;
+    compassDesc.textContent  = c.desc;
+    axisXRange.textContent   = c.xRange;
+    axisYRange.textContent   = c.yRange;
+  }
+
+  // ── Switch compass ────────────────────────────────────────────────────────
+  function switchCompass(compassKey) {
+    currentCompass = compassKey;
+    updateSvgLabels(compassKey);
+    updateInfoPanel(compassKey);
+    renderDots(compassKey, currentFilter);
+
+    document.querySelectorAll('.compass-tab').forEach(btn => {
+      const active = btn.dataset.compass === compassKey;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-selected', String(active));
+    });
+  }
+
+  // ── Detail panel ──────────────────────────────────────────────────────────
+  function openDetail(ideo) {
+    detailContent.innerHTML = `
+      <div class="dp-header" style="--accent-color:${ideo.color}">
+        <div class="dp-accent-bar"></div>
+        <div class="dp-header-body">
+          <span class="dp-era">${ideo.era}</span>
+          <h2>${ideo.label}</h2>
+          <p class="dp-tagline">${ideo.tagline}</p>
+        </div>
+      </div>
+      <div class="dp-body">
+        <div class="dp-section">
+          <h3>Grundprinciper</h3>
+          <ul class="dp-list">
+            ${ideo.core.map(c => `<li>${c}</li>`).join('')}
+          </ul>
+        </div>
+        <div class="dp-section">
+          <h3>Syn på staten</h3>
+          <p>${ideo.stateSyn}</p>
+        </div>
+        <div class="dp-section">
+          <h3>Ekonomiskt system</h3>
+          <p>${ideo.ekonomi}</p>
+        </div>
+        <div class="dp-section">
+          <h3>Centrala tänkare</h3>
+          <div class="dp-thinkers">
+            ${ideo.tänkare.map(t => `<span class="dp-thinker">${t}</span>`).join('')}
+          </div>
+        </div>
+        <div class="dp-section dp-tension">
+          <h3>Intern spänning</h3>
+          <p>${ideo.spänningar}</p>
+        </div>
+        <div class="dp-action">
+          <a href="bibliotek.html" class="btn btn-dark">Se i biblioteket</a>
+        </div>
+      </div>
+    `;
+    panel.scrollTop = 0;
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    panel.focus();
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDetail() {
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeDetail);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeDetail(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
+
+  // ── Compass tabs ──────────────────────────────────────────────────────────
+  document.getElementById('compassSwitcher').addEventListener('click', e => {
+    const btn = e.target.closest('.compass-tab');
+    if (!btn) return;
+    switchCompass(btn.dataset.compass);
+  });
+
+  // ── Filter buttons ────────────────────────────────────────────────────────
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.dataset.filter;
+      renderDots(currentCompass, currentFilter);
+    });
+  });
+
+  // ── Init ──────────────────────────────────────────────────────────────────
+  renderDots('politisk', 'all');
+</script>
+</body>
+</html>
