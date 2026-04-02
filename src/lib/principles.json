@@ -153,7 +153,7 @@
         "label": "Demokratisk maktbalans",
         "span": [0, 3],
         "description": "Folkviljan uttryckt genom demokratiska institutioner är den primära legitimitetsgrunden. Staten kan ta på sig omfattande uppgifter om de stöds av demokratisk majoritet. Friheter balanseras mot kollektiva åtaganden.",
-        "typiska_ideologier": ["Socialdemokrati", "Socialliberalism", "Kommunitarism", "Kristdemokrati"],
+        "typiska_ideologier": ["Socialdemokrati", "Socialliberalism", "Socialism", "Kristdemokrati"],
         "nyckelprinciper": [
           "Demokratisk majoritetsprincip",
           "Kollektiva rättigheter vid sidan av individuella",
@@ -234,7 +234,7 @@
         "label": "Konservativ pragmatism och gemenskapsbevarande",
         "span": [1, 4],
         "description": "Beprövade institutioner, normer och sociala strukturer bör värnas eftersom de bär på samlad erfarenhet. Förändring ska ske organiskt och varsamt. Gemensamma värden och social sammanhållning är politiskt viktiga.",
-        "typiska_ideologier": ["Konservatism", "Kristdemokrati", "Kommunitarism"],
+        "typiska_ideologier": ["Konservatism", "Kristdemokrati", "Socialism"],
         "nyckelprinciper": [
           "Respekt för tradition och beprövade institutioner",
           "Organisk förändring framför radikal reform",
