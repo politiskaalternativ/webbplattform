@@ -4,7 +4,7 @@ Politiska Alternativ är en svensk webbplats för att formulera, strukturera och
 
 ## Sidor
 - / — startsida med introduktion, demokratifilosofi och problemkort.
-- /verktyg.html — steg-för-steg-process för att skapa en personlig ideologisk AI-instruktion.
+- /verktyg.html — AI-analys: steg-för-steg-process för att skapa en personlig ideologisk AI-instruktion.
 - /bibliotek.html — referensbibliotek med klassiska ideologier i jämförbar struktur.
 - /ekonomi.html — visualisering och jämförelse av grundläggande ekonomiska filosofier.
 - /ideologikarta.html — ideologiska kartor: Politisk Kompass, Nolan-diagrammet, GAL–TAN och kulturell karta.

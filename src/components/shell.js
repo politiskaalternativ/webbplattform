@@ -9,7 +9,7 @@ export function renderNav(activePage = '') {
     { href: 'bibliotek.html',    label: 'Bibliotek' },
     { href: 'ekonomi.html',      label: 'Ekonomi' },
     { href: 'ideologikarta.html', label: 'Kartor' },
-    { href: 'verktyg.html',      label: 'Verktyget' },
+    { href: 'verktyg.html',      label: 'AI-analys' },
   ];
 
   const links = pages.map(p => {
