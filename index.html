@@ -221,7 +221,7 @@
 <div id="site-footer"></div>
 
 <script type="module">
-  import { mountShell } from './src/components/shell.js';
+  import { mountShell } from './src/components/shell.js?v=2';
   mountShell('index.html');
 
   const data = await fetch('./src/lib/problems.json').then(r => r.json());
