@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ekonomiska filosofier — Politiska Alternativ</title>
+  <meta name="description" content="Utforska och jämför grundläggande ekonomiska filosofier – från planekonomi till fri marknad – och förstå hur de skiljer sig i synen på staten, marknaden och fördelning.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Politiska Alternativ">
+  <meta property="og:title" content="Ekonomiska filosofier — Politiska Alternativ">
+  <meta property="og:description" content="Utforska och jämför grundläggande ekonomiska filosofier – från planekonomi till fri marknad.">
+  <meta property="og:url" content="https://politiskaalternativ.se/ekonomi.html">
+  <meta property="og:image" content="https://politiskaalternativ.se/favicon.svg">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="shortcut icon" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="stylesheet" href="src/styles/global.css">
+  <style>
+    /* ── Page hero ── */
+    .page-hero {
+      padding: 5rem var(--gutter) 4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .page-hero-inner { max-width: var(--max-w); margin: 0 auto; }
+    .page-hero h1 {
+      font-size: clamp(3rem, 5vw, 5rem);
+      margin: 1rem 0 1.5rem;
+    }
+    .page-lead {
+      font-size: 1.1rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 56ch;
+      line-height: 1.85;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── Spectrum bar ── */
+    .spectrum-section {
+      padding: 3.5rem var(--gutter);
+      border-bottom: 1px solid var(--rule);
+      background: var(--paper-dark);
+    }
+    .spectrum-inner { max-width: var(--max-w); margin: 0 auto; }
+    .spectrum-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+    .spectrum-bar {
+      position: relative;
+      height: 6px;
+      background: linear-gradient(to right,
+        #7a1f2a 0%,
+        #a04020 18%,
+        #c9973a 38%,
+        #8b3a2a 55%,
+        #5a6e4a 72%,
+        #3f6f8f 88%,
+        #2a3f6a 100%
+      );
+      border-radius: 3px;
+      margin-bottom: 1rem;
+    }
+    .spectrum-endpoints {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .spectrum-markers {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.5rem;
+      padding: 0 0.5rem;
+    }
+    .spectrum-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--ink);
+      border: 2px solid var(--paper);
+      cursor: pointer;
+      transition: transform 0.2s;
+      position: relative;
+    }
+    .spectrum-dot:hover { transform: scale(1.5); }
+
+    /* ── Filter bar ── */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .filter-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-right: 0.4rem;
+    }
+    .filter-btn {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.45rem 1rem;
+      background: transparent;
+      border: 1px solid var(--rule);
+      color: var(--muted);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .filter-btn:hover { border-color: var(--ink); color: var(--ink); }
+    .filter-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+    /* ── Philosophy grid ── */
+    .library-section {
+      padding: 4rem var(--gutter);
+    }
+    .library-inner { max-width: var(--max-w); margin: 0 auto; }
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    /* ── Philosophy card ── */
+    .phil-card {
+      border: 1px solid var(--rule);
+      background: var(--white);
+      padding: 0;
+      cursor: pointer;
+      transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out), border-color 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .phil-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(26,24,20,0.1);
+      border-color: var(--rule-dark);
+    }
+    .phil-card-accent {
+      height: 4px;
+      width: 100%;
+    }
+    .phil-card-body {
+      padding: 1.6rem 1.8rem 1.8rem;
+    }
+    .phil-card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.9rem;
+    }
+    .phil-card-era {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .phil-card-tag {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.65rem;
+      border: 1px solid var(--rule);
+      color: var(--muted);
+    }
+    .phil-card h2 {
+      font-size: clamp(1.35rem, 2vw, 1.7rem);
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+      line-height: 1.15;
+    }
+    .phil-card-tagline {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+      border-left: 2px solid var(--rule);
+      padding-left: 0.8rem;
+    }
+    .phil-card-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.4rem;
+    }
+    .phil-pillar {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--ink);
+      line-height: 1.45;
+    }
+    .phil-pillar::before {
+      content: '—';
+      font-family: var(--font-mono);
+      color: var(--muted);
+      flex-shrink: 0;
+      font-size: 0.8rem;
+      margin-top: 0.05rem;
+    }
+    .phil-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+    }
+    .phil-card-thinkers {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+      max-width: 70%;
+      line-height: 1.5;
+    }
+    .phil-card-cta {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: gap 0.2s;
+    }
+    .phil-card:hover .phil-card-cta { gap: 0.7rem; }
+
+    /* Hidden state */
+    .phil-card.hidden { display: none; }
+
+    /* ── Detail overlay ── */
+    .detail-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(26,24,20,0.65);
+      z-index: 800;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s var(--ease-out);
+      backdrop-filter: blur(2px);
+    }
+    .detail-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .detail-panel {
+      width: min(680px, 100%);
+      height: 100vh;
+      overflow-y: auto;
+      background: var(--paper);
+      border-left: 1px solid var(--rule);
+      padding: 0;
+      transform: translateX(100%);
+      transition: transform 0.35s var(--ease-out);
+      position: relative;
+    }
+    .detail-overlay.open .detail-panel {
+      transform: translateX(0);
+    }
+    .detail-accent-bar {
+      height: 6px;
+      width: 100%;
+    }
+    .detail-header {
+      padding: 2.5rem 2.5rem 0;
+    }
+    .detail-close {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+      background: transparent;
+      border: 1px solid var(--rule);
+      color: var(--muted);
+      width: 2.2rem;
+      height: 2.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .detail-close:hover { border-color: var(--ink); color: var(--ink); }
+    .detail-era {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+    .detail-header h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      margin-bottom: 0.6rem;
+    }
+    .detail-tagline {
+      font-size: 1.05rem;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.6;
+      border-left: 2px solid var(--rule-dark);
+      padding-left: 1rem;
+      margin: 1.2rem 0 0;
+    }
+    .detail-body {
+      padding: 2rem 2.5rem 3rem;
+    }
+    .detail-section {
+      margin-bottom: 2.2rem;
+    }
+    .detail-section-label {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .detail-section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .detail-section p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--ink);
+    }
+    .detail-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+    .detail-pillar {
+      display: flex;
+      gap: 0.8rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .detail-pillar::before {
+      content: '—';
+      font-family: var(--font-mono);
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .detail-thinkers {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .thinker-tag {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid var(--rule);
+      color: var(--muted);
+      background: var(--paper-dark);
+    }
+    .detail-tensions {
+      background: var(--canvas);
+      border-left: 3px solid var(--gold);
+      padding: 1rem 1.2rem;
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+
+    /* ── Axis viz ── */
+    .axis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .axis-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .axis-item-label {
+      font-family: var(--font-mono);
+      font-size: 0.57rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .axis-track {
+      height: 4px;
+      background: var(--rule);
+      border-radius: 2px;
+      position: relative;
+    }
+    .axis-fill {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.6s var(--ease-out);
+    }
+    .axis-value {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    /* ── Comparison table ── */
+    .compare-section {
+      padding: 4rem var(--gutter);
+      background: var(--paper-dark);
+      border-top: 1px solid var(--rule);
+    }
+    .compare-inner { max-width: var(--max-w); margin: 0 auto; }
+    .compare-section h2 {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 300;
+      margin: 1rem 0 0.5rem;
+    }
+    .compare-lead {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      max-width: 52ch;
+    }
+    .compare-table-wrap {
+      overflow-x: auto;
+    }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+    .compare-table th {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: left;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--rule-dark);
+      white-space: nowrap;
+    }
+    .compare-table td {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+      line-height: 1.55;
+    }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table .row-name {
+      font-weight: 400;
+      white-space: nowrap;
+    }
+    .compare-table .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+    .compare-table tr:hover td { background: var(--canvas); }
+
+    /* ── CTA section ── */
+    .compare-banner {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 4rem var(--gutter);
+      text-align: center;
+    }
+    .compare-banner h2 {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 300;
+      color: var(--paper);
+      margin: 0.8rem 0 0.8rem;
+    }
+    .compare-banner p {
+      color: rgba(245,240,232,0.6);
+      max-width: 46ch;
+      margin: 0 auto 2rem;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .axis-grid { grid-template-columns: 1fr; }
+      .compare-table { min-width: 600px; }
+    }
+    @media (max-width: 600px) {
+      .philosophy-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<main class="page-wrap">
+
+  <!-- ── Page hero ── -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="label anim-fade-up">Ekonomiska filosofier</p>
+      <h1 class="anim-fade-up" style="animation-delay:0.12s">Hur ska ekonomin organiseras?</h1>
+      <p class="page-lead anim-fade-up" style="animation-delay:0.24s">
+        Ekonomiska filosofier är de grundläggande synsätten på hur ett samhälle bör fördela resurser,
+        organisera produktion och balansera frihet mot trygghet. De är ryggraden i all politisk
+        ekonomi – förstår du dem förstår du varför politiska partier tänker som de gör.
+      </p>
+      <div class="filter-bar anim-fade-up" style="animation-delay:0.36s">
+        <span class="filter-label">Visa:</span>
+        <button class="filter-btn active" data-filter="all">Alla</button>
+        <button class="filter-btn" data-filter="marknad">Marknad</button>
+        <button class="filter-btn" data-filter="stat">Stat</button>
+        <button class="filter-btn" data-filter="blandat">Blandat</button>
+        <button class="filter-btn" data-filter="alternativ">Alternativa</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Spectrum ── -->
+  <section class="spectrum-section">
+    <div class="spectrum-inner">
+      <p class="spectrum-label">Spektrum — statlig kontroll vs marknadslogik</p>
+      <div class="spectrum-bar"></div>
+      <div class="spectrum-endpoints">
+        <span>Fullständig planekonomi</span>
+        <span>Blandekonomier</span>
+        <span>Fri marknad</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Philosophy grid ── -->
+  <section class="library-section">
+    <div class="library-inner">
+      <div class="philosophy-grid" id="philosophyGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Comparison table ── -->
+  <section class="compare-section">
+    <div class="compare-inner">
+      <p class="label">Jämförelsetabell</p>
+      <h2>Sida vid sida</h2>
+      <p class="compare-lead">En översikt av hur de ekonomiska filosofierna förhåller sig till nyckelfrågorna.</p>
+      <div class="compare-table-wrap">
+        <table class="compare-table" id="compareTable">
+          <thead>
+            <tr>
+              <th>Filosofi</th>
+              <th>Ägande</th>
+              <th>Prisbildning</th>
+              <th>Statens roll</th>
+              <th>Fördelning</th>
+            </tr>
+          </thead>
+          <tbody id="compareBody">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="compare-banner">
+    <p class="label" style="color:rgba(245,240,232,0.45); justify-content:center;">
+      <span style="background:rgba(245,240,232,0.3);display:inline-block;width:2rem;height:1px;vertical-align:middle;margin-right:0.9rem;"></span>
+      Vidare
+    </p>
+    <h2>Koppla till ideologierna</h2>
+    <p>Se hur de politiska ideologierna tar ställning till dessa ekonomiska grundfrågor.</p>
+    <a href="bibliotek.html" class="btn btn-light">Ideologibibliotek</a>
+  </section>
+
+</main>
+
+<!-- ── Detail overlay ── -->
+<div class="detail-overlay" id="detailOverlay">
+  <div class="detail-panel" id="detailPanel" role="dialog" aria-modal="true">
+    <button class="detail-close" id="detailClose" aria-label="Stäng">✕</button>
+    <div id="detailContent"></div>
+  </div>
+</div>
+
+<div id="site-footer"></div>
+
+<script type="module">
+  import { mountShell } from './src/components/shell.js';
+  mountShell('ekonomi.html');
+
+  // ── Data ──────────────────────────────────────────────────────────────────
+  const philosophies = [
+    {
+      id: 'planekonomi',
+      label: 'Planekonomi',
+      era: '1900-tal–',
+      tagline: 'Samhällets resurser fördelas av en central plan, inte av priser.',
+      category: 'stat',
+      color: '#7a1f2a',
+      pillars: [
+        'Staten äger och kontrollerar produktionsmedlen',
+        'Resurser allokeras via central planering',
+        'Vinst ersätts av behovsstyrda produktionsmål',
+        'Eliminerar privata marknader för kapitalvaror',
+      ],
+      stateSyn: 'Staten är den primära ekonomiska aktören och fastställer vad som ska produceras, hur och för vem. Planering kan ske centralt (Gosplan-modellen) eller i decentraliserade varianter med arbetarstyre.',
+      fordelning: 'Fördelning sker politiskt snarare än via marknaden. Målet är likhet i utfall snarare än likhet i möjligheter.',
+      kritik: 'Beräkningsproblemet (Mises, Hayek): utan prisinformation är det omöjligt att veta hur resurser värderas relativt varandra. Historisk erfarenhet visar på låg effektivitet, bristande innovation och frihetsförtryck.',
+      tänkare: ['Karl Marx', 'Friedrich Engels', 'Nikolai Bukharin'],
+      tensions: 'Beräkningsproblem, incitamentsproblem och politisk maktkoncentration. Centraliserad planering tenderar att prioritera sin egen fortlevnad framför folkliga behov.',
+      axes: { marknad: 5, stat: 95, frihet: 10, jämlikhet: 80 },
+      tableRow: { agande: 'Statligt/kollektivt', prisbildning: 'Centralt planerad', statRoll: 'Allomfattande', fordelning: 'Politiskt styrd' },
+    },
+    {
+      id: 'marxism',
+      label: 'Marxistisk ekonomi',
+      era: '1800-tal–',
+      tagline: 'Kapitalackumulation skapar systematisk exploatering av lönearbetare.',
+      category: 'stat',
+      color: '#9a2a2a',
+      pillars: [
+        'Mervärde — lönearbetare producerar mer värde än de erhåller',
+        'Klassmotsättningar driver historisk förändring',
+        'Kapital tenderar mot koncentration och kris',
+        'Produktion för behov, inte profit',
+      ],
+      stateSyn: 'Staten är i kapitalismen ett instrument för den härskande klassen. I övergångsfasen till kommunism behöver proletariatet en egen stat — som på sikt ska bortdö.',
+      fordelning: '"Från var och en efter förmåga, till var och en efter behov." Fördelning ska spegla behov, inte bidrag till marknaden.',
+      kritik: 'Värdeteori baserad på arbete stämmer dåligt med hur priser faktiskt bildas. Historiska tillämpningar har konsekvent lett till auktoritärt styre snarare än frihetlig kommunism.',
+      tänkare: ['Karl Marx', 'Friedrich Engels', 'Rosa Luxemburg', 'Antonio Gramsci'],
+      tensions: 'Spänning mellan utopisk kommunism och faktisk statskapitalism. Vem definierar proletariatets intressen? Vad händer om "övergångsstaten" inte vill bortdö?',
+      axes: { marknad: 10, stat: 85, frihet: 20, jämlikhet: 90 },
+      tableRow: { agande: 'Gemensamt/kollektivt', prisbildning: 'Avskaffas i slutstadiet', statRoll: 'Övergångsinstrument', fordelning: 'Behovsstyrd' },
+    },
+    {
+      id: 'keynesianism',
+      label: 'Keynesianism',
+      era: '1930-tal–',
+      tagline: 'Efterfrågan driver ekonomin — och staten kan stabilisera den.',
+      category: 'blandat',
+      color: '#a04020',
+      pillars: [
+        'Aggregerad efterfrågan bestämmer produktion och sysselsättning',
+        'Marknader kan fastna i jämvikt med hög arbetslöshet',
+        'Finanspolitik som konjunkturverktyg',
+        'Multiplikatoreffekten — statliga utgifter ger mer än vad de kostar',
+      ],
+      stateSyn: 'Staten bör aktivt stabilisera ekonomin genom att motverka konjunkturcykler. Underskott under lågkonjunktur, överskott under högkonjunktur.',
+      fordelning: 'Fördelning är sekundär i det klassiska ramverket, men sociala investeringar motiveras som efterfrågestimulerande.',
+      kritik: 'Riksekonomiska risker: politiken tenderar att bli asymmetrisk (underskott alltid, överskott aldrig). Crowding out — statliga lån konkurrerar med privata investeringar om kapital.',
+      tänkare: ['John Maynard Keynes', 'Paul Samuelson', 'James Tobin', 'Paul Krugman'],
+      tensions: 'Fungerar modellen på lång sikt? Keynes svarade: "På lång sikt är vi alla döda." Kritiker menar att kortsiktigt tänkande ackumulerar skuld och snedvridningar.',
+      axes: { marknad: 50, stat: 60, frihet: 55, jämlikhet: 60 },
+      tableRow: { agande: 'Blandat', prisbildning: 'Marknadsbaserad', statRoll: 'Konjunkturstabilisator', fordelning: 'Marknad + omfördelning' },
+    },
+    {
+      id: 'blandekonomi',
+      label: 'Blandekonomi',
+      era: '1900-tal–',
+      tagline: 'Marknadens effektivitet kombineras med statlig reglering och välfärd.',
+      category: 'blandat',
+      color: '#c9973a',
+      pillars: [
+        'Privat äganderätt kombineras med offentliga tjänster',
+        'Staten korrigerar marknadsmisslyckanden',
+        'Progressiv beskattning och sociala skyddsnät',
+        'Reglering av monopol och externa effekter',
+      ],
+      stateSyn: 'Staten kompletterar marknaden snarare än ersätter den. Offentliga varor, marknadsmisslyckanden och omfördelning motiverar statlig inblandning.',
+      fordelning: 'Marknaden fördelar primärt; staten omfördelar sekundärt via skatter och transfereringar. Mål om lika möjligheter snarare än lika utfall.',
+      kritik: 'Gränsdragningsproblemet: var slutar nödvändig reglering och börjar kontraproduktiv intervention? Regulatorisk capture — regleringen tjänar branschens intressen snarare än samhällets.',
+      tänkare: ['Paul Samuelson', 'John Kenneth Galbraith', 'Arthur Okun'],
+      tensions: 'Inga tydliga principer för var gränsen ska dras. Pragmatism kan maskera inkohärens.',
+      axes: { marknad: 65, stat: 55, frihet: 60, jämlikhet: 55 },
+      tableRow: { agande: 'Privat + offentligt', prisbildning: 'Marknadsbaserad', statRoll: 'Korrektiv', fordelning: 'Marknad + omfördelning' },
+    },
+    {
+      id: 'ordoliberalism',
+      label: 'Ordoliberalism',
+      era: '1930-tal–',
+      tagline: 'Fri marknad förutsätter ett starkt rättsligt ramverk — konkurrens garanteras, inte lämnas åt sig själv.',
+      category: 'marknad',
+      color: '#8b3a2a',
+      pillars: [
+        'Marknadens spelregler sätts av starka, oberoende institutioner',
+        'Konkurrens är ett mål som kräver aktiv upprätthållning',
+        'Penningpolitisk stabilitet som konstitutionell princip',
+        'Stat och marknad är komplementära, inte antagonister',
+      ],
+      stateSyn: 'Staten sätter spelplanen men väljer inte vinnare. Ordoliberalism är skeptisk till diskretionär politik och föredrar regelbaserade ramverk som begränsar politisk godtycklighet.',
+      fordelning: 'Primärt via fungerande konkurrens och breda möjligheter. Marknadsinkomster ses som legitima när marknaden är genuint konkurrensutsatt. Socialpolitik kan vara förenlig om den inte snedvrider incitament.',
+      kritik: 'Gränsdragning: var slutar ordningsramar och börjar interventionism? Kan anklagas för att vara för rigid och underuppskatta behovet av flexibel stabiliseringspolitik.',
+      tänkare: ['Walter Eucken', 'Wilhelm Röpke', 'Alexander Rüstow', 'Ludwig Erhard'],
+      tensions: 'Spänning mellan regelbaserat ramverk och demokratisk flexibilitet. Institutioner som ska vara oberoende kan bli oansvariga.',
+      axes: { marknad: 80, stat: 45, frihet: 75, jämlikhet: 40 },
+      tableRow: { agande: 'Privat', prisbildning: 'Konkurrensmarknaden', statRoll: 'Regelgivare/domare', fordelning: 'Konkurrens + selektiv socialpolitik' },
+    },
+    {
+      id: 'neoklassicism',
+      label: 'Neoklassisk ekonomi',
+      era: '1870-tal–',
+      tagline: 'Individer maximerar nytta, marknader tenderar mot jämvikt.',
+      category: 'marknad',
+      color: '#5a6e4a',
+      pillars: [
+        'Rationella aktörer med konsekventa preferenser',
+        'Priser signalerar och allokerar resurser effektivt',
+        'Marknader tenderar mot jämvikt vid störningar',
+        'Marginalkostnaden bestämmer optimalt utbud',
+      ],
+      stateSyn: 'Staten bör begränsa sig till att korrigera tydliga marknadsmisslyckanden (externa effekter, offentliga varor, informationsasymmetrier). I övrigt är priset bättre informerat än byråkraten.',
+      fordelning: 'Marknaden fördelar i enlighet med marginalproduktivitet. Omfördelning kan motiveras men distorsionskostnaden måste vägas in.',
+      kritik: 'Rationalitetsantagandet är empiriskt felaktigt (beteendeekonomi). Modeller antar marknadsjämvikt men verkligheten präglas av instabilitet och boomen-bust-cykler.',
+      tänkare: ['Alfred Marshall', 'Leon Walras', 'William Stanley Jevons', 'Gary Becker'],
+      tensions: 'Abstraktion vs verklighet: modellerna är eleganta men riskerar att förväxla elegans med sanning. Tar inte tillräcklig hänsyn till makt, institutioner och historisk kontext.',
+      axes: { marknad: 85, stat: 30, frihet: 80, jämlikhet: 30 },
+      tableRow: { agande: 'Privat', prisbildning: 'Marknadsjämvikt', statRoll: 'Minimal/korrektiv', fordelning: 'Marginalproduktivitet' },
+    },
+    {
+      id: 'austriansk',
+      label: 'Österrikisk ekonomi',
+      era: '1870-tal–',
+      tagline: 'Kunskap är spridd och lokal — ingen central aktör kan aggregera den.',
+      category: 'marknad',
+      color: '#3f6f8f',
+      pillars: [
+        'Priset bär information som ingen central planering kan replikera',
+        'Ekonomisk kalkyl är omöjlig utan äganderätt och priser',
+        'Konjunkturcykler orsakas av kreditexpansion, inte marknadsfel',
+        'Spontan ordning framgår av frivilliga utbyten',
+      ],
+      stateSyn: 'Staten kan inte känna till det som marknaden vet om preferenser och resurstillgång. Varje intervention snedvrider prisinformationen och skapar oavsiktliga konsekvenser.',
+      fordelning: 'Frivillig, via marknaden. Omfördelning via statlig tvång ses som ett moraliskt och epistemiskt problem.',
+      kritik: 'Praxeologi (deduktiv metod) ger svårkontrollerade prediktioner. Ignorerar maktasymmetrier och institutionell inbäddning av marknader.',
+      tänkare: ['Ludwig von Mises', 'Friedrich Hayek', 'Murray Rothbard', 'Carl Menger'],
+      tensions: 'Kan bli dogmatisk i sin marknadstro. Hayeks insikt om kunskap är djup, men slutsatsen att all intervention är kontraproduktiv är en överdrift som inte alltid följer av premisserna.',
+      axes: { marknad: 95, stat: 10, frihet: 95, jämlikhet: 15 },
+      tableRow: { agande: 'Strikt privat', prisbildning: 'Emergent prisinformation', statRoll: 'Rättsordning enbart', fordelning: 'Marknaden' },
+    },
+    {
+      id: 'institutionell',
+      label: 'Institutionell ekonomi',
+      era: '1900-tal–',
+      tagline: 'Ekonomin formas av institutioner, normer och makt — inte bara priser.',
+      category: 'alternativ',
+      color: '#4a5a6a',
+      pillars: [
+        'Institutioner (regler, normer, vanor) formar ekonomiskt beteende',
+        'Makt och historia avgör marknadsutfall',
+        'Teknologi och produktivkrafter driver strukturell förändring',
+        'Ekonomin är inbäddad i social och kulturell kontext',
+      ],
+      stateSyn: 'Staten är inte en extern korrektör utan en del av de institutioner som formar marknaden. Statens utformning är avgörande för ekonomiska utfall.',
+      fordelning: 'Fördelning formas av institutionell makt, inte enbart av priser och produktivitet. Ojämlikhet kan vara institutionellt reproducerad snarare än efficiensdriven.',
+      kritik: 'Kan bli deskriptiv snarare än analytisk — förklarar hur saker är men ger svaga normativa riktlinjer. Risk för historisk determinism.',
+      tänkare: ['Thorstein Veblen', 'John Kenneth Galbraith', 'Douglass North', 'Elinor Ostrom'],
+      tensions: 'Hur förändras institutioner? Vem sätter spelreglerna för spelreglerna? Riskerar att ge cirkulära förklaringar.',
+      axes: { marknad: 50, stat: 60, frihet: 50, jämlikhet: 55 },
+      tableRow: { agande: 'Varierat', prisbildning: 'Institutionellt inbäddad', statRoll: 'Institutionsformare', fordelning: 'Makt + institutioner' },
+    },
+    {
+      id: 'ekoekonomi',
+      label: 'Ekologisk ekonomi',
+      era: '1970-tal–',
+      tagline: 'Ekonomin är ett delsystem av biosfären — inte tvärtom.',
+      category: 'alternativ',
+      color: '#4a7a4a',
+      pillars: [
+        'Planetära gränser sätter hårda villkor för ekonomisk aktivitet',
+        'BNP-tillväxt är ett otillräckligt mål på lång sikt',
+        'Externa effekter (utsläpp, biologisk mångfald) måste internaliseras',
+        'Termodynamiska gränser begränsar evig tillväxt',
+      ],
+      stateSyn: 'Staten behöver sätta ett robust ramverk som prissätter naturkapital och sätter tak för resursuttag. Marknaden kan operera inom dessa gränser.',
+      fordelning: 'Fördelning måste ta hänsyn till inter-generationell rättvisa — framtida generationer har anspråk på nutidens resursbeslut.',
+      kritik: 'Teknologioptimister hävdar att grön tillväxt är möjlig — ekologisk ekonomi är för pessimistisk om teknologisk substitution. Svårt att operationalisera planetära gränser som politiska verktyg.',
+      tänkare: ['Herman Daly', 'Nicholas Georgescu-Roegen', 'Kate Raworth', 'Tim Jackson'],
+      tensions: 'Spänning mellan de-growth-förespråkare och reformister som tror på grön tillväxt. Vad händer med sysselsättning och välfärd i en nolltillväxtekonomi?',
+      axes: { marknad: 40, stat: 65, frihet: 45, jämlikhet: 65 },
+      tableRow: { agande: 'Blandat', prisbildning: 'Prissatt naturkapital', statRoll: 'Ekologisk ramgivare', fordelning: 'Inter-generationell rättvisa' },
+    },
+  ];
+
+  // ── Render grid ────────────────────────────────────────────────────────────
+  const grid = document.getElementById('philosophyGrid');
+
+  function renderGrid(filter = 'all') {
+    grid.innerHTML = '';
+    philosophies.forEach((p, i) => {
+      const show = filter === 'all' || p.category === filter;
+      const card = document.createElement('article');
+      card.className = 'phil-card' + (show ? '' : ' hidden');
+      card.dataset.id = p.id;
+      card.style.animationDelay = `${i * 0.06}s`;
+      card.innerHTML = `
+        <div class="phil-card-accent" style="background:${p.color}"></div>
+        <div class="phil-card-body">
+          <div class="phil-card-meta">
+            <span class="phil-card-era">${p.era}</span>
+            <span class="phil-card-tag">${categoryLabel(p.category)}</span>
+          </div>
+          <h2>${p.label}</h2>
+          <p class="phil-card-tagline">${p.tagline}</p>
+          <div class="phil-card-pillars">
+            ${p.pillars.slice(0,3).map(pl => `<div class="phil-pillar">${pl}</div>`).join('')}
+          </div>
+          <div class="phil-card-footer">
+            <span class="phil-card-thinkers">${p.tänkare.slice(0,2).join(' · ')}</span>
+            <span class="phil-card-cta">Fördjupa →</span>
+          </div>
+        </div>
+      `;
+      card.addEventListener('click', () => openDetail(p));
+      grid.appendChild(card);
+    });
+  }
+
+  function categoryLabel(cat) {
+    return { marknad: 'Marknad', stat: 'Stat', blandat: 'Blandat', alternativ: 'Alternativ' }[cat] || cat;
+  }
+
+  // ── Filter buttons ─────────────────────────────────────────────────────────
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderGrid(btn.dataset.filter);
+    });
+  });
+
+  // ── Detail panel ───────────────────────────────────────────────────────────
+  const overlay = document.getElementById('detailOverlay');
+  const content = document.getElementById('detailContent');
+  const closeBtn = document.getElementById('detailClose');
+
+  function openDetail(p) {
+    content.innerHTML = `
+      <div class="detail-accent-bar" style="background:${p.color}"></div>
+      <div class="detail-header">
+        <p class="detail-era">${p.era} · ${categoryLabel(p.category)}</p>
+        <h2>${p.label}</h2>
+        <p class="detail-tagline">${p.tagline}</p>
+      </div>
+      <div class="detail-body">
+        <div class="detail-section">
+          <p class="detail-section-label">Grundpelare</p>
+          <div class="detail-pillars">
+            ${p.pillars.map(pl => `<div class="detail-pillar">${pl}</div>`).join('')}
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <p class="detail-section-label">Statens roll</p>
+          <p>${p.stateSyn}</p>
+        </div>
+
+        <div class="detail-section">
+          <p class="detail-section-label">Fördelning</p>
+          <p>${p.fordelning}</p>
+        </div>
+
+        <div class="detail-section">
+          <p class="detail-section-label">Positionering</p>
+          <div class="axis-grid">
+            <div class="axis-item">
+              <span class="axis-item-label">Marknadslogik</span>
+              <div class="axis-track"><div class="axis-fill" style="width:${p.axes.marknad}%;background:${p.color};left:0"></div></div>
+              <span class="axis-value">${p.axes.marknad}/100</span>
+            </div>
+            <div class="axis-item">
+              <span class="axis-item-label">Statlig styrning</span>
+              <div class="axis-track"><div class="axis-fill" style="width:${p.axes.stat}%;background:${p.color};left:0"></div></div>
+              <span class="axis-value">${p.axes.stat}/100</span>
+            </div>
+            <div class="axis-item">
+              <span class="axis-item-label">Individuell frihet</span>
+              <div class="axis-track"><div class="axis-fill" style="width:${p.axes.frihet}%;background:${p.color};left:0"></div></div>
+              <span class="axis-value">${p.axes.frihet}/100</span>
+            </div>
+            <div class="axis-item">
+              <span class="axis-item-label">Betonar jämlikhet</span>
+              <div class="axis-track"><div class="axis-fill" style="width:${p.axes.jämlikhet}%;background:${p.color};left:0"></div></div>
+              <span class="axis-value">${p.axes.jämlikhet}/100</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-section">
+          <p class="detail-section-label">Intern kritik & spänningar</p>
+          <div class="detail-tensions">${p.tensions}</div>
+        </div>
+
+        <div class="detail-section">
+          <p class="detail-section-label">Kanoniska tänkare</p>
+          <div class="detail-thinkers">
+            ${p.tänkare.map(t => `<span class="thinker-tag">${t}</span>`).join('')}
+          </div>
+        </div>
+      </div>
+    `;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDetail() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeDetail);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeDetail(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
+
+  // ── Compare table ──────────────────────────────────────────────────────────
+  const tbody = document.getElementById('compareBody');
+  tbody.innerHTML = philosophies.map(p => `
+    <tr>
+      <td class="row-name">
+        <span class="dot" style="background:${p.color}"></span>${p.label}
+      </td>
+      <td>${p.tableRow.agande}</td>
+      <td>${p.tableRow.prisbildning}</td>
+      <td>${p.tableRow.statRoll}</td>
+      <td>${p.tableRow.fordelning}</td>
+    </tr>
+  `).join('');
+
+  // ── Initial render ─────────────────────────────────────────────────────────
+  renderGrid();
+</script>
+
+</body>
+</html>
