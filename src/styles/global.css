@@ -3,8 +3,6 @@
    Aesthetic: Editorial / Refined / Philosophical
    ═══════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&display=swap');
-
 /* ── Reset ── */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -79,6 +77,25 @@ body::before {
   body::before {
     display: none;
   }
+}
+
+/* ── Skip link ── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 4px 4px;
+  text-decoration: none;
+  transition: top 0.15s;
+}
+.skip-link:focus {
+  top: 0;
 }
 
 a { color: inherit; text-decoration: none; }
