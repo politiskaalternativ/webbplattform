@@ -14,10 +14,11 @@ export function renderNav(activePage = '') {
 
   const links = pages.map(p => {
     const isActive = p.href === activePage;
-    return `<a href="${p.href}" class="${isActive ? 'active' : ''}">${p.label}</a>`;
+    return `<a href="${p.href}" class="${isActive ? 'active' : ''}"${isActive ? ' aria-current="page"' : ''}>${p.label}</a>`;
   }).join('');
 
   return `
+    <a href="#main-content" class="skip-link">Hoppa till innehållet</a>
     <nav class="site-nav" role="navigation" aria-label="Huvudnavigation">
       <a href="index.html" class="nav-logo">
         Politiska<span>.</span>Alternativ
