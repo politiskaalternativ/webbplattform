@@ -18,9 +18,9 @@ Ge en kort, neutral beskrivning (2–3 meningar) av vad ideologin grundar sig p�
 
 Returnera exakt tre rader:
 
-1. Ekonomi:    Stat ←──────────●──────────→ Marknad       (X)
-2. Frihet:     Libertariansk ←──────────●──────────→ Auktoritär  (X)
-3. Kultur:     Progressiv ←──────────●──────────→ Konservativ  (X)
+1. Ekonomi: Stat ←──────────●──────────→ Marknad (X)
+2. Frihet: Libertariansk ←──────────●──────────→ Auktoritär (X)
+3. Kultur: Progressiv ←──────────●──────────→ Konservativ (X)
 
 ### Skala
 
