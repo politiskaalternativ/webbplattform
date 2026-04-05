@@ -136,8 +136,8 @@
 
 /* ── SVG map ── */
 .ideology-map {
-  min-width: 900px;
-  width: min(100%, 1060px);
+  min-width: 760px;
+  width: min(100%, 920px);
   height: auto;
   display: block;
   margin-inline: auto;
