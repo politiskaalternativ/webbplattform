@@ -1,6 +1,7 @@
 # Politiska Alternativ
 
 Ett politiskt neutralt webbverktyg för att formulera, strukturera och använda en personlig ideologisk AI‑instruktion.
+https://politiskaalternativ.se/
 
 ## Innehåll
 
