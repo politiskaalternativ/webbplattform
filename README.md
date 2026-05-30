@@ -9,8 +9,6 @@ https://politiskaalternativ.se/
 - [Sidor](#sidor)
 - [Data och innehåll](#data-och-innehåll)
 - [Teknik och arkitektur](#teknik-och-arkitektur)
-- [Kom igång lokalt](#kom-igång-lokalt)
-- [NPM-skript](#npm-skript)
 - [Projektstruktur](#projektstruktur)
 - [Designprinciper](#designprinciper)
 - [Fortsatt utveckling](#fortsatt-utveckling)
@@ -63,32 +61,7 @@ Sidornas innehåll drivs av data- och innehållsfiler:
 - **ES Modules** – modulär JavaScript utan bundler, laddas via `<script type="module">`.
 - **Gemensam shell** – nav och footer renderas av `src/components/shell.js` via `mountShell()`.
 - **Google Fonts** – Cormorant Garamond + DM Mono.
-- **Node-baserad lokal server** via paketet `serve`.
 - **Hosting** – statisk publicering via GitHub Pages (egen domän via `CNAME`).
-
-## Kom igång lokalt
-
-### Förutsättningar
-
-- Node.js 18+ (rekommenderat).
-
-### Starta projektet
-
-```bash
-npm install
-npm run dev
-```
-
-Öppna sedan `http://localhost:8080` i webbläsaren.
-
-> **Obs:** ES Modules kräver HTTP-server. Öppna inte filer via `file://` (CORS blockerar moduladdning).
-
-## NPM-skript
-
-| Kommando | Beskrivning |
-|----------|-------------|
-| `npm run dev` | Startar lokal server på port `8080` |
-| `npm start` | Startar lokal server med standardinställningar |
 
 ## Projektstruktur
 
@@ -120,7 +93,6 @@ politiska-alternativ/
 │   │   ├── global.css
 │   │   ├── index.css
 │   │   ├── bibliotek.css
-│   │   ├── ekonomi (i index/verktyg-stil)
 │   │   ├── ideologikarta.css
 │   │   └── verktyg.css
 │   ├── app/
