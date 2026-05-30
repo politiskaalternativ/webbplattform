@@ -38,12 +38,6 @@
   margin-bottom: 2.4rem;
 }
 
-.hero-cta {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-}
-
 /* ── Hero right ── */
 .hero-right {
   display: flex;
@@ -517,11 +511,6 @@
   color: var(--muted);
   font-weight: 300;
   line-height: 1.75;
-}
-
-.how-cta {
-  max-width: var(--max-w);
-  margin: 4rem auto 0;
 }
 
 /* ── Examples ── */
