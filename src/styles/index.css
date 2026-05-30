@@ -613,9 +613,6 @@
   .scroll-hint { display: none; }
   .democracy { padding: 4rem 1.5rem; }
   .democracy-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .tradeoff { padding: 4rem 1.5rem; }
-  .tradeoff-columns { grid-template-columns: 1fr; }
-  .tradeoff-card-head { flex-wrap: wrap; }
   .how { padding: 4rem 1.5rem; }
   .steps { grid-template-columns: 1fr; gap: 2rem; }
   .examples { padding: 4rem 1.5rem; }
