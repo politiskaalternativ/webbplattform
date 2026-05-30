@@ -161,30 +161,11 @@ h1, h2, h3, h4 {
 }
 .btn-dark:hover { background: var(--accent); }
 
-.btn-accent {
-  background: var(--accent);
-  color: var(--paper);
-}
-.btn-accent:hover { background: var(--ink); }
-
 .btn-light {
   background: var(--paper);
   color: var(--accent);
 }
 .btn-light:hover { background: var(--ink); color: var(--paper); }
-
-.btn-ghost {
-  background: transparent;
-  color: var(--muted);
-  border-bottom: 1px solid var(--rule);
-  padding: 0 0 2px;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  transition: color 0.2s, border-color 0.2s;
-}
-.btn-ghost:hover { color: var(--ink); border-color: var(--ink); }
 
 /* ── Divider ── */
 hr.rule {
@@ -290,19 +271,6 @@ hr.rule {
 .nav-links a.active::after { transform: scaleX(1); }
 .nav-links a.active { color: var(--ink); }
 
-.nav-cta {
-  background: var(--ink);
-  color: var(--paper) !important;
-  padding: 0.55rem 1.4rem;
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  transition: background 0.2s !important;
-}
-.nav-cta:hover { background: var(--accent) !important; color: var(--paper) !important; }
-.nav-cta::after { display: none !important; }
-
 /* ── Footer ── */
 .site-footer {
   background: var(--ink);
@@ -381,12 +349,6 @@ hr.rule {
   }
 
   .mobile-nav-links a.active { color: var(--ink); }
-
-  .mobile-nav-links .nav-cta {
-    margin-top: 0.2rem;
-    width: 100%;
-    text-align: center;
-  }
 
   .site-nav.mobile-open .nav-toggle span:nth-child(1) {
     transform: translateY(0.375rem) rotate(45deg);
