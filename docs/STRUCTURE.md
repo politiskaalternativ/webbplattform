@@ -4,13 +4,24 @@
 
 Projektet är medvetet byggt utan bundler eller ramverk. Motivet:
 - Inga byggsteg — öppna `index.html` direkt (med lokal server för ES Modules)
-- Inga dependencies att underhålla
+- Inga dependencies att underhålla (utöver `serve` för lokal körning)
 - Enkel att förstå och modifiera
 
 ### ES Modules
 
 JS är uppdelad i moduler (`shell.js`, `ideologies.js`) och laddas via `<script type="module">`.
 Detta kräver att sidan serveras via HTTP — `file://` fungerar inte p.g.a. CORS.
+
+### Gemensam shell
+
+Nav och footer renderas centralt av `src/components/shell.js`. Varje sida anropar
+`mountShell('<sida>.html')` i sin script-tag, vilket också markerar aktiv navlänk.
+
+### Datadrivet innehåll
+
+- `src/lib/ideologies.js` — ideologier för biblioteket.
+- `src/lib/principles.json` — treaxligt ramverk (Ekonomi, Frihet, Kultur), -10 till +10.
+- `src/lib/problems.json` — problempositioner som driver problemkorten på startsidan.
 
 ## Designbeslut
 
@@ -35,13 +46,19 @@ Detta kräver att sidan serveras via HTTP — `file://` fungerar inte p.g.a. COR
 ## Sidstruktur
 
 ### index.html
-Hero → Demokratins filosofi (mörk) → Hur det fungerar → Exempel → CTA
-
-### verktyg.html
-Page hero → Process (5 steg med kopierbar AI-instruktion) → AI-tjänster → FAQ (mörk)
+Hero → Demokratins filosofi (mörk) → Problemkort (datadrivet) → Hur det fungerar → Exempel → CTA
 
 ### bibliotek.html
 Page hero + filter → Ideologigrid → Detaljpanel (slide-in) → Jämför-CTA
+
+### ekonomi.html
+Visualisering och jämförelse av grundläggande ekonomiska filosofier
+
+### ideologikarta.html
+Ideologiska kartor: Politisk kompass, Nolan-diagram, GAL–TAN och kulturell karta
+
+### verktyg.html
+Page hero → Process (steg med kopierbar AI-instruktion) → AI-tjänster → FAQ (mörk)
 
 ## Utökningsguide
 
@@ -54,3 +71,4 @@ Lägg även till ID:t i `tagMap` i `bibliotek.html`.
 2. Skapa `src/styles/ny-sida.css`
 3. Lägg till sidan i `pages`-arrayen i `src/components/shell.js`
 4. Importera `mountShell('ny-sida.html')` i sidans script-tag
+5. Uppdatera `sitemap.xml` och `llms.txt`
