@@ -1,13 +1,22 @@
-# Roadmap (fas 1)
+# Roadmap
 
-## Steg 1: Grund
+## Klart
 
-- Etablera enkel projektstruktur.
-- Samla grundläggande dokumentation.
-- Förbereda app-/components-/lib-mappar för implementation.
+Grundplattformen är byggd och publicerad på https://politiskaalternativ.se/:
 
-## Steg 2: Första funktionella version
+- Fem sidor: start, AI-analys, bibliotek, ekonomi, ideologikarta.
+- Ideologibibliotek med 13 ideologier i jämförbar struktur (`src/lib/ideologies.js`).
+- Treaxligt ramverk (Ekonomi, Frihet, Kultur) och interaktiva problemkort på startsidan.
+- Fyra ideologiska kompasser (Politisk kompass, Nolan, GAL–TAN, kulturell karta).
+- Färdig AI-instruktion för personlig ideologianalys
+  (`docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md`).
+- SEO/crawl-stöd: `robots.txt`, `sitemap.xml`, `llms.txt`.
 
-- Skapa startsida med projektets syfte.
-- Visa ett enkelt exempel på idé + alternativ.
-- Lägga till grund för vidare utveckling av AI-stöd.
+## Nästa steg
+
+- Jämförelseverktyg — visa två ideologier sida vid sida.
+- Spara och exportera skapade AI-instruktioner.
+- Fler ideologier i biblioteket.
+- Flerspråksstöd (engelska).
+
+Se [`README.md`](../README.md) för en fullständig beskrivning av vad som redan finns.

@@ -1,126 +1,109 @@
 # Politiska Alternativ
 
 Ett politiskt neutralt webbverktyg för att utforska, jämföra och förstå politiska ideologier — och för att formulera en personlig ideologisk AI‑instruktion.
-https://politiskaalternativ.se/
+
+**https://politiskaalternativ.se/**
 
 ## Innehåll
 
-- [Om projektet](#om-projektet)
-- [Sidor](#sidor)
-- [Data och innehåll](#data-och-innehåll)
-- [Teknik och arkitektur](#teknik-och-arkitektur)
-- [Projektstruktur](#projektstruktur)
-- [Designprinciper](#designprinciper)
+- [Vad är det här?](#vad-är-det-här)
+- [AI-analysen](#ai-analysen)
+- [Sidorna](#sidorna)
+- [Varför politisk neutralitet](#varför-politisk-neutralitet)
+- [Data och källor](#data-och-källor)
+- [Teknik](#teknik)
 - [Fortsatt utveckling](#fortsatt-utveckling)
+- [Licens](#licens)
 
-## Om projektet
+## Vad är det här?
 
-Plattformen hjälper användare att tänka mer strukturerat om politik genom att:
+I ett komplext samhälle räcker det inte att bara ha åsikter — det hjälper att förstå
+*varför* man tycker som man gör, och vad ens ståndpunkter faktiskt leder till i praktiken.
 
-1. Förstå hur olika ideologier fungerar i praktiken — deras styrkor, svagheter och effektkedjor.
-2. Jämföra ideologier mot varandra utifrån samma ramverk.
-3. Formulera sin egen ideologiska grundsyn och omvandla den till en personlig AI‑instruktion för att analysera nyheter och politiska förslag.
+Politiska Alternativ är byggt för att göra tre saker enklare:
 
-Genomgående princip: politisk neutralitet, transparens och systemtänkande (analys i första, andra och tredje ordningens effekter).
+1. **Förstå** hur olika ideologier fungerar i praktiken — deras kärnprinciper, styrkor,
+   svagheter och effektkedjor.
+2. **Jämföra** ideologier mot varandra utifrån samma ramverk, istället för lösryckta
+   påståenden.
+3. **Formulera** sin egen ideologiska grundsyn och omvandla den till en personlig
+   AI‑instruktion, som sedan kan användas för att analysera nyheter, debattinlägg och
+   politiska förslag.
 
-## Sidor
+Sajten är statisk — det finns ingen inloggning, inget konto och ingen AI inbyggd på
+sajten själv. Istället är den ett *verktyg för att förbereda* en AI-analys: du bläddrar,
+jämför och läser på sajten, och tar sedan med dig en färdig instruktion till en AI-tjänst
+du redan använder (Claude, ChatGPT eller liknande).
 
-Webbplatsen består av fem sidor med gemensam navigation (renderas av `src/components/shell.js`):
+## AI-analysen
 
-| Sida | Fil | Beskrivning |
-|------|-----|-------------|
-| Start | `index.html` | Introduktion, demokratifilosofi och interaktiva problemkort ("samma problem, olika svar") |
-| Bibliotek | `bibliotek.html` | Referensbibliotek med klassiska ideologier i jämförbar struktur, filter och detaljpanel |
-| Ekonomi | `ekonomi.html` | Visualisering och jämförelse av grundläggande ekonomiska filosofier |
-| Kartor | `ideologikarta.html` | Ideologiska kartor: Politisk kompass, Nolan-diagram, GAL–TAN och kulturell karta |
-| AI-analys | `verktyg.html` | Steg-för-steg-process för att skapa en personlig ideologisk AI‑instruktion |
+Kärnan i verktyget är sidan [AI-analys](https://politiskaalternativ.se/verktyg.html). Du
+kopierar en färdig, förskriven instruktion och klistrar in den som ditt första meddelande
+i valfri AI-tjänst. Instruktionen talar sedan om för AI:n hur den ska svara varje gång du
+anger en ideologi (t.ex. "liberalism" eller "konservatism").
 
-Stödfiler för crawl och maskinläsning:
+Instruktionen ber AI:n leverera analysen i sex fasta delar:
 
-| Fil | Beskrivning |
-|-----|-------------|
-| `robots.txt` | Tillåter crawl och pekar ut sitemap |
-| `sitemap.xml` | Lista över indexerbara sidor |
-| `llms.txt` | Maskinläsbar översikt över sidstruktur, datakällor och LLM-policy |
-| `CNAME` | Domänkoppling för GitHub Pages |
+1. **Sammanfattning** — en kort, neutral beskrivning av ideologins kärnvärden.
+2. **Politisk position** — placering på tre axlar (Ekonomi: stat↔marknad, Frihet:
+   libertariansk↔auktoritär, Kultur: progressiv↔konservativ) på en skala −10 till +10.
+3. **Styrkor och svagheter** — analyserade som **effektkedjor i tre led**: första ordningens
+   (direkta, avsedda), andra ordningens (indirekta följdeffekter) och tredje ordningens
+   (långsiktiga, strukturella) konsekvenser.
+4. **Kritik från fyra håll** — invändningar från vänster, höger, frihetligt och auktoritärt
+   perspektiv, presenterade sakligt på sina egna villkor.
+5. **Historiska och aktuella exempel** — minst fyra tillämpningar, både lyckade och
+   misslyckade.
+6. **Utforska vidare** — förslag på 3–5 relaterade ideologier att fortsätta med.
 
-## Data och innehåll
+Genomgående gäller principerna i instruktionen: politisk neutralitet, effektkedjor
+snarare än ytliga påståenden, tydlig skillnad mellan fakta och tolkning, och epistemisk
+ärlighet om vad som är osäkert. Hela instruktionstexten finns i
+[`docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md`](docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md).
 
-Sidornas innehåll drivs av data- och innehållsfiler:
+## Sidorna
+
+| Sida | Beskrivning |
+|------|-------------|
+| [Start](https://politiskaalternativ.se/) | Introduktion till varför ideologi spelar roll för demokratiskt tänkande, samt interaktiva problemkort som visar "samma samhällsproblem, olika ideologiska svar" — med motargument mellan ideologierna. |
+| [AI-analys](https://politiskaalternativ.se/verktyg.html) | Steg-för-steg-process för att kopiera in och använda den personliga ideologiska AI-instruktionen (se ovan). |
+| [Bibliotek](https://politiskaalternativ.se/bibliotek.html) | Referensbibliotek med 13 klassiska ideologier i jämförbar struktur (kärnprinciper, tänkare, inre spänningar), filtrerbart på teman som frihet, jämlikhet, ordning och hållbarhet. |
+| [Ekonomi](https://politiskaalternativ.se/ekonomi.html) | Visualisering och jämförelse av grundläggande ekonomiska filosofier, från planekonomi till fri marknad. |
+| [Kartor](https://politiskaalternativ.se/ideologikarta.html) | Ideologier placerade på fyra etablerade politiska kompasser: Politisk kompass, Nolan-diagrammet, GAL–TAN och den kulturella kartan (Inglehart–Welzel). |
+
+## Varför politisk neutralitet
+
+Sajtens röda tråd är att presentera ideologier *på deras egna villkor* — utan att ta
+ställning för eller emot någon av dem. Samma ramverk (samma axlar, samma
+effektkedjeanalys, samma kritik-struktur) används för alla ideologier, så att jämförelser
+blir rättvisa istället för retoriska. Tanken är att en tydligare förståelse för hur olika
+perspektiv hänger ihop gör det lättare att delta i en demokratisk debatt på riktigt,
+snarare än att fastna i en kamp om makt och tillhörighet.
+
+## Data och källor
 
 | Fil | Innehåll |
 |-----|----------|
-| `src/lib/ideologies.js` | Datakälla för biblioteket — ideologier med kärnprinciper, tänkare och spänningar |
-| `src/lib/principles.json` | Treaxligt ramverk (Ekonomi, Frihet, Kultur) på en skala från -10 till +10 |
-| `src/lib/problems.json` | Jämförande problempositioner för samhällsutmaningar (driver problemkorten på startsidan) |
-| `docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md` | Grundinstruktionen som används i AI-analysverktyget |
+| `src/lib/ideologies.js` | Datakälla för biblioteket — 13 ideologier med kärnprinciper, tänkare och spänningar. |
+| `src/lib/principles.json` | Det treaxliga ramverket (Ekonomi, Frihet, Kultur) på en skala från −10 till +10. |
+| `src/lib/problems.json` | Jämförande problempositioner för samhällsutmaningar (driver problemkorten på startsidan). |
+| `docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md` | Grundinstruktionen som används i AI-analysverktyget. |
 
-## Teknik och arkitektur
+Automatiserad läsning för indexering och sammanfattning (t.ex. av AI-crawlers) är
+tillåten så länge innehållet återges sakligt och med källhänvisning — se
+[`llms.txt`](llms.txt) för fullständig policy.
 
-- **Vanilla HTML/CSS/JS** – inga byggverktyg eller ramverk krävs.
-- **ES Modules** – modulär JavaScript utan bundler, laddas via `<script type="module">`.
-- **Gemensam shell** – nav och footer renderas av `src/components/shell.js` via `mountShell()`.
-- **Google Fonts** – Cormorant Garamond + DM Mono.
-- **Hosting** – statisk publicering via GitHub Pages (egen domän via `CNAME`).
+## Teknik
 
-## Projektstruktur
+Sajten är byggd som **vanilla HTML/CSS/JS utan ramverk eller byggsteg** — inget att
+installera för att läsa koden, inga beroenden att hålla uppdaterade. JavaScript är
+uppdelat i ES-moduler som laddas direkt av webbläsaren, nav och footer renderas
+gemensamt av `src/components/shell.js`, och sajten publiceras statiskt via GitHub Pages.
+Estetiken är editorial/filosofisk: gammelpapper-palett, seriftypografi (Cormorant
+Garamond) för brödtext och monospace (DM Mono) för detaljer.
 
-```text
-politiska-alternativ/
-├── README.md
-├── LICENSE
-├── .gitignore
-├── package.json
-├── CNAME
-├── robots.txt
-├── sitemap.xml
-├── llms.txt
-├── favicon.svg
-├── index.html
-├── bibliotek.html
-├── ekonomi.html
-├── ideologikarta.html
-├── verktyg.html
-├── src/
-│   ├── components/
-│   │   └── shell.js          # nav + footer
-│   ├── lib/
-│   │   ├── ideologies.js     # ideologidata (bibliotek)
-│   │   ├── principles.json   # treaxligt ramverk
-│   │   ├── problems.json     # problemkort
-│   │   └── ai/
-│   ├── styles/
-│   │   ├── global.css
-│   │   ├── index.css
-│   │   ├── bibliotek.css
-│   │   ├── ideologikarta.css
-│   │   └── verktyg.css
-│   ├── app/
-│   └── types/
-├── public/
-└── docs/
-    ├── README.md
-    ├── STRUCTURE.md
-    ├── vision.md
-    ├── domain-model.md
-    ├── roadmap.md
-    ├── site-review.md
-    └── ai/
-        └── verktyg-personlig-ideologisk-ai-instruktion.md
-```
-
-## Designprinciper
-
-Estetiken är editorial/filosofisk med:
-
-- Gammelpapper-palett (`--paper #f5f0e8`)
-- Mörk bläcktext (`--ink #1a1814`)
-- Seriftypografi (Cormorant Garamond) för rubriker och brödtext
-- Monospace-detaljer (DM Mono) för labels, taggar och knappar
-- Dämpad röd accent (`--accent #8b3a2a`) och guldaccent (`--gold #c9973a`)
-- Diskreta animationer: fade-up vid sidladdning, hover- och slide-in-effekter
-
-Se `docs/STRUCTURE.md` för fullständiga design- och arkitekturbeslut.
+Vill du köra sajten lokalt eller bidra med kod? Se [`docs/STRUCTURE.md`](docs/STRUCTURE.md)
+för arkitekturbeslut och en guide till att lägga till ideologier eller sidor.
 
 ## Fortsatt utveckling
 
@@ -129,4 +112,8 @@ Se `docs/STRUCTURE.md` för fullständiga design- och arkitekturbeslut.
 - Fler ideologier i biblioteket
 - Flerspråksstöd (engelska)
 
-Se `docs/roadmap.md` för aktuell planering.
+Se [`docs/roadmap.md`](docs/roadmap.md) för aktuell status och planering.
+
+## Licens
+
+MIT — se [`LICENSE`](LICENSE).
