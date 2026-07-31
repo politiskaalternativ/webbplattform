@@ -12,7 +12,7 @@ Politiska Alternativ är en svensk webbplats för att formulera, strukturera och
 
 ## Viktiga resurser
 - /docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md — grundinstruktionen som används i verktyget.
-- /src/lib/ideologies.js — datakälla för ideologier i biblioteket (13 ideologier med kärnprinciper, tänkare, spänningar).
+- /src/lib/ideologies.js — datakälla för ideologier i biblioteket (12 ideologier med kärnprinciper, tänkare, spänningar).
 - /src/lib/strategies.js — datakälla för strategier (9 strategier med mål, mobilisering, makttaktik, effektkedjor och vägval mellan demokratisk och auktoritär tillämpning).
 - /src/lib/principles.json — treaxlat ramverk (Ekonomi, Frihet, Kultur) med -10 till +10 skala.
 - /src/lib/problems.json — jämförande problempositioner för 6 samhällsutmaningar.
