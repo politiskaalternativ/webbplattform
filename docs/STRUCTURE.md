@@ -9,7 +9,7 @@ Projektet är medvetet byggt utan bundler eller ramverk. Motivet:
 
 ### ES Modules
 
-JS är uppdelad i moduler (`shell.js`, `ideologies.js`) och laddas via `<script type="module">`.
+JS är uppdelad i moduler (`shell.js`, `ideologies.js`, `strategies.js`) och laddas via `<script type="module">`.
 Detta kräver att sidan serveras via HTTP — `file://` fungerar inte p.g.a. CORS.
 
 ### Gemensam shell
@@ -20,6 +20,9 @@ Nav och footer renderas centralt av `src/components/shell.js`. Varje sida anropa
 ### Datadrivet innehåll
 
 - `src/lib/ideologies.js` — ideologier för biblioteket.
+- `src/lib/strategies.js` — strategier för strategisidan: mål, mobilisering,
+  makttaktik, effektkedjor i tre led, vägval (demokratisk/auktoritär bana) och
+  varningssignaler.
 - `src/lib/principles.json` — treaxligt ramverk (Ekonomi, Frihet, Kultur), -10 till +10.
 - `src/lib/problems.json` — problempositioner som driver problemkorten på startsidan.
 
@@ -37,11 +40,13 @@ Nav och footer renderas centralt av `src/components/shell.js`. Varje sida anropa
 | `--accent` | `#8b3a2a` | Primär accent, CTA |
 | `--gold` | `#c9973a` | Sekundär accent (mörka bakgrunder) |
 | `--muted` | `#7a7060` | Sekundär text |
+| `--tone-positive-*` | grön ton | Styrkor / demokratisk bana i effektkedjor och vägvalsdiagram |
+| `--tone-negative-*` | röd ton | Risker / auktoritär bana i effektkedjor och vägvalsdiagram |
 
 ### Animationer
 - Fade-up vid sidladdning (staggered)
 - Hover-transitions på kort och knappar
-- Slide-in för detaljpanel i biblioteket
+- Slide-in för detaljpanel i biblioteket och strategisidan
 
 ## Sidstruktur
 
@@ -50,6 +55,12 @@ Hero → Demokratins filosofi (mörk) → Problemkort (datadrivet) → Hur det f
 
 ### bibliotek.html
 Page hero + filter → Ideologigrid → Detaljpanel (slide-in) → Jämför-CTA
+
+### strategier.html
+Page hero + filter → Strategigrid → Detaljpanel (slide-in): mål, mobilisering,
+makttaktik, effektkedjor i tre led, vägvalsdiagram (demokratisk/auktoritär bana
++ avgörande villkor), varningssignaler, historiska exempel, relaterade strategier
+→ Nästa steg-CTA (till ekonomi.html)
 
 ### ekonomi.html
 Visualisering och jämförelse av grundläggande ekonomiska filosofier
@@ -65,6 +76,11 @@ Page hero → Process (steg med kopierbar AI-instruktion) → AI-tjänster → F
 ### Lägga till en ideologi
 Redigera `src/lib/ideologies.js` och lägg till ett objekt enligt befintligt schema.
 Lägg även till ID:t i `tagMap` i `bibliotek.html`.
+
+### Lägga till en strategi
+Redigera `src/lib/strategies.js` och lägg till ett objekt enligt befintligt schema
+(mål, mobilisering, makttaktik, effektkedjor, vägval, varningssignaler, exempel,
+relaterade, color). Lägg även till ID:t i `tagMap` i `strategier.html`.
 
 ### Lägga till en sida
 1. Skapa `ny-sida.html` i roten
