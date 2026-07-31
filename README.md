@@ -68,7 +68,7 @@ snarare än ytliga påståenden, tydlig skillnad mellan fakta och tolkning, och 
 |------|-------------|
 | [Start](https://politiskaalternativ.se/) | Introduktion till varför ideologi spelar roll för demokratiskt tänkande, samt interaktiva problemkort som visar "samma samhällsproblem, olika ideologiska svar" — med motargument mellan ideologierna. |
 | [AI-analys](https://politiskaalternativ.se/verktyg.html) | Steg-för-steg-process för att kopiera in och använda den personliga ideologiska AI-instruktionen (se ovan). |
-| [Bibliotek](https://politiskaalternativ.se/bibliotek.html) | Referensbibliotek med 13 klassiska ideologier i jämförbar struktur (kärnprinciper, tänkare, inre spänningar), filtrerbart på teman som frihet, jämlikhet, ordning och hållbarhet. |
+| [Bibliotek](https://politiskaalternativ.se/bibliotek.html) | Referensbibliotek med 12 klassiska ideologier i jämförbar struktur (kärnprinciper, tänkare, inre spänningar), filtrerbart på teman som frihet, jämlikhet, ordning och hållbarhet. |
 | [Strategier](https://politiskaalternativ.se/strategier.html) | 9 politiska strategier (populism, polarisering, klasspolitik, nationalism, identitetspolitik, teknokrati, triangulering, ledarpersonalisering, klientelism) i jämförbar struktur — mål, mobilisering, makttaktik och effektkedjor — med ett vägvalsdiagram som visar hur samma strategi kan leda till demokratisk förnyelse eller demokratisk tillbakagång beroende på hur den praktiseras. |
 | [Ekonomi](https://politiskaalternativ.se/ekonomi.html) | Visualisering och jämförelse av grundläggande ekonomiska filosofier, från planekonomi till fri marknad. |
 | [Kartor](https://politiskaalternativ.se/ideologikarta.html) | Ideologier placerade på fyra etablerade politiska kompasser: Politisk kompass, Nolan-diagrammet, GAL–TAN och den kulturella kartan (Inglehart–Welzel). |
@@ -89,7 +89,7 @@ kamp om makt och tillhörighet.
 
 | Fil | Innehåll |
 |-----|----------|
-| `src/lib/ideologies.js` | Datakälla för biblioteket — 13 ideologier med kärnprinciper, tänkare och spänningar. |
+| `src/lib/ideologies.js` | Datakälla för biblioteket — 12 ideologier med kärnprinciper, tänkare och spänningar. |
 | `src/lib/strategies.js` | Datakälla för strategisidan — 9 strategier med mål, mobilisering, makttaktik, effektkedjor i tre led och vägval mellan demokratisk och auktoritär tillämpning. |
 | `src/lib/principles.json` | Det treaxliga ramverket (Ekonomi, Frihet, Kultur) på en skala från −10 till +10. |
 | `src/lib/problems.json` | Jämförande problempositioner för samhällsutmaningar (driver problemkorten på startsidan). |
