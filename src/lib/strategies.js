@@ -482,4 +482,63 @@ export const strategies = [
     relaterade: ['populism', 'teknokrati', 'nationalism'],
     color: '#6b4c2a',
   },
+
+  {
+    id: 'klientelism',
+    label: 'Klientelism',
+    tagline: 'Lojalitet genom konkreta motprestationer.',
+    kort: [
+      'Lojalitet byggs genom direkta tjänster och resurser',
+      'Personliga nätverk mellan patron och klient',
+      'Statliga resurser som belöningssystem',
+    ],
+    mål: 'Bygga och behålla stöd genom konkreta, personliga motprestationer (jobb, kontrakt, tjänster, bidrag) snarare än genom delade idéer eller ideologi.',
+    mobilisering: {
+      retorik: 'Mindre offentlig retorik om idéer, mer direkta löften om vad specifika grupper eller individer får i utbyte mot stöd.',
+      kanaler: 'Personliga nätverk, lokala mellanhänder ("patroner"), föreningar och organisationer med nära band till makthavare.',
+      känslor: ['Personlig lojalitet', 'Tacksamhetsskuld', 'Trygghet genom relation snarare än princip'],
+    },
+    makttaktik: {
+      metoder: [
+        'Fördelning av offentliga tjänster, kontrakt och bidrag till lojala nätverk',
+        'Mellanhänder ("patroner") som förmedlar resurser mot röster och stöd',
+        'Villkorad tillgång — stöd kan dras tillbaka om lojaliteten sviktar',
+      ],
+      hantering_av_opposition: 'Opposition bekämpas sällan öppet ideologiskt — snarare utestängs oliktänkande grupper från resursfördelningen, vilket gör lojalitet till en ekonomisk fråga snarare än en åsiktsfråga.',
+    },
+    effektkedjor: {
+      första: {
+        styrka: 'Snabb, konkret hjälp till grupper med akuta materiella behov som formella system annars missar.',
+        risk: 'Resurser fördelas efter lojalitet snarare än efter behov eller rättvisa kriterier.',
+      },
+      andra: {
+        styrka: 'Starka lokala nätverk som kan mobilisera snabbt och hålla samman i kris.',
+        risk: 'Offentliga institutioner omvandlas gradvis till belöningssystem, vilket undergräver deras opartiskhet.',
+      },
+      tredje: {
+        styrka: 'Kan fungera som en pragmatisk väg in i politiken för grupper utan formellt inflytande, som senare kan övergå till mer programmatisk politik.',
+        risk: 'Om klientelism blir det dominerande sättet att organisera makt permanent, ersätter lojalitetsband medborgerliga rättigheter — tillgång till statens resurser blir beroende av vem man känner snarare än vem man är.',
+      },
+    },
+    vägval: {
+      demokratisk_bana: 'Klientelistiska nätverk existerar vid sidan av, och är underordnade, opartiska institutioner och rättsstatsprincipen — offentliga resurser kan inte helt undandras granskning och lagstiftning.',
+      auktoritär_bana: 'Tillgång till statens resurser görs helt beroende av politisk lojalitet, oberoende institutioner (upphandling, rekrytering, rättsväsen) kapas för att tjäna nätverket, och medborgare utan rätt kontakter utestängs systematiskt.',
+      avgörande_villkor: [
+        'Finns oberoende granskning av hur offentliga resurser fördelas?',
+        'Kan medborgare få tillgång till grundläggande tjänster utan politiska kontakter?',
+        'Är rekrytering till statliga tjänster meritbaserad eller lojalitetsbaserad?',
+      ],
+    },
+    varningssignaler: [
+      'Offentliga tjänster och kontrakt går systematiskt till politiskt lojala snarare än mest kvalificerade',
+      'Tillgång till välfärd eller myndighetsservice villkoras informellt av politiskt stöd',
+      'Oberoende kontrollmyndigheter bemannas efter lojalitet snarare än kompetens',
+    ],
+    exempel: [
+      { rörelse: 'Amerikanska "political machines" i storstäder', period: 'Sent 1800-tal–tidigt 1900-tal', riktning: 'blandad', utfall: 'Gav nyanlända invandrargrupper jobb och socialt skyddsnät som formella institutioner saknade, men byggde samtidigt på utbredd korruption.' },
+      { rörelse: 'Patronagesystem i enpartistater under 1900-talet', period: '1900-talet', riktning: 'auktoritär', utfall: 'Statliga resurser blev ett verktyg för att belöna lojalitet och straffa oliktänkande, vilket bidrog till att permanenta enpartistyre.' },
+    ],
+    relaterade: ['triangulering', 'ledarpersonalisering', 'klasspolitik'],
+    color: '#8a6d1f',
+  },
 ];
