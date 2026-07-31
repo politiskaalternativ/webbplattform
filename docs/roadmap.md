@@ -5,7 +5,7 @@
 Grundplattformen är byggd och publicerad på https://politiskaalternativ.se/:
 
 - Sex sidor: start, AI-analys, bibliotek, strategier, ekonomi, ideologikarta.
-- Ideologibibliotek med 13 ideologier i jämförbar struktur (`src/lib/ideologies.js`).
+- Ideologibibliotek med 12 ideologier i jämförbar struktur (`src/lib/ideologies.js`).
 - Strategisida med 9 politiska strategier (populism, polarisering, klasspolitik,
   nationalism, identitetspolitik, teknokrati, triangulering, ledarpersonalisering,
   klientelism) i jämförbar struktur — mål, mobilisering, makttaktik och effektkedjor
