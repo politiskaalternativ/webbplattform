@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategier — Politiska Alternativ</title>
+  <meta name="description" content="Hur politiska idéer omsätts i mobilisering och makt — och hur valda metoder över tid kan förändra både rörelsen och samhället.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Politiska Alternativ">
+  <meta property="og:title" content="Strategier — Politiska Alternativ">
+  <meta property="og:description" content="Hur politiska idéer omsätts i mobilisering och makt — och hur valda metoder över tid kan förändra både rörelsen och samhället.">
+  <meta property="og:url" content="https://politiskaalternativ.se/strategier.html">
+  <meta property="og:image" content="https://politiskaalternativ.se/favicon.svg">
+  <meta name="theme-color" content="#f5f0e8">
+  <link rel="canonical" href="https://politiskaalternativ.se/strategier.html">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="shortcut icon" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="src/styles/global.css">
+  <link rel="stylesheet" href="src/styles/strategier.css">
+</head>
+<body>
+
+<div id="site-nav"></div>
+
+<main class="page-wrap" id="main-content">
+
+  <!-- ── Page hero ── -->
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="label anim-fade-up">Maktens mekanik</p>
+      <h1 class="anim-fade-up" style="animation-delay:0.12s">Strategier</h1>
+      <p class="page-lead anim-fade-up" style="animation-delay:0.24s">
+        En ideologi svarar på <em>vad</em> en rörelse vill uppnå. En strategi svarar på <em>hur</em>
+        den mobiliserar stöd och vinner — och behåller — makt. Samma strategi kan drivas av vilken
+        ideologi som helst, och kan stärka demokratin lika väl som underminera den. Utforska mekanismerna,
+        vägvalen och varningssignalerna nedan.
+      </p>
+      <div class="filter-bar anim-fade-up" style="animation-delay:0.36s">
+        <span class="filter-label">Filtrera:</span>
+        <button class="filter-btn active" data-filter="all">Alla</button>
+        <button class="filter-btn" data-filter="identitet">Identitet</button>
+        <button class="filter-btn" data-filter="ekonomi">Ekonomi</button>
+        <button class="filter-btn" data-filter="institution">Institution</button>
+        <button class="filter-btn" data-filter="ledarskap">Ledarskap</button>
+        <button class="filter-btn" data-filter="konflikt">Konflikt</button>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ── Strategy grid ── -->
+  <section class="library">
+    <div class="library-inner">
+      <div class="strategy-grid" id="strategyGrid">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Detail panel (modal) ── -->
+  <div class="detail-overlay" id="detailOverlay" aria-hidden="true">
+    <div class="detail-panel" id="detailPanel" role="dialog" aria-modal="true">
+      <button class="detail-close" id="detailClose" aria-label="Stäng">✕</button>
+      <div class="detail-content" id="detailContent"></div>
+    </div>
+  </div>
+
+  <!-- ── Next-step banner ── -->
+  <section class="compare-banner">
+    <div class="compare-inner">
+      <p class="label" style="color:rgba(245,240,232,0.5)">
+        <span style="background:rgba(245,240,232,0.3);display:inline-block;width:2rem;height:1px;vertical-align:middle;margin-right:0.9rem;"></span>
+        Nästa steg
+      </p>
+      <h2>Vilka medel står till förfogande?</h2>
+      <p>Se de ekonomiska filosofier som formar vilka verktyg en strategi faktiskt kan använda.</p>
+      <a href="ekonomi.html" class="btn btn-light">Vidare till ekonomiska filosofier</a>
+    </div>
+  </section>
+
+</main>
+
+<div id="site-footer"></div>
+
+<script type="module">
+  import { mountShell } from './src/components/shell.js';
+  import { strategies } from './src/lib/strategies.js';
+
+  mountShell('strategier.html');
+
+  const grid = document.getElementById('strategyGrid');
+  const overlay = document.getElementById('detailOverlay');
+  const panel = document.getElementById('detailPanel');
+  const detailContent = document.getElementById('detailContent');
+  const closeBtn = document.getElementById('detailClose');
+
+  // Kategorier med etikett + färg används både för filtrering och kort-taggar.
+  // Beskriver vilken "arena" strategin huvudsakligen mobiliserar/verkar i —
+  // inte en ideologisk position.
+  const categoryConfig = {
+    identitet:   { label: 'Identitet',   color: '#5a3f9f' },
+    ekonomi:     { label: 'Ekonomi',     color: '#9f1239' },
+    institution: { label: 'Institution', color: '#3f6f8f' },
+    ledarskap:   { label: 'Ledarskap',   color: '#6b4c2a' },
+    konflikt:    { label: 'Konflikt',    color: '#7a1f2a' },
+  };
+
+  const tagMap = {
+    populism:             ['identitet', 'ledarskap'],
+    polarisering:         ['konflikt', 'identitet'],
+    klasspolitik:         ['ekonomi'],
+    nationalism:          ['identitet', 'konflikt'],
+    identitetspolitik:    ['identitet'],
+    teknokrati:           ['institution'],
+    triangulering:        ['institution'],
+    ledarpersonalisering: ['ledarskap'],
+  };
+
+  function renderGrid(filter = 'all') {
+    grid.innerHTML = '';
+    strategies.forEach((strat, i) => {
+      const tags = tagMap[strat.id] || [];
+      if (filter !== 'all' && !tags.includes(filter)) return;
+
+      const card = document.createElement('article');
+      card.className = 'strategy-card';
+      card.style.setProperty('--accent-color', strat.color);
+      card.style.animationDelay = `${i * 0.06}s`;
+      card.setAttribute('data-id', strat.id);
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', `Läs mer om ${strat.label}`);
+
+      card.innerHTML = `
+        <div class="card-accent-bar"></div>
+        <div class="card-body">
+          <div class="card-meta">
+            ${tags.map(t => {
+              const category = categoryConfig[t];
+              return `<span class="card-tag" style="--tag-color:${category?.color || strat.color}">${category?.label || t}</span>`;
+            }).join('')}
+          </div>
+          <h2 class="card-title">${strat.label}</h2>
+          <p class="card-tagline">${strat.tagline}</p>
+          <ul class="card-principles">
+            ${strat.kort.map(c => `<li>${c}</li>`).join('')}
+          </ul>
+          <span class="card-cta">Läs mer →</span>
+        </div>
+      `;
+
+      card.addEventListener('click', () => openDetail(strat.id));
+      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openDetail(strat.id); });
+      grid.appendChild(card);
+    });
+  }
+
+  function findStrategy(id) {
+    return strategies.find(s => s.id === id);
+  }
+
+  function renderOrdning(namn, data) {
+    return `
+      <div class="dp-effekt-order">
+        <span class="dp-effekt-label">${namn} ordningen</span>
+        <div class="dp-tone-row">
+          <div class="dp-tone-chip dp-tone-positive"><strong>Styrka —</strong> ${data.styrka}</div>
+          <div class="dp-tone-chip dp-tone-negative"><strong>Risk —</strong> ${data.risk}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  function openDetail(id) {
+    const strat = findStrategy(id);
+    if (!strat) return;
+
+    detailContent.innerHTML = `
+      <div class="dp-header" style="--accent-color:${strat.color}">
+        <div class="dp-accent-bar"></div>
+        <div class="dp-header-body">
+          <span class="dp-era">Strategi</span>
+          <h2>${strat.label}</h2>
+          <p class="dp-tagline">${strat.tagline}</p>
+        </div>
+      </div>
+      <div class="dp-body">
+
+        <div class="dp-section">
+          <h3>Mål</h3>
+          <p>${strat.mål}</p>
+        </div>
+
+        <div class="dp-section">
+          <h3>Mobilisering</h3>
+          <p><strong>Retorik.</strong> ${strat.mobilisering.retorik}</p>
+          <p><strong>Kanaler.</strong> ${strat.mobilisering.kanaler}</p>
+          <div class="dp-thinkers">
+            ${strat.mobilisering.känslor.map(k => `<span class="dp-thinker">${k}</span>`).join('')}
+          </div>
+        </div>
+
+        <div class="dp-section">
+          <h3>Makttaktik</h3>
+          <ul class="dp-list">
+            ${strat.makttaktik.metoder.map(m => `<li>${m}</li>`).join('')}
+          </ul>
+          <p style="margin-top:1rem">${strat.makttaktik.hantering_av_opposition}</p>
+        </div>
+
+        <div class="dp-section">
+          <h3>Effektkedjor</h3>
+          ${renderOrdning('1:a', strat.effektkedjor.första)}
+          ${renderOrdning('2:a', strat.effektkedjor.andra)}
+          ${renderOrdning('3:e', strat.effektkedjor.tredje)}
+        </div>
+
+        <div class="dp-section dp-vagval">
+          <h3>Vägval — demokratisk eller auktoritär bana</h3>
+          <div class="dp-fork">
+            <div class="dp-fork-branch dp-fork-demokratisk">
+              <span class="dp-fork-label">Demokratisk bana</span>
+              <p>${strat.vägval.demokratisk_bana}</p>
+            </div>
+            <div class="dp-fork-branch dp-fork-auktoritar">
+              <span class="dp-fork-label">Auktoritär bana</span>
+              <p>${strat.vägval.auktoritär_bana}</p>
+            </div>
+          </div>
+          <p class="dp-fork-conditions-label">Avgörande villkor</p>
+          <ul class="dp-list">
+            ${strat.vägval.avgörande_villkor.map(v => `<li>${v}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="dp-section dp-warning">
+          <h3>Varningssignaler</h3>
+          <ul class="dp-list dp-warning-list">
+            ${strat.varningssignaler.map(v => `<li>${v}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="dp-section">
+          <h3>Historiska exempel</h3>
+          <div class="dp-examples">
+            ${strat.exempel.map(e => `
+              <div class="dp-example dp-example-${e.riktning === 'demokratisk' ? 'positive' : e.riktning === 'auktoritär' ? 'negative' : 'neutral'}">
+                <div class="dp-example-head">
+                  <strong>${e.rörelse}</strong>
+                  <span class="dp-example-period">${e.period}</span>
+                </div>
+                <p>${e.utfall}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="dp-section">
+          <h3>Relaterade strategier</h3>
+          <div class="dp-thinkers">
+            ${strat.relaterade.map(rid => {
+              const rel = findStrategy(rid);
+              return rel ? `<span class="dp-thinker dp-related-link" data-id="${rel.id}" role="button" tabindex="0">${rel.label}</span>` : '';
+            }).join('')}
+          </div>
+        </div>
+
+        <div class="dp-action">
+          <a href="verktyg.html" class="btn btn-dark">Utforska med AI</a>
+        </div>
+      </div>
+    `;
+
+    detailContent.querySelectorAll('.dp-related-link').forEach(el => {
+      el.addEventListener('click', () => openDetail(el.dataset.id));
+      el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openDetail(el.dataset.id); });
+    });
+
+    panel.scrollTop = 0;
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    panel.focus();
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDetail() {
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeDetail);
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeDetail(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
+
+  // Filters
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderGrid(btn.dataset.filter);
+    });
+  });
+
+  renderGrid();
+</script>
+</body>
+</html>

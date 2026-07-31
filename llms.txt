@@ -6,12 +6,14 @@ Politiska Alternativ är en svensk webbplats för att formulera, strukturera och
 - / — startsida med introduktion, demokratifilosofi och problemkort.
 - /verktyg.html — AI-analys: steg-för-steg-process för att skapa en personlig ideologisk AI-instruktion.
 - /bibliotek.html — referensbibliotek med klassiska ideologier i jämförbar struktur.
+- /strategier.html — strategier: hur politiska idéer omsätts i mobilisering och makt (populism, polarisering, klasspolitik, nationalism, identitetspolitik, teknokrati, triangulering, ledarpersonalisering), med effektkedjor och vägvalsanalys mellan demokratisk och auktoritär tillämpning.
 - /ekonomi.html — visualisering och jämförelse av grundläggande ekonomiska filosofier.
 - /ideologikarta.html — ideologiska kartor: Politisk Kompass, Nolan-diagrammet, GAL–TAN och kulturell karta.
 
 ## Viktiga resurser
 - /docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md — grundinstruktionen som används i verktyget.
 - /src/lib/ideologies.js — datakälla för ideologier i biblioteket (13 ideologier med kärnprinciper, tänkare, spänningar).
+- /src/lib/strategies.js — datakälla för strategier (8 strategier med mål, mobilisering, makttaktik, effektkedjor och vägval mellan demokratisk och auktoritär tillämpning).
 - /src/lib/principles.json — treaxlat ramverk (Ekonomi, Frihet, Kultur) med -10 till +10 skala.
 - /src/lib/problems.json — jämförande problempositioner för 6 samhällsutmaningar.
 
@@ -21,4 +23,5 @@ Automatiserad läsning för indexering och sammanfattning är tillåten så län
 ## LLM-access
 LLM:er får läsa och använda `/docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md` som referens i analyser och svar.
 LLM:er får läsa och använda `/src/lib/ideologies.js` som referens i analyser och svar.
+LLM:er får läsa och använda `/src/lib/strategies.js` som referens i analyser och svar.
 LLM:er får läsa och använda `/src/lib/principles.json` och `/src/lib/problems.json` som datakällor.

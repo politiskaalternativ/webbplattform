@@ -23,9 +23,10 @@ I ett komplext samhälle räcker det inte att bara ha åsikter — det hjälper 
 Politiska Alternativ är byggt för att göra tre saker enklare:
 
 1. **Förstå** hur olika ideologier fungerar i praktiken — deras kärnprinciper, styrkor,
-   svagheter och effektkedjor.
-2. **Jämföra** ideologier mot varandra utifrån samma ramverk, istället för lösryckta
-   påståenden.
+   svagheter och effektkedjor — och hur de omsätts i mobilisering och makt genom olika
+   politiska strategier.
+2. **Jämföra** ideologier och strategier mot varandra utifrån samma ramverk, istället för
+   lösryckta påståenden.
 3. **Formulera** sin egen ideologiska grundsyn och omvandla den till en personlig
    AI‑instruktion, som sedan kan användas för att analysera nyheter, debattinlägg och
    politiska förslag.
@@ -68,23 +69,28 @@ snarare än ytliga påståenden, tydlig skillnad mellan fakta och tolkning, och 
 | [Start](https://politiskaalternativ.se/) | Introduktion till varför ideologi spelar roll för demokratiskt tänkande, samt interaktiva problemkort som visar "samma samhällsproblem, olika ideologiska svar" — med motargument mellan ideologierna. |
 | [AI-analys](https://politiskaalternativ.se/verktyg.html) | Steg-för-steg-process för att kopiera in och använda den personliga ideologiska AI-instruktionen (se ovan). |
 | [Bibliotek](https://politiskaalternativ.se/bibliotek.html) | Referensbibliotek med 13 klassiska ideologier i jämförbar struktur (kärnprinciper, tänkare, inre spänningar), filtrerbart på teman som frihet, jämlikhet, ordning och hållbarhet. |
+| [Strategier](https://politiskaalternativ.se/strategier.html) | 8 politiska strategier (populism, polarisering, klasspolitik, nationalism, identitetspolitik, teknokrati, triangulering, ledarpersonalisering) i jämförbar struktur — mål, mobilisering, makttaktik och effektkedjor — med ett vägvalsdiagram som visar hur samma strategi kan leda till demokratisk förnyelse eller demokratisk tillbakagång beroende på hur den praktiseras. |
 | [Ekonomi](https://politiskaalternativ.se/ekonomi.html) | Visualisering och jämförelse av grundläggande ekonomiska filosofier, från planekonomi till fri marknad. |
 | [Kartor](https://politiskaalternativ.se/ideologikarta.html) | Ideologier placerade på fyra etablerade politiska kompasser: Politisk kompass, Nolan-diagrammet, GAL–TAN och den kulturella kartan (Inglehart–Welzel). |
 
 ## Varför politisk neutralitet
 
-Sajtens röda tråd är att presentera ideologier *på deras egna villkor* — utan att ta
-ställning för eller emot någon av dem. Samma ramverk (samma axlar, samma
-effektkedjeanalys, samma kritik-struktur) används för alla ideologier, så att jämförelser
-blir rättvisa istället för retoriska. Tanken är att en tydligare förståelse för hur olika
-perspektiv hänger ihop gör det lättare att delta i en demokratisk debatt på riktigt,
-snarare än att fastna i en kamp om makt och tillhörighet.
+Sajtens röda tråd är att presentera ideologier och strategier *på deras egna villkor* —
+utan att ta ställning för eller emot någon av dem. Samma ramverk (samma axlar, samma
+effektkedjeanalys, samma kritik-struktur) används genomgående, så att jämförelser blir
+rättvisa istället för retoriska. Strategisidan är medvetet konstruerad så att ingen
+strategi framställs som automatiskt auktoritär — istället visas de vägval och
+institutionella villkor som avgör om en strategi stärker eller undergräver demokratin.
+Tanken är att en tydligare förståelse för hur olika perspektiv och metoder hänger ihop
+gör det lättare att delta i en demokratisk debatt på riktigt, snarare än att fastna i en
+kamp om makt och tillhörighet.
 
 ## Data och källor
 
 | Fil | Innehåll |
 |-----|----------|
 | `src/lib/ideologies.js` | Datakälla för biblioteket — 13 ideologier med kärnprinciper, tänkare och spänningar. |
+| `src/lib/strategies.js` | Datakälla för strategisidan — 8 strategier med mål, mobilisering, makttaktik, effektkedjor i tre led och vägval mellan demokratisk och auktoritär tillämpning. |
 | `src/lib/principles.json` | Det treaxliga ramverket (Ekonomi, Frihet, Kultur) på en skala från −10 till +10. |
 | `src/lib/problems.json` | Jämförande problempositioner för samhällsutmaningar (driver problemkorten på startsidan). |
 | `docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md` | Grundinstruktionen som används i AI-analysverktyget. |
@@ -103,11 +109,12 @@ Estetiken är editorial/filosofisk: gammelpapper-palett, seriftypografi (Cormora
 Garamond) för brödtext och monospace (DM Mono) för detaljer.
 
 Vill du köra sajten lokalt eller bidra med kod? Se [`docs/STRUCTURE.md`](docs/STRUCTURE.md)
-för arkitekturbeslut och en guide till att lägga till ideologier eller sidor.
+för arkitekturbeslut och en guide till att lägga till ideologier, strategier eller sidor.
 
 ## Fortsatt utveckling
 
-- Jämförelseverktyg (visa två ideologier sida vid sida)
+- Jämförelseverktyg (visa två ideologier eller strategier sida vid sida)
+- Egen AI-instruktion för strategisk analys, kopplad till verktyg.html
 - Spara och exportera skapade AI-instruktioner
 - Fler ideologier i biblioteket
 - Flerspråksstöd (engelska)

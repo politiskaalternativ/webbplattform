@@ -7,6 +7,7 @@ export function renderNav(activePage = '') {
   const pages = [
     { href: 'index.html',        label: 'Start' },
     { href: 'bibliotek.html',    label: 'Bibliotek' },
+    { href: 'strategier.html',   label: 'Strategier' },
     { href: 'ekonomi.html',      label: 'Ekonomi' },
     { href: 'ideologikarta.html', label: 'Kartor' },
     { href: 'verktyg.html',      label: 'AI-analys' },
