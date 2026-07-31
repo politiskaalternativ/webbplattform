@@ -27,5 +27,8 @@ Grundplattformen är byggd och publicerad på https://politiskaalternativ.se/:
 - Spara och exportera skapade AI-instruktioner.
 - Fler ideologier i biblioteket.
 - Flerspråksstöd (engelska).
+- Städa strukturella konsekvensbrister mellan sidorna (ekonomi.html:s inline
+  CSS/data, osynkade positioneringssystem, duplicerade tagg-mappar,
+  marknadsliberalism-diskrepansen) — se [issue #81](https://github.com/politiskaalternativ/webbplattform/issues/81).
 
 Se [`README.md`](../README.md) för en fullständig beskrivning av vad som redan finns.
