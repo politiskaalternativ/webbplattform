@@ -402,6 +402,9 @@
       line-height: 1.75;
       color: var(--ink);
     }
+    .detail-action {
+      padding-top: 1rem;
+    }
 
     /* ── Axis viz ── */
     .axis-grid {
@@ -502,7 +505,7 @@
 
     /* ── CTA section ── */
     .compare-banner {
-      background: var(--ink);
+      background: var(--accent);
       color: var(--paper);
       padding: 4rem var(--gutter);
       text-align: center;
@@ -937,6 +940,10 @@
           <div class="detail-thinkers">
             ${p.tänkare.map(t => `<span class="thinker-tag">${t}</span>`).join('')}
           </div>
+        </div>
+
+        <div class="detail-action">
+          <a href="verktyg.html" class="btn btn-dark">Utforska med AI</a>
         </div>
       </div>
     `;
