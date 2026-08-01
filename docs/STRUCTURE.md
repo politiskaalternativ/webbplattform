@@ -26,6 +26,16 @@ Nav och footer renderas centralt av `src/components/shell.js`. Varje sida anropa
 - `src/lib/principles.json` — treaxligt ramverk (Ekonomi, Frihet, Kultur), -10 till +10.
 - `src/lib/problems.json` — problempositioner som driver problemkorten på startsidan.
 
+### Agent Skills
+
+`skills/<namn>/` — portabla AI-agent-skills enligt den öppna specen
+[Agent Skills](https://agentskills.io/specification), en `SKILL.md` per mapp plus
+valfria `references/`-filer. Varje skill hämtar sin metodikrelaterade data live från
+`src/lib/` via `raw.githubusercontent.com` istället för att duplicera den, så att den
+aldrig kan hamna i otakt med sajtens innehåll. Se `skills/politisk-medieanalys/` för
+ett exempel, och `verktyg.html` för hur en kopierbar startprompt till skillen visas
+för användaren.
+
 ## Designbeslut
 
 ### Typografi
@@ -69,7 +79,8 @@ Visualisering och jämförelse av grundläggande ekonomiska filosofier
 Ideologiska kartor: Politisk kompass, Nolan-diagram, GAL–TAN och kulturell karta
 
 ### verktyg.html
-Page hero → Process (steg med kopierbar AI-instruktion) → AI-tjänster → FAQ (mörk)
+Page hero → Process (steg med kopierbar AI-instruktion) → AI-tjänster →
+Agent Skill (kopierbar startprompt för AI-kodningsagenter) → FAQ (mörk)
 
 ## Utökningsguide
 
