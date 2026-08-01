@@ -1,15 +1,15 @@
 # Källdata
 
-Analysen ska förankras i samma data som driver [politiskaalternativ.se](https://politiskaalternativ.se), hämtad live från huvudgrenen så att den alltid speglar sajtens senaste innehåll. Duplicera inte dessa data i skillen — hämta dem vid behov.
+Analysen ska förankras i samma data som driver [politiskaalternativ.se](https://politiskaalternativ.se), hämtad live från huvudgrenen så att den alltid speglar sajtens senaste innehåll. Duplicera inte dessa data i skillen — hämta dem vid behov. Siffror och exempellistor nedan är ögonblicksbilder för att förklara strukturen, inte auktoritativa fakta — härled alltid det faktiska antalet och den fullständiga katalogen ur den hämtade filen.
 
 ## `src/lib/ideologies.js`
 
 URL: `https://raw.githubusercontent.com/politiskaalternativ/webbplattform/main/src/lib/ideologies.js`
 
-12 ideologier, vardera med fälten:
+En array av ideologiobjekt (12 stycken vid skrivande stund), vardera med fälten:
 
 - `id`, `label` — identifierare och visningsnamn
-- `core` — kärnprincip i en mening
+- `core` — **lista** med kärnpåståenden (flera punkter, oftast 3–4) — inte en enda mening. Använd hela listan, plocka inte bara första elementet.
 - `stateSyn` — synen på statens roll
 - `ekonomi` — ekonomisk grundsyn
 - `tänkare` — centrala tänkare/teoretiker
@@ -22,12 +22,12 @@ Använd detta fält för att namnge vilka ideologiers premisser som känns igen 
 
 URL: `https://raw.githubusercontent.com/politiskaalternativ/webbplattform/main/src/lib/strategies.js`
 
-9 politiska strategier (populism, polarisering, klasspolitik, nationalism, identitetspolitik, teknokrati, triangulering, ledarpersonalisering, klientelism), vardera med fälten:
+En array av strategiobjekt (t.ex. populism, polarisering, klasspolitik, nationalism, identitetspolitik, teknokrati, triangulering, ledarpersonalisering, klientelism — 9 stycken vid skrivande stund, men katalogen växer över tid), vardera med fälten:
 
 - `mål` — vad strategin försöker uppnå
 - `mobilisering` — `{ retorik, kanaler, känslor }`: hur stöd byggs
 - `makttaktik` — `{ metoder, hantering_av_opposition }`: hur makt vinns/behålls
-- `effektkedjor` — `{ första, andra, tredje }`: avsedda och oavsedda konsekvenser i tre led
+- `effektkedjor` — `{ första, andra, tredje }`: beskrivning av strategins typiska positiva och negativa effekter i tre led. Detta är en generell beskrivning av strategin, inte samma sak som den styrka/risk-bedömning du själv gör av den specifika granskade texten i analysmall.md avsnitt 4 — men samma tre-ledsindelning.
 - `vägval` — `{ demokratisk_bana, auktoritär_bana, avgörande_villkor }`: vad som avgör vilken riktning strategin tar
 - `varningssignaler` — konkreta tecken att se upp för
 - `exempel`, `relaterade`, `color`
@@ -38,7 +38,7 @@ Detta är kärnan i att identifiera *metod* snarare än *åsikt* i en text: leta
 
 URL: `https://raw.githubusercontent.com/politiskaalternativ/webbplattform/main/src/lib/principles.json`
 
-Det treaxliga ramverk sajten använder för att positionera ideologier:
+Strikt JSON (objekt med `_meta` och `principles`, inte en array-export). Beskriver det treaxliga ramverk sajten använder för att positionera ideologier — poler nedan är en ögonblicksbild, läs de exakta värdena ur filen:
 
 - **Ekonomi**: Stat (−10) ↔ Marknad (+10)
 - **Frihet**: Libertariansk (−10) ↔ Auktoritär (+10)
