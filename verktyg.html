@@ -40,7 +40,9 @@
       </h1>
       <p class="page-lead anim-fade-up" style="animation-delay:0.24s">
         Kopiera instruktionen nedan och använd den i valfri AI för att få en neutral,
-        strukturerad och fördjupad analys av en politisk ideologi.
+        strukturerad och fördjupad analys av en politisk ideologi. Längre ner hittar
+        du även en fristående Agent Skill för att granska artiklar och inlägg i
+        sociala medier med en AI-kodningsagent.
       </p>
     </div>
   </section>
@@ -165,6 +167,47 @@
     </div>
   </section>
 
+  <hr class="rule">
+
+  <!-- ── Agent Skill: politisk medieanalys ── -->
+  <section class="skill-promo">
+    <div class="skill-promo-inner">
+      <p class="label">Agent Skill</p>
+      <h2>Granska artiklar och sociala medier med en AI-agent</h2>
+      <p class="section-lead">
+        Använder du Claude Code, Codex, OpenCode eller ett annat verktyg som stödjer
+        den öppna standarden <a href="https://agentskills.io/specification" target="_blank" rel="noopener">Agent Skills</a>?
+        Då kan din agent få samma neutrala granskningsmetod som ideologiutforskaren
+        ovan bygger på — fast riktad mot en artikel, en ledare eller ett inlägg på
+        X eller Bluesky istället för mot en vald ideologi.
+      </p>
+
+      <div class="instruction-box">
+        <div class="instruction-header">
+          <span class="instruction-label">Prompt att kopiera</span>
+          <button class="copy-btn" id="copySkillBtn" aria-label="Kopiera prompt">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Kopiera
+          </button>
+        </div>
+        <pre id="skillPromptText" class="instruction-pre">Hämta och följ instruktionerna i https://raw.githubusercontent.com/politiskaalternativ/webbplattform/main/skills/politisk-medieanalys/SKILL.md samt dess referensfiler i samma mapp under references/. Vänta sedan på att jag klistrar in en artikel, ledare eller ett inlägg från sociala medier att granska.</pre>
+      </div>
+
+      <div class="tip-box">
+        <span class="tip-label">Så fungerar det</span>
+        <p>
+          Skillen hämtar sin data — ideologier, strategier och det treaxliga ramverket —
+          live från samma källa som resten av sajten, så den kan aldrig bli inaktuell.
+          Källkoden är öppen: bläddra i mappen eller kopiera in den permanent i din
+          egen agents skill-katalog från
+          <a href="https://github.com/politiskaalternativ/webbplattform/tree/main/skills/politisk-medieanalys" target="_blank" rel="noopener">GitHub</a>.
+        </p>
+      </div>
+
+      <p class="skill-compat">Fungerar med: Claude Code · Codex · OpenCode · andra verktyg som följer Agent Skills-specifikationen</p>
+    </div>
+  </section>
+
   <!-- ── FAQ ── -->
   <section class="faq">
     <div class="faq-inner">
@@ -195,6 +238,13 @@
           <summary>Är AI-analysen politiskt neutral?</summary>
           <p>Ja. AI-instruktionen kräver politisk neutralitet, tydlig åtskillnad mellan
           fakta och tolkning samt epistemisk ärlighet kring osäkerheter.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Vad är skillnaden på AI-instruktionen och Agent Skill-prompten?</summary>
+          <p>AI-instruktionen ovan är skriven för chattappar (Claude, ChatGPT, Gemini) och
+          analyserar en ideologi du själv väljer. Agent Skill-prompten är för
+          AI-kodningsagenter som stödjer Agent Skills-formatet, och analyserar en
+          text du klistrar in — en artikel, ledare eller ett inlägg i sociala medier.</p>
         </details>
       </div>
     </div>
@@ -239,21 +289,31 @@
     text.textContent = 'Kunde inte ladda instruktionen automatiskt. Öppna filen docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md och kopiera innehållet manuellt.';
   }
 
-  if (btn && text) {
-    btn.addEventListener('click', async () => {
+  // Shared copy-to-clipboard wiring for both the AI-instruktion box and the
+  // Agent Skill prompt box below it.
+  function wireCopyButton(button, getText) {
+    if (!button) return;
+    const idleHTML = button.innerHTML;
+    button.addEventListener('click', async () => {
       try {
-        await navigator.clipboard.writeText(text.textContent.trim());
-        btn.textContent = '✓ Kopierad';
-        btn.classList.add('copied');
+        await navigator.clipboard.writeText(getText().trim());
+        button.textContent = '✓ Kopierad';
+        button.classList.add('copied');
         setTimeout(() => {
-          btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Kopiera`;
-          btn.classList.remove('copied');
+          button.innerHTML = idleHTML;
+          button.classList.remove('copied');
         }, 2500);
       } catch {
-        btn.textContent = 'Markera och kopiera manuellt';
+        button.textContent = 'Markera och kopiera manuellt';
       }
     });
   }
+
+  wireCopyButton(btn, () => (text ? text.textContent : ''));
+
+  const skillBtn = document.getElementById('copySkillBtn');
+  const skillText = document.getElementById('skillPromptText');
+  wireCopyButton(skillBtn, () => (skillText ? skillText.textContent : ''));
 
   loadInstruction();
 </script>

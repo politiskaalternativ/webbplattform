@@ -8,6 +8,7 @@ Ett politiskt neutralt webbverktyg för att utforska, jämföra och förstå pol
 
 - [Vad är det här?](#vad-är-det-här)
 - [AI-analysen](#ai-analysen)
+- [Agent Skill](#agent-skill)
 - [Sidorna](#sidorna)
 - [Varför politisk neutralitet](#varför-politisk-neutralitet)
 - [Data och källor](#data-och-källor)
@@ -34,7 +35,8 @@ Politiska Alternativ är byggt för att göra tre saker enklare:
 Sajten är statisk — det finns ingen inloggning, inget konto och ingen AI inbyggd på
 sajten själv. Istället är den ett *verktyg för att förbereda* en AI-analys: du bläddrar,
 jämför och läser på sajten, och tar sedan med dig en färdig instruktion till en AI-tjänst
-du redan använder (Claude, ChatGPT eller liknande).
+du redan använder (Claude, ChatGPT eller liknande) — eller en portabel skill till din
+AI-kodningsagent.
 
 ## AI-analysen
 
@@ -62,12 +64,27 @@ snarare än ytliga påståenden, tydlig skillnad mellan fakta och tolkning, och 
 ärlighet om vad som är osäkert. Hela instruktionstexten finns i
 [`docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md`](docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md).
 
+## Agent Skill
+
+Utöver den kopierbara AI-instruktionen ovan finns en portabel
+[Agent Skill](https://agentskills.io/specification) — en öppen standard för att ge
+AI-kodningsagenter (Claude Code, Codex, OpenCode m.fl.) nya färdigheter. Skillen
+`politisk-medieanalys` låter en sådan agent granska artiklar, ledarsidor, kultursidor
+och inlägg på X/Twitter eller Bluesky med samma metod som resten av sajten: ideologisk
+vinkling, politiska strategier, effektkedjor i tre led och en ekonomisk jämförelse.
+
+Skillen duplicerar ingen data — den hämtar `ideologies.js`, `strategies.js` och
+`principles.json` live från detta repo vid varje analys, så den kan aldrig hamna i
+otakt med sajtens innehåll. Källan finns i
+[`skills/politisk-medieanalys/`](skills/politisk-medieanalys/), och en kopierbar
+startprompt finns längst ned på [AI-analys-sidan](https://politiskaalternativ.se/verktyg.html).
+
 ## Sidorna
 
 | Sida | Beskrivning |
 |------|-------------|
 | [Start](https://politiskaalternativ.se/) | Introduktion till varför ideologi spelar roll för demokratiskt tänkande, samt interaktiva problemkort som visar "samma samhällsproblem, olika ideologiska svar" — med motargument mellan ideologierna. |
-| [AI-analys](https://politiskaalternativ.se/verktyg.html) | Steg-för-steg-process för att kopiera in och använda den personliga ideologiska AI-instruktionen (se ovan). |
+| [AI-analys](https://politiskaalternativ.se/verktyg.html) | Steg-för-steg-process för att kopiera in och använda den personliga ideologiska AI-instruktionen (se ovan), samt en kopierbar startprompt för Agent Skill-varianten som riktar sig mot AI-kodningsagenter. |
 | [Bibliotek](https://politiskaalternativ.se/bibliotek.html) | Referensbibliotek med 12 klassiska ideologier i jämförbar struktur (kärnprinciper, tänkare, inre spänningar), filtrerbart på teman som frihet, jämlikhet, ordning och hållbarhet. |
 | [Strategier](https://politiskaalternativ.se/strategier.html) | 9 politiska strategier (populism, polarisering, klasspolitik, nationalism, identitetspolitik, teknokrati, triangulering, ledarpersonalisering, klientelism) i jämförbar struktur — mål, mobilisering, makttaktik och effektkedjor — med ett vägvalsdiagram som visar hur samma strategi kan leda till demokratisk förnyelse eller demokratisk tillbakagång beroende på hur den praktiseras. |
 | [Ekonomi](https://politiskaalternativ.se/ekonomi.html) | Visualisering och jämförelse av grundläggande ekonomiska filosofier, från planekonomi till fri marknad. |
@@ -94,6 +111,7 @@ kamp om makt och tillhörighet.
 | `src/lib/principles.json` | Det treaxliga ramverket (Ekonomi, Frihet, Kultur) på en skala från −10 till +10. |
 | `src/lib/problems.json` | Jämförande problempositioner för samhällsutmaningar (driver problemkorten på startsidan). |
 | `docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md` | Grundinstruktionen som används i AI-analysverktyget. |
+| `skills/politisk-medieanalys/` | Portabel Agent Skill för att granska artiklar och sociala medier-inlägg; hämtar ideologies.js/strategies.js/principles.json live istället för att duplicera dem. |
 
 Automatiserad läsning för indexering och sammanfattning (t.ex. av AI-crawlers) är
 tillåten så länge innehållet återges sakligt och med källhänvisning — se
