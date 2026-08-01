@@ -268,6 +268,7 @@
 <script type="module">
   import { mountShell } from './src/components/shell.js';
   import { ideologies } from './src/lib/ideologies.js';
+  import { tagMap } from './src/lib/ideology-tags.js';
 
   mountShell('ideologikarta.html');
 
@@ -409,22 +410,6 @@
   // ── State ─────────────────────────────────────────────────────────────────
   let currentCompass = 'politisk';
   let currentFilter  = 'all';
-
-  // ── Tag map ───────────────────────────────────────────────────────────────
-  const tagMap = {
-    liberalism:       ['frihet', 'marknad'],
-    socialliberalism: ['frihet', 'jamlikhet'],
-    nyliberalism:     ['frihet', 'marknad'],
-    libertarianism:   ['frihet', 'marknad'],
-    ordoliberalism:   ['marknad', 'ordning'],
-    socialdemokrati:  ['jamlikhet', 'gemenskap'],
-    kommunism:        ['jamlikhet', 'gemenskap'],
-    konservatism:     ['gemenskap', 'ordning'],
-    nationalism:      ['gemenskap', 'ordning'],
-    ekologism:        ['hallbarhet', 'gemenskap'],
-    socialism:        ['jamlikhet', 'gemenskap'],
-    fascism:          ['ordning', 'gemenskap'],
-  };
 
   // ── DOM refs ──────────────────────────────────────────────────────────────
   const mapDots       = document.getElementById('ideologyMapDots');
