@@ -39,6 +39,18 @@ att placera ideologier numeriskt — de delar inga värden och ska inte förväx
 varandra. Se [issue #81](https://github.com/politiskaalternativ/webbplattform/issues/81)
 för bakgrund.
 
+### Agent Skills
+
+`skills/<namn>/` — portabla AI-agent-skills enligt den öppna specen
+[Agent Skills](https://agentskills.io/specification), en `SKILL.md` per mapp plus
+valfria `references/`-filer. Varje skill hämtar sin metodikrelaterade data live från
+`src/lib/` via `raw.githubusercontent.com` istället för att duplicera den, så att den
+aldrig kan hamna i otakt med sajtens innehåll. Se `skills/politisk-analys/` för ett
+exempel, och `verktyg.html` för hur en kopierbar startprompt till skillen visas för
+användaren. Namnbyten (som `politisk-medieanalys` → `politisk-analys`) lämnar en kort
+redirect-stub kvar på den gamla platsen istället för att raderas, eftersom gamla
+länkar annars bryts.
+
 ## Designbeslut
 
 ### Typografi
@@ -85,7 +97,8 @@ ideologikarta.html)
 Ideologiska kartor: Politisk kompass, Nolan-diagram, GAL–TAN och kulturell karta
 
 ### verktyg.html
-Page hero → Process (steg med kopierbar AI-instruktion) → AI-tjänster → FAQ (mörk)
+Page hero → Process (steg med kopierbar AI-instruktion) → AI-tjänster →
+Agent Skill (kopierbar startprompt för AI-kodningsagenter) → FAQ (mörk)
 
 ## Utökningsguide
 
