@@ -5,7 +5,7 @@ license: MIT
 compatibility: Fungerar i valfri AI-agent som stöder Agent Skills-formatet (t.ex. Claude Code, Codex, OpenCode). Kräver nätverksåtkomst dels för att hämta referensdata från raw.githubusercontent.com/politiskaalternativ/webbplattform, dels för att hämta den sida eller länk användaren vill granska. Vissa agent-miljöer begränsar vilka externa domäner som kan hämtas — be då användaren klistra in texten istället.
 metadata:
   author: politiskaalternativ
-  version: "1.2"
+  version: "1.3"
   language: sv
   source: https://politiskaalternativ.se
 ---
@@ -32,7 +32,7 @@ Se [references/kalldata.md](references/kalldata.md) för schema och hur fälten 
 2. **Hämta referensdata** enligt ovan om du inte redan har den i kontext för den här sessionen.
 3. **Läs texten och identifiera:**
    - explicita och implicita ideologiska referenser, ramar och vokabulär
-   - retorik och mobiliseringstekniker som matchar mönster i `strategies.js` (t.ex. populism, polarisering, klientelism, teknokrati, ledarpersonalisering) — slå upp [references/metoder.md](references/metoder.md) för att om möjligt namnge en konkret metod inom strategin, inte bara strategin i stort
+   - retorik och mobiliseringstekniker som matchar mönster i `strategies.js` (t.ex. populism, polarisering, klientelism, teknokrati, ledarpersonalisering) — slå upp [references/metoder.md](references/metoder.md), både den strategispecifika sektionen och de tvärgående kommunikations-/mobiliseringsmetoderna, för att om möjligt namnge en konkret metod istället för att bara kategorisera på strategi-nivå
    - påståenden eller underförstådda antaganden om ekonomi (statens roll, marknadens roll, fördelning)
 4. **Producera analysen** i strukturen som beskrivs i [references/analysmall.md](references/analysmall.md). Där underlaget inte räcker för en viss del: säg det uttryckligen istället för att pressa fram en klassificering — se "ej tillämpligt"-principen i analysmallen.
 5. **Kalibrera omfånget efter innehållet.** Ett enstaka kort inlägg (t.ex. en tweet) kräver en kortare, mer försiktig analys än en längre ledarartikel eller ett fullständigt förslag — tvinga inte fram alla sex delar i fullängd om underlaget är för tunt.
@@ -59,4 +59,4 @@ Se [references/kalldata.md](references/kalldata.md) för schema och hur fälten 
 
 - [references/kalldata.md](references/kalldata.md) — vilka källfiler som hämtas och hur deras fält ska tolkas
 - [references/analysmall.md](references/analysmall.md) — den exakta struktur analysen ska levereras i
-- [references/metoder.md](references/metoder.md) — konkreta metoder och igenkänningsmarkörer per strategi, med balanserade historiska exempel
+- [references/metoder.md](references/metoder.md) — konkreta metoder och igenkänningsmarkörer per strategi, plus tvärgående kommunikations-/mobiliseringsmetoder, med balanserade historiska exempel
