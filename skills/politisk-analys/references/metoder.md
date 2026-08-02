@@ -255,7 +255,7 @@ Dessa metoder är inte knutna till en enskild strategi ovan — de fungerar som 
 
 5. **Negativ kampanj och kontrastkampanj** — fokuserar på motståndarens brister och skandaler (negativ), eller ställer tydligt den egna politiken mot motståndarens (kontrast), snarare än att enbart presentera egen politik (positiv kampanj).
 
-6. **Dog-whistle- och kodad kommunikation** — formuleringar med en allmän, oskäldig betydelse som samtidigt signalerar ett mer specifikt budskap till en avgränsad grupp som känner igen koden.
+6. **Dog-whistle- och kodad kommunikation** — formuleringar med en allmän, oskyldig betydelse som samtidigt signalerar ett mer specifikt budskap till en avgränsad grupp som känner igen koden.
 
 7. **Rapid response** — svarar omedelbart på nyheter, angrepp eller kontroverser för att förhindra att motståndarens tolkning hinner etableras som den rådande.
 
