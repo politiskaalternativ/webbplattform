@@ -6,37 +6,37 @@
     {
       "id": "socialism",
       "name": "Socialism",
-      "color": "#D85A30",
+      "color": "#9f1239",
       "axisPos": 5
     },
     {
       "id": "socialdemokrati",
       "name": "Socialdemokrati",
-      "color": "#E24B4A",
+      "color": "#8b3a2a",
       "axisPos": 25
     },
     {
       "id": "ordoliberalism",
       "name": "Ordoliberalism",
-      "color": "#BA7517",
+      "color": "#5a6e9c",
       "axisPos": 48
     },
     {
       "id": "konservatism",
       "name": "Konservatism",
-      "color": "#185FA5",
+      "color": "#3a4a6e",
       "axisPos": 55
     },
     {
-      "id": "marknadsliberalism",
-      "name": "Marknadsliberalism",
-      "color": "#0F6E56",
+      "id": "nyliberalism",
+      "name": "Nyliberalism",
+      "color": "#2f7b7b",
       "axisPos": 80
     },
     {
       "id": "libertarianism",
       "name": "Libertarianism",
-      "color": "#533AB7",
+      "color": "#c9973a",
       "axisPos": 96
     }
   ],
@@ -56,7 +56,7 @@
           "solution": "Välfärden ska finansieras genom progressiv beskattning av kapital och höginkomsttagare. Privata aktörer skapar ojämlikhet – vård och skola är rättigheter, inte varor. Staten bör expandera, inte krympa.",
           "counterargs": [
             {
-              "fromId": "marknadsliberalism",
+              "fromId": "nyliberalism",
               "text": "Hög skatt minskar incitamenten att arbeta och investera, vilket urholkar skattebasen på sikt."
             },
             {
@@ -71,7 +71,7 @@
           "solution": "En stark skattefinansierad välfärd kombineras med pragmatiska inslag av privata utförare. Grundprincipen är universell tillgång – alla betalar, alla får. Omfördelning är nödvändig för social sammanhållning.",
           "counterargs": [
             {
-              "fromId": "marknadsliberalism",
+              "fromId": "nyliberalism",
               "text": "Monopolliknande strukturer inom vård och skola hindrar innovation och effektivitet."
             },
             {
@@ -90,7 +90,7 @@
               "text": "Fokus på konkurrensregler löser inte grundproblemet – utan omfördelning reproduceras ojämlikheten oavsett hur rättvisa spelreglerna är."
             },
             {
-              "fromId": "marknadsliberalism",
+              "fromId": "nyliberalism",
               "text": "Ordoliberalismen underskattar marknadens förmåga att själv korrigera sig – statlig ramreglering riskerar att bli lika ineffektiv som direkt statsstyrning."
             }
           ]
@@ -105,13 +105,13 @@
               "text": "Valfrihet gynnar resursstarka grupper och skapar A- och B-lag i välfärden."
             },
             {
-              "fromId": "marknadsliberalism",
+              "fromId": "nyliberalism",
               "text": "Konservatismen är inkonsekvent – den vill ha marknaden utan att acceptera dess fulla konsekvenser."
             }
           ]
         },
         {
-          "ideologyId": "marknadsliberalism",
+          "ideologyId": "nyliberalism",
           "axisPos": 80,
           "solution": "Konkurrens och valfrihet driver kvalitet. Skattefinansiering kan bestå men utförandet bör öppnas för privata aktörer. På sikt bör individen ges större ansvar för sin egen välfärd via sparande och försäkring.",
           "counterargs": [
@@ -157,7 +157,7 @@
           "solution": "Bostaden är en social rättighet, inte en handelsvara. Staten och kommunerna bör bygga allmännyttiga bostäder i stor skala och återinföra hyresreglering. Marknadshyror slår hårt mot låginkomsttagare.",
           "counterargs": [
             {
-              "fromId": "marknadsliberalism",
+              "fromId": "nyliberalism",
               "text": "Hyresreglering minskar utbudet – historien visar att det förvärrar bostadsbristen på lång sikt."
             },
             {
@@ -172,7 +172,7 @@
           "solution": "En kombination av ökat allmännyttigt byggande, investeringsstöd och hårdare krav på kommunerna att planlägga mark. Hyresmarknaden behöver balanseras så att även låginkomsttagare har råd att bo i städerna.",
           "counterargs": [
             {
-              "fromId": "marknadsliberalism",
+              "fromId": "nyliberalism",
               "text": "Detaljreglering och kommunalt motstånd mot förtätning är grundproblemet – inte brist på subventioner."
             },
             {
@@ -212,7 +212,7 @@
           ]
         },
         {
-          "ideologyId": "marknadsliberalism",
+          "ideologyId": "nyliberalism",
           "axisPos": 82,
           "solution": "Avreglera hyresmarknaden och inför marknadshyror. Förenkla plan- och bygglovsprocessen radikalt. Sälj ut allmännyttan. När utbudet ökar sjunker priserna – marknaden löser bostadsbristen om den får verka fritt.",
           "counterargs": [
@@ -258,7 +258,7 @@
           "solution": "Skattepengar ska gå till välfärd, inte till aktieägare. Vinstdrivna aktörer har fel incitament – de skär i personal och kvalitet för att maximera avkastning. Välfärden ska vara demokratiskt styrd och icke-vinstdrivande.",
           "counterargs": [
             {
-              "fromId": "marknadsliberalism",
+              "fromId": "nyliberalism",
               "text": "Utan vinstmöjlighet försvinner incitamenten att driva verksamheten effektivt och innovativt."
             },
             {
@@ -273,7 +273,7 @@
           "solution": "Vinstuttag bör begränsas kraftigt eller förbjudas. Offentliga medel ska i första hand finansiera kvalitet och personal. Idéburna organisationer utan vinstsyfte kan dock spela en viktig roll som alternativ till kommunal drift.",
           "counterargs": [
             {
-              "fromId": "marknadsliberalism",
+              "fromId": "nyliberalism",
               "text": "Vinstbegränsning är svår att definiera juridiskt och driver bort seriösa aktörer."
             },
             {
@@ -313,7 +313,7 @@
           ]
         },
         {
-          "ideologyId": "marknadsliberalism",
+          "ideologyId": "nyliberalism",
           "axisPos": 78,
           "solution": "Vinstmöjligheten är förutsättningen för att privata aktörer ska vilja och kunna investera i välfärden. Konkurrens om brukarna driver kvalitet uppåt. Problemet är inte vinsten – det är bristande valfrihet och svag uppföljning.",
           "counterargs": [
@@ -363,7 +363,7 @@
               "text": "Strukturförklaringar riskerar att avskriva individuellt ansvar och fördröja konkreta åtgärder mot pågående brottslighet."
             },
             {
-              "fromId": "marknadsliberalism",
+              "fromId": "nyliberalism",
               "text": "Mer resurser till socialtjänst utan krav på resultat och effektivitet ger inte nödvändigtvis bättre utfall."
             }
           ]
@@ -390,7 +390,7 @@
           "counterargs": [
             {
               "fromId": "konservatism",
-              "text": "Institutionell tillit byggs inte av sig självt – utan kulturella normer och social sammanhållning fungerar inte ens de bästa institutionerna."
+              "text": "Institutionell tillit byggs inte av sig själv – utan kulturella normer och social sammanhållning fungerar inte ens de bästa institutionerna."
             },
             {
               "fromId": "socialism",
@@ -414,7 +414,7 @@
           ]
         },
         {
-          "ideologyId": "marknadsliberalism",
+          "ideologyId": "nyliberalism",
           "axisPos": 75,
           "solution": "Rättsväsendet ska vara effektivt och förutsägbart. Straff ska avskräcka och skydda samhället. Privata säkerhetstjänster och konkurrens inom kriminalvården kan bidra till bättre resultat. Fokus på offer, inte på gärningsman.",
           "counterargs": [
@@ -460,7 +460,7 @@
           "solution": "Klimatkrisen är kapitalismens kris. Lösningen kräver en demokratisk planering av ekonomin, statliga investeringar i förnybar energi och ett brott med tillväxtlogiken. Marknaden skapade problemet – den kan inte lösa det.",
           "counterargs": [
             {
-              "fromId": "marknadsliberalism",
+              "fromId": "nyliberalism",
               "text": "Statlig planering av energisystemet har historiskt lett till ineffektivitet och felallokering av resurser."
             },
             {
@@ -475,7 +475,7 @@
           "solution": "En aktiv industripolitik kombineras med koldioxidskatt och styrmedel. Staten investerar i infrastruktur, forskning och omställningsstöd till drabbade branscher. Omställningen ska vara rättvis – ingen ska lämnas utanför.",
           "counterargs": [
             {
-              "fromId": "marknadsliberalism",
+              "fromId": "nyliberalism",
               "text": "Statlig industripolitik riskerar att subventionera fel teknik och fördröja mer effektiva marknadsbaserade lösningar."
             },
             {
@@ -509,13 +509,13 @@
               "text": "Gradvisa åtgärder är inte förenliga med de tidsgränser klimatvetenskapen sätter upp."
             },
             {
-              "fromId": "marknadsliberalism",
+              "fromId": "nyliberalism",
               "text": "Konservatismens försiktighet riskerar att skydda etablerade fossila intressen på bekostnad av ny grön teknik."
             }
           ]
         },
         {
-          "ideologyId": "marknadsliberalism",
+          "ideologyId": "nyliberalism",
           "axisPos": 82,
           "solution": "Koldioxidskatt är det effektivaste styrmedlet – den korrigerar marknadsmisslyckandet utan att peka ut vinnare. Innovation och teknikutveckling i fri konkurrens löser resten. Avveckla subventioner till både fossil och förnybar energi.",
           "counterargs": [
@@ -561,7 +561,7 @@
           "solution": "EU är i grunden ett projekt för att skydda kapitalets rörlighet på bekostnad av demokrati och arbetsrätt. Nationella parlament måste återfå makten att reglera ekonomin och välfärden utan att hindras av EU:s konkurrensregler.",
           "counterargs": [
             {
-              "fromId": "marknadsliberalism",
+              "fromId": "nyliberalism",
               "text": "Den inre marknaden och EU:s konkurrensregler skyddar konsumenter och hindrar statliga monopol."
             },
             {
@@ -580,7 +580,7 @@
               "text": "Utan bindande EU-beslut på klimat och migration kan enskilda länder köra fri tramp på andras bekostnad."
             },
             {
-              "fromId": "marknadsliberalism",
+              "fromId": "nyliberalism",
               "text": "Nationell suveränitet inom handelspolitik riskerar protektionism som skadar svensk export."
             }
           ]
@@ -610,7 +610,7 @@
               "text": "Utan politisk överstatlighet kan inte EU hantera kollektiva problem som kräver bindande beslut."
             },
             {
-              "fromId": "marknadsliberalism",
+              "fromId": "nyliberalism",
               "text": "Att lämna EU eller kraftigt begränsa samarbetet riskerar svenska exportföretags tillgång till den inre marknaden."
             }
           ]
@@ -631,7 +631,7 @@
           ]
         },
         {
-          "ideologyId": "marknadsliberalism",
+          "ideologyId": "nyliberalism",
           "axisPos": 72,
           "solution": "Den inre marknaden med fri rörlighet för varor, tjänster, kapital och personer är EU:s stora framgång. Mer integration på ekonomins område är välkommet. Politisk överstatlighet är mer problematisk – fokus bör ligga på ekonomisk frihet.",
           "counterargs": [

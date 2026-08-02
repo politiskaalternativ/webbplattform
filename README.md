@@ -109,7 +109,9 @@ kamp om makt och tillhörighet.
 | Fil | Innehåll |
 |-----|----------|
 | `src/lib/ideologies.js` | Datakälla för biblioteket — 12 ideologier med kärnprinciper, tänkare och spänningar. |
+| `src/lib/ideology-tags.js` | Delad taggning av ideologier (tema-kategorier och tagMap) som används av både bibliotek.html och ideologikarta.html. |
 | `src/lib/strategies.js` | Datakälla för strategisidan — 9 strategier med mål, mobilisering, makttaktik, effektkedjor i tre led och vägval mellan demokratisk och auktoritär tillämpning. |
+| `src/lib/economics.js` | Datakälla för ekonomisidan — 9 ekonomiska filosofier med grundpelare, statssyn, fördelning, positionering och intern kritik. |
 | `src/lib/principles.json` | Det treaxliga ramverket (Ekonomi, Frihet, Kultur) på en skala från −10 till +10. |
 | `src/lib/problems.json` | Jämförande problempositioner för samhällsutmaningar (driver problemkorten på startsidan). |
 | `docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md` | Grundinstruktionen som används i AI-analysverktyget. |
@@ -137,7 +139,7 @@ för arkitekturbeslut och en guide till att lägga till ideologier, strategier e
 - Egen AI-instruktion för strategisk analys, kopplad till verktyg.html
 - Spara och exportera skapade AI-instruktioner
 - Fler ideologier i biblioteket
-- Flerspråksstöd (engelska)
+- Flerspråkstöd (engelska)
 
 Se [`docs/roadmap.md`](docs/roadmap.md) för aktuell status och planering.
 
