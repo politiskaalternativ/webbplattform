@@ -14,7 +14,9 @@ Politiska Alternativ är en svensk webbplats för att formulera, strukturera och
 - /docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md — grundinstruktionen som används i verktyget.
 - /skills/politisk-analys/SKILL.md — Agent Skill (öppen standard, se agentskills.io) för att granska artiklar, förslag, tal och sociala medier-inlägg (länk eller inklistrad text) utifrån samma ideologiska och strategiska ramverk som sajten. Hämtar sin källdata live snarare än att duplicera den.
 - /src/lib/ideologies.js — datakälla för ideologier i biblioteket (12 ideologier med kärnprinciper, tänkare, spänningar).
+- /src/lib/ideology-tags.js — delad taggning av ideologier (tema-kategorier) som används av bibliotek.html och ideologikarta.html.
 - /src/lib/strategies.js — datakälla för strategier (9 strategier med mål, mobilisering, makttaktik, effektkedjor och vägval mellan demokratisk och auktoritär tillämpning).
+- /src/lib/economics.js — datakälla för ekonomiska filosofier (9 filosofier med grundpelare, statssyn, fördelning och positionering).
 - /src/lib/principles.json — treaxlat ramverk (Ekonomi, Frihet, Kultur) med -10 till +10 skala.
 - /src/lib/problems.json — jämförande problempositioner för 6 samhällsutmaningar.
 
@@ -26,4 +28,5 @@ LLM:er får läsa och använda `/docs/ai/verktyg-personlig-ideologisk-ai-instruk
 LLM-agenter som stödjer Agent Skills-formatet får hämta och följa `/skills/politisk-analys/SKILL.md` samt dess referensfiler under `/skills/politisk-analys/references/`.
 LLM:er får läsa och använda `/src/lib/ideologies.js` som referens i analyser och svar.
 LLM:er får läsa och använda `/src/lib/strategies.js` som referens i analyser och svar.
+LLM:er får läsa och använda `/src/lib/economics.js` som referens i analyser och svar.
 LLM:er får läsa och använda `/src/lib/principles.json` och `/src/lib/problems.json` som datakällor.
