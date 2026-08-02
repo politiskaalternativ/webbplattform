@@ -69,14 +69,16 @@ snarare än ytliga påståenden, tydlig skillnad mellan fakta och tolkning, och 
 Utöver den kopierbara AI-instruktionen ovan finns en portabel
 [Agent Skill](https://agentskills.io/specification) — en öppen standard för att ge
 AI-kodningsagenter (Claude Code, Codex, OpenCode m.fl.) nya färdigheter. Skillen
-`politisk-medieanalys` låter en sådan agent granska artiklar, ledarsidor, kultursidor
-och inlägg på X/Twitter eller Bluesky med samma metod som resten av sajten: ideologisk
-vinkling, politiska strategier, effektkedjor i tre led och en ekonomisk jämförelse.
+`politisk-analys` låter en sådan agent granska artiklar, ledarsidor, kultursidor,
+politiska förslag, tal, partiprogram och inlägg på X/Twitter eller Bluesky med samma
+metod som resten av sajten: ideologisk vinkling, politiska strategier, effektkedjor i
+tre led och en ekonomisk jämförelse. Användaren klistrar oftast in en länk till det som
+ska granskas, annars texten direkt.
 
 Skillen duplicerar ingen data — den hämtar `ideologies.js`, `strategies.js` och
 `principles.json` live från detta repo vid varje analys, så den kan aldrig hamna i
 otakt med sajtens innehåll. Källan finns i
-[`skills/politisk-medieanalys/`](skills/politisk-medieanalys/), och en kopierbar
+[`skills/politisk-analys/`](skills/politisk-analys/), och en kopierbar
 startprompt finns längst ned på [AI-analys-sidan](https://politiskaalternativ.se/verktyg.html).
 
 ## Sidorna
@@ -111,7 +113,7 @@ kamp om makt och tillhörighet.
 | `src/lib/principles.json` | Det treaxliga ramverket (Ekonomi, Frihet, Kultur) på en skala från −10 till +10. |
 | `src/lib/problems.json` | Jämförande problempositioner för samhällsutmaningar (driver problemkorten på startsidan). |
 | `docs/ai/verktyg-personlig-ideologisk-ai-instruktion.md` | Grundinstruktionen som används i AI-analysverktyget. |
-| `skills/politisk-medieanalys/` | Portabel Agent Skill för att granska artiklar och sociala medier-inlägg; hämtar ideologies.js/strategies.js/principles.json live istället för att duplicera dem. |
+| `skills/politisk-analys/` | Portabel Agent Skill för att granska artiklar, förslag, tal och sociala medier-inlägg (länk eller inklistrad text); hämtar ideologies.js/strategies.js/principles.json live istället för att duplicera dem. |
 
 Automatiserad läsning för indexering och sammanfattning (t.ex. av AI-crawlers) är
 tillåten så länge innehållet återges sakligt och med källhänvisning — se
