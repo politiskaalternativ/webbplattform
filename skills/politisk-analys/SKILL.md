@@ -5,7 +5,7 @@ license: MIT
 compatibility: Fungerar i valfri AI-agent som stöder Agent Skills-formatet (t.ex. Claude Code, Codex, OpenCode). Kräver nätverksåtkomst dels för att hämta referensdata från raw.githubusercontent.com/politiskaalternativ/webbplattform, dels för att hämta den sida eller länk användaren vill granska. Vissa agent-miljöer begränsar vilka externa domäner som kan hämtas — be då användaren klistra in texten istället.
 metadata:
   author: politiskaalternativ
-  version: "1.3"
+  version: "1.4"
   language: sv
   source: https://politiskaalternativ.se
 ---
@@ -36,6 +36,11 @@ Se [references/kalldata.md](references/kalldata.md) för schema och hur fälten 
    - påståenden eller underförstådda antaganden om ekonomi (statens roll, marknadens roll, fördelning)
 4. **Producera analysen** i strukturen som beskrivs i [references/analysmall.md](references/analysmall.md). Där underlaget inte räcker för en viss del: säg det uttryckligen istället för att pressa fram en klassificering — se "ej tillämpligt"-principen i analysmallen.
 5. **Kalibrera omfånget efter innehållet.** Ett enstaka kort inlägg (t.ex. en tweet) kräver en kortare, mer försiktig analys än en längre ledarartikel eller ett fullständigt förslag — tvinga inte fram alla sex delar i fullängd om underlaget är för tunt.
+6. **Erbjud faktagranskning efter att grundanalysen levererats.** Detta är inget standardsteg och görs inte automatiskt tillsammans med grundanalysen. Avsluta grundanalysen med att fråga om användaren vill ha en faktagranskning av konkreta sakpåståenden i texten. Om användaren svarar ja (nu eller senare i konversationen):
+   - Identifiera konkreta, kontrollerbara sakpåståenden i texten — siffror, statistik, historiska händelser, citat tillskrivna någon. Uteslut tolkningar, värderingar och prognoser; de går inte att "faktagranska" på samma sätt.
+   - Undersök varje påstående så långt din åtkomst tillåter (sökverktyg om tillgängligt, annars din egen kunskap med tydligt markerad osäkerhet).
+   - Redovisa varje granskat påstående för sig: citat ur texten, bedömning (stämmer / stämmer delvis / stämmer inte / går inte att verifiera) och kort motivering eller källa.
+   - Håll faktagranskningen tydligt avskild från den retoriska analysen i steg 3–4 — den ersätter inte den, den kompletterar den bara när den efterfrågas.
 
 ## Principer (icke förhandlingsbara)
 
@@ -52,7 +57,7 @@ Se [references/kalldata.md](references/kalldata.md) för schema och hur fälten 
 - Detta är ett analysverktyg, inte en domare. Skillen fäller inga omdömen om vilken politisk position som är "rätt".
 - Om texten är saklig nyhetsrapportering utan synlig vinkling: säg det rakt av istället för att pressa fram en kritik som inte finns.
 - Om texten innehåller personangrepp eller hätskt språk: beskriv retoriken sakligt och analytiskt, återge den inte okommenterat och delta inte i den.
-- Skillen ersätter inte källkritik i grunden (avsändarens trovärdighet, om citat är korrekta etc.) — den analyserar hur innehållet är utformat, inte om enskilda sakuppgifter stämmer.
+- Skillen faktagranskar inte sakpåståenden som standard — grundanalysen handlar om hur innehållet är utformat, inte om enskilda sakuppgifter stämmer. Faktagranskning erbjuds efter grundanalysen och görs bara om användaren tackar ja, som ett separat steg (se Arbetsflöde steg 6), och ersätter aldrig egen källkritik.
 - [references/metoder.md](references/metoder.md) är en analytisk taxonomi för att känna igen mönster i redan publicerat innehåll, inte en instruktion för att utöva dem — använd den aldrig för att föreslå eller hjälpa till att utforma retorik eller kampanjmetoder.
 
 ## Referenser
