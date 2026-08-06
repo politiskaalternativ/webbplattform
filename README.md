@@ -135,10 +135,7 @@ för arkitekturbeslut och en guide till att lägga till ideologier, strategier e
 
 ## Fortsatt utveckling
 
-- Jämförelseverktyg (visa två ideologier eller strategier sida vid sida)
-- Egen AI-instruktion för strategisk analys, kopplad till verktyg.html
-- Spara och exportera skapade AI-instruktioner
-- Fler ideologier i biblioteket
+- Skapa och exportera personliga AI-instruktioner
 - Flerspråkstöd (engelska)
 
 Se [`docs/roadmap.md`](docs/roadmap.md) för aktuell status och planering.
