@@ -20,15 +20,11 @@ Grundplattformen är byggd och publicerad på https://politiskaalternativ.se/:
 
 ## Nästa steg
 
-- Jämförelseverktyg — visa två ideologier (eller strategier) sida vid sida.
-- Egen AI-instruktion för strategisk analys, kopplad till verktyg.html.
 - Koppling mellan ideologibiblioteket och strategisidan (vilka strategier
   förknippas ofta med vilka ideologier).
-- Spara och exportera skapade AI-instruktioner.
-- Fler ideologier i biblioteket.
+- Skapa och exportera personliga AI-instruktioner
 - Flerspråksstöd (engelska).
 - Städa strukturella konsekvensbrister mellan sidorna (ekonomi.html:s inline
-  CSS/data, osynkade positioneringssystem, duplicerade tagg-mappar,
-  marknadsliberalism-diskrepansen) — se [issue #81](https://github.com/politiskaalternativ/webbplattform/issues/81).
+  CSS/data, osynkade positioneringssystem, duplicerade tagg-mappar.
 
 Se [`README.md`](../README.md) för en fullständig beskrivning av vad som redan finns.
