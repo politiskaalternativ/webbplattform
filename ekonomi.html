@@ -56,21 +56,43 @@
   <section class="spectrum-section">
     <div class="spectrum-inner">
       <p class="spectrum-label">Spektrum — statlig kontroll vs marknadslogik</p>
-      <div class="spectrum-bar"></div>
+      <div class="spectrum-track">
+        <div class="spectrum-bar"></div>
+        <div class="spectrum-dots" id="spectrumDots"><!-- Rendered by JS --></div>
+      </div>
       <div class="spectrum-endpoints">
         <span>Fullständig planekonomi</span>
-        <span>Blandekonomier</span>
         <span>Fri marknad</span>
+      </div>
+      <div class="spectrum-sizekey">
+        <span><span class="sk-dot"></span>System</span>
+        <span><span class="sk-dot small"></span>Skola / ramverk</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Tier legend ── -->
+  <section class="tier-legend-section">
+    <div class="tier-legend-inner">
+      <h2>Två sorters begrepp, en sida</h2>
+      <p class="tier-legend-lead">Filosofierna nedan är grupperade efter vilken sorts begrepp de är — inte bara var de ligger på marknad/stat-skalan ovan. Indelningen är pedagogisk snarare än strikt logisk: kapitalism och planekonomi skiljer sig egentligen åt längs delvis olika dimensioner (ägande respektive beslutsmekanism), men fungerar som praktiska ändpunkter för de flesta läsare.</p>
+      <div class="tier-legend-cards">
+        <div class="tier-legend-card">
+          <span class="tier-chip tier-system">System</span>
+          <p>Grundläggande sätt att äga och fördela resurser — de kategorier de flesta känner igen från samhällskunskapen: kapitalism, planekonomi, blandekonomi.</p>
+        </div>
+        <div class="tier-legend-card">
+          <span class="tier-chip tier-skola">Skola / ramverk</span>
+          <p>Teoretiska verktyg för att förstå eller styra ett system — påverkar politiken snarare än att i sig definiera ägandeformen.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ── Philosophy grid ── -->
   <section class="library-section">
-    <div class="library-inner">
-      <div class="philosophy-grid" id="philosophyGrid">
-        <!-- Rendered by JS -->
-      </div>
+    <div class="library-inner" id="gridSection">
+      <!-- Rendered by JS -->
     </div>
   </section>
 
@@ -127,42 +149,81 @@
   import { philosophies } from './src/lib/economics.js';
   mountShell('ekonomi.html');
 
-  // ── Render grid ────────────────────────────────────────────────────────────
-  const grid = document.getElementById('philosophyGrid');
-
-  function renderGrid(filter = 'all') {
-    grid.innerHTML = '';
-    philosophies.forEach((p, i) => {
-      const show = filter === 'all' || p.category === filter;
-      const card = document.createElement('article');
-      card.className = 'phil-card' + (show ? '' : ' hidden');
-      card.dataset.id = p.id;
-      card.style.animationDelay = `${i * 0.06}s`;
-      card.innerHTML = `
-        <div class="phil-card-accent" style="background:${p.color}"></div>
-        <div class="phil-card-body">
-          <div class="phil-card-meta">
-            <span class="phil-card-era">${p.era}</span>
-            <span class="phil-card-tag">${categoryLabel(p.category)}</span>
-          </div>
-          <h2>${p.label}</h2>
-          <p class="phil-card-tagline">${p.tagline}</p>
-          <div class="phil-card-pillars">
-            ${p.pillars.slice(0,3).map(pl => `<div class="phil-pillar">${pl}</div>`).join('')}
-          </div>
-          <div class="phil-card-footer">
-            <span class="phil-card-thinkers">${p.tänkare.slice(0,2).join(' · ')}</span>
-            <span class="phil-card-cta">Fördjupa →</span>
-          </div>
-        </div>
-      `;
-      card.addEventListener('click', () => openDetail(p));
-      grid.appendChild(card);
-    });
-  }
-
+  // ── Shared labels ──────────────────────────────────────────────────────────
   function categoryLabel(cat) {
     return { marknad: 'Marknad', stat: 'Stat', blandat: 'Blandat', alternativ: 'Alternativ' }[cat] || cat;
+  }
+  const tierLabel = { system: 'System', skola: 'Skola' };
+  const tierOrder = ['system', 'skola'];
+  const tierGroupTitle = { system: 'System', skola: 'Skolor & ramverk' };
+
+  // ── Spectrum dots ──────────────────────────────────────────────────────────
+  const spectrumDots = document.getElementById('spectrumDots');
+  philosophies.forEach(p => {
+    const dot = document.createElement('div');
+    dot.className = 'spectrum-dot';
+    dot.dataset.tier = p.tier;
+    dot.style.left = p.axes.marknad + '%';
+    dot.style.background = p.color;
+    dot.innerHTML = `<span class="spectrum-tip">${p.label}</span>`;
+    dot.addEventListener('click', () => openDetail(p));
+    spectrumDots.appendChild(dot);
+  });
+
+  // ── Render grid, grouped by tier ──────────────────────────────────────────
+  const gridSection = document.getElementById('gridSection');
+
+  function renderGrid(filter = 'all') {
+    gridSection.innerHTML = '';
+    tierOrder.forEach(tier => {
+      const items = philosophies.filter(p => p.tier === tier);
+      const group = document.createElement('div');
+      group.className = 'tier-group';
+      group.dataset.tier = tier;
+
+      const head = document.createElement('div');
+      head.className = 'tier-group-head';
+      head.innerHTML = `<h3>${tierGroupTitle[tier]}</h3><span class="tier-group-count">${items.length} st</span>`;
+      group.appendChild(head);
+
+      const cardGrid = document.createElement('div');
+      cardGrid.className = 'philosophy-grid';
+
+      items.forEach((p, i) => {
+        const show = filter === 'all' || p.category === filter;
+        const card = document.createElement('article');
+        card.className = 'phil-card' + (show ? '' : ' hidden');
+        card.dataset.id = p.id;
+        card.style.animationDelay = `${i * 0.06}s`;
+        card.innerHTML = `
+          <div class="phil-card-accent" style="background:${p.color}"></div>
+          <div class="phil-card-body">
+            <div class="phil-card-meta">
+              <span class="phil-card-era">${p.era}</span>
+              <div class="phil-card-tags">
+                <span class="phil-card-tag tier-${p.tier}">${tierLabel[p.tier]}</span>
+                <span class="phil-card-tag">${categoryLabel(p.category)}</span>
+              </div>
+            </div>
+            <h2>${p.label}</h2>
+            <p class="phil-card-tagline">${p.tagline}</p>
+            <div class="phil-card-pillars">
+              ${p.pillars.slice(0,3).map(pl => `<div class="phil-pillar">${pl}</div>`).join('')}
+            </div>
+            <div class="phil-card-footer">
+              <span class="phil-card-thinkers">${p.tänkare.slice(0,2).join(' · ')}</span>
+              <span class="phil-card-cta">Fördjupa →</span>
+            </div>
+          </div>
+        `;
+        card.addEventListener('click', () => openDetail(p));
+        cardGrid.appendChild(card);
+      });
+
+      group.appendChild(cardGrid);
+      group.classList.toggle('hidden', items.every(p => filter !== 'all' && p.category !== filter));
+      gridSection.appendChild(group);
+    });
   }
 
   // ── Filter buttons ─────────────────────────────────────────────────────────
@@ -184,7 +245,7 @@
       <div class="dp-header" style="--accent-color:${p.color}">
         <div class="dp-accent-bar"></div>
         <div class="dp-header-body">
-          <span class="dp-era">${p.era} · ${categoryLabel(p.category)}</span>
+          <span class="dp-era">${p.era} · ${tierLabel[p.tier]} · ${categoryLabel(p.category)}</span>
           <h2>${p.label}</h2>
           <p class="dp-tagline">${p.tagline}</p>
         </div>
@@ -239,7 +300,7 @@
         </div>
 
         <div class="dp-section">
-          <h3>Kanoniska tänkare</h3>
+          <h3>${p.tier === 'system' ? 'Centrala tänkare och analytiker' : 'Kanoniska tänkare'}</h3>
           <div class="dp-thinkers">
             ${p.tänkare.map(t => `<span class="dp-thinker">${t}</span>`).join('')}
           </div>
@@ -263,19 +324,23 @@
   overlay.addEventListener('click', e => { if (e.target === overlay) closeDetail(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
 
-  // ── Compare table ──────────────────────────────────────────────────────────
+  // ── Compare table, grouped by tier ────────────────────────────────────────
   const tbody = document.getElementById('compareBody');
-  tbody.innerHTML = philosophies.map(p => `
-    <tr>
-      <td class="row-name">
-        <span class="dot" style="background:${p.color}"></span>${p.label}
-      </td>
-      <td>${p.tableRow.agande}</td>
-      <td>${p.tableRow.prisbildning}</td>
-      <td>${p.tableRow.statRoll}</td>
-      <td>${p.tableRow.fordelning}</td>
-    </tr>
-  `).join('');
+  tbody.innerHTML = tierOrder.map(tier => {
+    const items = philosophies.filter(p => p.tier === tier);
+    const rows = items.map(p => `
+      <tr>
+        <td class="row-name">
+          <span class="dot" style="background:${p.color}"></span>${p.label}
+        </td>
+        <td>${p.tableRow.agande}</td>
+        <td>${p.tableRow.prisbildning}</td>
+        <td>${p.tableRow.statRoll}</td>
+        <td>${p.tableRow.fordelning}</td>
+      </tr>
+    `).join('');
+    return `<tr class="tier-divider"><td colspan="5">${tierGroupTitle[tier]}</td></tr>${rows}`;
+  }).join('');
 
   // ── Initial render ─────────────────────────────────────────────────────────
   renderGrid();
