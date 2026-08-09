@@ -36,8 +36,12 @@
   color: var(--muted);
   margin-bottom: 1.2rem;
 }
-.spectrum-bar {
+.spectrum-track {
   position: relative;
+  padding-top: 1.6rem;
+  margin-bottom: 1rem;
+}
+.spectrum-bar {
   height: 6px;
   background: linear-gradient(to right,
     #7a1f2a 0%,
@@ -49,7 +53,6 @@
     #2a3f6a 100%
   );
   border-radius: 3px;
-  margin-bottom: 1rem;
 }
 .spectrum-endpoints {
   display: flex;
@@ -60,23 +63,54 @@
   text-transform: uppercase;
   color: var(--muted);
 }
-.spectrum-markers {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 0.5rem;
-  padding: 0 0.5rem;
+.spectrum-dots {
+  position: absolute;
+  top: 1.6rem;
+  left: 0;
+  right: 0;
+  height: 6px;
 }
 .spectrum-dot {
-  width: 8px;
-  height: 8px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: var(--ink);
-  border: 2px solid var(--paper);
+  border: 2px solid var(--paper-dark);
   cursor: pointer;
-  transition: transform 0.2s;
-  position: relative;
+  transition: transform 0.15s;
 }
-.spectrum-dot:hover { transform: scale(1.5); }
+.spectrum-dot[data-tier="system"] { width: 15px; height: 15px; }
+.spectrum-dot[data-tier="skola"] { width: 9px; height: 9px; }
+.spectrum-dot:hover { transform: translate(-50%, -50%) scale(1.4); }
+.spectrum-dot .spectrum-tip {
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  white-space: nowrap;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.3rem 0.6rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+.spectrum-dot:hover .spectrum-tip { opacity: 1; }
+.spectrum-sizekey {
+  display: flex;
+  gap: 1.6rem;
+  margin-top: 1.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.spectrum-sizekey span { display: flex; align-items: center; gap: 0.5rem; }
+.spectrum-sizekey .sk-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--muted); display: inline-block; }
+.spectrum-sizekey .sk-dot.small { width: 7px; height: 7px; }
 
 /* ── Filter bar ── */
 .filter-bar {
@@ -109,16 +143,83 @@
 .filter-btn:hover { border-color: var(--ink); color: var(--ink); }
 .filter-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 
+/* ── Tier legend ── */
+.tier-legend-section {
+  padding: 3.5rem var(--gutter);
+  border-bottom: 1px solid var(--rule);
+}
+.tier-legend-inner { max-width: var(--max-w); margin: 0 auto; }
+.tier-legend-inner h2 {
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  font-weight: 300;
+  margin-bottom: 0.6rem;
+}
+.tier-legend-lead {
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 62ch;
+  line-height: 1.75;
+  margin-bottom: 1.8rem;
+}
+.tier-legend-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+}
+.tier-legend-card {
+  border: 1px solid var(--rule);
+  background: var(--white);
+  padding: 1.3rem 1.5rem;
+}
+.tier-chip {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  margin-bottom: 0.9rem;
+}
+.tier-chip.tier-system { background: var(--ink); color: var(--paper); }
+.tier-chip.tier-skola { border: 1px solid var(--rule-dark); color: var(--muted); }
+.tier-legend-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
 /* ── Philosophy grid ── */
 .library-section {
   padding: 4rem var(--gutter);
 }
 .library-inner { max-width: var(--max-w); margin: 0 auto; }
+.tier-group { margin-bottom: 3rem; }
+.tier-group:last-child { margin-bottom: 0; }
+.tier-group.hidden { display: none; }
+.tier-group-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  margin-bottom: 1.4rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--rule);
+}
+.tier-group-head h3 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  font-style: italic;
+}
+.tier-group-count {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
 .philosophy-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 1.5rem;
-  margin-top: 2rem;
 }
 
 /* ── Philosophy card ── */
@@ -156,6 +257,10 @@
   text-transform: uppercase;
   color: var(--muted);
 }
+.phil-card-tags {
+  display: flex;
+  gap: 0.4rem;
+}
 .phil-card-tag {
   font-family: var(--font-mono);
   font-size: 0.55rem;
@@ -165,6 +270,7 @@
   border: 1px solid var(--rule);
   color: var(--muted);
 }
+.phil-card-tag.tier-system { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .phil-card h2 {
   font-size: clamp(1.35rem, 2vw, 1.7rem);
   font-weight: 300;
@@ -498,6 +604,16 @@
   vertical-align: middle;
 }
 .compare-table tr:hover td { background: var(--canvas); }
+.compare-table tr.tier-divider td {
+  background: var(--canvas);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0.55rem 1rem;
+}
+.compare-table tr.tier-divider:hover td { background: var(--canvas); }
 
 /* ── CTA section ── */
 .compare-banner {
@@ -523,6 +639,7 @@
   .axis-grid { grid-template-columns: 1fr; }
   .compare-table { min-width: 600px; }
   .detail-panel { width: 100vw; }
+  .tier-legend-cards { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
   .philosophy-grid { grid-template-columns: 1fr; }
