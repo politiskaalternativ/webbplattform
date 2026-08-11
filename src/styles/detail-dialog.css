@@ -1,0 +1,58 @@
+.detail-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 800;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  background: rgba(26, 24, 20, 0.65);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease-out);
+  backdrop-filter: blur(4px);
+}
+
+.detail-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.detail-panel {
+  position: relative;
+  width: min(var(--detail-panel-width, 560px), 100vw);
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--paper);
+  outline: none;
+  transform: translateX(100%);
+  transition: transform 0.35s var(--ease-out);
+}
+
+.detail-overlay.open .detail-panel {
+  transform: translateX(0);
+}
+
+.detail-close {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: block;
+  float: right;
+  width: 3rem;
+  height: 3rem;
+  margin-left: auto;
+  border: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.9rem;
+  line-height: 3rem;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.detail-close:hover,
+.detail-close:focus-visible {
+  background: var(--accent);
+}

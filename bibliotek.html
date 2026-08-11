@@ -23,6 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&display=swap">
   <link rel="stylesheet" href="src/styles/global.css">
+  <link rel="stylesheet" href="src/styles/detail-dialog.css">
   <link rel="stylesheet" href="src/styles/bibliotek.css">
 </head>
 <body>
@@ -65,9 +66,9 @@
   </section>
 
   <!-- ── Detail panel (modal) ── -->
-  <div class="detail-overlay" id="detailOverlay" aria-hidden="true">
-    <div class="detail-panel" id="detailPanel" role="dialog" aria-modal="true">
-      <button class="detail-close" id="detailClose" aria-label="Stäng">✕</button>
+  <div class="detail-overlay" id="detailOverlay" aria-hidden="true" inert>
+    <div class="detail-panel" id="detailPanel" role="dialog" aria-modal="true" tabindex="-1">
+      <button class="detail-close" id="detailClose" type="button" aria-label="Stäng detaljpanelen">✕</button>
       <div class="detail-content" id="detailContent"></div>
     </div>
   </div>
@@ -91,6 +92,7 @@
 
 <script type="module">
   import { mountShell } from './src/components/shell.js';
+  import { createDetailDialog } from './src/components/detail-dialog.js';
   import { ideologies } from './src/lib/ideologies.js';
   import { tagMap, categoryConfig } from './src/lib/ideology-tags.js';
 
@@ -101,6 +103,12 @@
   const panel = document.getElementById('detailPanel');
   const detailContent = document.getElementById('detailContent');
   const closeBtn = document.getElementById('detailClose');
+  const detailDialog = createDetailDialog({
+    overlay,
+    panel,
+    content: detailContent,
+    closeButton: closeBtn,
+  });
 
   const cardOrder = [
     'liberalism',
@@ -158,13 +166,18 @@
         </div>
       `;
 
-      card.addEventListener('click', () => openDetail(ideo));
-      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openDetail(ideo); });
+      card.addEventListener('click', () => openDetail(ideo, card));
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openDetail(ideo, card);
+        }
+      });
       grid.appendChild(card);
     });
   }
 
-  function openDetail(ideo) {
+  function openDetail(ideo, trigger) {
     detailContent.innerHTML = `
       <div class="dp-header" style="--accent-color:${ideo.color}">
         <div class="dp-accent-bar"></div>
@@ -204,22 +217,8 @@
         </div>
       </div>
     `;
-    panel.scrollTop = 0;
-    overlay.classList.add('open');
-    overlay.setAttribute('aria-hidden', 'false');
-    panel.focus();
-    document.body.style.overflow = 'hidden';
+    detailDialog.open(trigger);
   }
-
-  function closeDetail() {
-    overlay.classList.remove('open');
-    overlay.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-
-  closeBtn.addEventListener('click', closeDetail);
-  overlay.addEventListener('click', e => { if (e.target === overlay) closeDetail(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
 
   // Filters
   document.querySelectorAll('.filter-btn').forEach(btn => {

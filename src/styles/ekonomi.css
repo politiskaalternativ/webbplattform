@@ -341,55 +341,9 @@
 .phil-card.hidden { display: none; }
 
 /* ── Detail overlay ── */
-.detail-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(26,24,20,0.65);
-  z-index: 800;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s var(--ease-out);
-  backdrop-filter: blur(2px);
-}
-.detail-overlay.open {
-  opacity: 1;
-  pointer-events: auto;
-}
 .detail-panel {
-  width: min(680px, 100%);
-  height: 100vh;
-  overflow-y: auto;
-  background: var(--paper);
-  border-left: 1px solid var(--rule);
-  padding: 0;
-  transform: translateX(100%);
-  transition: transform 0.35s var(--ease-out);
-  position: relative;
+  --detail-panel-width: 680px;
 }
-.detail-overlay.open .detail-panel {
-  transform: translateX(0);
-}
-.detail-close {
-  position: absolute;
-  top: 1.2rem;
-  right: 1.5rem;
-  background: transparent;
-  border: 1px solid var(--rule);
-  color: var(--muted);
-  width: 2.2rem;
-  height: 2.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 0.85rem;
-  transition: border-color 0.2s, color 0.2s;
-  z-index: 10;
-}
-.detail-close:hover { border-color: var(--ink); color: var(--ink); }
 
 /* ── Detail panel content (dp-* — delad konvention med bibliotek/strategier/ideologikarta) ── */
 .dp-header {
