@@ -188,61 +188,9 @@
 .strategy-card:hover .card-cta { letter-spacing: 0.22em; }
 
 /* ── Detail overlay ── */
-.detail-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(26,24,20,0.65);
-  z-index: 800;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s var(--ease-out);
-  backdrop-filter: blur(4px);
-}
-
-.detail-overlay.open {
-  opacity: 1;
-  pointer-events: all;
-}
-
 .detail-panel {
-  width: min(620px, 100vw);
-  height: 100vh;
-  background: var(--paper);
-  overflow-y: auto;
-  transform: translateX(100%);
-  transition: transform 0.35s var(--ease-out);
-  position: relative;
-  outline: none;
+  --detail-panel-width: 620px;
 }
-
-.detail-overlay.open .detail-panel {
-  transform: translateX(0);
-}
-
-.detail-close {
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  background: var(--ink);
-  color: var(--paper);
-  border: none;
-  font-size: 0.9rem;
-  cursor: pointer;
-  margin-left: auto;
-  display: block;
-  float: right;
-  transition: background 0.2s;
-}
-.detail-close:hover { background: var(--accent); }
 
 /* ── Detail panel content ── */
 .dp-header {
