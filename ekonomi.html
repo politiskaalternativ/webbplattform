@@ -135,10 +135,10 @@
 </main>
 
 <!-- ── Detail overlay ── -->
-<div class="detail-overlay" id="detailOverlay">
+<div class="detail-overlay" id="detailOverlay" aria-hidden="true">
   <div class="detail-panel" id="detailPanel" role="dialog" aria-modal="true">
     <button class="detail-close" id="detailClose" aria-label="Stäng">✕</button>
-    <div id="detailContent"></div>
+    <div class="detail-content" id="detailContent"></div>
   </div>
 </div>
 
@@ -237,6 +237,7 @@
 
   // ── Detail panel ───────────────────────────────────────────────────────────
   const overlay = document.getElementById('detailOverlay');
+  const panel = document.getElementById('detailPanel');
   const content = document.getElementById('detailContent');
   const closeBtn = document.getElementById('detailClose');
 
@@ -311,12 +312,16 @@
         </div>
       </div>
     `;
+    panel.scrollTop = 0;
     overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    panel.focus();
     document.body.style.overflow = 'hidden';
   }
 
   function closeDetail() {
     overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
 
