@@ -449,52 +449,6 @@
 .dp-warning h3 { margin-bottom: 0.6rem; }
 .dp-warning-list li::before { content: '⚑'; }
 
-/* ── Exempel ── */
-.dp-examples {
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
-}
-
-.dp-example {
-  padding: 1rem 1.2rem;
-  border-left: 3px solid var(--rule-dark);
-  background: rgba(122,112,96,0.06);
-}
-
-.dp-example p {
-  margin-bottom: 0;
-  font-size: 0.88rem;
-}
-
-.dp-example-positive { border-left-color: var(--tone-positive-border); }
-.dp-example-negative { border-left-color: var(--tone-negative-border); }
-.dp-example-neutral   { border-left-color: var(--gold); }
-
-.dp-example-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: 0.4rem;
-  flex-wrap: wrap;
-}
-
-.dp-example-head strong {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--ink);
-}
-
-.dp-example-period {
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  white-space: nowrap;
-}
-
 /* ── Next-step banner ── */
 .compare-banner {
   background: var(--accent);

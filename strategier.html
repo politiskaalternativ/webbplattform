@@ -263,21 +263,6 @@
         </div>
 
         <div class="dp-section">
-          <h3>Historiska exempel</h3>
-          <div class="dp-examples">
-            ${strat.exempel.map(e => `
-              <div class="dp-example dp-example-${e.riktning === 'demokratisk' ? 'positive' : e.riktning === 'auktoritär' ? 'negative' : 'neutral'}">
-                <div class="dp-example-head">
-                  <strong>${e.rörelse}</strong>
-                  <span class="dp-example-period">${e.period}</span>
-                </div>
-                <p>${e.utfall}</p>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-
-        <div class="dp-section">
           <h3>Relaterade strategier</h3>
           <div class="dp-thinkers">
             ${strat.relaterade.map(rid => {
