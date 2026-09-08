@@ -64,6 +64,10 @@ export function mountShell(activePage) {
   if (navEl)    navEl.innerHTML    = renderNav(activePage);
   if (footerEl) footerEl.innerHTML = renderFooter();
 
+  if (activePage === 'ideologikarta.html') {
+    import('./ideology-uncertainty.js');
+  }
+
   const navRoot = navEl?.querySelector('.site-nav');
   const toggle = navRoot?.querySelector('.nav-toggle');
   const mobileMenu = navRoot?.querySelector('.mobile-nav-links');
