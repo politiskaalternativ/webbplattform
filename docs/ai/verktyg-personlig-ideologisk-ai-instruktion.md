@@ -73,12 +73,8 @@ Presentera varje kritik sakligt och på dess egna villkor – utan att ta ställ
 ---
 
 ### 5. Historiska och aktuella exempel
-Presentera **minst fyra exempel** på tillämpning av ideologin – både historiska och samtida. Inkludera:
-
-- **Positiva exempel** – fall där ideologin gett goda resultat
-- **Negativa exempel** – fall där tillämpningen lett till problem eller misslyckanden
-
-Ange land/rörelse, tidsperiod och ett kortfattat utfall för varje exempel.
+Lista upp till fyra historiska eller samtida exempel att fördjupa sig i.
+Ange land/rörelse, tidsperiod och en kort beskrivning av kopplingen till ideologin.
 
 ---
 

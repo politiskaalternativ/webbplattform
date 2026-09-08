@@ -55,8 +55,8 @@ Instruktionen ber AI:n leverera analysen i sex fasta delar:
    (långsiktiga, strukturella) konsekvenser.
 4. **Kritik från fyra håll** — invändningar från vänster, höger, frihetligt och auktoritärt
    perspektiv, presenterade sakligt på sina egna villkor.
-5. **Historiska och aktuella exempel** — minst fyra tillämpningar, både lyckade och
-   misslyckade.
+5. **Historiska och aktuella exempel** — upp till fyra exempel att fördjupa sig i,
+   med land/rörelse, tidsperiod och koppling till ideologin.
 6. **Utforska vidare** — förslag på 3–5 relaterade ideologier att fortsätta med.
 
 Genomgående gäller principerna i instruktionen: politisk neutralitet, effektkedjor
