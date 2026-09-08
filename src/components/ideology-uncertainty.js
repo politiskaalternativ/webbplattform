@@ -31,11 +31,20 @@ const ranges = {
   },
 };
 
-const ideologyOrder = [
-  'fascism', 'liberalism', 'kommunism', 'socialliberalism', 'socialdemokrati',
-  'konservatism', 'nationalism', 'nyliberalism', 'ordoliberalism',
-  'socialism', 'ekologism', 'libertarianism',
-];
+const aliases = {
+  'klassisk liberalism': 'liberalism',
+  'socialdemokrati': 'socialdemokrati',
+  'socialliberalism': 'socialliberalism',
+  'kommunism': 'kommunism',
+  'ekologism': 'ekologism',
+  'nyliberalism': 'nyliberalism',
+  'libertarianism': 'libertarianism',
+  'ordoliberalism': 'ordoliberalism',
+  'konservatism': 'konservatism',
+  'socialism': 'socialism',
+  'nationalism': 'nationalism',
+  'fascism': 'fascism',
+};
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
@@ -93,37 +102,15 @@ function enhancePoints() {
   const compassRanges = currentRanges();
   if (!mapDots || !compassRanges) return;
 
-  const points = [...mapDots.querySelectorAll('.map-point')];
-  points.forEach((group, visibleIndex) => {
+  [...mapDots.querySelectorAll('.map-point')].forEach(group => {
     if (group.querySelector('.map-range')) return;
 
     const dot = group.querySelector('.map-dot');
     const label = group.querySelector('.point-label');
     if (!dot || !label) return;
 
-    const aria = dot.getAttribute('aria-label') || '';
     const labelText = label.textContent?.trim() || '';
-    let ideologyId = ideologyOrder.find(id => aria.toLowerCase().includes(id));
-
-    if (!ideologyId) {
-      const normalized = labelText.toLowerCase();
-      const aliases = {
-        'klassisk liberalism': 'liberalism',
-        'socialdemokrati': 'socialdemokrati',
-        'socialliberalism': 'socialliberalism',
-        'kommunism': 'kommunism',
-        'ekologism': 'ekologism',
-        'nyliberalism': 'nyliberalism',
-        'libertarianism': 'libertarianism',
-        'ordoliberalism': 'ordoliberalism',
-        'konservatism': 'konservatism',
-        'socialism': 'socialism',
-        'nationalism': 'nationalism',
-        'fascism': 'fascism',
-      };
-      ideologyId = aliases[normalized];
-    }
-
+    const ideologyId = aliases[labelText.toLowerCase()];
     const range = compassRanges[ideologyId];
     if (!range) return;
 
