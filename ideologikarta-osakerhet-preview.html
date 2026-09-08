@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ideologikarta – osäkerhetsområden (preview)</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="src/styles/global.css">
+  <link rel="stylesheet" href="src/styles/ideologikarta.css">
+  <style>
+    .preview-note{max-width:920px;margin:0 auto 1.25rem;padding:1rem 1.2rem;border:1px solid var(--rule);background:rgba(255,255,255,.35);font-size:.92rem;line-height:1.65;color:var(--muted)}
+    .preview-note strong{color:var(--ink)}
+    .map-range{cursor:pointer;fill-opacity:.14;stroke-opacity:.38;stroke-width:1.4;transition:fill-opacity .18s ease,stroke-opacity .18s ease,stroke-width .18s ease}
+    .map-range:hover,.map-range:focus-visible{fill-opacity:.22;stroke-opacity:.72;stroke-width:2.2;outline:none}
+    .map-center{pointer-events:none;stroke:rgba(255,255,255,.9);stroke-width:1}
+    .point-label{pointer-events:none}
+  </style>
+</head>
+<body>
+<div id="site-nav"></div>
+<main class="page-wrap" id="main-content">
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="label">Visuell prototyp</p>
+      <h1>Ideologiska kartor – osäkerhetsområden</h1>
+      <p class="page-lead">Live-preview för att pröva om halvtransparenta ellipser ger en mer försvarbar bild av ideologiernas möjliga placeringsomfång än exakta punkter.</p>
+      <div class="compass-switcher" role="tablist" aria-label="Välj ideologisk kompass" id="compassSwitcher">
+        <button class="compass-tab active" data-compass="politisk" role="tab" aria-selected="true"><span class="compass-tab__name">Politisk Kompass</span><span class="compass-tab__badge">Klassisk</span></button>
+        <button class="compass-tab" data-compass="nolan" role="tab" aria-selected="false"><span class="compass-tab__name">Nolan-diagrammet</span><span class="compass-tab__badge">1970-tal</span></button>
+        <button class="compass-tab" data-compass="kulturell" role="tab" aria-selected="false"><span class="compass-tab__name">Kulturell karta</span><span class="compass-tab__badge">Inglehart–Welzel</span></button>
+        <button class="compass-tab" data-compass="gal" role="tab" aria-selected="false"><span class="compass-tab__name">GAL–TAN</span><span class="compass-tab__badge">Europeisk dimension</span></button>
+      </div>
+    </div>
+  </section>
+  <hr class="rule">
+  <section class="map-section">
+    <div class="preview-note"><strong>Hur prototypen ska läsas:</strong> ellipsen visar ett rimligt placeringsområde givet intern variation, definitionsval och hur väl ideologin bestämmer respektive axel. Den lilla centrumpricken är endast en representativ placering – inte ett statistiskt skattat värde eller konfidensintervall. Ellipsens bredd och höjd kan därför skilja sig.</div>
+    <div class="map-inner">
+      <div class="map-scroll-wrap">
+        <svg class="ideology-map" viewBox="0 0 1000 950" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="map-svg-title map-svg-desc">
+          <title id="map-svg-title">Ideologisk karta med rimliga placeringsområden</title>
+          <desc id="map-svg-desc">Tvådimensionell ideologisk karta där halvtransparenta ellipser visar rimliga placeringsområden.</desc>
+          <defs>
+            <marker id="arrowX" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0 0, 7 3.5, 0 7" fill="#2c2417"/></marker>
+            <marker id="arrowY" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0 0, 7 3.5, 0 7" fill="#2c2417"/></marker>
+          </defs>
+          <g class="chart-fade-layer">
+            <rect width="1000" height="950" class="bg-main"/>
+            <line x1="100" y1="78" x2="900" y2="78" class="divider"/>
+            <rect x="140" y="85" width="720" height="720" rx="4" class="bg-plot" stroke="#c9bfae" stroke-width="1"/>
+          </g>
+          <g class="chart-grid-layer">
+            <rect x="140" y="85" width="360" height="360" rx="4" class="q-tl"/><rect x="500" y="85" width="360" height="360" rx="4" class="q-tr"/><rect x="140" y="445" width="360" height="360" rx="4" class="q-bl"/><rect x="500" y="445" width="360" height="360" rx="4" class="q-br"/>
+            <line x1="230" y1="85" x2="230" y2="805" class="grid-line"/><line x1="320" y1="85" x2="320" y2="805" class="grid-line"/><line x1="410" y1="85" x2="410" y2="805" class="grid-line"/><line x1="590" y1="85" x2="590" y2="805" class="grid-line"/><line x1="680" y1="85" x2="680" y2="805" class="grid-line"/><line x1="770" y1="85" x2="770" y2="805" class="grid-line"/>
+            <line x1="140" y1="175" x2="860" y2="175" class="grid-line"/><line x1="140" y1="265" x2="860" y2="265" class="grid-line"/><line x1="140" y1="355" x2="860" y2="355" class="grid-line"/><line x1="140" y1="535" x2="860" y2="535" class="grid-line"/><line x1="140" y1="625" x2="860" y2="625" class="grid-line"/><line x1="140" y1="715" x2="860" y2="715" class="grid-line"/>
+            <line x1="500" y1="85" x2="500" y2="805" class="mid-line"/><line x1="140" y1="445" x2="860" y2="445" class="mid-line"/>
+            <line x1="148" y1="805" x2="856" y2="805" class="axis-line" marker-end="url(#arrowX)"/><line x1="140" y1="797" x2="140" y2="93" class="axis-line" marker-end="url(#arrowY)"/>
+          </g>
+          <g class="chart-text-layer">
+            <text x="500" y="46" text-anchor="middle" class="title-text" id="svgTitle">Politisk Kompass</text>
+            <text x="500" y="66" text-anchor="middle" class="sub-text" id="svgSubText">EKONOMISK VÄNSTER–HÖGER · LIBERTÄR–AUKTORITÄR</text>
+            <text x="320" y="105" text-anchor="middle" class="quad-label" id="quadTL">Libertär + vänster</text><text x="680" y="105" text-anchor="middle" class="quad-label" id="quadTR">Libertär + höger</text><text x="320" y="795" text-anchor="middle" class="quad-label" id="quadBL">Auktoritär + vänster</text><text x="680" y="795" text-anchor="middle" class="quad-label" id="quadBR">Auktoritär + höger</text>
+            <text x="500" y="845" text-anchor="middle" class="axis-label" id="svgXLabel">Ekonomisk organisering</text><text x="175" y="870" text-anchor="middle" class="axis-sub" id="svgXLeft">Omfördelning / välfärdsstat / jämlikhet</text><text x="825" y="870" text-anchor="middle" class="axis-sub" id="svgXRight">Marknad / privat ägande / effektivitet</text>
+            <text x="52" y="445" text-anchor="middle" transform="rotate(-90 52 445)" class="axis-label" id="svgYLabel">Stat, ordning och autonomi</text><text x="34" y="625" text-anchor="middle" transform="rotate(-90 34 625)" class="axis-sub" id="svgYBottom">Auktoritär · ordning / reglering / hierarki</text><text x="34" y="265" text-anchor="middle" transform="rotate(-90 34 265)" class="axis-sub" id="svgYTop">Libertär · individuell autonomi / svag statlig kontroll</text>
+          </g>
+          <g id="ideologyMapDots"></g>
+          <g class="chart-footer-layer"><line x1="100" y1="895" x2="900" y2="895" class="divider"/><text x="140" y="913" class="note-text">Prototyp: skuggad yta = rimligt placeringsområde; liten punkt = representativ placering.</text><text x="140" y="927" class="note-text">Områdena är analytiska tolkningsintervall, inte statistiska konfidensintervall.</text></g>
+        </svg>
+      </div>
+    </div>
+  </section>
+</main>
+<div id="site-footer"></div>
+<script type="module">
+import { mountShell } from './src/components/shell.js';
+import { ideologies } from './src/lib/ideologies.js';
+mountShell('ideologikarta.html');
+const compasses={
+politisk:{svgTitle:'Politisk Kompass',svgSubText:'EKONOMISK VÄNSTER–HÖGER · LIBERTÄR–AUKTORITÄR',xLabel:'Ekonomisk organisering',xLeft:'Omfördelning / välfärdsstat / jämlikhet',xRight:'Marknad / privat ägande / effektivitet',yLabel:'Stat, ordning och autonomi',yTop:'Libertär · individuell autonomi / svag statlig kontroll',yBottom:'Auktoritär · ordning / reglering / hierarki',quadTL:'Libertär + vänster',quadTR:'Libertär + höger',quadBL:'Auktoritär + vänster',quadBR:'Auktoritär + höger',positions:{kommunism:{x:212,y:661,rx:42,ry:112,color:'#7a1f2a'},socialdemokrati:{x:356,y:481,rx:48,ry:58,color:'#8b3a2a'},socialliberalism:{x:428,y:409,rx:44,ry:44,color:'#3f6f8f'},ekologism:{x:428,y:337,rx:65,ry:70,color:'#4a7a4a'},liberalism:{x:716,y:265,rx:42,ry:42,color:'#5a6e4a',label:'Klassisk liberalism'},nyliberalism:{x:788,y:337,rx:40,ry:82,color:'#2f7b7b'},libertarianism:{x:824,y:157,rx:30,ry:30,color:'#c9973a'},ordoliberalism:{x:644,y:373,rx:38,ry:84,color:'#5a6e9c'},konservatism:{x:644,y:553,rx:70,ry:58,color:'#3a4a6e'},socialism:{x:284,y:589,rx:56,ry:105,color:'#9f1239'},nationalism:{x:536,y:625,rx:130,ry:72,color:'#7a5a3a'},fascism:{x:572,y:733,rx:82,ry:34,color:'#6b4c2a'}}},
+nolan:{svgTitle:'Nolan-diagrammet',svgSubText:'EKONOMISK FRIHET · PERSONLIG FRIHET',xLabel:'Ekonomisk frihet',xLeft:'Statlig styrning / reglering / omfördelning',xRight:'Fri marknad / låga skatter / äganderätt',yLabel:'Personlig frihet',yTop:'Hög personlig frihet · autonomi / tolerans / öppenhet',yBottom:'Låg personlig frihet · kontroll / konformitet / restriktioner',quadTL:'Progressiv / vänster',quadTR:'Libertariansk',quadBL:'Populistisk / auktoritär',quadBR:'Konservativ / höger',positions:{kommunism:{x:212,y:661,rx:45,ry:110,color:'#7a1f2a'},socialdemokrati:{x:392,y:337,rx:52,ry:58,color:'#8b3a2a'},socialliberalism:{x:428,y:265,rx:42,ry:42,color:'#3f6f8f'},ekologism:{x:428,y:301,rx:70,ry:60,color:'#4a7a4a'},liberalism:{x:716,y:265,rx:42,ry:42,color:'#5a6e4a',label:'Klassisk liberalism'},nyliberalism:{x:788,y:445,rx:36,ry:95,color:'#2f7b7b'},libertarianism:{x:824,y:121,rx:28,ry:28,color:'#c9973a'},ordoliberalism:{x:644,y:409,rx:38,ry:90,color:'#5a6e9c'},konservatism:{x:608,y:553,rx:65,ry:65,color:'#3a4a6e'},socialism:{x:320,y:409,rx:55,ry:100,color:'#9f1239'},nationalism:{x:464,y:625,rx:135,ry:75,color:'#7a5a3a'},fascism:{x:428,y:733,rx:95,ry:34,color:'#6b4c2a'}}},
+kulturell:{svgTitle:'Kulturell karta',svgSubText:'TRADITIONELL–SEKULÄR · ÖVERLEVNAD–SJÄLVFÖRVERKLIGANDE',xLabel:'Kulturella värderingar',xLeft:'Traditionella · religion / familj / auktoritet',xRight:'Sekulär-rationella · vetenskap / individualism',yLabel:'Samhällsvärderingar',yTop:'Självförverkligande · öppenhet / tolerans / självuttryck',yBottom:'Överlevnadsvärden · trygghet / konformitet / ordning',quadTL:'Traditionell + självförverkligande',quadTR:'Sekulär + självförverkligande',quadBL:'Traditionell + överlevnad',quadBR:'Sekulär + överlevnad',positions:{kommunism:{x:680,y:589,rx:90,ry:105,color:'#7a1f2a'},socialdemokrati:{x:716,y:265,rx:80,ry:75,color:'#8b3a2a'},socialliberalism:{x:680,y:229,rx:65,ry:60,color:'#3f6f8f'},ekologism:{x:608,y:229,rx:82,ry:62,color:'#4a7a4a'},liberalism:{x:608,y:301,rx:80,ry:75,color:'#5a6e4a',label:'Klassisk liberalism'},nyliberalism:{x:644,y:409,rx:105,ry:100,color:'#2f7b7b'},libertarianism:{x:680,y:265,rx:85,ry:80,color:'#c9973a'},ordoliberalism:{x:572,y:409,rx:110,ry:100,color:'#5a6e9c'},konservatism:{x:284,y:517,rx:85,ry:78,color:'#3a4a6e'},socialism:{x:572,y:517,rx:100,ry:105,color:'#9f1239'},nationalism:{x:248,y:589,rx:95,ry:85,color:'#7a5a3a'},fascism:{x:212,y:661,rx:80,ry:65,color:'#6b4c2a'}}},
+gal:{svgTitle:'GAL–TAN-diagrammet',svgSubText:'EKONOMISK VÄNSTER–HÖGER · GAL–TAN',xLabel:'Ekonomisk organisering',xLeft:'Vänster · omfördelning / offentlig sektor / jämlikhet',xRight:'Höger · fri marknad / privat ägande / effektivitet',yLabel:'Kulturella värderingar',yTop:'GAL · grön / progressiv / öppen / libertariansk',yBottom:'TAN · traditionell / auktoritär / nationalistisk',quadTL:'Vänster + GAL',quadTR:'Höger + GAL',quadBL:'Vänster + TAN',quadBR:'Höger + TAN',positions:{kommunism:{x:212,y:409,rx:45,ry:105,color:'#7a1f2a'},socialdemokrati:{x:356,y:301,rx:52,ry:55,color:'#8b3a2a'},socialliberalism:{x:428,y:229,rx:45,ry:42,color:'#3f6f8f'},ekologism:{x:392,y:157,rx:55,ry:34,color:'#4a7a4a'},liberalism:{x:716,y:265,rx:50,ry:62,color:'#5a6e4a',label:'Klassisk liberalism'},nyliberalism:{x:788,y:373,rx:38,ry:100,color:'#2f7b7b'},libertarianism:{x:788,y:193,rx:34,ry:42,color:'#c9973a'},ordoliberalism:{x:644,y:481,rx:40,ry:110,color:'#5a6e9c'},konservatism:{x:644,y:589,rx:68,ry:52,color:'#3a4a6e'},socialism:{x:284,y:373,rx:58,ry:92,color:'#9f1239'},nationalism:{x:500,y:697,rx:130,ry:38,color:'#7a5a3a'},fascism:{x:536,y:733,rx:85,ry:30,color:'#6b4c2a'}}}
+};
+const ids=['svgTitle','svgSubText','quadTL','quadTR','quadBL','quadBR','svgXLabel','svgXLeft','svgXRight','svgYLabel','svgYTop','svgYBottom'];
+const el=Object.fromEntries(ids.map(id=>[id,document.getElementById(id)]));
+const mapDots=document.getElementById('ideologyMapDots');
+function render(key){const c=compasses[key];mapDots.innerHTML='';el.svgTitle.textContent=c.svgTitle;el.svgSubText.textContent=c.svgSubText;el.quadTL.textContent=c.quadTL;el.quadTR.textContent=c.quadTR;el.quadBL.textContent=c.quadBL;el.quadBR.textContent=c.quadBR;el.svgXLabel.textContent=c.xLabel;el.svgXLeft.textContent=c.xLeft;el.svgXRight.textContent=c.xRight;el.svgYLabel.textContent=c.yLabel;el.svgYTop.textContent=c.yTop;el.svgYBottom.textContent=c.yBottom;ideologies.forEach((ideo,i)=>{const p=c.positions[ideo.id];if(!p)return;const g=document.createElementNS('http://www.w3.org/2000/svg','g');g.setAttribute('class','map-point');g.style.setProperty('--point-delay',`${i*.045}s`);const range=document.createElementNS('http://www.w3.org/2000/svg','ellipse');range.setAttribute('cx',p.x);range.setAttribute('cy',p.y);range.setAttribute('rx',p.rx);range.setAttribute('ry',p.ry);range.setAttribute('fill',p.color);range.setAttribute('stroke',p.color);range.setAttribute('class','map-range');range.setAttribute('tabindex','0');range.setAttribute('role','img');range.setAttribute('aria-label',`${ideo.label}: rimligt placeringsområde`);const center=document.createElementNS('http://www.w3.org/2000/svg','circle');center.setAttribute('cx',p.x);center.setAttribute('cy',p.y);center.setAttribute('r','3.5');center.setAttribute('fill',p.color);center.setAttribute('class','map-center');const label=document.createElementNS('http://www.w3.org/2000/svg','text');label.setAttribute('x',p.x);label.setAttribute('y',p.y-p.ry-8);label.setAttribute('text-anchor','middle');label.setAttribute('class','point-label');label.textContent=p.label||ideo.label;g.append(range,center,label);mapDots.appendChild(g)})}
+document.getElementById('compassSwitcher').addEventListener('click',e=>{const b=e.target.closest('.compass-tab');if(!b)return;document.querySelectorAll('.compass-tab').forEach(x=>{const on=x===b;x.classList.toggle('active',on);x.setAttribute('aria-selected',String(on))});render(b.dataset.compass)});render('politisk');
+</script>
+</body>
+</html>
