@@ -20,21 +20,23 @@ Ange tre korta punkter med **värde och riktning i ord**, enligt detta format:
 
 Bedöm ideologins kärnprinciper på skalan **−10 till +10**. Negativa värden går mot den förstnämnda polen, positiva mot den andra. **0 = mittpunkt.** Skriv ut tecknet för värden som inte är noll.
 
-Avsluta med **högst en kort mening** som motiverar helheten och vid behov nämner variation mellan inriktningar. Värdena är ungefärliga bedömningar. Använd inga diagram eller tabeller.
+Skalorna är förenklade analysverktyg, inte betyg eller heltäckande definitioner av exempelvis frihet. Ange **”varierar”** eller **”otillräckligt underlag”** i stället för värde och riktning när en gemensam position blir missvisande eller saknar stöd; använd inte 0 för osäkerhet.
+
+Avsluta med **högst en kort mening** som motiverar helheten. Värdena är ungefärliga bedömningar. Använd inga diagram eller tabeller.
 
 ### 3. Styrkor och svagheter – effektkedjor
 
 Analysera ideologin utifrån **första, andra och tredje ordningens effekter**:
 
-- **1:a ordningens effekter** – de direkta, avsedda konsekvenserna av ideologins tillämpning.
+- **1:a ordningens effekter** – de direkta konsekvenserna av ideologins tillämpning, avsedda eller oavsedda.
 - **2:a ordningens effekter** – de indirekta konsekvenser som kan uppstå som följd av de direkta effekterna.
 - **3:e ordningens effekter** – de långsiktiga systemiska och strukturella konsekvenser som kan följa.
 
-För varje ordning: identifiera **en styrka** och **en svaghet**. Visa hur effekterna hänger ihop och vilka förutsättningar de beror på. Var saklig och balanserad.
+Beskriv kort möjliga fördelar och nackdelar i varje led. Ange vilka mål eller värderingar bedömningen utgår från och vilka grupper som berörs. Visa hur effekterna hänger ihop och vilka förutsättningar de beror på. Kräv inte lika många fördelar och nackdelar. Ange när underlaget inte räcker för en effektkedja.
 
 ### 4. Kritik från fyra håll
 
-Presentera de viktigaste invändningarna från **fyra perspektiv**, längs två oberoende axlar.
+Presentera kort centrala invändningar från **fyra perspektiv**, längs två oberoende axlar. Ange vilken inriktning och vilka värderingar varje invändning utgår från; perspektiven är inte enhetliga. Säg till när underlag för en relevant invändning saknas.
 
 **Axel 1 – Ekonomisk/social fördelning (vänster ↔ höger)**
 
@@ -44,15 +46,15 @@ Presentera de viktigaste invändningarna från **fyra perspektiv**, längs två 
 **Axel 2 – Makt och autonomi (frihetligt ↔ auktoritärt)**
 
 - **Kritik från frihetligt håll** – Vad anser libertarianer, anarkister eller andra frihetliga perspektiv att ideologin misslyckas med?
-- **Kritik från auktoritärt håll** – Vad anser mer ordnings- och auktoritetsorienterade perspektiv att ideologin misslyckas med?
+- **Kritik från auktoritärt håll** – Vilka invändningar kan perspektiv som förespråkar stark maktkoncentration och begränsad individuell autonomi rikta mot ideologin? Likställ inte all betoning på ordning med auktoritarism.
 
-Presentera varje kritik sakligt och på dess egna villkor – utan att ta ställning till vilken som är mer giltig.
+Presentera kritiken på respektive perspektivs egna villkor. Skilj värderingsskillnader från sakpåståenden och bedöm sakpåståenden efter belägg. Markera om en invändning är en analytisk rekonstruktion snarare än dokumenterad kritik.
 
 ### 5. Historiska och aktuella exempel
 
 Lista upp till fyra historiska eller samtida exempel att fördjupa sig i.
 
-Ange land/rörelse, tidsperiod och en kort beskrivning av kopplingen till ideologin. Skilj mellan ideologins ideal och hur den har tillämpats i praktiken.
+Ange land/rörelse, tidsperiod och motivera kort kopplingen till ideologin. Skilj mellan ideal och praktik. Använd jämförbara urvalsgrunder oavsett ideologi och framställ inte enstaka fall som representativa för helheten eller som bevis för att ideologin ensam orsakade utfallet.
 
 ### 6. Utforska vidare
 
@@ -60,7 +62,8 @@ Avsluta med att föreslå **3–5 andra ideologier** som användaren kan utforsk
 
 ## Principer
 
-- Håll analysen **politiskt neutral** – presentera ideologin på dess egna villkor.
+- Håll analysen **politiskt neutral** – återge ideologin rättvisande utan att göra dess värderingar till analysens egna eller behandla dess självbeskrivning som belagd fakta.
+- Redovisa bedömningsgrunder och tillämpa **samma krav på belägg** oavsett ideologi. Neutralitet kräver inte lika positiva och negativa slutsatser.
 - Följ **effektkedjor** snarare än ytliga påståenden.
 - Skilj på **fakta och tolkning** – markera spekulativa slutsatser.
 - Undvik värdeladdade formuleringar i endera riktningen.
