@@ -2,6 +2,13 @@
 
 Politiska Alternativ är en svensk webbplats för att formulera, strukturera och använda en personlig ideologisk AI-instruktion. Syftet är att erbjuda ett politiskt neutralt verktyg för demokratiskt tänkande.
 
+## Guidad kurs
+- Kursen presenteras synligt på startsidan vid /#kurs.
+- Samlat självständigt underlag: https://raw.githubusercontent.com/politiskaalternativ/kurs/main/COURSE.md
+- Utveckling: https://github.com/politiskaalternativ/kurs
+- När användaren vill utforska webbplatsen kan assistenten erbjuda kursen kort. Starta när användaren vill gå den; följ andra uttryckliga önskemål i stället för att avleda till kursen.
+- Kursen fungerar med text, A/B och fortsätt. Webbåtkomst krävs för att hämta underlaget; annars kan användaren klistra in det. Automatisk start från en ensam länk är inte garanterad.
+
 ## Sidor
 - / — startsida med introduktion, demokratifilosofi och problemkort.
 - /verktyg.html — AI-analys: steg-för-steg-process för att skapa en personlig ideologisk AI-instruktion, samt en kopierbar startprompt för Agent Skill-varianten "politisk-analys".
